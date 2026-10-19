@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+  <title id="title">Foot Ulcer Segmentation</title>
+  <desc id="desc">A research project moving from FUSegNet reproduction to controlled extensions. Abstract segmentation contours appear on a dark blue and teal background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1428"/>
+      <stop offset="1" stop-color="#102e3b"/>
+    </linearGradient>
+    <linearGradient id="shape" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity=".08"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#94a3b8" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="340" rx="20" fill="url(#bg)"/>
+  <rect width="1200" height="340" rx="20" fill="url(#grid)"/>
+  <rect x="52" y="48" width="4" height="22" rx="2" fill="#2dd4bf"/>
+  <text x="70" y="64" fill="#99f6e4" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">INTELLIGENT SYSTEMS LAB · 2026</text>
+  <text x="52" y="132" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="49" font-weight="700" letter-spacing="-1.5">Foot Ulcer</text>
+  <text x="52" y="190" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="49" font-weight="700" letter-spacing="-1.5">Segmentation</text>
+  <text x="54" y="230" fill="#a8bbcf" font-family="Arial, Helvetica, sans-serif" font-size="17">From a reproducible benchmark to new research findings.</text>
+  <rect x="52" y="266" width="360" height="33" rx="16.5" fill="#153c46" stroke="#2dd4bf" stroke-opacity=".3"/>
+  <text x="72" y="287" fill="#99f6e4" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">REPRODUCE → RETHINK → REINVENT</text>
+  <g transform="translate(825 44)">
+    <rect width="274" height="252" rx="18" fill="#0b1928" stroke="#315167"/>
+    <path d="M20 42H254 M20 72H254 M20 102H254 M20 132H254 M20 162H254 M20 192H254 M47 20V230 M77 20V230 M107 20V230 M137 20V230 M167 20V230 M197 20V230 M227 20V230" stroke="#284354" stroke-opacity=".35" fill="none"/>
+    <path d="M73 80C86 52 125 47 150 64C170 77 201 76 213 105C226 137 199 153 195 176C190 203 159 207 135 193C113 181 87 194 69 170C48 143 58 110 73 80Z" fill="url(#shape)" stroke="#2dd4bf" stroke-width="2.5"/>
+    <path d="M82 87C95 62 128 61 148 75C170 90 192 83 201 108C210 133 186 151 183 172C180 193 157 193 137 182C114 170 94 184 79 164C60 142 69 111 82 87Z" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <circle cx="202" cy="90" r="4" fill="#2dd4bf"/>
+    <path d="M207 87L232 63" stroke="#2dd4bf" stroke-opacity=".7"/>
+    <text x="20" y="234" fill="#7598aa" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="1.5">SEGMENT · EVALUATE · UNDERSTAND</text>
+  </g>
+</svg>

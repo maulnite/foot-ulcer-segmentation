@@ -1,0 +1,89 @@
+# Evidence extracted from source/2305.02961v2.pdf.
+# Documentation only: not consumed by a training program yet.
+# null = not specified here or still awaiting implementation audit.
+reference:
+  arxiv_id: 2305.02961v2
+  title: "FUSegNet: A Deep Convolutional Neural Network for Foot Ulcer Segmentation"
+  status: paper_settings_not_yet_verified_against_author_code
+
+datasets:
+  chronic_wound:
+    image_size: [224, 224]
+    train_images: 810
+    test_images: 200
+    validation_split: null
+  fuseg_2021:
+    image_size: [512, 512]
+    train_images: 1010
+    test_images: 200
+    test_masks: private_according_to_paper
+    folds: 5
+  overlap_note: "Chronic Wound images are cropped versions of images also present in FUSeg."
+
+model:
+  name: FUSegNet
+  encoder: efficientnet-b7
+  encoder_pretrained: true
+  decoder_attention: parallel_scse
+  final_decoder_attention: shorted_parallel_scse
+  reported_parameters_millions: 64.90
+  scse_reduction_ratio: null
+  decoder_channels: null
+
+training:
+  optimizer: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  batch_size: 2
+  max_epochs: 200
+  seed: null
+  loss:
+    expression: dice_loss + focal_loss
+    dice_weight: 1.0
+    focal_weight: 1.0
+    focal_alpha: null
+    focal_gamma: null
+  scheduler:
+    name: ReduceLROnPlateau
+    factor: 0.1
+    patience: 10
+    monitored_metric: null
+  early_stopping:
+    patience: 30
+    monitored_metric: null
+  checkpoint_selection:
+    paper_description: "Save when validation loss decreases or validation IoU increases."
+    exact_logic: null
+  preprocessing:
+    images: standardized
+    masks: normalized
+    exact_implementation: null
+  augmentation:
+    reference: "Paper Table 1; exact composition requires author-code audit."
+    overall_probability: 0.9
+
+inference:
+  binary_threshold: 0.5
+  ensemble_name: x-FUSegNet
+  ensemble_models: 5
+  aggregation: mean_probability_before_thresholding
+
+evaluation:
+  metrics: [dice, iou, precision, recall, pfom]
+  aggregation: [data_based, image_based]
+  empty_mask_policy: null
+  pfom:
+    beta: 0.1111111111111111 # 1/9
+    canny_gaussian_sigma: 0.1
+    paper_infinite_value_replacement: 2.0
+  reported_results_percent:
+    chronic_wound_fusegnet:
+      data_based_dice: 92.70
+      image_based_dice: 86.05
+      data_based_iou: 86.40
+    fuseg_2021_x_fusegnet:
+      data_based_dice: 89.23
+
+hardware_reported:
+  gpu: NVIDIA RTX 2080 Ti
+  operating_system: Ubuntu_64_bit

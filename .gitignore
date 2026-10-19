@@ -1,0 +1,57 @@
+# Local reference documents, including the mentee guidebook.
+/source/
+
+# Datasets and generated artifacts stay local.
+/data/**
+!/data/README.md
+/outputs/**
+!/outputs/README.md
+
+# Model files and serialized arrays, wherever generated.
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.onnx
+*.pb
+*.safetensors
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.zip
+*.tar
+*.tar.gz
+
+# Python, environments, tooling, and notebooks.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.conda/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+build/
+dist/
+wandb/
+mlruns/
+lightning_logs/
+
+# Credentials and machine-local configuration.
+.env
+.env.*
+!.env.example
+kaggle.json
+credentials*.json
+*.pem
+*.key
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
