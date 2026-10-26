@@ -8,7 +8,7 @@
 
 ![Task](https://img.shields.io/badge/task-binary_segmentation-0F766E?style=flat-square)
 ![Domain](https://img.shields.io/badge/domain-computer_vision-2563EB?style=flat-square)
-![Stage](https://img.shields.io/badge/stage-pipeline_smoke_tested-0F766E?style=flat-square)
+![Stage](https://img.shields.io/badge/stage-baseline_training_in_progress-D97706?style=flat-square)
 
 [Overview](#overview) · [Research plan](#research-plan) · [Benchmark](#benchmark) · [Repository](#repository) · [Getting started](#getting-started)
 
@@ -21,7 +21,7 @@ This project investigates **foot ulcer segmentation** through reproduction of FU
 The research follows three steps: **reproduce** the reference method, **rethink** its behavior through analysis and ablations, and **reinvent** through a testable extension. FUSegNet is our benchmark; the project's scope includes both reproduction and further development.
 
 > [!NOTE]
-> **Current status: baseline pipeline implemented and CPU smoke-tested.** An isolated reference-version environment, one-step training, checkpoint restoration, four-worker data loading, and 12 tests passed. Full reproduction training has not started. See the [readiness report](reports/cp1-pipeline-readiness.md), [training guide](docs/training.md), and [reference audit](docs/reference-audit.md). Numbers below are reported by the paper.
+> **Current status: first full baseline training in progress.** CPU/GPU smoke tests and 12 automated checks passed. Run `cp1-baseline-01` uses the audited author implementation and persisted source-data split; final test evaluation follows successful training. See the [experiment log](docs/experiment-log.md), [training guide](docs/training.md), and [reference audit](docs/reference-audit.md). No final reproduction scores are available yet; numbers below are reported by the paper.
 
 ## Research plan
 

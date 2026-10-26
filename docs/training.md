@@ -59,7 +59,11 @@ Once GPU resources are available, the runnable command is:
   --run-dir outputs/runs/cp1-baseline-01
 ```
 
-This command has **not** been launched. The GPU was occupied during preparation. CUDA execution, memory usage, and full-run convergence remain unverified. The CLI defaults to CPU unless a device is selected explicitly.
+The first full run was launched on **2026-10-26 at 11:31 UTC**, after the GPU became idle and a CUDA smoke test passed. Current progress is recorded in the [experiment log](experiment-log.md) and local run artifacts. Full-run convergence is still being established. The CLI defaults to CPU unless a device is selected explicitly.
+
+The active run uses `scripts/run_cp1_baseline.py` as a detached supervisor. After successful training it runs the final test evaluation once. It stores process / exit state outside the run directory in `outputs/runs/cp1-baseline-01.launch.json` and console output in `outputs/runs/cp1-baseline-01.console.log`. This process continues independently of the chat or interactive terminal.
+
+Check local progress with `python scripts/training_status.py`. It reads the run records without loading a model or using GPU memory.
 
 The baseline uses the reference optimizer, loss, batch size, scheduler, and early-stopping rule, with up to 200 epochs. It preserves sigmoid-probability input to the focal-with-logits function and the original `if loss ... elif IoU` checkpoint policy. Each run records pipeline file hashes, reference revision, Git revision / dirty status, package versions, configuration, and split fingerprints.
 
