@@ -59,9 +59,9 @@ Once GPU resources are available, the runnable command is:
   --run-dir outputs/runs/cp1-baseline-01
 ```
 
-The first full run was launched on **2026-10-26 at 11:31 UTC**, after the GPU became idle and a CUDA smoke test passed. Current progress is recorded in the [experiment log](experiment-log.md) and local run artifacts. Full-run convergence is still being established. The CLI defaults to CPU unless a device is selected explicitly.
+The first full run was launched on **2026-10-26 at 11:31 UTC** and completed, including test evaluation, at **13:16:59 UTC**. It stopped at epoch 82 and selected epoch 52, achieving 92.29% data-based test Dice under offline semantics. See the [run report](../reports/cp1-baseline-01.md) for results and limitations. The CLI defaults to CPU unless a device is selected explicitly.
 
-The active run uses `scripts/run_cp1_baseline.py` as a detached supervisor. After successful training it runs the final test evaluation once. It stores process / exit state outside the run directory in `outputs/runs/cp1-baseline-01.launch.json` and console output in `outputs/runs/cp1-baseline-01.console.log`. This process continues independently of the chat or interactive terminal.
+The run used `scripts/run_cp1_baseline.py` as a detached supervisor. After successful training it ran the final test evaluation once. Process / exit state is stored in `outputs/runs/cp1-baseline-01.launch.json` and console output in `outputs/runs/cp1-baseline-01.console.log`. Both stages exited with code 0.
 
 Check local progress with `python scripts/training_status.py`. It reads the run records without loading a model or using GPU memory.
 

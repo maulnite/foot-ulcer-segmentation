@@ -8,7 +8,7 @@
 
 ![Task](https://img.shields.io/badge/task-binary_segmentation-0F766E?style=flat-square)
 ![Domain](https://img.shields.io/badge/domain-computer_vision-2563EB?style=flat-square)
-![Stage](https://img.shields.io/badge/stage-baseline_training_in_progress-D97706?style=flat-square)
+![Stage](https://img.shields.io/badge/stage-first_baseline_completed-0F766E?style=flat-square)
 
 [Overview](#overview) · [Research plan](#research-plan) · [Benchmark](#benchmark) · [Repository](#repository) · [Getting started](#getting-started)
 
@@ -21,7 +21,7 @@ This project investigates **foot ulcer segmentation** through reproduction of FU
 The research follows three steps: **reproduce** the reference method, **rethink** its behavior through analysis and ablations, and **reinvent** through a testable extension. FUSegNet is our benchmark; the project's scope includes both reproduction and further development.
 
 > [!NOTE]
-> **Current status: first full baseline training in progress.** CPU/GPU smoke tests and 12 automated checks passed. Run `cp1-baseline-01` uses the audited author implementation and persisted source-data split; final test evaluation follows successful training. See the [experiment log](docs/experiment-log.md), [training guide](docs/training.md), and [reference audit](docs/reference-audit.md). No final reproduction scores are available yet; numbers below are reported by the paper.
+> **Current status: first baseline training and test evaluation completed.** The public-source-data run achieves **92.29% data-based test Dice** and **86.42% image-based test Dice** with offline evaluator semantics. Training stopped at epoch 82; the source policy selected epoch 52. Dataset counts / original split and evaluator uncertainties limit direct equivalence to the paper. See the [results and limitations](reports/cp1-baseline-01.md).
 
 ## Research plan
 
@@ -49,6 +49,8 @@ FUSegNet combines a pretrained **EfficientNet-B7 encoder** with a decoder using 
 | Chronic Wound · data-based | FUSegNet | **92.70%** | — |
 | Chronic Wound · image-based | FUSegNet | **86.05%** | — |
 | FUSeg Challenge 2021 · data-based | x-FUSegNet | **89.23%** | — |
+
+The table above lists paper reference protocols. Our completed source-data run uses 278 test images rather than the paper's stated 200, so its **92.29% / 86.42%** Dice scores are reported separately in the [run report](reports/cp1-baseline-01.md).
 
 **Evaluation details matter.** Data-based Dice aggregates pixel counts across the dataset; image-based Dice averages per-image scores. The Chronic Wound images overlap with the FUSeg dataset, and the paper describes the FUSeg test masks as private. These results need separate, clearly identified evaluation protocols.
 

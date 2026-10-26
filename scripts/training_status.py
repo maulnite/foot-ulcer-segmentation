@@ -30,7 +30,11 @@ def main():
         try:
             os.kill(launch[key], 0)
             alive = True
-        except ProcessLookupError:
+            proc = Path(f"/proc/{launch[key]}/stat")
+            if proc.exists():
+                state = proc.read_text().rsplit(")", 1)[1].split()[0]
+                alive = state not in {"Z", "X"}
+        except (ProcessLookupError, FileNotFoundError):
             alive = False
         result[key] = {"pid": launch[key], "alive": alive}
     for split in ["validation", "test"]:

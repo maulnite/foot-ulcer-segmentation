@@ -32,7 +32,7 @@ The ImageNet encoder weights are cached locally with SHA-256 `dcc49843b8ec5a097a
 
 ## Remaining for Checkpoint 1
 
-- Complete full baseline training and its held-out test evaluation; one-step CUDA behavior is verified, while convergence remains to be established.
+- Full baseline training and held-out test evaluation are now complete; see [the run report](cp1-baseline-01.md).
 - Perform validation analysis and separate final test evaluation, naming both source evaluators explicitly.
 - Report the paper / source dataset count discrepancy and unavailable original split order.
 - Produce initial error analysis and feasible ablations, then the report and presentation.

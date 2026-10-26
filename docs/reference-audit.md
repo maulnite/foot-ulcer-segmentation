@@ -2,7 +2,7 @@
 
 The primary CP1 reproduction should follow the authors' implementation and disclose differences from the paper. This audit establishes source behavior; no training or segmentation accuracy evaluation has been performed.
 
-Subsequent implementation status: the [baseline pipeline](training.md) now passes CPU training / checkpoint smoke tests in an isolated original-version environment. The findings below describe the earlier audit; full reproduction accuracy is still unavailable.
+Subsequent implementation status: CPU/GPU smoke tests and the first baseline training/test run have completed. The [run report](../reports/cp1-baseline-01.md) records results and limits. The findings below describe the earlier source audit.
 
 ## Reference and evidence
 

@@ -49,7 +49,7 @@ The [reference audit](reference-audit.md) verifies channel counts, nearest-neigh
 
 The [reference audit](reference-audit.md) resolves augmentation composition, ImageNet normalization, mask division by 255, Dice epsilon 1.0, focal gamma 2 / alpha None, scheduler monitor / minimum LR, and checkpoint branching. It also confirms source quirks: sigmoid probabilities are passed to focal-with-logits loss, and the checkpoint IoU tracker is stale after loss improvements. Label source behavior in the primary code-faithful run and identify corrected variants separately. Original training seeds / split manifests remain unavailable.
 
-The server exposes an A100 80 GB GPU. The initial code audit used CPU and a different runtime pair. The subsequent isolated `.venv-training` uses the original PyTorch 1.11.0 / torchvision 0.12.0 pair and passed CPU training / checkpoint smoke tests; see the [readiness report](../reports/cp1-pipeline-readiness.md). GPU execution and full training remain untested while shared GPU resources are occupied.
+The server exposes an A100 80 GB GPU. The isolated `.venv-training` uses the original PyTorch 1.11.0 / torchvision 0.12.0 pair. CPU/GPU smoke tests and the first full training/test run passed; see the [completed run report](../reports/cp1-baseline-01.md). The source-data run achieves 92.29% offline data-based test Dice, with the protocol limits documented above.
 
 ## Evaluation
 
