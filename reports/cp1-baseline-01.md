@@ -67,4 +67,4 @@ For the same predictions, the author's inline perfect-match counting behavior pr
 Config fingerprint: `86ee03891cb5da1bda31efcba4332b52f345f5a8ae8057b1fb600e6e11dcbc8b`.
 Split fingerprint: `7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925`.
 
-This completes the first baseline training and test evaluation. Error analysis / suitable initial ablations and the final CP1 report and presentation remain to be prepared. No novelty claim, private FUSeg challenge score, or tissue-level segmentation result is made by this run.
+The first baseline training, test evaluation, and [initial error analysis](cp1-analysis-01.md) are complete. A [fully executed local notebook](../notebooks/README.md) provides learning curves, size-based analysis, empty-mask errors, prediction galleries, and actual-split overlap counts. Method ablations have not been run; the final CP1 report and presentation remain to be prepared. No novelty claim, private FUSeg challenge score, or tissue-level segmentation result is made by this run.

@@ -29,6 +29,8 @@ __pycache__/
 *.py[cod]
 .venv/
 .venv-training/
+.venv-analysis/
+/notebooks/*.executed.ipynb
 venv/
 .conda/
 *.egg-info/

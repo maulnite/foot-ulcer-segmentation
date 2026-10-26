@@ -1,0 +1,9 @@
+# Separate analysis environment; leaves the training environment unchanged.
+numpy==1.24.1
+pandas==1.5.3
+matplotlib==3.7.5
+Pillow==9.4.0
+nbformat==5.10.4
+nbclient==0.10.2
+ipykernel==6.29.5
+IPython==8.18.1

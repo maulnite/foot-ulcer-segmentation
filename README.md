@@ -21,7 +21,7 @@ This project investigates **foot ulcer segmentation** through reproduction of FU
 The research follows three steps: **reproduce** the reference method, **rethink** its behavior through analysis and ablations, and **reinvent** through a testable extension. FUSegNet is our benchmark; the project's scope includes both reproduction and further development.
 
 > [!NOTE]
-> **Current status: first baseline training and test evaluation completed.** The public-source-data run achieves **92.29% data-based test Dice** and **86.42% image-based test Dice** with offline evaluator semantics. Training stopped at epoch 82; the source policy selected epoch 52. Dataset counts / original split and evaluator uncertainties limit direct equivalence to the paper. See the [results and limitations](reports/cp1-baseline-01.md).
+> **Current status: baseline training, test evaluation, and initial analysis completed.** The public-source-data run achieves **92.29% data-based test Dice** and **86.42% image-based test Dice** with offline evaluator semantics. Training stopped at epoch 82; the source policy selected epoch 52. Dataset counts / original split and evaluator uncertainties limit direct equivalence to the paper. See the [results and limitations](reports/cp1-baseline-01.md), [analysis notebook](notebooks/01_cp1_analysis.ipynb), and [full local notebook instructions](notebooks/README.md).
 
 ## Research plan
 
@@ -70,7 +70,7 @@ foot-ulcer-segmentation/
 │   ├── references.bib      # Reference paper citation
 │   ├── reference-audit.md  # Source behavior, CPU probes, and paper discrepancies
 │   └── roadmap.md          # Checkpoints, deliverables, and research questions
-├── notebooks/              # Future exploratory analysis
+├── notebooks/              # Executed CP1 analysis and prediction visualization
 ├── outputs/                # Local checkpoints and predictions; excluded from Git
 ├── reports/                # Shareable research findings and figures
 ├── scripts/                # Reproducible dataset preparation and audit

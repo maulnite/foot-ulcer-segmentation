@@ -2,6 +2,8 @@
 
 **The first full baseline run and final test evaluation are complete.** The source-data run achieves 92.29% data-based test Dice using offline evaluator semantics. See [the run report](../reports/cp1-baseline-01.md) for protocol limits and the separate legacy result.
 
+**Initial CP1 analysis is also complete.** The [analysis report](../reports/cp1-analysis-01.md) and [notebook](../notebooks/README.md) cover learning curves, wound-size errors, empty-GT false positives, representative predictions, and exact RGB overlap with the actual 707-image training split. All 402 cached validation/test masks match final evaluation counts. This is inference and analysis of checkpoint 52, without a new training run or test-based tuning.
+
 A reference source audit and CPU-only diagnostic checks have been completed. See [the audit report](reference-audit.md); raw local probe results are in `outputs/reference-audit/report.json`. These checks do not provide reproduction accuracy scores.
 
 Pipeline verification is recorded in [the readiness report](../reports/cp1-pipeline-readiness.md). Final smoke artifacts: `outputs/smoke/cp1-pipeline-02/`. Both source data splits and test-set isolation were preserved; temporary smoke checkpoints were removed after reload verification.
