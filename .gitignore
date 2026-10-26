@@ -28,6 +28,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.venv-training/
 venv/
 .conda/
 *.egg-info/

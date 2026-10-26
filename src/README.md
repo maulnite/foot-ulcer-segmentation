@@ -1,5 +1,5 @@
-# Implementation plan
+# Baseline implementation
 
-Training and inference code has not been implemented yet. The planned package is `foot_ulcer_segmentation`, with data loading, model definitions, loss functions, metrics, training, and inference added after the benchmark audit.
+`foot_ulcer_segmentation` provides the `fuseg` CLI for split preparation, CPU smoke tests, reference-code training, checkpoint resume, and explicitly labeled evaluation. It loads the hash-verified author model and training definitions from the ignored `source/upstream/` snapshot.
 
-Keep dataset paths configurable, fit preprocessing only on training data where applicable, and log the exact run configuration. A dependency manifest and runnable commands will be introduced with the implementation after checking the project environment.
+See [training instructions](../docs/training.md), [runnable baseline settings](../configs/baseline.json), and [verification results](../reports/cp1-pipeline-readiness.md). Full reproduction training has not started.

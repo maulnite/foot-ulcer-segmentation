@@ -4,7 +4,9 @@
 reference:
   arxiv_id: 2305.02961v2
   title: "FUSegNet: A Deep Convolutional Neural Network for Foot Ulcer Segmentation"
-  status: paper_settings_not_yet_verified_against_author_code
+  status: paper_settings_recorded_see_separate_code_audit_for_differences
+  code_audit: configs/code_reference.json
+  discrepancy_report: docs/reference-audit.md
 
 datasets:
   chronic_wound:

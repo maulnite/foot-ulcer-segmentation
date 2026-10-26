@@ -8,7 +8,7 @@
 
 ![Task](https://img.shields.io/badge/task-binary_segmentation-0F766E?style=flat-square)
 ![Domain](https://img.shields.io/badge/domain-computer_vision-2563EB?style=flat-square)
-![Stage](https://img.shields.io/badge/stage-project_setup-D97706?style=flat-square)
+![Stage](https://img.shields.io/badge/stage-pipeline_smoke_tested-0F766E?style=flat-square)
 
 [Overview](#overview) · [Research plan](#research-plan) · [Benchmark](#benchmark) · [Repository](#repository) · [Getting started](#getting-started)
 
@@ -21,7 +21,7 @@ This project investigates **foot ulcer segmentation** through reproduction of FU
 The research follows three steps: **reproduce** the reference method, **rethink** its behavior through analysis and ablations, and **reinvent** through a testable extension. FUSegNet is our benchmark; the project's scope includes both reproduction and further development.
 
 > [!NOTE]
-> **Current status: repository foundation.** No training runs have been completed and no reproduction scores are available yet. Numbers below are reported by the reference paper.
+> **Current status: baseline pipeline implemented and CPU smoke-tested.** An isolated reference-version environment, one-step training, checkpoint restoration, four-worker data loading, and 12 tests passed. Full reproduction training has not started. See the [readiness report](reports/cp1-pipeline-readiness.md), [training guide](docs/training.md), and [reference audit](docs/reference-audit.md). Numbers below are reported by the paper.
 
 ## Research plan
 
@@ -63,14 +63,18 @@ foot-ulcer-segmentation/
 ├── data/                   # Local datasets; contents excluded from Git
 ├── docs/
 │   ├── benchmark.md        # Data, architecture, training, and evaluation protocol
+│   ├── datasets.md         # Download provenance, inventory, and data audit
 │   ├── experiment-log.md   # Run records and results index
 │   ├── references.bib      # Reference paper citation
+│   ├── reference-audit.md  # Source behavior, CPU probes, and paper discrepancies
 │   └── roadmap.md          # Checkpoints, deliverables, and research questions
 ├── notebooks/              # Future exploratory analysis
 ├── outputs/                # Local checkpoints and predictions; excluded from Git
 ├── reports/                # Shareable research findings and figures
+├── scripts/                # Reproducible dataset preparation and audit
 ├── source/                 # Local reference documents; excluded from Git
-└── src/                    # Future implementation
+├── src/                    # Reference-code training and evaluation package
+└── tests/                  # Metric parity, checkpoint resume, and data integrity
 ```
 
 ## Getting started
@@ -81,11 +85,11 @@ cd foot-ulcer-segmentation
 ```
 
 1. Read the [roadmap](docs/roadmap.md) and [benchmark protocol](docs/benchmark.md).
-2. Verify dataset access, licensing, overlap, and splits before preparing data under `data/`.
-3. Audit the authors' implementation and resolve the open reproduction details.
-4. Record the chosen environment and dependencies before implementing training and evaluation.
+2. Read the [dataset audit](docs/datasets.md). Both datasets are prepared locally; use `python scripts/prepare_datasets.py` to download or re-audit them on another checkout. Review the count mismatch, split overlap, mask policy, and licensing before training.
+3. Read the [reference implementation audit](docs/reference-audit.md) and [code settings](configs/code_reference.json); carry unresolved discrepancies into the reproduction record.
+4. Follow the [training guide](docs/training.md) to create the isolated environment, prepare persisted splits, and run the smoke test.
 
-Training commands and dependency specifications will be added with the implementation. The reference YAML records paper settings; it is not yet a runnable training configuration.
+The runnable baseline is [`configs/baseline.json`](configs/baseline.json). [`requirements-training.lock.txt`](requirements-training.lock.txt) records the validated training/test environment. The paper YAML and code-reference JSON remain separate evidence records. Full training and final test evaluation are separate commands; smoke metrics are diagnostic only.
 
 ## Experiment discipline
 
