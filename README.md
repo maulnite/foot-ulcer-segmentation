@@ -27,6 +27,8 @@ The research follows three steps: **reproduce** the reference method, **rethink*
 24 executed code cells · 6 analysis figures · 5 prediction galleries / 15 examples<br />
 Learning curves, paper comparison, **PFOM boundary evaluation**, error analysis, and source image / ground truth / prediction / overlay panels are embedded and ready to view on GitHub. Test mean PFOM is **0.7782** with the documented empty-edge policy; the sentinel-2 proxy is reported separately in the [PFOM report](reports/cp1-pfom-01.md).
 
+**CP1 attention ablations:** compare **additive-only** and **maxout-only** with the completed full P-scSE baseline. Four regular decoder stages change; the final shorted stage stays fixed. The [ablation protocol](docs/attention-ablations.md) records the rationale, matched initialization, controls, limitations, and sequential workflow. Check live server progress with `python scripts/ablation_status.py`; the workflow generates an executed comparison notebook and report after both runs finish.
+
 ## Research plan
 
 | Phase | Focus | Evidence to produce |

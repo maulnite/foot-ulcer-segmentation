@@ -1,0 +1,43 @@
+{
+  "id": "cp1-attention-01",
+  "declared_at_utc": "2026-10-27T13:35:38Z",
+  "baseline_run": "outputs/runs/cp1-baseline-01",
+  "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+  "seed": 42,
+  "runs": [
+    {
+      "name": "cp1-attention-additive-01",
+      "variant": "additive_only",
+      "config": "configs/ablation/additive.json",
+      "run_dir": "outputs/runs/cp1-attention-additive-01"
+    },
+    {
+      "name": "cp1-attention-maxout-01",
+      "variant": "maxout_only",
+      "config": "configs/ablation/maxout.json",
+      "run_dir": "outputs/runs/cp1-attention-maxout-01"
+    }
+  ],
+  "execution": "Sequential; one GPU job at a time; wait if GPU is in use",
+  "hypothesis": "The additive and maxout branches may offer complementary benefits; compare both single-branch variants with the completed full baseline.",
+  "scope": "Only stages 0-3; final stage 4 remains the original shorted P-scSE.",
+  "controls": "Same full model construction/RNG, pretrained cache, split, augmentation, optimizer, loss, max 200 epochs, early stopping 30, source checkpoint policy, threshold >=0.5, offline evaluator, PFOM settings.",
+  "primary_endpoint": "Final image-based Dice; validation selects checkpoints, test is descriptive comparison of every predeclared variant.",
+  "secondary_endpoints": [
+    "data-based Dice",
+    "IoU/precision/recall",
+    "PFOM bounded 1/0 and separate sentinel-2 proxy",
+    "C1 Dice/PFOM",
+    "fully missed GT-positive images",
+    "false positives on empty GT",
+    "forward-called parameters",
+    "training time and peak CUDA memory"
+  ],
+  "test_disclosure": "The baseline test set has already been analyzed. Hypotheses and variants are fixed before new runs; no test-based threshold/model retuning.",
+  "limitations": [
+    "One seed; preliminary component ablation",
+    "Removing a branch changes active capacity and compute; does not isolate aggregation operator independent of parameter count",
+    "Source duplicates and original paper split uncertainties retained"
+  ],
+  "illustrative_examples": "Reuse the first two baseline worst-positive, first two median-positive, and first two empty-FP examples; no outcome-based reselection."
+}

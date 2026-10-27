@@ -9,4 +9,6 @@ This directory contains reviewed experiment summaries, aggregate tables, permitt
 
 The [fully executed analysis notebook](../notebooks/01_cp1_analysis.ipynb) includes all tables, aggregate figures, and five prediction galleries in Git. See the [notebook instructions](../notebooks/README.md) to regenerate it.
 
+The [attention ablation workflow](../docs/attention-ablations.md) generates `cp1-attention-ablation-01.md`, per-image/aggregate tables, and a fully executed comparison notebook after both new training runs finish. Diagnostic analysis fixtures remain local and are not reported as ablation results.
+
 Every report should identify its experiment IDs, dataset split, metric aggregation, and limitations. Attribute selected dataset examples to their source and keep bulk datasets, checkpoints, and personal documents local.

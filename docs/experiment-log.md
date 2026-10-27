@@ -10,11 +10,15 @@ Pipeline verification is recorded in [the readiness report](../reports/cp1-pipel
 
 ## Run index
 
+**October 27, attention branch ablations:** predeclared additive-only and maxout-only runs against the completed full baseline. Only decoder stages 0–3 change. Matched initial tensors, split, frozen training dependencies, source engine, and evaluator were verified. All 26 tests and both GPU smoke tests passed. [Protocol and monitoring](attention-ablations.md); run results are recorded by the sequential workflow after training, without treating diagnostic fixture outputs as results.
+
 **October 27, PFOM addition:** evaluated the same 124 validation / 278 test cached mask pairs at epoch 52 and threshold 0.5, without inference or training. Mean PFOM with the documented 1/0 empty-edge policy: **0.7244 validation / 0.7782 test**. Sentinel-2 proxy: **0.8696 / 0.8933**. Nine analytic/oracle tests passed. Dependency additions are isolated to `.venv-analysis`; frozen training files and region metrics are unchanged. [Protocol](pfom.md) · [PFOM report](../reports/cp1-pfom-01.md).
 
 | Run ID | Objective | Protocol / split | Seed | Configuration | Results | Artifacts |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | `cp1-baseline-01` | Reproduce the public FUSegNet implementation | Chronic Wound source data; 707 train / 124 validation / 278 test | 42 | `configs/baseline.json` | Completed: test data-based Dice 92.29%; image-based Dice 86.42% | `outputs/runs/cp1-baseline-01/` |
+| `cp1-attention-additive-01` | Measure contribution of the maxout branch by removing it | Same frozen Chronic Wound split | 42 | `configs/ablation/additive.json` | See workflow / final comparison report; no pre-training accuracy claim | `outputs/runs/cp1-attention-additive-01/` |
+| `cp1-attention-maxout-01` | Measure contribution of the additive branch by removing it | Same frozen Chronic Wound split | 42 | `configs/ablation/maxout.json` | See workflow / final comparison report; no pre-training accuracy claim | `outputs/runs/cp1-attention-maxout-01/` |
 
 ## Completed run: cp1-baseline-01
 

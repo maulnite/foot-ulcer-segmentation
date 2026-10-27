@@ -8,6 +8,8 @@ Seluruh **24 code cell** sudah dieksekusi. Tabel, enam grafik analisis, dan lima
 
 File utama `01_cp1_analysis.ipynb` menyimpan seluruh output dan dilacak Git. Builder juga menghasilkan salinan lokal identik `01_cp1_analysis.executed.ipynb` untuk kerja di server; salinan tambahan ini diabaikan Git. Untuk menjalankan ulang secara interaktif, buka notebook utama di VS Code/Jupyter dan pilih interpreter `.venv-analysis/bin/python` sebagai kernel.
 
+Notebook perbandingan `02_cp1_attention_ablation.ipynb` dibuat dan dieksekusi otomatis sesudah kedua run ablasi selesai. Isinya mencakup ketiga model, validation/test terpisah, PFOM, error per kategori, biaya training, dan enam contoh tetap dari baseline. [Protokol dan progres ablasi](../docs/attention-ablations.md) menjelaskan pemeriksaan dan lokasi artefaknya.
+
 ## Menjalankan ulang
 
 Jalankan dari root proyek. Python 3.10 dan artefak run `outputs/runs/cp1-baseline-01/`, data lokal, serta snapshot kode penulis diperlukan. File checkpoint dan data tidak didistribusikan melalui Git.
