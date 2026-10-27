@@ -1,0 +1,28 @@
+{
+  "name": "cp1-pfom-v1",
+  "paper": "https://arxiv.org/pdf/2305.02961v2",
+  "paper_sections": ["3.2.6, Equation 13", "4.2, contour test and Figure 6"],
+  "beta": 0.1111111111111111,
+  "canny": {
+    "sigma": 0.1,
+    "low_threshold": 0.1,
+    "high_threshold": 0.2,
+    "use_quantiles": false,
+    "mode": "constant",
+    "cval": 0.0
+  },
+  "input": "Binary GT and cached >=0.5 prediction, float64 0/1 for Canny, full 224x224 canvas",
+  "distance": "Nearest GT edge for each predicted edge; Euclidean pixels; asymmetric prediction-to-GT",
+  "normalization": "max(number of GT edges, number of predicted edges), separately per image",
+  "aggregation": "Arithmetic mean over images; also report median, both-edge-nonempty subset, and categories",
+  "empty_edges_bounded": {"both_empty": 1.0, "gt_empty": 0.0, "prediction_empty": 0.0},
+  "empty_edges_paper_sentinel2_proxy": {"both_empty": 2.0, "gt_empty": 2.0, "prediction_empty": 2.0},
+  "paper_specified": ["Equation 13", "beta=1/9", "Canny sigma=0.1", "replacement value 2 for no-edge cases"],
+  "explicit_analysis_choices": [
+    "scikit-image 0.19.3 Canny implementation; thresholds 0.1/0.2, float64 input, and border defaults made explicit",
+    "Bounded extension: both edge maps empty => 1, exactly one empty => 0",
+    "Sentinel-2 proxy interprets 'no edge in any of the images' as either edge map being empty"
+  ],
+  "exact_author_implementation_available": false,
+  "comparability": "Authors did not publish PFOM code or all Canny settings. Sentinel behavior is ambiguous and not implied by Equation 13. These results are a documented implementation, not verified numerical reproduction of Figure 6."
+}

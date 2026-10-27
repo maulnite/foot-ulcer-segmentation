@@ -96,7 +96,7 @@ Inference thresholds predictions at **`>=0.5`**, while training metric code uses
 
 The original conditionals were executed on synthetic masks. A four-pixel empty pair yields `(TN,FP,FN,TP)=(0,0,0,4)` inline and `(4,0,0,0)` offline. A matching two-background / two-foreground pair yields `(0,0,0,4)` inline and `(2,0,0,2)` offline. This can alter aggregated scores. The offline evaluator assigns per-image scores 0% for empty GT with any positive prediction and includes false positives in aggregate counts. Sources: [inline](https://github.com/mrinal054/FUSegNet/blob/60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc/fusegnet_test.py#L292), [offline](https://github.com/mrinal054/FUSegNet/blob/60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc/utils/eval.py#L53).
 
-The offline evaluator matches the paper's empty-mask description more closely, but source publication does not establish which evaluator produced the headline table. Record evaluator identity and keep their scores separately labeled. No PFOM / Pratt / Canny implementation was found in the selected Python source; boundary evaluation still needs implementation and verification.
+The offline evaluator matches the paper's empty-mask description more closely, but source publication does not establish which evaluator produced the headline table. Record evaluator identity and keep their scores separately labeled. No PFOM / Pratt / Canny implementation was found in the selected Python source. On October 27, a separate local [PFOM implementation and verification](pfom.md) was added for the cached baseline predictions, with unpublished Canny settings and empty-edge interpretation explicitly labeled. It does not establish parity with an unavailable author implementation.
 
 ## Environment and next steps
 

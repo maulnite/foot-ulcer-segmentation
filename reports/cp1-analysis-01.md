@@ -29,6 +29,10 @@ Hubungan ukuran luka dengan Dice bersifat deskriptif; jumlah sampel tidak seimba
 
 HARD_LINE memberi skor per gambar 1 pada GT/prediksi sama-sama kosong dan 0 pada GT kosong dengan FP berapa pun. Karena itu, notebook menampilkan jumlah piksel FP di samping jumlah gambar bermasalah. Skor keseluruhan tetap mencakup semua gambar.
 
+## Tambahan analisis batas: PFOM
+
+PFOM dihitung dari 402 pasangan mask tersimpan pada 27 Oktober 2026. Mean validation **0.7244** dan test **0.7782**, memakai beta 1/9, Canny sigma 0.1, serta kebijakan edge kosong 1/0. Median test **0.8558**; mean pada GT positif **0.7905**. Implementasi dan kebijakan kosong didokumentasikan karena kode PFOM penulis tidak tersedia. Proxy sentinel 2 menghasilkan mean test **0.8933** dan dilaporkan terpisah, tanpa ditafsirkan sebagai kenaikan akurasi. Lihat [laporan PFOM](cp1-pfom-01.md) dan [protokol](../docs/pfom.md).
+
 ## Contoh prediksi
 
 Lima galeri menampilkan masing-masing tiga foto: Dice tertinggi, dekat median, terendah, acak seed 42, dan GT kosong. Setiap baris berisi gambar asli, GT, prediksi, dan overlay TP/FP/FN.
@@ -54,4 +58,4 @@ Training baseline, evaluasi, analisis awal, dan visualisasi CP1 tersedia. Lapora
 
 Luka kecil dan false positive pada background merupakan kandidat pertanyaan CP2. Perubahan loss, attention, atau penanganan ketidakseimbangan harus diuji melalui validation dan ablasi dengan protokol tetap. Analisis saat ini belum membuktikan intervensi mana yang efektif. Bila pengembangan mengikuti temuan test, ungkapkan penggunaan test tersebut; jangan menyebut evaluasi berikutnya sebagai test baru yang sepenuhnya tidak tersentuh.
 
-Artefak lokal: `outputs/analysis/cp1-baseline-01/` memuat lima grafik agregat PNG/SVG, lima galeri prediksi PNG, tabel CSV, ringkasan JSON, hash cache prediksi, dan catatan eksekusi notebook. Contoh foto, GT, dan prediksi terpilih tertanam pada notebook publik dengan atribusi sumber; dataset lengkap, checkpoint, dan cache mask tetap lokal.
+Artefak lokal: `outputs/analysis/cp1-baseline-01/` memuat enam grafik agregat PNG/SVG, lima galeri prediksi PNG, tabel CSV termasuk PFOM per gambar/kategori, metadata PFOM, ringkasan JSON, hash cache prediksi, dan catatan eksekusi notebook. Contoh foto, GT, dan prediksi terpilih tertanam pada notebook publik dengan atribusi sumber; dataset lengkap, checkpoint, dan cache mask tetap lokal.

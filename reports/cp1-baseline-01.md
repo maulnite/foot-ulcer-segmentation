@@ -57,6 +57,8 @@ For the same predictions, the author's inline perfect-match counting behavior pr
 
 ## Artifacts and remaining CP1 work
 
+Boundary evaluation was added on October 27 from the existing 402 validation/test mask pairs, without training or inference. Mean PFOM is **0.7244 validation / 0.7782 test**, with the explicitly documented 1/0 empty-edge policy. The paper's ambiguous sentinel-2 convention is reported separately as a proxy. See [the PFOM report](cp1-pfom-01.md) for per-category results, testing, and remaining comparability limits.
+
 - `outputs/runs/cp1-baseline-01/config.json`, `environment.json`, and `split-manifest.json`: exact run setup and provenance.
 - `history.json`: all 82 completed epochs.
 - `best.pth`: selected epoch 52; `last.pth`: epoch 82. Both remain local.

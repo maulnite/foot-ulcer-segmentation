@@ -158,6 +158,112 @@ def save_figure(context, fig, name, clinical=False):
     return fig
 
 
+def compute_pfom(context):
+    """Score all verified cached masks without changing the frozen evaluator."""
+    from importlib.metadata import version
+    from pfom_metrics import score_masks
+
+    protocol = read_json(ROOT / "configs/pfom.json")
+    if (protocol["empty_edges_bounded"] != {"both_empty": 1.0, "gt_empty": 0.0, "prediction_empty": 0.0}
+            or protocol["empty_edges_paper_sentinel2_proxy"] != {"both_empty": 2.0, "gt_empty": 2.0, "prediction_empty": 2.0}):
+        raise ValueError("PFOM configuration disagrees with implemented empty-edge policies")
+    summaries = {}
+    columns = ["split", "name", "category", "gt_pixels", "pred_pixels", "dice",
+               "gt_edge_pixels", "pred_edge_pixels", "edge_case", "pfom", "pfom_paper_sentinel2_proxy"]
+    rows = []
+    for split, frame in context["frames"].items():
+        measured = []
+        for row in frame.to_dict("records"):
+            result = score_masks(binary_mask(ROOT / row["mask_path"]),
+                                 binary_mask(ROOT / row["prediction_path"]),
+                                 beta=protocol["beta"], **protocol["canny"])
+            measured.append(result)
+        for key in measured[0]:
+            frame[key] = [record[key] for record in measured]
+        valid = frame.edge_case.eq("both_nonempty")
+        summaries[split] = {
+            "n": len(frame), "mean": float(frame.pfom.mean()), "median": float(frame.pfom.median()),
+            "mean_positive_gt": float(frame.loc[frame.gt_pixels.gt(0), "pfom"].mean()),
+            "n_both_edges_nonempty": int(valid.sum()),
+            "mean_both_edges_nonempty": float(frame.loc[valid, "pfom"].mean()) if valid.any() else None,
+            "edge_cases": {case: int(frame.edge_case.eq(case).sum())
+                           for case in ["both_nonempty", "both_empty", "gt_empty", "prediction_empty"]},
+            "mean_paper_sentinel2_proxy": float(frame.pfom_paper_sentinel2_proxy.mean()),
+        }
+        rows.append(frame.reindex(columns=columns))
+    per_image = pd.concat(rows, ignore_index=True)
+    if not per_image.pfom.between(0, 1).all():
+        raise ValueError("Bounded PFOM must lie between zero and one")
+    per_image.to_csv(context["tables"] / "pfom_per_image.csv", index=False, float_format="%.15g")
+    context["pfom"] = {
+        "protocol": protocol, "protocol_fingerprint": digest_json(protocol),
+        "implementation_sha256": digest_file(ROOT / "scripts/pfom_metrics.py"),
+        "libraries": {name: version(name) for name in ["numpy", "scipy", "scikit-image"]},
+        "prediction_identity": context["export"]["identity"], "summaries": summaries,
+        "per_image_csv_sha256": digest_file(context["tables"] / "pfom_per_image.csv"),
+        "training_performed": False, "inference_performed": False,
+    }
+    (context["output"] / "pfom-metadata.json").write_text(json.dumps(context["pfom"], indent=2, allow_nan=False) + "\n")
+    return per_image
+
+
+def pfom_summary_table(context):
+    return pd.DataFrame([
+        {"Split": split.title(), "n": summary["n"], "Mean PFOM": summary["mean"],
+         "Median PFOM": summary["median"], "Mean GT positif": summary["mean_positive_gt"],
+         "n kedua edge ada": summary["n_both_edges_nonempty"],
+         "Mean kedua edge ada": summary["mean_both_edges_nonempty"]}
+        for split, summary in context["pfom"]["summaries"].items()])
+
+
+def pfom_empty_table(context):
+    return pd.DataFrame([
+        {"Split": split.title(), "Kedua edge kosong": summary["edge_cases"]["both_empty"],
+         "Hanya edge GT kosong": summary["edge_cases"]["gt_empty"],
+         "Hanya edge prediksi kosong": summary["edge_cases"]["prediction_empty"],
+         "Mean proxy sentinel 2": summary["mean_paper_sentinel2_proxy"]}
+        for split, summary in context["pfom"]["summaries"].items()])
+
+
+def pfom_category_table(context):
+    rows = []
+    for category, group in context["frames"]["test"].groupby("category", sort=True):
+        valid = group.edge_case.eq("both_nonempty")
+        rows.append({"Kategori": f"C{category}", "n": len(group),
+                     "Mean PFOM": group.pfom.mean(), "Median PFOM": group.pfom.median(),
+                     "n kedua edge ada": int(valid.sum()),
+                     "Mean kedua edge ada": group.loc[valid, "pfom"].mean(),
+                     "Mean proxy sentinel 2": group.pfom_paper_sentinel2_proxy.mean()})
+    return pd.DataFrame(rows)
+
+
+def pfom_plot(context):
+    test = context["frames"]["test"]
+    positive = test[test.gt_pixels.gt(0)]
+    fig, axes = plt.subplots(1, 2, figsize=(13, 4.5), layout="constrained")
+    for both, color, marker, label in [(True, TEAL, "o", "Kedua edge ada"),
+                                        (False, CORAL, "x", "Salah satu edge kosong")]:
+        subset = positive[positive.edge_case.eq("both_nonempty").eq(both)]
+        axes[0].scatter(subset.dice * 100, subset.pfom, s=25, c=color, marker=marker, alpha=.7, label=label)
+    axes[0].set(title=f"Test GT positif · n={len(positive)}", xlabel="Dice per gambar (%)",
+                ylabel="PFOM · 0–1, lebih tinggi lebih baik", xlim=(-3, 103), ylim=(-.04, 1.04))
+    axes[0].legend(frameon=False, fontsize=9, loc="lower right")
+    values = [test.loc[test.category.eq(i), "pfom"] for i in range(10)]
+    boxes = axes[1].boxplot(values, labels=[f"C{i}\nn={len(v)}" for i, v in enumerate(values)],
+                            patch_artist=True, medianprops={"color": NAVY},
+                            flierprops={"markersize": 3, "alpha": .5})
+    for patch in boxes["boxes"]:
+        patch.set(facecolor=TEAL, alpha=.25)
+    axes[1].scatter(np.arange(1, 11), [v.mean() for v in values], marker="D", color=CORAL, s=22, label="Mean")
+    axes[1].set(title="PFOM per kategori penulis", ylabel="PFOM dengan kebijakan kosong 1/0", ylim=(-.04, 1.04))
+    axes[1].tick_params(axis="x", labelsize=8)
+    axes[1].legend(frameon=False, fontsize=9, loc="lower right")
+    for ax in axes:
+        ax.grid(alpha=.8); ax.set_axisbelow(True)
+    fig.suptitle("07  /  PFOM melengkapi pembacaan ketepatan batas", fontsize=16, fontweight="bold")
+    return save_figure(context, fig, "07_pfom_boundaries")
+
+
 def metric_table(context):
     rows = []
     for family, label in [("data_based", "Data-based"), ("image_based", "Image-based")]:
@@ -418,6 +524,10 @@ def export_tables(context):
     tables = {"final_metrics": metric_table(context), "paper_comparison": paper_comparison(context),
               "categories": category_table(context), "empty_masks": empty_table(context),
               "exact_pixel_overlap": overlap_table(context)}
+    if "pfom" in context:
+        tables.update({"pfom_summary": pfom_summary_table(context),
+                       "pfom_empty_edges": pfom_empty_table(context),
+                       "pfom_categories": pfom_category_table(context)})
     for name, frame in tables.items():
         frame.to_csv(context["tables"] / f"{name}.csv", index=False)
     summary = {
@@ -426,6 +536,7 @@ def export_tables(context):
         "threshold": context["config"]["evaluation"]["prediction_threshold"],
         "verified_prediction_masks": context["verified_masks"],
         "identity": context["export"]["identity"], "metrics": context["summaries"],
+        "pfom": context.get("pfom"),
         "selection_seed": 42,
         "selection_rules": {
             "random": "3 sampled first from filename-sorted unique RGB positive-GT test photos; seed 42",

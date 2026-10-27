@@ -41,7 +41,7 @@ def build_notebook():
     training dan pemilihan checkpoint sudah selesai.
 
     **Alur baca:** [protokol](#protokol) → [kurva belajar](#kurva-belajar) →
-    [hasil akhir](#hasil-akhir) → [analisis error](#analisis-error) →
+    [hasil akhir](#hasil-akhir) → [analisis error](#analisis-error) → [PFOM](#pfom) →
     [prediksi](#prediksi) → [keterbatasan](#keterbatasan) → [kesimpulan](#kesimpulan).
 
     > **Langsung lihat hasil:** notebook ini dipublikasikan dengan seluruh output yang sudah
@@ -75,6 +75,7 @@ def build_notebook():
         configure_style, load_analysis, summarize, metric_table, paper_comparison,
         category_table, empty_table, overlap_table, learning_curves, final_metrics_plot,
         distribution_plot, size_plot, empty_plot, select_examples, prediction_gallery, export_tables,
+        compute_pfom, pfom_summary_table, pfom_category_table, pfom_empty_table, pfom_plot,
     )
 
     %matplotlib inline
@@ -83,7 +84,7 @@ def build_notebook():
     validation, test = ctx["frames"]["validation"], ctx["frames"]["test"]
 
     def show_table(frame, formats=None):
-        display(HTML(frame.to_html(index=False, border=0, classes="cp1-table",
+        display(HTML(frame.to_html(index=False, border=0, classes="cp1-table", na_rep="—",
                                    float_format=lambda x: f"{x:.2f}", formatters=formats or {})))
 
     display(HTML('''<style>
@@ -258,6 +259,74 @@ def build_notebook():
         "hubungan ini belum membuktikan penyebab error."
     ))
     """)
+    md(r"""
+    <a id="pfom"></a>
+    ### 4.3 · PFOM: seberapa dekat batas prediksi dengan batas GT?
+
+    **Pratt's Figure of Merit (PFOM)** melengkapi metrik area. Untuk kedua edge map yang
+    berisi titik batas, kita memakai Persamaan 13 paper:
+
+    $$\mathrm{PFOM} = \frac{1}{\max(N_{GT},N_P)}
+      \sum_{i=1}^{N_P}\frac{1}{1+\beta d_i^2},\qquad \beta=\frac{1}{9}.$$
+
+    $d_i$ adalah jarak Euclidean (piksel) dari titik edge **prediksi** ke edge GT terdekat.
+    Skor 1 berarti batas cocok sempurna; semakin tinggi semakin baik. Rumus ini berarah,
+    sehingga bertukar GT dan prediksi dapat mengubah skor.
+
+    Sesuai detail yang tersedia di paper, edge diambil dengan **Canny, sigma 0.1**, pada
+    mask biner **kanvas penuh 224 × 224**. Implementasi lokal memakai scikit-image 0.19.3,
+    input float64 0/1, threshold Canny 0.1/0.2, dan border constant 0. Library serta threshold
+    Canny tidak diterbitkan penulis; ini pilihan analisis yang kita dokumentasikan.
+
+    **Kebijakan edge kosong 0–1:** kedua edge kosong → 1; tepat satu kosong → 0.
+    Ini ekstensi eksplisit untuk kasus kosong, terpisah dari rumus pada pasangan edge nonkosong.
+    Mean utama mencakup seluruh gambar; kolom GT positif dan kedua edge ada membantu
+    memahami pengaruh gambar kosong dan luka yang terlewat. Mean per gambar tidak memakai
+    agregasi TP/FP/FN seperti data-based Dice.
+    """)
+    code(r"""
+    pfom_rows = compute_pfom(ctx)
+    pfom_formats = {column: (lambda value: f"{value:.4f}")
+                    for column in ["Mean PFOM", "Median PFOM", "Mean GT positif",
+                                   "Mean kedua edge ada", "Mean proxy sentinel 2"]}
+    show_table(pfom_summary_table(ctx), pfom_formats)
+    print(f"PFOM dihitung pada {len(pfom_rows)} pasangan GT/prediksi yang sudah diverifikasi.")
+    print("Tidak ada inference atau training ulang; beta=1/9, Canny sigma=0.1, threshold prediksi tetap 0.5.")
+    """)
+    code(r"""
+    pfom_plot(ctx)
+    plt.show()
+    show_table(pfom_category_table(ctx), pfom_formats)
+    display(Markdown(
+        "Dice tinggi dapat disertai PFOM yang lebih rendah ketika ada pergeseran batas. "
+        "Tabel menampilkan **satu model baseline kita**; ablation scSE lain pada Figure 6 paper "
+        "belum dijalankan. C0 berisi GT kosong sehingga perlu dibaca bersama kebijakan edge kosong, "
+        "bukan sebagai kemampuan lokalisasi batas luka."
+    ))
+    """)
+    md(r"""
+    **Mengapa angka pengganti 2 ditampilkan terpisah?** Bagian 4.2 paper menyebut nilai tak
+    hingga diganti 2 ketika tidak ada edge. Persamaan 13 pada pasangan nonkosong sendiri
+    terbatas pada 0–1; kode PFOM penulis tidak tersedia dan rincian kasus kosongnya ambigu.
+
+    Kita simpan **proxy sentinel 2** dengan interpretasi *salah satu atau kedua edge kosong → 2*.
+    Ini bukan skor akurasi 200%, dan mean-nya tidak dapat diperlakukan sebagai PFOM 0–1.
+    Kolom berikut menunjukkan tepat berapa gambar yang terpengaruh. Implementasi ini
+    terdokumentasi, tetapi **belum terbukti identik dengan perhitungan Figure 6 penulis**.
+    Lihat [protokol dan pengujian PFOM](../docs/pfom.md).
+    """)
+    code(r"""
+    show_table(pfom_empty_table(ctx), pfom_formats)
+    pfom_test = ctx["pfom"]["summaries"]["test"]
+    display(Markdown(
+        f"**Test:** mean PFOM dengan kebijakan kosong 1/0 adalah **{pfom_test['mean']:.4f}**; "
+        f"median **{pfom_test['median']:.4f}**. Pada GT positif saja, mean "
+        f"**{pfom_test['mean_positive_gt']:.4f}**. Proxy sentinel 2 menjadi "
+        f"**{pfom_test['mean_paper_sentinel2_proxy']:.4f}**, dipengaruhi "
+        f"**{pfom_test['n'] - pfom_test['n_both_edges_nonempty']}** kasus tanpa edge pada sedikitnya satu mask. "
+        "Selisih ini berasal dari kebijakan kasus kosong, bukan perubahan prediksi atau peningkatan model."
+    ))
+    """)
     md("""
     ## 5 · Gambar dengan ground truth kosong
 
@@ -387,6 +456,9 @@ def build_notebook():
        **{missed} gambar berisi luka** mempunyai TP=0; **{len(fp_sizes)} dari {len(no_wound)}** GT kosong menghasilkan FP.
     4. **Keterbatasan penting:** {overlap_test} gambar test identik secara RGB dengan train;
        pemisahan pasien belum terverifikasi dan variasi antar-seed belum diukur.
+    5. **Analisis batas:** mean PFOM test **{pfom_test['mean']:.4f}** dengan kebijakan kosong 1/0;
+       proxy sentinel 2 **{pfom_test['mean_paper_sentinel2_proxy']:.4f}** dilaporkan terpisah.
+       Pengaturan Canny dan interpretasi kasus kosong masih membatasi kesetaraan dengan paper.
 
     **Hipotesis untuk CP2, belum terbukti:** pendekatan yang memberi perhatian lebih pada luka kecil
     atau mengurangi prediksi pada background layak diuji. Ablasi loss/attention atau penanganan
@@ -418,7 +490,7 @@ def build_notebook():
     versions = pd.DataFrame([
         {"Komponen": "Python analysis", "Versi": sys.version.split()[0]},
         *[{"Komponen": f"{name} (analysis)", "Versi": metadata.version(name)}
-          for name in ["numpy", "pandas", "matplotlib", "Pillow", "nbclient", "ipykernel"]],
+          for name in ["numpy", "pandas", "matplotlib", "Pillow", "nbclient", "ipykernel", "scipy", "scikit-image"]],
         {"Komponen": "PyTorch (training/inference)", "Versi": ctx["environment"]["packages"]["torch"]},
         {"Komponen": "torchvision (training/inference)", "Versi": ctx["environment"]["packages"]["torchvision"]},
     ])
@@ -428,6 +500,8 @@ def build_notebook():
     print("Config fingerprint:", ctx["export"]["identity"]["config_fingerprint"])
     print("Split fingerprint:", ctx["export"]["identity"]["split_fingerprint"])
     print("Checkpoint SHA256:", ctx["export"]["identity"]["checkpoint_sha256"])
+    print("PFOM protocol fingerprint:", ctx["pfom"]["protocol_fingerprint"])
+    print("PFOM implementation SHA256:", ctx["pfom"]["implementation_sha256"])
     """)
     md("""
     **Referensi dan jejak bukti**
@@ -439,6 +513,8 @@ def build_notebook():
       dipin pada commit `42a272dfe0679f20675e826385925cb7562934b6`; [audit data lokal](../docs/datasets.md).
     - Bukti angka lokal: `outputs/runs/cp1-baseline-01/{history,validation,evaluation-test}.json`
       dan CSV per gambar; cache prediksi diverifikasi terhadap artefak tersebut pada bagian 0.
+    - PFOM: Persamaan 13 dan bagian 4.2 paper; parameter dan asumsi tersimpan pada
+      [`configs/pfom.json`](../configs/pfom.json), dengan [protokol pengujian](../docs/pfom.md).
     """)
 
     for index, cell in enumerate(cells):

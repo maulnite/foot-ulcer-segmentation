@@ -24,8 +24,8 @@ The research follows three steps: **reproduce** the reference method, **rethink*
 > **Current status: baseline training, test evaluation, and initial analysis completed.** The public-source-data run achieves **92.29% data-based test Dice** and **86.42% image-based test Dice** with offline evaluator semantics. Training stopped at epoch 82; the source policy selected epoch 52. Dataset counts / original split and evaluator uncertainties limit direct equivalence to the paper. See the [results and limitations](reports/cp1-baseline-01.md) and [notebook instructions](notebooks/README.md).
 
 **[Open the fully executed CP1 notebook →](notebooks/01_cp1_analysis.ipynb)**<br />
-21 executed code cells · 5 analysis figures · 5 prediction galleries / 15 examples<br />
-Learning curves, paper comparison, error analysis, and source image / ground truth / prediction / overlay panels are embedded and ready to view on GitHub.
+24 executed code cells · 6 analysis figures · 5 prediction galleries / 15 examples<br />
+Learning curves, paper comparison, **PFOM boundary evaluation**, error analysis, and source image / ground truth / prediction / overlay panels are embedded and ready to view on GitHub. Test mean PFOM is **0.7782** with the documented empty-edge policy; the sentinel-2 proxy is reported separately in the [PFOM report](reports/cp1-pfom-01.md).
 
 ## Research plan
 

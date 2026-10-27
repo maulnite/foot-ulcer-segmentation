@@ -59,6 +59,8 @@ The server exposes an A100 80 GB GPU. The isolated `.venv-training` uses the ori
 
 Report Dice, IoU, precision, and recall, with both aggregation strategies where applicable. Include boundary analysis using a verified PFOM implementation if reproducing the corresponding paper experiments. The paper uses a nonstandard special-case replacement of infinity with 2 for its PFOM analysis. Document this convention separately from standard metric behavior and verify it in code before reproducing the plot.
 
+**PFOM update, October 27:** a tested local implementation now evaluates all 402 cached validation/test masks with beta 1/9 and Canny sigma 0.1. It reports a bounded empty-edge extension and a separate sentinel-2 proxy. Unpublished Canny settings and ambiguous empty-edge triggers preclude verified numerical parity with Figure 6. See [the explicit protocol](pfom.md) and [results](../reports/cp1-pfom-01.md).
+
 Never label a local validation score as an official FUSeg test score. If private test evaluation cannot be accessed, report the locally reproducible portion and the remaining limitation.
 
 The authors' inline inference evaluator and offline `utils/eval.py` disagree on perfect matches, including empty masks. The audit executes both source branches and documents the discrepancy. Record evaluator identity rather than treating their scores as interchangeable. No PFOM implementation was found in the selected upstream Python sources.
