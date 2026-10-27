@@ -1,0 +1,369 @@
+{
+  "created_at_utc": "2026-10-27T19:04:07.086260+00:00",
+  "diagnostic_fixture": false,
+  "protocol": {
+    "id": "cp1-attention-01",
+    "declared_at_utc": "2026-10-27T13:35:38Z",
+    "baseline_run": "outputs/runs/cp1-baseline-01",
+    "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+    "seed": 42,
+    "runs": [
+      {
+        "name": "cp1-attention-additive-01",
+        "variant": "additive_only",
+        "config": "configs/ablation/additive.json",
+        "run_dir": "outputs/runs/cp1-attention-additive-01"
+      },
+      {
+        "name": "cp1-attention-maxout-01",
+        "variant": "maxout_only",
+        "config": "configs/ablation/maxout.json",
+        "run_dir": "outputs/runs/cp1-attention-maxout-01"
+      }
+    ],
+    "execution": "Sequential; one GPU job at a time; wait if GPU is in use",
+    "hypothesis": "The additive and maxout branches may offer complementary benefits; compare both single-branch variants with the completed full baseline.",
+    "scope": "Only stages 0-3; final stage 4 remains the original shorted P-scSE.",
+    "controls": "Same full model construction/RNG, pretrained cache, split, augmentation, optimizer, loss, max 200 epochs, early stopping 30, source checkpoint policy, threshold >=0.5, offline evaluator, PFOM settings.",
+    "primary_endpoint": "Final image-based Dice; validation selects checkpoints, test is descriptive comparison of every predeclared variant.",
+    "secondary_endpoints": [
+      "data-based Dice",
+      "IoU/precision/recall",
+      "PFOM bounded 1/0 and separate sentinel-2 proxy",
+      "C1 Dice/PFOM",
+      "fully missed GT-positive images",
+      "false positives on empty GT",
+      "forward-called parameters",
+      "training time and peak CUDA memory"
+    ],
+    "test_disclosure": "The baseline test set has already been analyzed. Hypotheses and variants are fixed before new runs; no test-based threshold/model retuning.",
+    "limitations": [
+      "One seed; preliminary component ablation",
+      "Removing a branch changes active capacity and compute; does not isolate aggregation operator independent of parameter count",
+      "Source duplicates and original paper split uncertainties retained"
+    ],
+    "illustrative_examples": "Reuse the first two baseline worst-positive, first two median-positive, and first two empty-FP examples; no outcome-based reselection."
+  },
+  "protocol_fingerprint": "5901c5fa22b7aa7b70777e520ee997b72ba1079ff6d1b07338b6b09a8651773b",
+  "model_verification": {
+    "status": "passed",
+    "protocol_fingerprint": "5901c5fa22b7aa7b70777e520ee997b72ba1079ff6d1b07338b6b09a8651773b",
+    "runtime_sha256": {
+      "scripts/attention_ablation.py": "3fac97cd0c8bfd1cfc5fdc1806341e6456b34b85a644ec7fd31245c314581ba7",
+      "scripts/run_attention_ablation.py": "48e4a1978898d4fce9ea14991ba693ca90b7e0534147e10d5a9afba9e1b39504"
+    },
+    "full_initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+    "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+    "pretrained_weight_sha256": "dcc49843b8ec5a097a8cb166eded1d7a09291093eff7735f603bcfcafce12c8e",
+    "frozen_baseline_source_and_packages_match": true,
+    "variants": {
+      "full": {
+        "registered_parameters": 70968939,
+        "forward_called_parameters": 64898248,
+        "output_shape": [
+          2,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1
+        },
+        "initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+        "probe_output_sha256": "b8274a58beb516fd338f56a7ac23128099dea1d9d52bc0c542acbcf3af10d1aa"
+      },
+      "additive_only": {
+        "registered_parameters": 70968939,
+        "forward_called_parameters": 64781798,
+        "output_shape": [
+          2,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.0.attention1": 0,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.1.attention1": 0,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.2.attention1": 0,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.3.attention1": 0,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1
+        },
+        "initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+        "probe_output_sha256": "a8f75e4286515575342b5d2a9489d9d4777c82f867109497c60494391e9eef4a"
+      },
+      "maxout_only": {
+        "registered_parameters": 70968939,
+        "forward_called_parameters": 64781798,
+        "output_shape": [
+          2,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 0,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 0,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 0,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 0,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1
+        },
+        "initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+        "probe_output_sha256": "ce106c6743146ea8c5779e9d079c513fed9aaff19cbe79a266c3ba179dc9ce3e"
+      }
+    }
+  },
+  "pfom_protocol": {
+    "name": "cp1-pfom-v1",
+    "paper": "https://arxiv.org/pdf/2305.02961v2",
+    "paper_sections": [
+      "3.2.6, Equation 13",
+      "4.2, contour test and Figure 6"
+    ],
+    "beta": 0.1111111111111111,
+    "canny": {
+      "sigma": 0.1,
+      "low_threshold": 0.1,
+      "high_threshold": 0.2,
+      "use_quantiles": false,
+      "mode": "constant",
+      "cval": 0.0
+    },
+    "input": "Binary GT and cached >=0.5 prediction, float64 0/1 for Canny, full 224x224 canvas",
+    "distance": "Nearest GT edge for each predicted edge; Euclidean pixels; asymmetric prediction-to-GT",
+    "normalization": "max(number of GT edges, number of predicted edges), separately per image",
+    "aggregation": "Arithmetic mean over images; also report median, both-edge-nonempty subset, and categories",
+    "empty_edges_bounded": {
+      "both_empty": 1.0,
+      "gt_empty": 0.0,
+      "prediction_empty": 0.0
+    },
+    "empty_edges_paper_sentinel2_proxy": {
+      "both_empty": 2.0,
+      "gt_empty": 2.0,
+      "prediction_empty": 2.0
+    },
+    "paper_specified": [
+      "Equation 13",
+      "beta=1/9",
+      "Canny sigma=0.1",
+      "replacement value 2 for no-edge cases"
+    ],
+    "explicit_analysis_choices": [
+      "scikit-image 0.19.3 Canny implementation; thresholds 0.1/0.2, float64 input, and border defaults made explicit",
+      "Bounded extension: both edge maps empty => 1, exactly one empty => 0",
+      "Sentinel-2 proxy interprets 'no edge in any of the images' as either edge map being empty"
+    ],
+    "exact_author_implementation_available": false,
+    "comparability": "Authors did not publish PFOM code or all Canny settings. Sentinel behavior is ambiguous and not implied by Equation 13. These results are a documented implementation, not verified numerical reproduction of Figure 6."
+  },
+  "runs": [
+    {
+      "variant": "full",
+      "run_directory": "outputs/runs/cp1-baseline-01",
+      "identity": {
+        "checkpoint_sha256": "5d7cf8cd011c1681d853ff1306b293774fa770a217cf7f29f0223e8498d1a999",
+        "config_fingerprint": "86ee03891cb5da1bda31efcba4332b52f345f5a8ae8057b1fb600e6e11dcbc8b",
+        "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+        "threshold": 0.5,
+        "evaluation_sha256": {
+          "validation.csv": "12ccc7d63277e4e8432d416e742cf14d9139f91505364e0ba2bf8283a6bc4396",
+          "evaluation-test.csv": "8234f027e2d475246335ce5a833287291112825b61f73aec44e259315552d245"
+        }
+      },
+      "environment_git_revision": "e7c312fcc2db46db34978b7ce3926ef1effb232e",
+      "model": {
+        "registered_parameters": 70968939,
+        "forward_called_parameters": 64898248,
+        "output_shape": [
+          2,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1
+        },
+        "initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+        "probe_output_sha256": "b8274a58beb516fd338f56a7ac23128099dea1d9d52bc0c542acbcf3af10d1aa"
+      }
+    },
+    {
+      "variant": "additive_only",
+      "run_directory": "outputs/runs/cp1-attention-additive-01",
+      "identity": {
+        "checkpoint_sha256": "0855881363b65084780f41b777e6e1565ec6e2fc3af485242c97c3b59bc2d2f5",
+        "config_fingerprint": "f4468749281e89bff4c81a9a208263f82609291d3381d2455504f7311a6744e5",
+        "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+        "threshold": 0.5,
+        "evaluation_sha256": {
+          "validation.csv": "60dad7187dfc8aadc5adb033c5e3df52344fb405902e6b76b8dccc40c4c19ea5",
+          "evaluation-test.csv": "f0708632a7e719e07c2ffffd0a30d6381aa37c1a314b2d30896d51310f4ba6f2"
+        }
+      },
+      "environment_git_revision": "2f05530cd5403ee021989bb6f55686e842f166bf",
+      "model": {
+        "registered_parameters": 70968939,
+        "forward_called_parameters": 64781798,
+        "output_shape": [
+          2,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.0.attention1": 0,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.1.attention1": 0,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.2.attention1": 0,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.3.attention1": 0,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1
+        },
+        "initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+        "probe_output_sha256": "a8f75e4286515575342b5d2a9489d9d4777c82f867109497c60494391e9eef4a"
+      }
+    },
+    {
+      "variant": "maxout_only",
+      "run_directory": "outputs/runs/cp1-attention-maxout-01",
+      "identity": {
+        "checkpoint_sha256": "ec5dff63bb423a67d1c2647dfaed82c2961c093886b51ecdbb6ed62a09a2afef",
+        "config_fingerprint": "605f1367a93050be9c8a865d203a1489a817d516163f6c807f6d02a9cf34ff01",
+        "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+        "threshold": 0.5,
+        "evaluation_sha256": {
+          "validation.csv": "5e992e54f7f80cc6e9db05be67e81a0c6e27916c680a30ffc58dd158eaa5a54d",
+          "evaluation-test.csv": "83df5c7130526ed1b47333f3a5dd8271f50dd1cd46af0924415503db3aa83a0e"
+        }
+      },
+      "environment_git_revision": "e017e0ce034485ff4d4ad3d5320de54687ff9f2c",
+      "model": {
+        "registered_parameters": 70968939,
+        "forward_called_parameters": 64781798,
+        "output_shape": [
+          2,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 0,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 0,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 0,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 0,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1
+        },
+        "initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+        "probe_output_sha256": "ce106c6743146ea8c5779e9d079c513fed9aaff19cbe79a266c3ba179dc9ce3e"
+      }
+    }
+  ],
+  "example_names": [
+    "be4c8e6e241704330a2835daa99f732f_0.png",
+    "f2036649c60a5d820be0ba277ac8dc86_0.png",
+    "ebd77b6519ede2393700424073f1d810_0.png",
+    "ec95fced88cc2c85455d4f4c6020b630_0.png",
+    "e91e3180dc0c15eb6663684e70370f33_0.png",
+    "ca7f1d6a3136067a18843121a079ae09_0.png"
+  ],
+  "analysis_source_sha256": "c98a34d0eb596cb973cfbb2700dfa1d978724fc0c94dd940da3d32ee0a16a3c2",
+  "units": "Region metrics fractions; PFOM 0-1; sentinel-2 proxy separate",
+  "training_performed_by_analysis": false,
+  "all_1206_mask_pairs_verified": true
+}
