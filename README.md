@@ -10,7 +10,7 @@
 ![Domain](https://img.shields.io/badge/domain-computer_vision-2563EB?style=flat-square)
 ![Stage](https://img.shields.io/badge/stage-first_baseline_completed-0F766E?style=flat-square)
 
-[Overview](#overview) · [Research plan](#research-plan) · [Benchmark](#benchmark) · [Repository](#repository) · [Getting started](#getting-started)
+[Overview](#overview) · [CP1 results](notebooks/01_cp1_analysis.ipynb) · [Research plan](#research-plan) · [Benchmark](#benchmark) · [Repository](#repository) · [Getting started](#getting-started)
 
 </div>
 
@@ -21,7 +21,11 @@ This project investigates **foot ulcer segmentation** through reproduction of FU
 The research follows three steps: **reproduce** the reference method, **rethink** its behavior through analysis and ablations, and **reinvent** through a testable extension. FUSegNet is our benchmark; the project's scope includes both reproduction and further development.
 
 > [!NOTE]
-> **Current status: baseline training, test evaluation, and initial analysis completed.** The public-source-data run achieves **92.29% data-based test Dice** and **86.42% image-based test Dice** with offline evaluator semantics. Training stopped at epoch 82; the source policy selected epoch 52. Dataset counts / original split and evaluator uncertainties limit direct equivalence to the paper. See the [results and limitations](reports/cp1-baseline-01.md), [analysis notebook](notebooks/01_cp1_analysis.ipynb), and [full local notebook instructions](notebooks/README.md).
+> **Current status: baseline training, test evaluation, and initial analysis completed.** The public-source-data run achieves **92.29% data-based test Dice** and **86.42% image-based test Dice** with offline evaluator semantics. Training stopped at epoch 82; the source policy selected epoch 52. Dataset counts / original split and evaluator uncertainties limit direct equivalence to the paper. See the [results and limitations](reports/cp1-baseline-01.md) and [notebook instructions](notebooks/README.md).
+
+**[Open the fully executed CP1 notebook →](notebooks/01_cp1_analysis.ipynb)**<br />
+21 executed code cells · 5 analysis figures · 5 prediction galleries / 15 examples<br />
+Learning curves, paper comparison, error analysis, and source image / ground truth / prediction / overlay panels are embedded and ready to view on GitHub.
 
 ## Research plan
 
@@ -99,7 +103,7 @@ The runnable baseline is [`configs/baseline.json`](configs/baseline.json). [`req
 - Track seeds, split manifests, environment versions, configuration, metrics, and artifact paths for every substantial run.
 - Distinguish **paper results**, **local validation**, and **official challenge evaluation**.
 - Change one factor at a time for ablations and compare extensions under the same protocol.
-- Keep raw datasets, patient images, model weights, and personal documents out of Git. Publish aggregate results and permitted figures deliberately.
+- Keep bulk raw datasets, model weights, environments, and personal documents out of Git. The executed CP1 notebook publishes selected dataset images, ground-truth masks, predictions, and error overlays as analysis examples, with source attribution. Full datasets and standalone prediction caches remain local.
 
 Use the [experiment log](docs/experiment-log.md) to record runs. Weekly updates should cover completed work, decisions, next steps, and blockers.
 

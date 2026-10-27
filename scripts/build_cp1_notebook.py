@@ -2,7 +2,6 @@
 """Build and optionally execute the CP1 analysis notebook on local artifacts."""
 
 import argparse
-from copy import deepcopy
 import json
 import os
 from pathlib import Path
@@ -45,9 +44,9 @@ def build_notebook():
     [hasil akhir](#hasil-akhir) → [analisis error](#analisis-error) →
     [prediksi](#prediksi) → [keterbatasan](#keterbatasan) → [kesimpulan](#kesimpulan).
 
-    > **Versi lengkap:** `01_cp1_analysis.executed.ipynb` menyimpan seluruh output, termasuk
-    > panel foto dan prediksi. Pada salinan publik `01_cp1_analysis.ipynb`, output foto klinis
-    > dilepas sesuai kebijakan repositori; tabel dan grafik agregat tetap tersedia.
+    > **Langsung lihat hasil:** notebook ini dipublikasikan dengan seluruh output yang sudah
+    > dieksekusi, termasuk tabel, grafik, foto contoh, ground truth, prediksi, dan overlay error.
+    > Buka di GitHub atau VS Code/Jupyter tanpa menjalankan ulang cell untuk melihat hasilnya.
     """)
     md("""
     ## 0 · Setup & pemeriksaan bukti
@@ -448,20 +447,9 @@ def build_notebook():
         "kernelspec": {"display_name": "FUSeg · Analysis", "language": "python", "name": "fuseg-analysis"},
         "language_info": {"name": "python", "version": "3.10"},
         "cp1": {"run_id": "cp1-baseline-01", "training_performed": False,
-                "clinical_output_policy": "Full executed local notebook; public copy omits clinical-visual outputs"},
+                "clinical_output_policy": "Publish all executed outputs, including selected images and prediction galleries"},
     })
     nbf.validate(notebook)
-    return notebook
-
-
-def public_copy(executed):
-    notebook = deepcopy(executed)
-    for cell in notebook.cells:
-        if "clinical-visual" in cell.metadata.get("tags", []):
-            cell.outputs = [nbf.v4.new_output("display_data", data={
-                "text/markdown": "*Panel prediksi tersedia pada salinan lokal **01_cp1_analysis.executed.ipynb**. "
-                                 "Output foto klinis dilepas dari versi publik sesuai kebijakan repositori.*"})]
-    notebook.metadata["cp1"]["clinical_outputs_removed"] = True
     return notebook
 
 
@@ -502,14 +490,15 @@ def main():
     notebook.metadata["cp1"]["clinical_outputs_removed"] = False
     nbf.validate(notebook)
     nbf.write(notebook, EXECUTED)
-    nbf.write(public_copy(notebook), NOTEBOOK)
+    nbf.write(notebook, NOTEBOOK)
     receipt = {"all_cells_executed": True, "code_cells": len(code_cells), "error_outputs": 0,
                "clinical_galleries": len(clinical), "full_notebook": str(EXECUTED.relative_to(ROOT)),
-               "public_notebook": str(NOTEBOOK.relative_to(ROOT)), "kernel": str(Path(sys.executable).absolute())}
+               "public_notebook": str(NOTEBOOK.relative_to(ROOT)), "clinical_outputs_published": True,
+               "kernel": str(Path(sys.executable).absolute())}
     receipt_path = ROOT / "outputs/analysis/cp1-baseline-01/notebook-execution.json"
     receipt_path.write_text(json.dumps(receipt, indent=2) + "\n")
     print(f"Executed {len(code_cells)} code cells with no errors. Full notebook: {EXECUTED.relative_to(ROOT)}")
-    print(f"Public aggregate outputs retained: {NOTEBOOK.relative_to(ROOT)}")
+    print(f"Complete public notebook with all galleries: {NOTEBOOK.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

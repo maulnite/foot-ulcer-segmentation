@@ -2,7 +2,7 @@
 
 Analisis ini membaca checkpoint **epoch 52** dari `cp1-baseline-01`, memakai threshold **≥0.5** dan evaluator **offline HARD_LINE**. Tidak ada training, tuning threshold, atau pemilihan checkpoint ulang. Seluruh 124 mask validation dan 278 mask test diekspor melalui environment training asli; setiap TP/TN/FP/FN cocok dengan evaluasi akhir.
 
-Notebook lengkap yang sudah dieksekusi tersedia secara lokal di `notebooks/01_cp1_analysis.executed.ipynb`. [Salinan publik](../notebooks/01_cp1_analysis.ipynb) mempertahankan tabel dan grafik agregat; kode galeri tetap ada, sedangkan output foto klinis hanya di salinan lokal. Lihat [petunjuk menjalankan ulang dan ekspor](../notebooks/README.md).
+[Notebook lengkap yang sudah dieksekusi](../notebooks/01_cp1_analysis.ipynb) dipublikasikan di GitHub dengan seluruh tabel, grafik, serta lima galeri foto/GT/prediksi/overlay. Semua output langsung terlihat tanpa menjalankan cell. Lihat [petunjuk menjalankan ulang dan ekspor](../notebooks/README.md).
 
 ## Hasil utama
 
@@ -54,4 +54,4 @@ Training baseline, evaluasi, analisis awal, dan visualisasi CP1 tersedia. Lapora
 
 Luka kecil dan false positive pada background merupakan kandidat pertanyaan CP2. Perubahan loss, attention, atau penanganan ketidakseimbangan harus diuji melalui validation dan ablasi dengan protokol tetap. Analisis saat ini belum membuktikan intervensi mana yang efektif. Bila pengembangan mengikuti temuan test, ungkapkan penggunaan test tersebut; jangan menyebut evaluasi berikutnya sebagai test baru yang sepenuhnya tidak tersentuh.
 
-Artefak lokal: `outputs/analysis/cp1-baseline-01/` memuat lima grafik agregat PNG/SVG, lima galeri prediksi PNG, tabel CSV, ringkasan JSON, hash cache prediksi, dan catatan eksekusi notebook. Data, checkpoint, mask, serta output foto tidak dimasukkan ke Git.
+Artefak lokal: `outputs/analysis/cp1-baseline-01/` memuat lima grafik agregat PNG/SVG, lima galeri prediksi PNG, tabel CSV, ringkasan JSON, hash cache prediksi, dan catatan eksekusi notebook. Contoh foto, GT, dan prediksi terpilih tertanam pada notebook publik dengan atribusi sumber; dataset lengkap, checkpoint, dan cache mask tetap lokal.

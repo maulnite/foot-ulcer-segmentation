@@ -2,12 +2,11 @@
 
 Notebook berbahasa Indonesia untuk membaca hasil baseline: protokol, kurva training, metrik akhir, error menurut ukuran luka, kasus GT kosong, visualisasi prediksi, dan audit overlap.
 
-| File | Isi |
-| :--- | :--- |
-| `01_cp1_analysis.executed.ipynb` | **Buka ini di workspace lokal.** Seluruh cell sudah dieksekusi, termasuk lima galeri prediksi. File ini diabaikan Git. |
-| [01_cp1_analysis.ipynb](01_cp1_analysis.ipynb) | Salinan publik dengan output tabel dan grafik agregat. Output foto klinis dilepas sesuai kebijakan repo. Semua kode galeri tetap tersedia. |
+**[Buka notebook CP1 yang sudah dieksekusi →](01_cp1_analysis.ipynb)**
 
-Untuk langsung melihat hasil, buka file `.executed.ipynb` di VS Code/Jupyter. Tidak perlu menjalankan cell lagi. Untuk menjalankan ulang secara interaktif, pilih interpreter `.venv-analysis/bin/python` sebagai kernel.
+Seluruh **21 code cell** sudah dieksekusi. Tabel, lima grafik analisis, dan lima galeri prediksi berisi **15 foto contoh** tersedia langsung di GitHub. Setiap contoh menampilkan gambar, ground truth, prediksi, dan overlay TP/FP/FN. Tidak perlu menjalankan cell untuk melihat output.
+
+File utama `01_cp1_analysis.ipynb` menyimpan seluruh output dan dilacak Git. Builder juga menghasilkan salinan lokal identik `01_cp1_analysis.executed.ipynb` untuk kerja di server; salinan tambahan ini diabaikan Git. Untuk menjalankan ulang secara interaktif, buka notebook utama di VS Code/Jupyter dan pilih interpreter `.venv-analysis/bin/python` sebagai kernel.
 
 ## Menjalankan ulang
 
@@ -34,7 +33,7 @@ Buat dan eksekusi notebook dari awal sampai akhir:
 .venv-analysis/bin/python scripts/build_cp1_notebook.py --execute
 ```
 
-Perintah ini membuat kernel di folder `outputs/` proyek, mengeksekusi semua cell tanpa GPU, menyimpan notebook lengkap lokal, lalu menghasilkan salinan publik dengan output foto dilepas. Setiap eksekusi memeriksa SHA256 checkpoint, konfigurasi, split, source training, data, mask prediksi, dan kecocokan metrik. Tidak ada tuning atau pemilihan checkpoint ulang.
+Perintah ini membuat kernel di folder `outputs/` proyek, mengeksekusi semua cell tanpa GPU, lalu menyimpan notebook utama beserta seluruh output dan salinan lokal identiknya. Galeri foto dan prediksi dipertahankan saat notebook dibangkitkan ulang. Setiap eksekusi memeriksa SHA256 checkpoint, konfigurasi, split, source training, data, mask prediksi, dan kecocokan metrik. Tidak ada tuning atau pemilihan checkpoint ulang.
 
 `scripts/cp1_analysis.py` menyimpan fungsi analisis dan plotting agar notebook tetap ringkas. `scripts/build_cp1_notebook.py` merupakan sumber susunan notebook; ubah builder jika ingin membangkitkan ulang susunannya. Menjalankan builder tanpa `--execute` hanya membuat template tanpa output.
 
@@ -50,4 +49,4 @@ outputs/analysis/cp1-baseline-01/
 └── notebook-execution.json     # Catatan eksekusi seluruh code cell
 ```
 
-Foto, mask, dan galeri klinis tetap lokal sesuai [kebijakan repositori](../README.md#experiment-discipline). Hasil harus disertai keterbatasan: jumlah data berbeda dari paper, split asli belum diketahui, evaluator diberi label eksplisit, satu seed, dan overlap piksel RGB antar-split.
+Contoh foto, GT, dan prediksi terpilih dipublikasikan sebagai output tertanam pada notebook, dengan atribusi sumber dataset di bagian referensi. Dataset lengkap, checkpoint, dan cache mask tetap berada di folder lokal sesuai [kebijakan repositori](../README.md#experiment-discipline). Hasil harus disertai keterbatasan: jumlah data berbeda dari paper, split asli belum diketahui, evaluator diberi label eksplisit, satu seed, dan overlap piksel RGB antar-split.

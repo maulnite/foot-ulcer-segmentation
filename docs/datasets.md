@@ -64,7 +64,7 @@ The inspected authors' `fusegnet_train.py` reads masks in grayscale and divides 
 - FUSeg test masks are absent from the linked source; local test Dice cannot be computed from this download.
 - The paper describes Chronic Wound images as crops of images also present in FUSeg. Cross-dataset correspondence has not been resolved; do not combine them as independent samples.
 - Patient independence is not established from filenames.
-- No standalone license file was found at the source repository root. Dataset redistribution terms still need review; no images or masks are committed to this project's repository.
+- No standalone license file was found at the source repository root; dataset redistribution terms remain unresolved. The repository does not mirror the full datasets or standalone mask caches. The [executed CP1 notebook](../notebooks/01_cp1_analysis.ipynb) includes selected source-image, ground-truth, and prediction panels for analysis, with source attribution; this does not establish a dataset license.
 
 ## Local audit artifacts
 
