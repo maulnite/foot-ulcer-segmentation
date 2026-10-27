@@ -65,6 +65,14 @@ python scripts/ablation_status.py
 
 Perintah tersebut hanya membaca status dan log, tanpa memulai training. Artefak utama:
 
+Pemantau tambahan `scripts/monitor_ablations.py` mencatat pemeriksaan kesehatan setiap **30 menit**: progres epoch, metrik validation terbaru, proses supervisor/trainer, error log, dan penggunaan GPU. Catatan terakhir berada di `outputs/ablations/cp1-attention-01/monitor/latest.json`; riwayat lengkap ada di `checks.jsonl`. Pemantau berhenti saat workflow selesai/gagal atau supervisor hilang. Pemantau hanya membaca proses training, tidak melakukan restart atau mengirim notifikasi chat.
+
+```bash
+cat outputs/ablations/cp1-attention-01/monitor/latest.json
+```
+
+Artefak training dan analisis:
+
 ```text
 outputs/ablations/cp1-attention-01/
   verification.json       # State awal, route modul, parameter, hash runtime
