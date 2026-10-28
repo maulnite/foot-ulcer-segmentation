@@ -10,6 +10,8 @@ File utama `01_cp1_analysis.ipynb` menyimpan seluruh output dan dilacak Git. Bui
 
 Notebook perbandingan `02_cp1_attention_ablation.ipynb` dibuat dan dieksekusi otomatis sesudah kedua run ablasi selesai. Isinya mencakup ketiga model, validation/test terpisah, PFOM, error per kategori, biaya training, dan enam contoh tetap dari baseline. [Protokol dan progres ablasi](../docs/attention-ablations.md) menjelaskan pemeriksaan dan lokasi artefaknya.
 
+Reproduksi x-FUSegNet menghasilkan `03_cp1_xfusegnet.ipynb` sesudah kelima fold selesai. Notebook memisahkan validasi OOF internal dari galeri test ensemble tanpa GT; seluruh cell dieksekusi sebelum publikasi. [Protokol x-FUSegNet](../docs/xfusegnet.md) mencatat loop kode penulis, augmentasi khusus, fold, mask fractional, dan batas evaluasi challenge.
+
 ## Menjalankan ulang
 
 Jalankan dari root proyek. Python 3.10 dan artefak run `outputs/runs/cp1-baseline-01/`, data lokal, serta snapshot kode penulis diperlukan. File checkpoint dan data tidak didistribusikan melalui Git.

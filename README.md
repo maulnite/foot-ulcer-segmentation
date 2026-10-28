@@ -8,7 +8,7 @@
 
 ![Task](https://img.shields.io/badge/task-binary_segmentation-0F766E?style=flat-square)
 ![Domain](https://img.shields.io/badge/domain-computer_vision-2563EB?style=flat-square)
-![Stage](https://img.shields.io/badge/stage-first_baseline_completed-0F766E?style=flat-square)
+![Stage](https://img.shields.io/badge/stage-baseline_and_ablations_completed-0F766E?style=flat-square)
 
 [Overview](#overview) · [CP1 results](notebooks/01_cp1_analysis.ipynb) · [Research plan](#research-plan) · [Benchmark](#benchmark) · [Repository](#repository) · [Getting started](#getting-started)
 
@@ -27,7 +27,11 @@ The research follows three steps: **reproduce** the reference method, **rethink*
 24 executed code cells · 6 analysis figures · 5 prediction galleries / 15 examples<br />
 Learning curves, paper comparison, **PFOM boundary evaluation**, error analysis, and source image / ground truth / prediction / overlay panels are embedded and ready to view on GitHub. Test mean PFOM is **0.7782** with the documented empty-edge policy; the sentinel-2 proxy is reported separately in the [PFOM report](reports/cp1-pfom-01.md).
 
-**CP1 attention ablations:** compare **additive-only** and **maxout-only** with the completed full P-scSE baseline. Four regular decoder stages change; the final shorted stage stays fixed. The [ablation protocol](docs/attention-ablations.md) records the rationale, matched initialization, controls, limitations, and sequential workflow. Check live server progress with `python scripts/ablation_status.py`; the workflow generates an executed comparison notebook and report after both runs finish.
+**CP1 attention ablations completed:** full P-scSE achieves **86.42% image Dice / 0.7782 PFOM**, versus additive-only **84.81% / 0.7554** and maxout-only **84.65% / 0.7613**. These are one-seed test comparisons with the same split and evaluator. [Open the executed comparison notebook](notebooks/02_cp1_attention_ablation.ipynb) · [Read the report](reports/cp1-attention-ablation-01.md) · [Protocol](docs/attention-ablations.md).
+
+<!-- XFUSEGNET_STATUS -->
+**x-FUSegNet reproduction:** the [source-code workflow](docs/xfusegnet.md) trains five FUSegNet models on the FUSeg 512×512 dataset and averages their probabilities before thresholding. Monitor server progress with `python scripts/xfusegnet_status.py`. It generates an executed notebook, report, and README update after completion. Local OOF validation and test ensemble inference are reported separately; official challenge test metrics require private test masks.
+<!-- /XFUSEGNET_STATUS -->
 
 ## Research plan
 
