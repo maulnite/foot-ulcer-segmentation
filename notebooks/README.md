@@ -10,7 +10,7 @@ File utama `01_cp1_analysis.ipynb` menyimpan seluruh output dan dilacak Git. Bui
 
 Notebook perbandingan `02_cp1_attention_ablation.ipynb` dibuat dan dieksekusi otomatis sesudah kedua run ablasi selesai. Isinya mencakup ketiga model, validation/test terpisah, PFOM, error per kategori, biaya training, dan enam contoh tetap dari baseline. [Protokol dan progres ablasi](../docs/attention-ablations.md) menjelaskan pemeriksaan dan lokasi artefaknya.
 
-Reproduksi x-FUSegNet menghasilkan `03_cp1_xfusegnet.ipynb` sesudah kelima fold selesai. Notebook memisahkan validasi OOF internal dari galeri test ensemble tanpa GT; seluruh cell dieksekusi sebelum publikasi. [Protokol x-FUSegNet](../docs/xfusegnet.md) mencatat loop kode penulis, augmentasi khusus, fold, mask fractional, dan batas evaluasi challenge.
+**[Notebook x-FUSegNet selesai dan sudah dieksekusi →](03_cp1_xfusegnet.ipynb)**. Seluruh lima code cell selesai tanpa error; empat figure memuat kurva, evaluasi OOF, serta dua galeri dengan total sepuluh contoh. Notebook memisahkan validasi OOF internal (image Dice 88,03%, data Dice 92,72%, PFOM 0,7315) dari 200 prediksi test ensemble tanpa GT. [Protokol x-FUSegNet](../docs/xfusegnet.md) mencatat loop kode penulis, augmentasi khusus, fold, mask fractional, dan batas evaluasi challenge.
 
 ## Menjalankan ulang
 

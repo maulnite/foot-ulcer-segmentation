@@ -30,7 +30,7 @@ Learning curves, paper comparison, **PFOM boundary evaluation**, error analysis,
 **CP1 attention ablations completed:** full P-scSE achieves **86.42% image Dice / 0.7782 PFOM**, versus additive-only **84.81% / 0.7554** and maxout-only **84.65% / 0.7613**. These are one-seed test comparisons with the same split and evaluator. [Open the executed comparison notebook](notebooks/02_cp1_attention_ablation.ipynb) · [Read the report](reports/cp1-attention-ablation-01.md) · [Protocol](docs/attention-ablations.md).
 
 <!-- XFUSEGNET_STATUS -->
-**x-FUSegNet reproduction:** the [source-code workflow](docs/xfusegnet.md) trains five FUSegNet models on the FUSeg 512×512 dataset and averages their probabilities before thresholding. Monitor server progress with `python scripts/xfusegnet_status.py`. It generates an executed notebook, report, and README update after completion. Local OOF validation and test ensemble inference are reported separately; official challenge test metrics require private test masks.
+**x-FUSegNet reproduction completed:** five-fold training on FUSeg 512×512, **88.03% internal OOF image Dice**, and 200 verified test ensemble predictions. Official challenge test metrics remain unavailable because test masks are private. [Open the executed notebook](notebooks/03_cp1_xfusegnet.ipynb) · [Read the report](reports/cp1-xfusegnet-01.md).
 <!-- /XFUSEGNET_STATUS -->
 
 ## Research plan

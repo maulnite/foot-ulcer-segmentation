@@ -10,6 +10,8 @@ Pipeline verification is recorded in [the readiness report](../reports/cp1-pipel
 
 ## Run index
 
+**October 29, x-FUSegNet completed:** all five folds finished at 124/200/156/129/111 epochs, selecting checkpoints 94/198/126/99/81. Total training time was **22.57 hours**. All 1,010 internal OOF predictions and 200 five-model test means/masks were verified. Internal OOF: **88.03% image Dice, 92.72% data Dice, 0.7315 PFOM**. Official test metrics remain unavailable because test masks are absent locally. [Completed report](../reports/cp1-xfusegnet-01.md) · [Fully executed notebook](../notebooks/03_cp1_xfusegnet.ipynb).
+
 **October 28, x-FUSegNet reproduction:** source loop from `xfusegnet_train.py` is executed with recording/resume hooks; numeric AST parity, five-fold native-resolution GPU smoke, and frozen training dependencies are checked before launch. The 1,010-image labeled FUSeg pool uses 808/202 per fold; 200 unlabeled test images are reserved for mean-probability ensemble inference. OOF validation is reported separately from official challenge test metrics, which cannot be computed locally. [Protocol and live status](xfusegnet.md).
 
 **October 27, attention branch ablations:** predeclared additive-only and maxout-only runs against the completed full baseline. Only decoder stages 0–3 change. Matched initial tensors, split, frozen training dependencies, source engine, and evaluator were verified. All 26 tests and both GPU smoke tests passed. [Protocol and monitoring](attention-ablations.md); run results are recorded by the sequential workflow after training, without treating diagnostic fixture outputs as results.
@@ -21,7 +23,7 @@ Pipeline verification is recorded in [the readiness report](../reports/cp1-pipel
 | `cp1-baseline-01` | Reproduce the public FUSegNet implementation | Chronic Wound source data; 707 train / 124 validation / 278 test | 42 | `configs/baseline.json` | Completed: test data-based Dice 92.29%; image-based Dice 86.42% | `outputs/runs/cp1-baseline-01/` |
 | `cp1-attention-additive-01` | Measure contribution of the maxout branch by removing it | Same frozen Chronic Wound split | 42 | `configs/ablation/additive.json` | See workflow / final comparison report; no pre-training accuracy claim | `outputs/runs/cp1-attention-additive-01/` |
 | `cp1-attention-maxout-01` | Measure contribution of the additive branch by removing it | Same frozen Chronic Wound split | 42 | `configs/ablation/maxout.json` | See workflow / final comparison report; no pre-training accuracy claim | `outputs/runs/cp1-attention-maxout-01/` |
-| `cp1-xfusegnet-01` | Reproduce five-fold FUSegNet and probability-mean ensemble | FUSeg 512×512; 1,010 labeled pool, 200 unlabeled test | 42, continuous RNG across folds | `configs/xfusegnet.json` | See workflow; local OOF and official test kept separate | `outputs/runs/cp1-xfusegnet-01/` |
+| `cp1-xfusegnet-01` | Reproduce five-fold FUSegNet and probability-mean ensemble | FUSeg 512×512; 1,010 labeled pool, 200 unlabeled test | 42, continuous RNG across folds | `configs/xfusegnet.json` | Completed: internal OOF image Dice 88.03%, data Dice 92.72%, PFOM 0.7315; official test score unavailable | `outputs/runs/cp1-xfusegnet-01/` |
 
 ## Completed run: cp1-baseline-01
 
