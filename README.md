@@ -56,8 +56,8 @@ FUSegNet combines a pretrained **EfficientNet-B7 encoder** with a decoder using 
 
 | Dataset / evaluation | Model | Paper Dice | Our Dice |
 | :--- | :--- | ---: | ---: |
-| Chronic Wound · data-based | FUSegNet | **92.70%** | — |
-| Chronic Wound · image-based | FUSegNet | **86.05%** | — |
+| Chronic Wound · data-based | FUSegNet | **92.70%** | **92.29%** |
+| Chronic Wound · image-based | FUSegNet | **86.05%** | **86.42%** |
 | FUSeg Challenge 2021 · data-based | x-FUSegNet | **89.23%** | — |
 
 The table above lists paper reference protocols. Our completed source-data run uses 278 test images rather than the paper's stated 200, so its **92.29% / 86.42%** Dice scores are reported separately in the [run report](reports/cp1-baseline-01.md).
