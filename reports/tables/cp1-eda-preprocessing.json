@@ -1,0 +1,725 @@
+{
+  "sample_id": "a2de360b4a138ad94a17ba6bce918792_0.png",
+  "split": "actual_train",
+  "selection_reason": "Highest selected positive quantile (Q90), for visibility; no test used",
+  "source_path": "source/upstream/FUSegNet/60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc/fusegnet_train.py",
+  "source_sha256": "2b3a7db429898e4cada9a30ef12383c09c4f1891fdb8556534043c7d44aaedfd",
+  "safe_loader": "foot_ulcer_segmentation.reference.load_reference extracts definitions via AST; training entrypoint not imported",
+  "source_definitions": {
+    "Dataset": {
+      "line": 18,
+      "ast_sha256": "5244aa928ff3a777b396c21cd6ad457ac78a47b876283c57835c586487326e9e"
+    },
+    "get_training_augmentation": {
+      "line": 73,
+      "ast_sha256": "f0634b5b8c37c1fd74e427667381d987b82275b111ed06b1254ff4bcc3c2cec5"
+    },
+    "get_validation_augmentation": {
+      "line": 121,
+      "ast_sha256": "5e3c94b98a48e2d1083f68404d0db8334d3c2c2f1b16c4888ebe6201c7bf3322"
+    },
+    "to_tensor": {
+      "line": 129,
+      "ast_sha256": "7f5c552b55de4844fb25c1a1f6c772b99f682d95706e3a3724d72654254c14ae"
+    },
+    "get_preprocessing": {
+      "line": 133,
+      "ast_sha256": "691c06d023f7f71e4d5491ba20c338804585250cec226b6f1c9a5731a7da819b"
+    }
+  },
+  "sequence": [
+    "OpenCV read photo BGR -> RGB uint8 HWC",
+    "OpenCV mask grayscale /255 float64 HWC1",
+    "Training augmentation with paired image/mask kwargs",
+    "ImageNet normalization on photo only",
+    "HWC -> CHW float32 for photo and mask"
+  ],
+  "training_augmentation": {
+    "__version__": "1.3.0",
+    "transform": {
+      "__class_fullname__": "Compose",
+      "p": 0.9,
+      "transforms": [
+        {
+          "__class_fullname__": "OneOf",
+          "p": 0.5,
+          "transforms": [
+            {
+              "__class_fullname__": "HorizontalFlip",
+              "always_apply": false,
+              "p": 0.8
+            },
+            {
+              "__class_fullname__": "VerticalFlip",
+              "always_apply": false,
+              "p": 0.4
+            }
+          ]
+        },
+        {
+          "__class_fullname__": "OneOf",
+          "p": 0.9,
+          "transforms": [
+            {
+              "__class_fullname__": "ShiftScaleRotate",
+              "always_apply": false,
+              "p": 1,
+              "shift_limit_x": [
+                0,
+                0
+              ],
+              "shift_limit_y": [
+                0,
+                0
+              ],
+              "scale_limit": [
+                -0.5,
+                0.5
+              ],
+              "rotate_limit": [
+                0,
+                0
+              ],
+              "interpolation": 1,
+              "border_mode": 0,
+              "value": null,
+              "mask_value": null,
+              "rotate_method": "largest_box"
+            },
+            {
+              "__class_fullname__": "ShiftScaleRotate",
+              "always_apply": false,
+              "p": 1,
+              "shift_limit_x": [
+                0,
+                0
+              ],
+              "shift_limit_y": [
+                0,
+                0
+              ],
+              "scale_limit": [
+                0.0,
+                0.0
+              ],
+              "rotate_limit": [
+                -30,
+                30
+              ],
+              "interpolation": 1,
+              "border_mode": 0,
+              "value": null,
+              "mask_value": null,
+              "rotate_method": "largest_box"
+            },
+            {
+              "__class_fullname__": "ShiftScaleRotate",
+              "always_apply": false,
+              "p": 1,
+              "shift_limit_x": [
+                -0.1,
+                0.1
+              ],
+              "shift_limit_y": [
+                -0.1,
+                0.1
+              ],
+              "scale_limit": [
+                0.0,
+                0.0
+              ],
+              "rotate_limit": [
+                0,
+                0
+              ],
+              "interpolation": 1,
+              "border_mode": 0,
+              "value": null,
+              "mask_value": null,
+              "rotate_method": "largest_box"
+            },
+            {
+              "__class_fullname__": "ShiftScaleRotate",
+              "always_apply": false,
+              "p": 1,
+              "shift_limit_x": [
+                -0.1,
+                0.1
+              ],
+              "shift_limit_y": [
+                -0.1,
+                0.1
+              ],
+              "scale_limit": [
+                -0.5,
+                0.5
+              ],
+              "rotate_limit": [
+                -30,
+                30
+              ],
+              "interpolation": 1,
+              "border_mode": 0,
+              "value": null,
+              "mask_value": null,
+              "rotate_method": "largest_box"
+            }
+          ]
+        },
+        {
+          "__class_fullname__": "OneOf",
+          "p": 0.2,
+          "transforms": [
+            {
+              "__class_fullname__": "Perspective",
+              "always_apply": false,
+              "p": 1,
+              "scale": [
+                0.05,
+                0.1
+              ],
+              "keep_size": true,
+              "pad_mode": 0,
+              "pad_val": 0,
+              "mask_pad_val": 0,
+              "fit_output": false,
+              "interpolation": 1
+            },
+            {
+              "__class_fullname__": "GaussNoise",
+              "always_apply": false,
+              "p": 1,
+              "var_limit": [
+                10.0,
+                50.0
+              ],
+              "per_channel": true,
+              "mean": 0
+            },
+            {
+              "__class_fullname__": "Sharpen",
+              "always_apply": false,
+              "p": 1,
+              "alpha": [
+                0.2,
+                0.5
+              ],
+              "lightness": [
+                0.5,
+                1.0
+              ]
+            },
+            {
+              "__class_fullname__": "Blur",
+              "always_apply": false,
+              "p": 1,
+              "blur_limit": [
+                3,
+                3
+              ]
+            },
+            {
+              "__class_fullname__": "MotionBlur",
+              "always_apply": false,
+              "p": 1,
+              "blur_limit": [
+                3,
+                3
+              ],
+              "allow_shifted": true
+            }
+          ]
+        },
+        {
+          "__class_fullname__": "OneOf",
+          "p": 0.2,
+          "transforms": [
+            {
+              "__class_fullname__": "CLAHE",
+              "always_apply": false,
+              "p": 1,
+              "clip_limit": [
+                1,
+                4.0
+              ],
+              "tile_grid_size": [
+                8,
+                8
+              ]
+            },
+            {
+              "__class_fullname__": "RandomBrightnessContrast",
+              "always_apply": false,
+              "p": 1,
+              "brightness_limit": [
+                -0.2,
+                0.2
+              ],
+              "contrast_limit": [
+                -0.2,
+                0.2
+              ],
+              "brightness_by_max": true
+            },
+            {
+              "__class_fullname__": "RandomGamma",
+              "always_apply": false,
+              "p": 1,
+              "gamma_limit": [
+                80,
+                120
+              ],
+              "eps": null
+            },
+            {
+              "__class_fullname__": "HueSaturationValue",
+              "always_apply": false,
+              "p": 1,
+              "hue_shift_limit": [
+                -20,
+                20
+              ],
+              "sat_shift_limit": [
+                -30,
+                30
+              ],
+              "val_shift_limit": [
+                -20,
+                20
+              ]
+            }
+          ]
+        }
+      ],
+      "bbox_params": null,
+      "keypoint_params": null,
+      "additional_targets": {}
+    }
+  },
+  "transform_targets": [
+    {
+      "class": "HorizontalFlip",
+      "p": 0.8,
+      "target_kind": "paired geometry",
+      "targets": [
+        "bboxes",
+        "image",
+        "keypoints",
+        "mask",
+        "masks"
+      ]
+    },
+    {
+      "class": "VerticalFlip",
+      "p": 0.4,
+      "target_kind": "paired geometry",
+      "targets": [
+        "bboxes",
+        "image",
+        "keypoints",
+        "mask",
+        "masks"
+      ]
+    },
+    {
+      "class": "ShiftScaleRotate",
+      "p": 1,
+      "target_kind": "paired geometry",
+      "targets": [
+        "bboxes",
+        "image",
+        "keypoints",
+        "mask",
+        "masks"
+      ]
+    },
+    {
+      "class": "ShiftScaleRotate",
+      "p": 1,
+      "target_kind": "paired geometry",
+      "targets": [
+        "bboxes",
+        "image",
+        "keypoints",
+        "mask",
+        "masks"
+      ]
+    },
+    {
+      "class": "ShiftScaleRotate",
+      "p": 1,
+      "target_kind": "paired geometry",
+      "targets": [
+        "bboxes",
+        "image",
+        "keypoints",
+        "mask",
+        "masks"
+      ]
+    },
+    {
+      "class": "ShiftScaleRotate",
+      "p": 1,
+      "target_kind": "paired geometry",
+      "targets": [
+        "bboxes",
+        "image",
+        "keypoints",
+        "mask",
+        "masks"
+      ]
+    },
+    {
+      "class": "Perspective",
+      "p": 1,
+      "target_kind": "paired geometry",
+      "targets": [
+        "bboxes",
+        "image",
+        "keypoints",
+        "mask",
+        "masks"
+      ]
+    },
+    {
+      "class": "GaussNoise",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    },
+    {
+      "class": "Sharpen",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    },
+    {
+      "class": "Blur",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    },
+    {
+      "class": "MotionBlur",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    },
+    {
+      "class": "CLAHE",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    },
+    {
+      "class": "RandomBrightnessContrast",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    },
+    {
+      "class": "RandomGamma",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    },
+    {
+      "class": "HueSaturationValue",
+      "p": 1,
+      "target_kind": "image only",
+      "targets": [
+        "image"
+      ]
+    }
+  ],
+  "validation_test_augmentation": {
+    "__version__": "1.3.0",
+    "transform": {
+      "__class_fullname__": "Compose",
+      "p": 1.0,
+      "transforms": [],
+      "bbox_params": null,
+      "keypoint_params": null,
+      "additional_targets": {}
+    }
+  },
+  "validation_test_training_augmentation_applied": false,
+  "normalization": {
+    "input_space": "RGB",
+    "input_range": [
+      0,
+      1
+    ],
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "no_additional_resize": true,
+  "native_image_shape": [
+    224,
+    224,
+    3
+  ],
+  "mask_before_tensor_shape": [
+    224,
+    224,
+    1
+  ],
+  "model_instantiated": false,
+  "training_executed": false,
+  "inference_executed": false,
+  "geometric": {
+    "seed": 20261030,
+    "transform": {
+      "__version__": "1.3.0",
+      "transform": {
+        "__class_fullname__": "ShiftScaleRotate",
+        "always_apply": false,
+        "p": 1,
+        "shift_limit_x": [
+          0,
+          0
+        ],
+        "shift_limit_y": [
+          0,
+          0
+        ],
+        "scale_limit": [
+          0.0,
+          0.0
+        ],
+        "rotate_limit": [
+          -30,
+          30
+        ],
+        "interpolation": 1,
+        "border_mode": 0,
+        "value": null,
+        "mask_value": null,
+        "rotate_method": "largest_box"
+      }
+    },
+    "replay": {
+      "__class_fullname__": "ReplayCompose",
+      "params": null,
+      "transforms": [
+        {
+          "__class_fullname__": "ShiftScaleRotate",
+          "always_apply": false,
+          "p": 1,
+          "shift_limit_x": [
+            0,
+            0
+          ],
+          "shift_limit_y": [
+            0,
+            0
+          ],
+          "scale_limit": [
+            0.0,
+            0.0
+          ],
+          "rotate_limit": [
+            -30,
+            30
+          ],
+          "interpolation": 1,
+          "border_mode": 0,
+          "value": null,
+          "mask_value": null,
+          "rotate_method": "largest_box",
+          "params": {
+            "angle": 21.930167114061994,
+            "scale": 1.0,
+            "dx": 0.0,
+            "dy": 0.0
+          },
+          "applied": true
+        }
+      ],
+      "bbox_params": null,
+      "keypoint_params": null,
+      "additional_targets": {},
+      "applied": true
+    },
+    "same_sampled_parameters_verified": true
+  },
+  "intensity": {
+    "seed": 20261032,
+    "transform": {
+      "__version__": "1.3.0",
+      "transform": {
+        "__class_fullname__": "RandomBrightnessContrast",
+        "always_apply": false,
+        "p": 1,
+        "brightness_limit": [
+          -0.2,
+          0.2
+        ],
+        "contrast_limit": [
+          -0.2,
+          0.2
+        ],
+        "brightness_by_max": true
+      }
+    },
+    "replay": {
+      "__class_fullname__": "ReplayCompose",
+      "params": null,
+      "transforms": [
+        {
+          "__class_fullname__": "RandomBrightnessContrast",
+          "always_apply": false,
+          "p": 1,
+          "brightness_limit": [
+            -0.2,
+            0.2
+          ],
+          "contrast_limit": [
+            -0.2,
+            0.2
+          ],
+          "brightness_by_max": true,
+          "params": {
+            "alpha": 1.0265223972354294,
+            "beta": -0.13999388674283325
+          },
+          "applied": true
+        }
+      ],
+      "bbox_params": null,
+      "keypoint_params": null,
+      "additional_targets": {},
+      "applied": true
+    },
+    "mask_unchanged_verified": true
+  },
+  "demo_probability_policy": "DEMO TRANSFORMASI: inner source branch isolated under ReplayCompose(p=1). This is NOT the probability of that branch in training.",
+  "demos_displayed_before_imagenet_normalization": true,
+  "tensors": {
+    "original": {
+      "image": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/original/image_chw.npy",
+        "sha256": "8e8854d02c2f2e399bbefd68139bd54d53e08c951216020a747bbe1e451da4e4",
+        "shape": [
+          3,
+          224,
+          224
+        ],
+        "dtype": "float32",
+        "min": -2.1179039478302,
+        "max": 2.640000104904175
+      },
+      "mask": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/original/mask_chw.npy",
+        "sha256": "b8d0d0dab9c93c8b56f4fb445d15298342f595fd030f7e40ed901d2d162b5d36",
+        "shape": [
+          1,
+          224,
+          224
+        ],
+        "dtype": "float32",
+        "min": 0.0,
+        "max": 1.0
+      },
+      "display_image": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/original/image.png",
+        "sha256": "bb61613597408c604216640d04356ec69bb9ab4b27f171ffb8f35819fb1259c0"
+      },
+      "display_mask": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/original/mask.png",
+        "sha256": "27af82cc7e19f17c0ff794d146287633a4d2849ee86998741b46af41e8e1de67"
+      }
+    },
+    "geometric": {
+      "image": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/geometric/image_chw.npy",
+        "sha256": "600f291c56ac651b0df1f0d7c437f3d50af451a67602ea384203b08c4c2ec71e",
+        "shape": [
+          3,
+          224,
+          224
+        ],
+        "dtype": "float32",
+        "min": -2.1179039478302,
+        "max": 2.43084979057312
+      },
+      "mask": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/geometric/mask_chw.npy",
+        "sha256": "c1072d413feadd8b2dac306d74af72dc69a1563c2d0b98aef3c0733303abbc33",
+        "shape": [
+          1,
+          224,
+          224
+        ],
+        "dtype": "float32",
+        "min": 0.0,
+        "max": 1.0
+      },
+      "display_image": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/geometric/image.png",
+        "sha256": "eb8b8ac8cdd0fca7667731e9abd25f728cbeca33ec4ad3832bc0f8a94791fe0e"
+      },
+      "display_mask": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/geometric/mask.png",
+        "sha256": "1b6c5359997aa0eca4f3dfeebccd873c83f2b92740ffbe559aed8986ee5d8beb"
+      }
+    },
+    "intensity": {
+      "image": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/intensity/image_chw.npy",
+        "sha256": "eb97ee7f3b4210ea2ed51297b110a2863843cfc89f53f168c851a36031b6d83e",
+        "shape": [
+          3,
+          224,
+          224
+        ],
+        "dtype": "float32",
+        "min": -2.1179039478302,
+        "max": 2.1345534324645996
+      },
+      "mask": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/intensity/mask_chw.npy",
+        "sha256": "b8d0d0dab9c93c8b56f4fb445d15298342f595fd030f7e40ed901d2d162b5d36",
+        "shape": [
+          1,
+          224,
+          224
+        ],
+        "dtype": "float32",
+        "min": 0.0,
+        "max": 1.0
+      },
+      "display_image": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/intensity/image.png",
+        "sha256": "e92102951ff54308f725109c7eedc7483be776c950f4821b5598e005444fa2c4"
+      },
+      "display_mask": {
+        "path": "outputs/analysis/cp1-eda-01/preprocessing/intensity/mask.png",
+        "sha256": "27af82cc7e19f17c0ff794d146287633a4d2849ee86998741b46af41e8e1de67"
+      }
+    }
+  },
+  "x_fusegnet_difference": "Baseline rotate-only shift_limit=0; xfusegnet_train.py rotate branch shift_limit=0.1. Demo uses baseline."
+}

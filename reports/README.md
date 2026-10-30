@@ -8,6 +8,7 @@ This directory contains reviewed experiment summaries, aggregate tables, permitt
 - [CP1 PFOM boundary evaluation](cp1-pfom-01.md): per-image and per-category boundary scores, empty-edge conventions, and verification.
 - [Completed attention branch ablations](cp1-attention-ablation-01.md): both single-branch variants, full baseline, and verified comparison.
 - [Completed x-FUSegNet reproduction](cp1-xfusegnet-01.md): five-fold training, internal OOF validation, and 200 verified test ensemble predictions.
+- [Actual-train EDA and original preprocessing](cp1-eda-01.md): 707 saved-manifest training pairs, foreground/background imbalance, mask-area distribution, deterministic photo–GT examples, and paired augmentation demos. Includes the [executed notebook](../notebooks/04_cp1_eda.ipynb), [PNG/SVG figures](figures/cp1-eda-01/), tables, manifest copy, replay metadata, and verification. Descriptive EDA does not establish method superiority.
 
 The [fully executed analysis notebook](../notebooks/01_cp1_analysis.ipynb) includes all tables, aggregate figures, and five prediction galleries in Git. See the [notebook instructions](../notebooks/README.md) to regenerate it.
 

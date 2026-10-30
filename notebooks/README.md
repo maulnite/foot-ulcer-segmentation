@@ -12,6 +12,10 @@ Notebook perbandingan `02_cp1_attention_ablation.ipynb` dibuat dan dieksekusi ot
 
 **[Notebook x-FUSegNet selesai dan sudah dieksekusi →](03_cp1_xfusegnet.ipynb)**. Seluruh lima code cell selesai tanpa error; empat figure memuat kurva, evaluasi OOF, serta dua galeri dengan total sepuluh contoh. Notebook memisahkan validasi OOF internal (image Dice 88,03%, data Dice 92,72%, PFOM 0,7315) dari 200 prediksi test ensemble tanpa GT. [Protokol x-FUSegNet](../docs/xfusegnet.md) mencatat loop kode penulis, augmentasi khusus, fold, mask fractional, dan batas evaluasi challenge.
 
+**[Notebook EDA train aktual untuk slide CP1 →](04_cp1_eda.ipynb)**. Delapan code cell sudah dieksekusi; empat figure menampilkan komposisi piksel, distribusi luas/posisi, foto–GT train yang dipilih dengan aturan tetap, serta demo geometri/intensitas dari pipeline asli baseline. Analisis memakai tepat 707 train aktual dari manifest run, tanpa training atau inference. [Laporan](../reports/cp1-eda-01.md), [figure PNG/SVG](../reports/figures/cp1-eda-01/), [CSV per gambar](../reports/tables/cp1-eda-per-image.csv), dan [manifest byte-identik](../reports/tables/cp1-eda-split-manifest.json) tersedia di Git.
+
+Untuk membangkitkan EDA kembali dengan raw data dan artefak baseline lokal, jalankan `.venv-analysis/bin/python scripts/build_cp1_eda.py`. Builder memakai `.venv-training` yang dipin untuk augmentasi dan `.venv-analysis` untuk plot/notebook. Tidak menjalankan model atau membuat ulang split. Tensor preprocessing tetap lokal; metadata/replay dan figure dipublikasikan di `reports/`.
+
 ## Menjalankan ulang
 
 Jalankan dari root proyek. Python 3.10 dan artefak run `outputs/runs/cp1-baseline-01/`, data lokal, serta snapshot kode penulis diperlukan. File checkpoint dan data tidak didistribusikan melalui Git.

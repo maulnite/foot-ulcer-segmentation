@@ -33,6 +33,9 @@ Learning curves, paper comparison, **PFOM boundary evaluation**, error analysis,
 **x-FUSegNet reproduction completed:** five-fold training on FUSeg 512×512, **88.03% internal OOF image Dice**, and 200 verified test ensemble predictions. Official challenge test metrics remain unavailable because test masks are private. [Open the executed notebook](notebooks/03_cp1_xfusegnet.ipynb) · [Read the report](reports/cp1-xfusegnet-01.md).
 <!-- /XFUSEGNET_STATUS -->
 
+**[Open the executed CP1 train-data EDA →](notebooks/04_cp1_eda.ipynb)** · [Report](reports/cp1-eda-01.md) · [Slide figures, PNG/SVG](reports/figures/cp1-eda-01/).
+The saved baseline manifest identifies **707 actual training pairs**: wound pixels occupy **2.70%** of the full mask canvas, with **43 empty GT masks**. The notebook connects these observations to the paper's rationale for Focal Loss and augmentation, and demonstrates the original paired preprocessing pipeline. These descriptive findings do not establish method superiority. Full-canvas padding, retained duplicates, and unverified patient independence remain limitations. The [manifest copy](reports/tables/cp1-eda-split-manifest.json), per-image table, replay configuration, and verification record are included; raw datasets, checkpoints, and tensors stay local.
+
 ## Research plan
 
 | Phase | Focus | Evidence to produce |

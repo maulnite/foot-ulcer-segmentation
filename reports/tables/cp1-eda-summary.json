@@ -1,0 +1,280 @@
+{
+  "created_at_utc": "2026-10-30T07:50:23.848343+00:00",
+  "dataset": "Chronic Wound public source",
+  "split": "actual_train",
+  "n_images": 707,
+  "n_masks": 707,
+  "n_empty_gt": 43,
+  "n_positive_gt": 664,
+  "empty_gt_fraction": 0.06082036775106082,
+  "empty_gt_percent": 6.082036775106082,
+  "n_unique_filenames": 707,
+  "resolutions": [
+    {
+      "height": 224,
+      "width": 224,
+      "n_images": 707,
+      "n_masks": 707
+    }
+  ],
+  "mask_unique_values_raw": [
+    0,
+    255
+  ],
+  "total_foreground_pixels": 958034,
+  "total_background_pixels": 34516398,
+  "total_mask_pixels": 35474432,
+  "foreground_pct_global": 2.7006323878561327,
+  "background_pct_global": 97.29936761214387,
+  "background_foreground_ratio": 36.02836433780012,
+  "zero_foreground_denominator_policy": "JSON null when total foreground is zero; ratio is undefined",
+  "mean_per_image_area_percent_all": 2.7006323878561327,
+  "uniform_resolution": true,
+  "global_equals_mean_per_image_when_uniform": true,
+  "area_statistics_units": "fraction of full H*W canvas; multiply by 100 for percent",
+  "quantile_method": "numpy.quantile(method=linear)",
+  "area_statistics_all": {
+    "n": 707,
+    "min": 0.0,
+    "q1": 0.007732780612244898,
+    "median": 0.017538265306122448,
+    "q3": 0.035813934948979595,
+    "max": 0.27347735969387754,
+    "mean": 0.027006323878561327
+  },
+  "area_statistics_positive": {
+    "n": 664,
+    "min": 5.978954081632653e-05,
+    "q1": 0.008799027423469389,
+    "median": 0.018943319515306124,
+    "q3": 0.03714923469387755,
+    "max": 0.27347735969387754,
+    "mean": 0.028755227382745267
+  },
+  "area_bins": [
+    {
+      "label": "Kosong",
+      "lower_fraction": 0.0,
+      "upper_fraction": 0.0,
+      "interval": "[0,0]",
+      "count": 43,
+      "percent_of_train": 6.082036775106082
+    },
+    {
+      "label": ">0–0,5%",
+      "lower_fraction": 0.0,
+      "upper_fraction": 0.005,
+      "interval": "(lower,upper]",
+      "count": 76,
+      "percent_of_train": 10.74964639321075
+    },
+    {
+      "label": ">0,5–1%",
+      "lower_fraction": 0.005,
+      "upper_fraction": 0.01,
+      "interval": "(lower,upper]",
+      "count": 119,
+      "percent_of_train": 16.831683168316832
+    },
+    {
+      "label": ">1–5%",
+      "lower_fraction": 0.01,
+      "upper_fraction": 0.05,
+      "interval": "(lower,upper]",
+      "count": 359,
+      "percent_of_train": 50.777934936350775
+    },
+    {
+      "label": ">5–10%",
+      "lower_fraction": 0.05,
+      "upper_fraction": 0.1,
+      "interval": "(lower,upper]",
+      "count": 94,
+      "percent_of_train": 13.295615275813297
+    },
+    {
+      "label": ">10%",
+      "lower_fraction": 0.1,
+      "upper_fraction": 1.0,
+      "interval": "(lower,upper]",
+      "count": 16,
+      "percent_of_train": 2.263083451202263
+    }
+  ],
+  "bin_interpretation": "Descriptive analysis bins, not clinical categories or author C1–C9",
+  "centroid_definition": "Mean foreground pixel-center coordinates: mean(x+0.5)/W, mean(y+0.5)/H; undefined on empty masks",
+  "centroid_statistics_positive": {
+    "x": {
+      "n": 664,
+      "min": 0.0037202380952380955,
+      "q1": 0.1181832250205494,
+      "median": 0.14705827643557423,
+      "q3": 0.1878906524462789,
+      "max": 0.551072532378336,
+      "mean": 0.16131218971600994
+    },
+    "y": {
+      "n": 664,
+      "min": 0.0037202380952380955,
+      "q1": 0.11917738936233835,
+      "median": 0.2387481594803249,
+      "q3": 0.32513810225085793,
+      "max": 0.5569578769517595,
+      "mean": 0.23641173561665588
+    }
+  },
+  "denominator": "All single-channel mask pixels across actual train; full canvas including existing black padding",
+  "mask_policy": "Verify stored raw values are a subset of {0,255} and RGB mask channels agree BEFORE binarization; foreground is grayscale ==255, background ==0",
+  "dataset_unchanged": true,
+  "deduplication_applied": false,
+  "within_train_rgb_duplicate_groups": [
+    [
+      "4cb7afba9a7708f2dd1fe874de7cc56d_0.png",
+      "440078c6936219a7a496ebc67228d5d5_0.png"
+    ],
+    [
+      "440078c6936219a7a496ebc67228d5d5_1.png",
+      "4cb7afba9a7708f2dd1fe874de7cc56d_1.png"
+    ],
+    [
+      "1576e366442683aac204404e081eb938_2.png",
+      "22476241644edd0ccb41dc9d27c26d3b_2.png"
+    ],
+    [
+      "816b2c8cbdaa48026c25f79587082816_0.png",
+      "870640cd12cfdfe8366e97db14227891_0.png"
+    ],
+    [
+      "1576e366442683aac204404e081eb938_1.png",
+      "22476241644edd0ccb41dc9d27c26d3b_1.png"
+    ],
+    [
+      "6fed027b91cec55f75de19f29b9a972f_0.png",
+      "b9fff21bebb15ba7d8c3f54063e37799_0.png"
+    ],
+    [
+      "1c27d8289cbfa6a1a0da01d7ec757a46_0.png",
+      "3ed2bf6e2ef1d94d42c949a841a561d3_0.png"
+    ],
+    [
+      "97afdc101911ffc33d0fc166cacbaf1b_0.png",
+      "52ef1e670e4b103c7fd06e24ba0a07ec_0.png"
+    ],
+    [
+      "22476241644edd0ccb41dc9d27c26d3b_3.png",
+      "1576e366442683aac204404e081eb938_3.png"
+    ],
+    [
+      "484aa6be0ea024aadc8f154b7c637a6f_0.png",
+      "5f1aa951a7c2daf54acd85dcd6fe5c06_0.png"
+    ],
+    [
+      "9eb946a13df2fec02decd7a9a8c24664_0.png",
+      "302d6a35b8498b1e57120c3dc277b097_0.png"
+    ]
+  ],
+  "overlap_limitations": "Existing cross-split RGB overlap audit is retained; no validation/test pixel EDA is computed; patient independence remains unverified",
+  "prior_overlap_audit": "reports/cp1-analysis-01.md",
+  "manifest": {
+    "run_id": "cp1-baseline-01",
+    "manifest_path": "outputs/runs/cp1-baseline-01/split-manifest.json",
+    "manifest_sha256": "596e3b0d61e372eb9001bbd8c567f6345e986e498f74b3514b96f6f9f954e5a2",
+    "manifest_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+    "live_manifest_path": "data/splits/chronic_wound_author_code/manifest.json",
+    "live_manifest_same_bytes": true,
+    "config_path": "outputs/runs/cp1-baseline-01/config.json",
+    "config_sha256": "0231f9008e0cf6d311fb201af386b317f44122355a002a4a1a83bc10796d7e41",
+    "config_fingerprint": "86ee03891cb5da1bda31efcba4332b52f345f5a8ae8057b1fb600e6e11dcbc8b",
+    "baseline_pipeline_sha256": {
+      "src/foot_ulcer_segmentation/cli.py": "a01b8714efa4163308c12db82fcc52e0f57a83d7669033dd4b30c56678bd4718",
+      "src/foot_ulcer_segmentation/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/__init__.py": "3e45519de55e8449d0cb93caca41dff5319f8ff1bba4ecc9bcac08739f40939b",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d"
+    },
+    "training_membership_reconstructed": false,
+    "new_split_created": false,
+    "train_test_filename_collisions": 0
+  },
+  "example_selection": {
+    "seed": null,
+    "rule": "Deterministic area-quantile proximity then lexical filename; distinct IDs, plus first lexical empty GT",
+    "examples": [
+      {
+        "sample_id": "87c73026a0a864fdcddb7e323441fc3b_1.png",
+        "label": "Luas rendah · Q10 positif",
+        "quantile": 0.1,
+        "target_area_fraction": 0.004522082270408163,
+        "area_fraction": 0.0045041454081632655,
+        "reason": "Nearest positive-mask area to the linear quantile; distinct IDs; ties by filename"
+      },
+      {
+        "sample_id": "7d2c0b2e71f8641a53815e928581b0fc_0.png",
+        "label": "Luas median · Q50 positif",
+        "quantile": 0.5,
+        "target_area_fraction": 0.018943319515306124,
+        "area_fraction": 0.019013073979591837,
+        "reason": "Nearest positive-mask area to the linear quantile; distinct IDs; ties by filename"
+      },
+      {
+        "sample_id": "a2de360b4a138ad94a17ba6bce918792_0.png",
+        "label": "Luas tinggi · Q90 positif",
+        "quantile": 0.9,
+        "target_area_fraction": 0.06673110650510206,
+        "area_fraction": 0.06684470663265306,
+        "reason": "Nearest positive-mask area to the linear quantile; distinct IDs; ties by filename"
+      },
+      {
+        "sample_id": "0272003ec882522e7bec012aac93cc26_0.png",
+        "label": "GT kosong",
+        "quantile": null,
+        "target_area_fraction": 0.0,
+        "area_fraction": 0.0,
+        "reason": "Lexicographically first empty GT in actual train"
+      }
+    ]
+  },
+  "demo_seed": 20261030,
+  "dependencies": {
+    "data_and_augmentation": {
+      "python": "3.10.4",
+      "interpreter": "/home/nafisnaufal1426/fuseg/orie/.venv-training/bin/python",
+      "numpy": "1.22.4",
+      "pandas": "1.4.2",
+      "Pillow": "9.1.1",
+      "opencv-python-headless": "4.6.0.66",
+      "albumentations": "1.3.0",
+      "torch": "1.11.0+cu113",
+      "torchvision": "0.12.0+cu113"
+    },
+    "plot_and_notebook": {
+      "python": "3.10.4",
+      "numpy": "1.24.1",
+      "pandas": "1.5.3",
+      "Pillow": "9.4.0",
+      "matplotlib": "3.7.5",
+      "nbformat": "5.10.4",
+      "nbclient": "0.10.2",
+      "ipykernel": "6.29.5"
+    }
+  },
+  "training_performed": false,
+  "model_inference_performed": false,
+  "validation_test_pixel_statistics_computed": false,
+  "generator_source_sha256": "7b556d2f0b10c09c24964f79cc005c78bea73b1f4105a559e4c465e2cb79e855",
+  "preprocessing_metadata_path": "outputs/analysis/cp1-eda-01/preprocessing/metadata.json",
+  "preprocessing_metadata_sha256": "fcbe33c9f06ea70d63a5061daf4a26ba1399b1d2d45ba94a4878e6b744755aed",
+  "per_image_csv_sha256": "8708e9e089974ee7b3528418d208eb56e0414cd3509090fc30554c450eec4890",
+  "builder_source_sha256": "d7c0cbe57039bed444c63ccd0771b31c2fb968ac007b4cd5dfbcf41e5f6098b9",
+  "public_exports": {
+    "figures_directory": "reports/figures/cp1-eda-01",
+    "manifest_path": "reports/tables/cp1-eda-split-manifest.json",
+    "preprocessing_metadata_path": "reports/tables/cp1-eda-preprocessing.json",
+    "verification_path": "reports/tables/cp1-eda-verification.json",
+    "raw_data_checkpoints_and_preprocessing_tensors": "Remain local; not published"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "membership_matches_saved_run": true,
+  "n_actual_train_verified": 707,
+  "pairs_unique_and_matching": true,
+  "raw_image_mask_sha256_verified": true,
+  "raw_pixel_counts_recomputed": true,
+  "binary_values_checked_before_binarization": true,
+  "pixel_accounting_valid": true,
+  "area_fractions_in_range": true,
+  "bins_cover_train_once": true,
+  "all_and_positive_statistics_recomputed": true,
+  "gallery_train_membership_verified": true,
+  "demo_tensors_and_pairing_verified": true,
+  "no_validation_test_pixel_statistics": true,
+  "source_wiring": {
+    "make_dataset_default_augment": false,
+    "engine_calls": [
+      {
+        "function": "make_loaders",
+        "line": 45,
+        "split_expression": "'train'",
+        "augment": true
+      },
+      {
+        "function": "make_loaders",
+        "line": 46,
+        "split_expression": "'validation'",
+        "augment": false
+      },
+      {
+        "function": "evaluate_run",
+        "line": 260,
+        "split_expression": "split",
+        "augment": false
+      }
+    ],
+    "validation_and_evaluation_skip_training_augmentation": true,
+    "verification": "AST of frozen project data.py and engine.py; no entrypoint imported"
+  },
+  "protected_inputs": {
+    "existing_tracked_files_checked": 101,
+    "baseline_artifacts_checked": 11,
+    "all_unchanged": true
+  },
+  "published_outputs": {
+    "all_notebook_code_cells_executed": true,
+    "notebook_code_cells": 8,
+    "notebook_embedded_png_figures": 4,
+    "report_numbers_match_json": true,
+    "csv_json_raw_consistency": true,
+    "figure_formats": [
+      "PNG 300 dpi",
+      "SVG"
+    ],
+    "report_sha256": "019740b74c667ea1e2c6593655a3ac9809103773b713416b3ead39303cdd4ba1",
+    "notebook_sha256": "7c5d032519a28ffeed3245b882b5f80f92b8c1f68a297a5a7a02df60ac662277",
+    "summary_sha256": "1f52718f4ed684b09716ad026ff752242fd32092add5e2a4b9e3610cc8973908"
+  },
+  "figure_artifacts": {
+    "outputs/analysis/cp1-eda-01/figures/01_pixel_composition.png": {
+      "sha256": "e8a88549e8394baa1f55753e0228c54d1c94052b3706554b80d7bd71378a5ddc",
+      "bytes": 310924
+    },
+    "outputs/analysis/cp1-eda-01/figures/01_pixel_composition.svg": {
+      "sha256": "bb6280abac801bafaca0b3816630a4758da7b5c64bcd806558a88b1d257e4507",
+      "bytes": 5923
+    },
+    "outputs/analysis/cp1-eda-01/figures/02_wound_area_distribution.png": {
+      "sha256": "6bf002cf5a8085e33aed94c65d55f7fa1856d6cd5fb3b8a226b85bea317857c7",
+      "bytes": 591783
+    },
+    "outputs/analysis/cp1-eda-01/figures/02_wound_area_distribution.svg": {
+      "sha256": "45c6208c6afd9274d2412077001e39b1b69cf2b2e38ee9fb516b86dd670361b7",
+      "bytes": 127346
+    },
+    "outputs/analysis/cp1-eda-01/figures/03_train_examples.png": {
+      "sha256": "90c4bd40fd562acdcee1d9c534d18bcf6ada5b9a005bb852f962972971a3de76",
+      "bytes": 459250
+    },
+    "outputs/analysis/cp1-eda-01/figures/03_train_examples.svg": {
+      "sha256": "3c5f8b96eed2e7a761f34ec3d7372644f1c9c7c46fb3c5700473aa0a1942b42b",
+      "bytes": 137285
+    },
+    "outputs/analysis/cp1-eda-01/figures/04_preprocessing_augmentation.png": {
+      "sha256": "dbe3fb05cd3bcafd93f313eb574a8b4f355f0bc4edd4798346dfc93d8b785356",
+      "bytes": 569145
+    },
+    "outputs/analysis/cp1-eda-01/figures/04_preprocessing_augmentation.svg": {
+      "sha256": "9be0f09613c8bf9186f911a7a81b639e600f9ccd4711621b5e3d0a3802725e93",
+      "bytes": 148041
+    }
+  },
+  "no_training_no_inference_no_git_write": true
+}
