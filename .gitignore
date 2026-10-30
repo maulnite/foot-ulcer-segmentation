@@ -6,6 +6,9 @@
 !/data/README.md
 /outputs/**
 !/outputs/README.md
+# Ganta branch: publish reports under results/, keep model and prediction caches local.
+/output_fuseg_2021/checkpoints/
+/output_fuseg_2021/predictions/
 
 # Model files and serialized arrays, wherever generated.
 *.pt

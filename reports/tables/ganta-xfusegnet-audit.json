@@ -1,0 +1,520 @@
+{
+  "created_at_utc": "2026-10-30T14:35:57.482807+00:00",
+  "partner_run_id": "xFUSegNet_efficientnet-b7_2026-10-29_22-39-16",
+  "partner_source_directory_role": "Read-only external source; outputs generated in a separate publication worktree",
+  "reference_Orie_commit": "90970d5ad7496c38fb06ce340caa0c828498859e",
+  "reference_Orie_config_sha256": "8fcf4ca8578ef578922139ec637dbf69ab81880592523a8548757c77787a3786",
+  "reference_Orie_manifest_sha256": "b552ff75cb09d04396796ece64aa798f00aedbd41cfa91c8a3577fc80f85df90",
+  "reference_Orie_manifest_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+  "source_files_to_publish": {
+    "notebook/x-FUSegNet Reproduce.py": {
+      "sha256": "a2b865920432360a4deadafaf8361ec28f19246fc1754650de40f7869626e836",
+      "size": 69404,
+      "mtime_ns": 1793306753220472820,
+      "inode": 285874688
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_08-01-44_1.png": {
+      "sha256": "e25b88b219bdc0e79b0f73e1698588158927495ad39223fbcd34d4f91f5dabe9",
+      "size": 78774,
+      "mtime_ns": 1793264061375753697,
+      "inode": 285874493
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_09-11-08_1.png": {
+      "sha256": "b1464fc621b9286c64c7a46c3924190c24b7e1d320e62e8457c75410775294d8",
+      "size": 78170,
+      "mtime_ns": 1793274134100553059,
+      "inode": 285874500
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_09-11-08_2.png": {
+      "sha256": "724f1a07b6fa833cf1c9bf9d9e9968b02fc026ec3aa83d8736f6322954d9b7a3",
+      "size": 78751,
+      "mtime_ns": 1793282938779519159,
+      "inode": 285874662
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_09-11-08_3.png": {
+      "sha256": "e8291dcbe30177c5b78b3406cfcdeee6fbc36c949388fe2490d3eb92319ffc00",
+      "size": 81546,
+      "mtime_ns": 1793293365045222228,
+      "inode": 285874666
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_09-11-08_4.png": {
+      "sha256": "b0f82d4a3464c12aa65757584af6fa6c4c23be080597ec6bc8d90942a733d303",
+      "size": 80559,
+      "mtime_ns": 1793299049027738436,
+      "inode": 285874668
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_1.png": {
+      "sha256": "426ff0992b256795ee6732b67d0d7d1d8b6da299930dd4c802597d777679a398",
+      "size": 80244,
+      "mtime_ns": 1793320974762011790,
+      "inode": 285874764
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_2.png": {
+      "sha256": "c3a198f1dd23217f2276d28c2c65c0d5768922a2a24b8bc679efdcc32dd95783",
+      "size": 80772,
+      "mtime_ns": 1793328864740126748,
+      "inode": 285874774
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_3.png": {
+      "sha256": "61e772dd9be902864cefe8fb419cb1a26391a38eedb20a26ffebd61cfb56d438",
+      "size": 80659,
+      "mtime_ns": 1793336932328756886,
+      "inode": 285874767
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_4.png": {
+      "sha256": "c7de8e5c2ce58b2bd7169f0001334c4ee5650d3cb39e5ed91540bb1fa6491cd8",
+      "size": 82945,
+      "mtime_ns": 1793349446170341322,
+      "inode": 285880066
+    },
+    "output_fuseg_2021/results/plots/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_5.png": {
+      "sha256": "7a257e842f5d18b5e85aaaba138e066684e9db3d7281ea950d60a025b30531ae",
+      "size": 74220,
+      "mtime_ns": 1793354218828995218,
+      "inode": 285880076
+    },
+    "output_fuseg_2021/results/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_error_maps.png": {
+      "sha256": "196e13a7b159519a24283f12103fc1e31bf6155e5194c35f5cd04cba9712453f",
+      "size": 1060798,
+      "mtime_ns": 1793354279181159571,
+      "inode": 285880906
+    },
+    "output_fuseg_2021/results/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_kfold_summary.csv": {
+      "sha256": "4f6426653d393a62c15bc130ba621d475b1d2d08fac31cf60dd8d1ea6d304d84",
+      "size": 231,
+      "mtime_ns": 1793354219051999517,
+      "inode": 285880497
+    },
+    "output_fuseg_2021/results/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_run_info.json": {
+      "sha256": "a756afb712aee358bff740b4cf76811c6bdc9eadf5c7c8c0aa3e7912c098f688",
+      "size": 450,
+      "mtime_ns": 1793354279186159667,
+      "inode": 285880907
+    },
+    "output_fuseg_2021/results/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_test_metrics.csv": {
+      "sha256": "87b2050588e62d8224d0def61681446486a59ee2d721a59be8a6f5a9ca56348a",
+      "size": 1003,
+      "mtime_ns": 1793354277499127095,
+      "inode": 285880905
+    },
+    "output_fuseg_2021/results/xFUSegNet_efficientnet-b7_2026-10-29_22-39-16_val_curves.png": {
+      "sha256": "13c23d780c4859bafb4aa929c640cf7f896d0ffd4a60b0aa8ed33a7c05c2acfb",
+      "size": 246750,
+      "mtime_ns": 1793354219451007209,
+      "inode": 285880498
+    }
+  },
+  "partner_run_info": {
+    "model_name": "xFUSegNet_efficientnet-b7_2026-10-29_22-39-16",
+    "dataset_type": "fuseg_2021",
+    "n_train": 810,
+    "n_test": 200,
+    "encoder": "efficientnet-b7",
+    "encoder_weights": "imagenet",
+    "batch_size": 2,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "epochs": 200,
+    "patience": 30,
+    "threshold": 0.5,
+    "n_splits": 5,
+    "torch": "2.7.1+cu118",
+    "smp": "0.6.0",
+    "albumentations": "2.0.8",
+    "resumed_from_existing_checkpoints": false
+  },
+  "source_comparison": {
+    "script_sha256": "a2b865920432360a4deadafaf8361ec28f19246fc1754650de40f7869626e836",
+    "syntax_valid": true,
+    "entrypoint_imported": false,
+    "upstream_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+    "definitions": [
+      {
+        "definition": "Dataset",
+        "partner_line": 537,
+        "upstream_file": "xfusegnet_train.py",
+        "upstream_line": 19,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "get_training_augmentation",
+        "partner_line": 593,
+        "upstream_file": "xfusegnet_train.py",
+        "upstream_line": 74,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "get_validation_augmentation",
+        "partner_line": 640,
+        "upstream_file": "xfusegnet_train.py",
+        "upstream_line": 121,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "to_tensor",
+        "partner_line": 648,
+        "upstream_file": "xfusegnet_train.py",
+        "upstream_line": 129,
+        "equal_ast_ignoring_docstrings": false
+      },
+      {
+        "definition": "get_preprocessing",
+        "partner_line": 654,
+        "upstream_file": "xfusegnet_train.py",
+        "upstream_line": 133,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "Conv2dReLU",
+        "partner_line": 828,
+        "upstream_file": "segmentation_models_pytorch/base/modules.py",
+        "upstream_line": 10,
+        "equal_ast_ignoring_docstrings": false
+      },
+      {
+        "definition": "SCSEModule",
+        "partner_line": 850,
+        "upstream_file": "segmentation_models_pytorch/base/modules.py",
+        "upstream_line": 50,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "SCSEModule0",
+        "partner_line": 867,
+        "upstream_file": "segmentation_models_pytorch/base/modules.py",
+        "upstream_line": 66,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "Attention",
+        "partner_line": 924,
+        "upstream_file": "segmentation_models_pytorch/base/modules.py",
+        "upstream_line": 213,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "DecoderBlock",
+        "partner_line": 942,
+        "upstream_file": "segmentation_models_pytorch/decoders/unet/decoder.py",
+        "upstream_line": 8,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "CenterBlock",
+        "partner_line": 1034,
+        "upstream_file": "segmentation_models_pytorch/decoders/unet/decoder.py",
+        "upstream_line": 100,
+        "equal_ast_ignoring_docstrings": true
+      },
+      {
+        "definition": "UnetDecoder",
+        "partner_line": 1041,
+        "upstream_file": "segmentation_models_pytorch/decoders/unet/decoder.py",
+        "upstream_line": 119,
+        "equal_ast_ignoring_docstrings": false
+      }
+    ],
+    "explicit_seed_calls": [
+      {
+        "line": 724,
+        "call": "random.seed(200)"
+      }
+    ],
+    "source_claim_limit": "Static source comparison; no proof of identical runtime numerics across dependency versions"
+  },
+  "notebook_evidence": [
+    {
+      "path": "notebook/x-FUSegNet Reproduce.ipynb",
+      "sha256": "05dae7d73190fe7c7cf6ce1edaadd3619758d6601d05678d76cc6524ac6ab171",
+      "code_cells": 18,
+      "executed_code_cells": 10,
+      "stored_errors": [
+        {
+          "cell": 14,
+          "name": "KeyboardInterrupt",
+          "value": ""
+        }
+      ],
+      "executed_or_modified_by_this_audit": false,
+      "published": false
+    },
+    {
+      "path": "notebook/x-FUSegNet_Reproduce_resume.ipynb",
+      "sha256": "422a7a4dbf02fa287cd3da0db03c3ef044b147bb8decd4975ad14a50e906c5a7",
+      "code_cells": 18,
+      "executed_code_cells": 10,
+      "stored_errors": [
+        {
+          "cell": 14,
+          "name": "KeyboardInterrupt",
+          "value": ""
+        }
+      ],
+      "executed_or_modified_by_this_audit": false,
+      "published": false
+    }
+  ],
+  "data_audit": {
+    "train": {
+      "n_images": 810,
+      "n_masks": 810,
+      "membership_identical_to_Orie_provided_split": true,
+      "image_and_available_mask_sha256_match_Orie_manifest": true
+    },
+    "validation": {
+      "n_images": 200,
+      "n_masks": 200,
+      "membership_identical_to_Orie_provided_split": true,
+      "image_and_available_mask_sha256_match_Orie_manifest": true
+    },
+    "test": {
+      "n_images": 200,
+      "n_masks": 0,
+      "membership_identical_to_Orie_provided_split": true,
+      "image_and_available_mask_sha256_match_Orie_manifest": true
+    },
+    "native_resolution": [
+      512,
+      512
+    ],
+    "labeled_mask_unique_values": [
+      0,
+      32,
+      255
+    ],
+    "partner_evaluation_source_split": "provided validation; not official challenge test",
+    "partner_training_pool_images": 810,
+    "partner_evaluation_images": 200,
+    "partner_evaluation_filename_overlap_with_partner_training": 0,
+    "partner_evaluation_identical_rgb_to_partner_training": {
+      "count": 7,
+      "sample_ids": [
+        "0096.png",
+        "0201.png",
+        "0256.png",
+        "0284.png",
+        "0356.png",
+        "0485.png",
+        "0545.png"
+      ]
+    },
+    "partner_evaluation_is_in_Orie_labeled_pool": true,
+    "partner_evaluation_overlap_with_Orie_official_test": 0,
+    "Orie_fold_training_membership_for_partner_evaluation": [
+      {
+        "fold": 1,
+        "in_training": 148,
+        "in_validation": 52
+      },
+      {
+        "fold": 2,
+        "in_training": 165,
+        "in_validation": 35
+      },
+      {
+        "fold": 3,
+        "in_training": 165,
+        "in_validation": 35
+      },
+      {
+        "fold": 4,
+        "in_training": 162,
+        "in_validation": 38
+      },
+      {
+        "fold": 5,
+        "in_training": 160,
+        "in_validation": 40
+      }
+    ],
+    "partner_run_linked_fold_manifest_available": false,
+    "partner_actual_fold_membership_reconstructed": false,
+    "partner_configured_fold_sizes": {
+      "train": 648,
+      "validation": 162
+    },
+    "fold_sizes_basis": "Derived from supplied script KFold(5,shuffle=False) and 810 pool; saved fold IDs unavailable"
+  },
+  "metrics_verification": {
+    "policy": "GT grayscale/255 >=0.5; cached prediction >127; source eps=1e-7 added numerator and denominator; mean per-image includes empty GT",
+    "ensembles": {
+      "avg": {
+        "n_images": 200,
+        "counts": {
+          "tp": 594688,
+          "fp": 48242,
+          "fn": 46192
+        },
+        "recomputed_metrics": {
+          "Data Dice (%)": 92.64423863344322,
+          "Data IoU (%)": 86.29647580544719,
+          "Data Prec (%)": 92.49653928110486,
+          "Data Rec (%)": 92.7924104356521,
+          "Image Dice (%)": 86.41100428864794,
+          "Image IoU (%)": 79.88500239556039
+        },
+        "maximum_absolute_csv_error_percentage_points": 0.0,
+        "n_empty_gt": 5,
+        "n_empty_prediction": 5,
+        "gt_and_prediction_sha256_in_per_image_csv": true
+      },
+      "voting": {
+        "n_images": 200,
+        "counts": {
+          "tp": 594708,
+          "fp": 48324,
+          "fn": 46172
+        },
+        "recomputed_metrics": {
+          "Data Dice (%)": 92.6399940182822,
+          "Data IoU (%)": 86.28911033598379,
+          "Data Prec (%)": 92.4849774194764,
+          "Data Rec (%)": 92.79553114467718,
+          "Image Dice (%)": 86.39978251898265,
+          "Image IoU (%)": 79.87062408116128
+        },
+        "maximum_absolute_csv_error_percentage_points": 0.0,
+        "n_empty_gt": 5,
+        "n_empty_prediction": 5,
+        "gt_and_prediction_sha256_in_per_image_csv": true
+      }
+    },
+    "single_model_rows_recomputed": false,
+    "limitations": "No raw five-model probabilities were loaded; mean/voting computation and model-to-PNG lineage not independently verified; no model inference",
+    "per_image_csv": "ganta-xfusegnet-audit-per-image.csv"
+  },
+  "reported_single_model_metrics": [
+    {
+      "Model": "FUSegNet fold 1 (single)",
+      "Data Dice (%)": 92.40532098400966,
+      "Data IoU (%)": 85.8827981356567,
+      "Data Prec (%)": 92.03203838415229,
+      "Data Rec (%)": 92.78164398951554,
+      "Image Dice (%)": 85.76066273424439,
+      "Image IoU (%)": 78.93996052058401
+    },
+    {
+      "Model": "FUSegNet fold 2 (single)",
+      "Data Dice (%)": 92.42861778700538,
+      "Data IoU (%)": 85.92305489204833,
+      "Data Prec (%)": 92.63905325443902,
+      "Data Rec (%)": 92.21913618774306,
+      "Image Dice (%)": 85.55013940745668,
+      "Image IoU (%)": 78.92393481942477
+    },
+    {
+      "Model": "FUSegNet fold 3 (single)",
+      "Data Dice (%)": 92.05698353728027,
+      "Data IoU (%)": 85.28294516308532,
+      "Data Prec (%)": 91.46380345230835,
+      "Data Rec (%)": 92.65790787667072,
+      "Image Dice (%)": 85.5294170373387,
+      "Image IoU (%)": 78.72069943714621
+    },
+    {
+      "Model": "FUSegNet fold 4 (single)",
+      "Data Dice (%)": 91.85663734913582,
+      "Data IoU (%)": 84.93969033096546,
+      "Data Prec (%)": 91.9089402344147,
+      "Data Rec (%)": 91.8043939583086,
+      "Image Dice (%)": 85.0756581400833,
+      "Image IoU (%)": 78.41137283895375
+    },
+    {
+      "Model": "FUSegNet fold 5 (single)",
+      "Data Dice (%)": 92.01681680565906,
+      "Data IoU (%)": 85.21402507652925,
+      "Data Prec (%)": 91.3069595021237,
+      "Data Rec (%)": 92.73779802771304,
+      "Image Dice (%)": 85.10087807709363,
+      "Image IoU (%)": 78.32883776528772
+    }
+  ],
+  "reported_fold_summary": [
+    {
+      "fold_idx(0-based)": 0,
+      "min_val_loss": 0.26972795,
+      "best_epoch(0-based)": 111,
+      "checkpoint": "best_model_1.pth"
+    },
+    {
+      "fold_idx(0-based)": 1,
+      "min_val_loss": 0.27448413,
+      "best_epoch(0-based)": 120,
+      "checkpoint": "best_model_2.pth"
+    },
+    {
+      "fold_idx(0-based)": 2,
+      "min_val_loss": 0.26318264,
+      "best_epoch(0-based)": 132,
+      "checkpoint": "best_model_3.pth"
+    },
+    {
+      "fold_idx(0-based)": 3,
+      "min_val_loss": 0.26238188,
+      "best_epoch(0-based)": 162,
+      "checkpoint": "best_model_4.pth"
+    },
+    {
+      "fold_idx(0-based)": 4,
+      "min_val_loss": 0.27135298,
+      "best_epoch(0-based)": 65,
+      "checkpoint": "best_model_5.pth"
+    }
+  ],
+  "saved_fold_id_manifest": "No run-linked 810-pool fold IDs found in supplied script/results/checkpoint artifacts; do not substitute the existing 1010-pool manifest or reconstruct folds",
+  "existing_manifest_candidate": {
+    "path": "data/splits/fuseg_2021_xfusegnet/manifest.json",
+    "exists": true,
+    "used_by_selected_python_script": false,
+    "is_evidence_of_partner_810_pool_fold_assignment": false,
+    "sha256": "b552ff75cb09d04396796ece64aa798f00aedbd41cfa91c8a3577fc80f85df90",
+    "byte_identical_to_Orie_manifest": true,
+    "n_labeled": 1010,
+    "shuffle_seed": 42,
+    "fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+    "interpretation": "An existing 1010-pool seed-42 manifest; selected partner script uses 810 files with seed 200 and never reads this manifest"
+  },
+  "checkpoint_policy_verification": "Static source if-loss / elif-IoU matches conceptual source policy; checkpoint contents not deserialized",
+  "source_run_lineage_limit": "Run metadata has no source hash, run-linked saved split membership, full dependency lock, or RNG states; saved notebooks contain an interrupted training cell",
+  "source_models_stat_before": {
+    "best_model_1.pth": {
+      "size": 805523865,
+      "mtime_ns": 1793319398623148746,
+      "inode": 285874760
+    },
+    "best_model_2.pth": {
+      "size": 805523865,
+      "mtime_ns": 1793327325561248069,
+      "inode": 285874766
+    },
+    "best_model_3.pth": {
+      "size": 805523865,
+      "mtime_ns": 1793335466528962872,
+      "inode": 285874775
+    },
+    "best_model_4.pth": {
+      "size": 805523865,
+      "mtime_ns": 1793347946649049677,
+      "inode": 285874768
+    },
+    "best_model_5.pth": {
+      "size": 805523865,
+      "mtime_ns": 1793352818076670765,
+      "inode": 285880067
+    }
+  },
+  "checkpoints_loaded": false,
+  "pickle_loaded": false,
+  "training_executed": false,
+  "model_inference_executed": false,
+  "raw_data_modified": false,
+  "audit_dependencies": {
+    "python": "3.10.4",
+    "numpy": "1.24.1",
+    "pandas": "1.5.3",
+    "Pillow": "9.4.0"
+  },
+  "audit_script_sha256": "160d12d256df9f5311ff20ae95779f3a65e5884d402190425dfb7da317984e96",
+  "source_files_and_checkpoint_stats_unchanged_during_audit": true
+}

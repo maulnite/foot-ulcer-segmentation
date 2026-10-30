@@ -1,0 +1,19 @@
+{
+  "model_name": "xFUSegNet_efficientnet-b7_2026-10-29_22-39-16",
+  "dataset_type": "fuseg_2021",
+  "n_train": 810,
+  "n_test": 200,
+  "encoder": "efficientnet-b7",
+  "encoder_weights": "imagenet",
+  "batch_size": 2,
+  "lr": 0.0001,
+  "weight_decay": 1e-05,
+  "epochs": 200,
+  "patience": 30,
+  "threshold": 0.5,
+  "n_splits": 5,
+  "torch": "2.7.1+cu118",
+  "smp": "0.6.0",
+  "albumentations": "2.0.8",
+  "resumed_from_existing_checkpoints": false
+}
