@@ -1,6 +1,6 @@
 > **Branch `ganta` · implementasi partner x-FUSegNet.**
 > [Script Python](notebook/x-FUSegNet%20Reproduce.py) · [Hasil asli](output_fuseg_2021/results/) · [Perbandingan Ganta vs Orie](reports/ganta-xfusegnet-comparison.md) · [Audit/hash](reports/tables/ganta-xfusegnet-audit.json).
-> Run partner memakai **810 train** untuk lima fold dan **200 provided validation** untuk evaluasi ensemble: **92,64% data Dice / 86,41% image Dice** (average). Ini bukan skor test resmi challenge. Script dan 15 file hasil disalin byte-identik; checkpoint/raw data tetap lokal. Hasil partner terpisah dari eksperimen Orie di [`main`](https://github.com/maulnite/foot-ulcer-segmentation/tree/main). Bagian README di bawah diwarisi dari `main` dan menjelaskan run **Orie**, bukan run partner.
+> Run partner memakai **810 train** untuk lima fold dan **200 provided validation** untuk evaluasi ensemble: **92,64% data Dice / 86,41% image Dice** (average). Ini bukan skor test resmi challenge. Script dan 15 file hasil disalin byte-identik; [lima checkpoint terbaik tersedia sebagai Release](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp1-xfusegnet-ganta-weights-v1), sedangkan raw data tetap lokal. Hasil partner terpisah dari eksperimen Orie di [`main`](https://github.com/maulnite/foot-ulcer-segmentation/tree/main). Bagian README di bawah diwarisi dari `main` dan menjelaskan run **Orie**, bukan run partner.
 
 <div align="center">
 
@@ -124,7 +124,7 @@ Use the [experiment log](docs/experiment-log.md) to record runs. Weekly updates 
 
 Public research code and documentation · reproducible experiment records · project report · presentation slides for both checkpoints · best model artifact
 
-Model artifacts can be distributed separately once dataset and model licensing have been checked. No model artifacts are available yet.
+**Best-model downloads are available as GitHub Releases:** [Orie x-FUSegNet](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp1-xfusegnet-orie-weights-v1) and [Ganta x-FUSegNet](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp1-xfusegnet-ganta-weights-v1). Each contains five original best checkpoints, checksums, and model metadata (approximately 4 GB per run). See [download and loading instructions](docs/model-checkpoints.md). Raw datasets remain local; model files are release assets outside Git history.
 
 <details>
 <summary><strong>Reference citation</strong></summary>

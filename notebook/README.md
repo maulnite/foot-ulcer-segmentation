@@ -7,3 +7,5 @@ Source mengharapkan CWD folder `notebook/` (`BASE_DIR=".."`), raw data di `../da
 Environment yang tercatat pada run: PyTorch 2.7.1+cu118, SMP 0.6.0, Albumentations 2.0.8. Full dependency lock dan state RNG run tidak tersedia. Jangan menganggap environment frozen Orie identik dengan environment partner.
 
 Lihat [perbandingan dan batas verifikasi](../reports/ganta-xfusegnet-comparison.md), [hasil asli](../output_fuseg_2021/results/), dan [MIT notice upstream](UPSTREAM_LICENSE.txt). Dua notebook `.ipynb` partner yang tersimpan mengandung training terinterupsi; publikasi ini berfokus pada script `.py` dan hasil yang diminta, tanpa mengeksekusi ulang training.
+
+[Lima checkpoint terbaik Ganta](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp1-xfusegnet-ganta-weights-v1) tersedia sebagai aset Release terpisah, dilengkapi SHA-256. Ikuti [petunjuk unduh dan format checkpoint](../docs/model-checkpoints.md).
