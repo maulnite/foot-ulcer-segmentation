@@ -2,7 +2,7 @@
 
 **Training lima fold, inference ensemble, dan analisis selesai.**
 
-[Notebook executed](../notebooks/03_cp1_xfusegnet.ipynb) · [Protokol dan audit kesetaraan](../docs/xfusegnet.md)
+[Notebook executed](../notebooks/03_cp1_xfusegnet.ipynb) · [Protokol dan audit kesetaraan](../docs/xfusegnet.md) · [Lima checkpoint terbaik](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp1-xfusegnet-orie-weights-v1) · [Petunjuk unduh](../docs/model-checkpoints.md)
 
 ## Cakupan
 

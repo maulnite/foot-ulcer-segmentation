@@ -120,7 +120,7 @@ Use the [experiment log](docs/experiment-log.md) to record runs. Weekly updates 
 
 Public research code and documentation · reproducible experiment records · project report · presentation slides for both checkpoints · best model artifact
 
-Model artifacts can be distributed separately once dataset and model licensing have been checked. No model artifacts are available yet.
+**Best-model downloads are available as GitHub Releases:** [Orie x-FUSegNet](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp1-xfusegnet-orie-weights-v1) and [Ganta x-FUSegNet](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp1-xfusegnet-ganta-weights-v1). Each contains five original best checkpoints, checksums, and model metadata (approximately 4 GB per run). See [download and loading instructions](docs/model-checkpoints.md). Raw datasets remain local; model files are release assets outside Git history.
 
 <details>
 <summary><strong>Reference citation</strong></summary>
