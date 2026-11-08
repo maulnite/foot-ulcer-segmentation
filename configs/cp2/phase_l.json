@@ -1,0 +1,145 @@
+{
+  "name": "cp2-phase-l-loss-screening",
+  "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+  "seed": 42,
+  "split_seed": 42,
+  "cpu_threads": 2,
+  "data": {
+    "root": "data/raw/chronic_wound",
+    "validation_fraction": 0.15,
+    "image_size": [
+      224,
+      224
+    ],
+    "conflict_policy": "quarantine_entire_exact_rgb_group",
+    "overlap_policy": "exclude_source_train_groups_present_in_source_test",
+    "duplicate_policy": "one_lexicographic_representative_per_unconflicted_group",
+    "patient_ids_available": false
+  },
+  "model": {
+    "encoder_name": "efficientnet-b7",
+    "encoder_weights": "imagenet",
+    "classes": 1,
+    "activation": null,
+    "decoder_attention_type": "pscse"
+  },
+  "loss": {
+    "dice_epsilon": 1.0,
+    "dice_beta": 1.0,
+    "focal_alpha": null,
+    "focal_gamma": 2.0,
+    "focal_epsilon": 1e-06,
+    "focal_reduction": "mean",
+    "focal_normalized": false,
+    "focal_reduced_threshold": null,
+    "component_weights": [
+      1.0,
+      1.0
+    ],
+    "aggregation": "reference_batch_global_dice_and_pixel_mean_focal",
+    "B0": "dice(sigmoid(z), y) + focal_with_logits(sigmoid(z), y)",
+    "B1": "dice(sigmoid(z), y) + focal_with_logits(z, y)"
+  },
+  "training": {
+    "batch_size": 2,
+    "num_workers": 4,
+    "max_epochs": 200,
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "optimizer": "Adam",
+    "precision": "float32",
+    "amp": false,
+    "matmul_allow_tf32": true,
+    "cudnn_allow_tf32": true,
+    "cudnn_benchmark": false,
+    "checkpoint_policy": "highest_validation_image_dice_strict_improvement_earlier_epoch_tie",
+    "early_stopping_patience": 30,
+    "scheduler": {
+      "type": "ReduceLROnPlateau",
+      "monitor": "validation_image_dice",
+      "mode": "max",
+      "factor": 0.1,
+      "patience": 10,
+      "threshold": 0.0,
+      "threshold_mode": "abs",
+      "cooldown": 0,
+      "min_lr": 1e-05,
+      "eps": 1e-08
+    },
+    "augmentation": "unchanged_reference_get_training_augmentation",
+    "epoch_rng_seed_rule": "42 + 10007 * zero_based_epoch; dedicated loader generators",
+    "finite_gradient_check_every_step": true
+  },
+  "evaluation": {
+    "prediction_threshold": 0.5,
+    "evaluator": "offline_hard_line_ordinary_confusion_counts",
+    "empty_image_rule": "both_empty_1; exactly_one_empty_0",
+    "empty_aggregate_dice": null,
+    "boundary_radius_diagonal_fraction": 0.01,
+    "boundary_radius_min_pixels": 1,
+    "boundary_erosion": "3x3_square_inner_boundary_zero_padded_round_radius_iterations",
+    "small_wound_fraction": 0.01,
+    "medium_wound_fraction": 0.05,
+    "test_policy": "evaluate all four locked candidates only after validation-only selection is persisted; CP1/phase-P-exposed source test is descriptive"
+  },
+  "provenance": {
+    "scope": "PHASE L.1 LOSS SCREENING ONLY; baseline B1, manifest and initialization reused unchanged; no attention/boundary-head changes or external evaluation",
+    "precision": "preserve CP1 torch.float32 and PyTorch 1.11 TF32 defaults; no AMP",
+    "initialization": "one shared ImageNet-initialized state_dict, verified tensor-by-tensor for both baselines",
+    "cp1": "artifacts immutable; separate CP2 manifest, evaluator policy and run directories"
+  },
+  "phase_l": {
+    "control_root": "outputs/cp2/phase_p/20261107T170015Z",
+    "control_baseline": "B1",
+    "control_manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+    "control_initial_weights_sha256": "f2633bb3f946e94ecf347680ac186fd372bebf1e968177614d251f50ce09a27f",
+    "control_initial_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+    "control_B1_checkpoint_sha256": "e5f147018231b0e13926daa5d0158957e42831404ab05bd3151c1115592aeeeb",
+    "experiment_order": [
+      "L1",
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "objectives": {
+      "L0": "CACHED phase-P B1; never retrained",
+      "L1": "batch-global Tversky q=1",
+      "L2": "batch-global Focal Tversky q=0.75",
+      "L3": "B1 + fixed 0.01 foreground signed-distance boundary term",
+      "L4": "L2 + same fixed boundary term"
+    },
+    "tversky": {
+      "alpha_fp": 0.3,
+      "beta_fn": 0.7,
+      "epsilon": 1.0,
+      "q_L1": 1.0,
+      "q_L2": 0.75,
+      "power_stability_delta": 1e-06,
+      "formula": "((1-TI+delta)^q - delta^q); TI=(TP+eps)/(TP+alpha*FP+beta*FN+eps)",
+      "aggregation": "entire batch and pixels; no per-image weighting"
+    },
+    "boundary": {
+      "weight": 0.01,
+      "schedule": "fixed; no warmup",
+      "normalization": "none; native pixel distances",
+      "sampling": [
+        1.0,
+        1.0
+      ],
+      "inside_sign": "negative; -(EDT(foreground)-1), zero on inner edge",
+      "outside_sign": "positive EDT(background)",
+      "empty_mask": "zero distance map; regional loss remains active",
+      "reduction": "mean over all batch/channel/pixels, including zero-map empty masks",
+      "distance_target_timing": "computed from binary ground truth AFTER geometric augmentation in each batch",
+      "reference_revision": "171c32d88a4ce59af8be46fb88b96d3637b9515b"
+    },
+    "selection": {
+      "metric": "highest validation Image Dice among eligible selected checkpoints; exact tie favors L0 then L1,L2,L3,L4",
+      "candidate_eligibility": "validation Image Dice > L0; small-wound Image Dice >= L0; GT-positive TP=0 count <= L0; GT-empty images with FP <= L0",
+      "policy_if_none_eligible": "retain L0; show all validation trade-offs without claiming an acceptable improvement",
+      "caveat": "conservative exploratory screening rule, not a clinically validated acceptance threshold",
+      "test_access": "No candidate test predictions before validation-only selection.json is saved; all four test results reported afterwards"
+    },
+    "scope": "L.1 one-seed screening only. Diagnose L.2 factors separately after screening; no automatic L5-L7 matrix, architecture changes, external data or multi-seed confirmation."
+  }
+}
