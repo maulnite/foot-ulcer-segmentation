@@ -46,6 +46,10 @@ Environment training `.venv-training`: PyTorch 1.11.0+cu113, torchvision 0.12.0+
 - Subgroups: GT kosong, GT positif, kecil `0<area<=1%`, sedang `>1–5%`, besar `>5%` kanvas. Catat TP=0 pada GT positif dan jumlah prediksi foreground pada GT kosong.
 - Boundary IoU tambahan: inner erosion 3×3, zero-padded exterior; radius `max(1, round(.01*hypot(H,W)))`, yakni 3 pixel pada 224×224. Keduanya kosong=1, salah satu kosong=0. PFOM menggunakan primitive CP1 yang telah diuji, bukan klaim identik dengan implementasi paper yang tidak tersedia.
 
+Primitive boundary diverifikasi terhadap [kode API penulis](https://github.com/bowenc0221/boundary-iou-api/blob/master/boundary_iou/utils/boundary_utils.py) pada 40 pasangan mask sintetis. Rasio 1% adalah pilihan CP2 yang dikunci, sedangkan default primitive resmi 2%. Blob hash dan hasil oracle tersimpan pada `boundary_oracle.json`; tidak ada skor sintetis yang dilaporkan sebagai hasil model.
+
+PFOM tetap memakai **empty-edge rule CP1**, sedangkan region metrics dan Boundary IoU memakai keberadaan foreground mask. Mask konstan nonkosong juga dapat tidak mempunyai Canny edge; karena itu PFOM tambahan tidak menggantikan pemeriksaan GT kosong/false positive atau Boundary IoU. Logit berarti skor mentah model sebelum sigmoid; focal-with-logits menerima skor mentah tersebut, bukan probabilitas yang sudah disigmoid. Koreksi pasangan input tidak menjamin skor segmentasi meningkat.
+
 ## Eksekusi dan monitoring
 
 Semua direktori CP2 terpisah: `outputs/cp2/phase_p/<timestamp>/`. `outputs/cp2/latest_phase_p.json` menunjuk run saat ini. Dataset, artefak CP1 dan notebook pengguna tidak ditimpa.
@@ -68,6 +72,8 @@ Smoke memakai enam gambar train termasuk GT kosong dan lima positif; tiga optimi
 
 `console.log`, `launch.json`, `train_workflow.json`, `B0/status.json`, `B1/status.json`, histories dan GPU sampling setiap lima detik memberi status persisten. Peak CUDA allocated/reserved berasal dari proses kita; sampling GPU keseluruhan juga mencakup job lain. Catat shared-load timing, bukan menganggap latency GPU eksklusif.
 
+Gunakan `python scripts/cp2_status.py` untuk membaca progres tanpa memuat model atau menggunakan VRAM. Setelah training selesai, `scripts/benchmark_cp2_inference.py` mengukur forward+sigmoid batch 1 pada satu gambar validation deterministik, dengan warm-up dan sinkronisasi CUDA; tidak mengubah checkpoint atau batch size training.
+
 ## QA
 
 ```bash
@@ -81,4 +87,16 @@ Smoke memakai enam gambar train termasuk GT kosong dan lima positif; tiga optimi
 
 Tests mencakup parity nilai/gradien loss B0 terhadap source, formula focal B1, finite gradients pada mask kosong, sigmoid saturation source, threshold inklusif, empty rules, Boundary IoU analitik, konflik label/overlap grup, hash manifest, pemilihan checkpoint, actual parameter hashes dan ekspor subgroup. Snapshot checksum CP1 serta perubahan notebook lokal pengguna dicatat sebelum perubahan; validasi akhir memastikan preservasinya.
 
-[Hasil B0/B1](../reports/cp2-phase-p.md) akan tersedia setelah kedua run selesai. Keputusan fase L/A/H dan evaluasi eksternal menunggu review hasil fase P.
+[Hasil B0/B1](../reports/cp2-phase-p.md) sudah tersedia: B0 selesai 47 epoch (selected 17), B1 selesai 55 epoch (selected 25), masing-masing early stopping 30 epoch tanpa perbaikan. [Review akhir](../reports/cp2-phase-p-review.md) memuat kondisi awal, metrik tambahan, ketidakpastian, error analysis dan keterbatasan. Koreksi focal belum memberikan peningkatan yang konsisten antara validation dan source-test pada satu seed ini.
+
+Run lengkap berada di `outputs/cp2/phase_p/20261107T170015Z/`. `B0/` dan `B1/` memuat `best.pth`, `last.pth`, `status.json`, `history.json`, `evaluation-{validation,test}.{json,csv}`, serta `predictions/{validation,test}/`. Checksum, probabilitas, GT, mask threshold dan provenance tetap lokal. Tabel membership dan metrik tanpa foto ada di `reports/tables/cp2-phase-p-*.csv`. Galeri foto/GT/overlay tetap di `error_analysis/` lokal; diagram agregat ada di `reports/figures/cp2-phase-p/`.
+
+Untuk memeriksa ulang artefak selesai, simpan bukti QA ke nama baru:
+
+```bash
+.venv-training/bin/python scripts/validate_cp2_phase_p.py \
+  --root outputs/cp2/phase_p/20261107T170015Z \
+  --output outputs/cp2/phase_p/20261107T170015Z/qa-rerun-UNIQUE.json
+```
+
+Validator menolak menimpa bukti QA completed. Render laporan tidak menjalankan training; catatan post-training disimpan di `report_supplement.md`, dan replay menyimpan record baru tanpa menimpa `report_generated.json` awal. Keputusan fase L/A/H dan evaluasi eksternal menunggu review hasil fase P.

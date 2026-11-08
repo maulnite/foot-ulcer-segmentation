@@ -46,6 +46,8 @@ def build_report(root):
         for extension in ("png", "svg"):
             path = figures / f"{name}.{extension}"
             fig.savefig(path, dpi=160, bbox_inches="tight")
+            if extension == "svg":
+                path.write_text("\n".join(line.rstrip() for line in path.read_text().splitlines()) + "\n")
             files.append({"path": str(path.relative_to(ROOT)), "sha256": digest_file(path)})
         plt.close(fig)
 
@@ -158,6 +160,19 @@ def build_report(root):
               "Ketidakpastian bootstrap pada JSON memakai unit RGB-group/image, bukan piksel; tidak mencakup pasien yang tidak diketahui atau variasi retraining antar-seed. Near-duplicate screening tidak menyelesaikan seluruh hubungan crop/pasien. Tidak ada bukti generalisasi eksternal, signifikansi klinis, atau novelty metode dari fase P ini.", "",
               f"Artefak lengkap: `{root.relative_to(ROOT)}/` (manifest, initial weights, smoke, B0/B1 best/last checkpoints, curves, status, persistent logs, GPU sampling). Bobot CP1 tidak dipakai sebagai inisialisasi train; hanya pretrained ImageNet source yang digunakan. Checkpoints/cache/raw data tetap lokal.", "",
               "[Hasil machine-readable](cp2-phase-p-results.json) · [Membership](tables/cp2-phase-p-membership.csv) · [Panduan](../docs/cp2-phase-p.md). Fase berikutnya menunggu review B0/B1, lalu konfirmasi beberapa seed sebelum memperluas matriks."]
-    (public / "cp2-phase-p.md").write_text("\n".join(lines) + "\n")
-    write_json(root / "report_generated.json", {"report": "reports/cp2-phase-p.md", "figures": files})
+    # Keep the separately recorded post-training interpretation on a later replay.
+    supplement = root / "report_supplement.md"
+    if supplement.exists():
+        lines += ["", supplement.read_text().strip()]
+    if (public / "cp2-phase-p-review.md").exists():
+        lines += ["", "[Review akhir: kondisi awal, metrik tambahan, analisis error dan visual QA](cp2-phase-p-review.md)."]
+    destination = public / "cp2-phase-p.md"
+    temporary = destination.with_suffix(".md.tmp")
+    temporary.write_text("\n".join(lines) + "\n")
+    temporary.replace(destination)
+    evidence = root / "report_generated.json"
+    if evidence.exists():
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        evidence = root / "report_replays" / f"{stamp}.json"
+    write_json(evidence, {"report": "reports/cp2-phase-p.md", "figures": files})
     return summary
