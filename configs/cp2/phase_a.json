@@ -1,0 +1,177 @@
+{
+  "name": "cp2-phase-a-attention-screening",
+  "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+  "seed": 42,
+  "split_seed": 42,
+  "cpu_threads": 2,
+  "data": {
+    "root": "data/raw/chronic_wound",
+    "validation_fraction": 0.15,
+    "image_size": [
+      224,
+      224
+    ],
+    "conflict_policy": "quarantine_entire_exact_rgb_group",
+    "overlap_policy": "exclude_source_train_groups_present_in_source_test",
+    "duplicate_policy": "one_lexicographic_representative_per_unconflicted_group",
+    "patient_ids_available": false
+  },
+  "model": {
+    "encoder_name": "efficientnet-b7",
+    "encoder_weights": "imagenet",
+    "classes": 1,
+    "activation": null,
+    "decoder_attention_type": "pscse"
+  },
+  "loss": {
+    "dice_epsilon": 1.0,
+    "dice_beta": 1.0,
+    "focal_alpha": null,
+    "focal_gamma": 2.0,
+    "focal_epsilon": 1e-06,
+    "focal_reduction": "mean",
+    "focal_normalized": false,
+    "focal_reduced_threshold": null,
+    "component_weights": [
+      1.0,
+      1.0
+    ],
+    "aggregation": "reference_batch_global_dice_and_pixel_mean_focal",
+    "B0": "dice(sigmoid(z), y) + focal_with_logits(sigmoid(z), y)",
+    "B1": "dice(sigmoid(z), y) + focal_with_logits(z, y)"
+  },
+  "training": {
+    "batch_size": 2,
+    "num_workers": 4,
+    "max_epochs": 200,
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "optimizer": "Adam",
+    "precision": "float32",
+    "amp": false,
+    "matmul_allow_tf32": true,
+    "cudnn_allow_tf32": true,
+    "cudnn_benchmark": false,
+    "checkpoint_policy": "highest_validation_image_dice_strict_improvement_earlier_epoch_tie",
+    "early_stopping_patience": 30,
+    "scheduler": {
+      "type": "ReduceLROnPlateau",
+      "monitor": "validation_image_dice",
+      "mode": "max",
+      "factor": 0.1,
+      "patience": 10,
+      "threshold": 0.0,
+      "threshold_mode": "abs",
+      "cooldown": 0,
+      "min_lr": 1e-05,
+      "eps": 1e-08
+    },
+    "augmentation": "unchanged_reference_get_training_augmentation",
+    "epoch_rng_seed_rule": "42 + 10007 * zero_based_epoch; dedicated loader generators",
+    "finite_gradient_check_every_step": true
+  },
+  "evaluation": {
+    "prediction_threshold": 0.5,
+    "evaluator": "offline_hard_line_ordinary_confusion_counts",
+    "empty_image_rule": "both_empty_1; exactly_one_empty_0",
+    "empty_aggregate_dice": null,
+    "boundary_radius_diagonal_fraction": 0.01,
+    "boundary_radius_min_pixels": 1,
+    "boundary_erosion": "3x3_square_inner_boundary_zero_padded_round_radius_iterations",
+    "small_wound_fraction": 0.01,
+    "medium_wound_fraction": 0.05,
+    "test_policy": "No new test predictions until A1 validation diagnosis and bounded expansion decision, all executed validation comparisons and selection.json are persisted; exposed source-test descriptive only"
+  },
+  "provenance": {
+    "scope": "PHASE A stage 2-3 attention screening, B1 objective fixed, seed 42, sequential A1 diagnosis before conditional A2/A3/A5/A6; no A4 spatial gate, L3 combination, multiseed, boundary head or external data",
+    "precision": "preserve CP1 torch.float32 and PyTorch 1.11 TF32 defaults; no AMP",
+    "initialization": "one shared ImageNet-initialized state_dict, verified tensor-by-tensor for both baselines",
+    "cp1": "artifacts immutable; separate CP2 manifest, evaluator policy and run directories"
+  },
+  "phase_a": {
+    "control_root": "outputs/cp2/phase_p/20261107T170015Z",
+    "control_baseline": "B1",
+    "control_manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+    "control_initial_weights_sha256": "f2633bb3f946e94ecf347680ac186fd372bebf1e968177614d251f50ce09a27f",
+    "control_initial_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+    "control_B1_checkpoint_sha256": "e5f147018231b0e13926daa5d0158957e42831404ab05bd3151c1115592aeeeb",
+    "base_commit": "59bdb6fffea56794fb7bd433c8a358f4385b4bf2",
+    "loss": "B1 unchanged: source Dice(sigmoid(logits)) + source focal_with_logits(logits)",
+    "modified_stages": [
+      2,
+      3
+    ],
+    "stage_indexing": "zero-based source decoder.blocks; concatenated pre-conv channels 176/128, spatial 56/112 at input 224; decoder block 4 unchanged",
+    "experiment_order": [
+      "A1",
+      "A2",
+      "A3",
+      "A5",
+      "A6"
+    ],
+    "deferred": {
+      "A4": "NOT RUN \u2014 spatial gate deferred until evidence from global gate; no automatic stage-placement/combination matrix"
+    },
+    "fusion": {
+      "branch_order": [
+        "additive_half",
+        "maxout",
+        "local"
+      ],
+      "scale": 3.0,
+      "initial_weights": [
+        0.4444444444444444,
+        0.2222222222222222,
+        0.3333333333333333
+      ],
+      "formula": "3 * softmax(logits) dot [attention2(x)/2, attention1(x), x*sigmoid(PWConv(DWConv(x)))]",
+      "baseline": "attention2(x)+attention1(x); normalized equivalent weights [2/3,1/3,0] at scale 3",
+      "constant_gate": "one 3-vector per stage, trainable, initialized from log prior",
+      "input_gate": "GAP(input) -> Linear(C,max(8,C//16)) -> ReLU -> Linear(hidden,3) + log_prior; last weights/bias zero; softmax branch axis",
+      "local": "DWConv(C,C,3,padding=1,groups=C,bias=True) -> PWConv(C,1,1,bias=True) -> sigmoid; no intermediate activation or normalization",
+      "new_initialization": "fork_rng CPU, seed 42+20000+stage for local/capacity; +100 for input-gate; +200 for CBAM; original full state loaded exactly from P before additions"
+    },
+    "capacity": {
+      "A5": "original P-scSE + DWConv3x3(C,C) -> PWConv(C,h) -> ReLU -> PWConv(h,C); h=round(max(8,C//16)/2), last PW weights/bias zero",
+      "comparison": "added active parameters within 5% of A3 added active parameters; actual operations and output RMS reported; no exact functional equivalence claimed"
+    },
+    "cbam": {
+      "reference_repository": "Jongchan/attention-module",
+      "reference_revision": "459efad0e05ee7dde50c41ca10a3d0800bc3792a",
+      "implementation": "avg+max shared channel MLP reduction 16; max+mean spatial concat -> Conv7x7 biasFalse -> BatchNorm(eps1e-5,momentum0.01) -> sigmoid",
+      "output_scale": 3.0,
+      "caveat": "matched upper gain bound 3, not midpoint/distribution; two sigmoid maps midpoint gives 0.75x vs source 1.5x; replacement comparator, not isolated local-branch ablation"
+    },
+    "expansion_gate": {
+      "requires": "completed real A1, validation only, all integrity and finite-gradient checks passed",
+      "minimum_overall_dice_vs_B1": -0.03,
+      "minimum_small_dice_vs_B1": -0.03,
+      "maximum_extra_total_foreground_misses": 1,
+      "maximum_extra_empty_fp_images": 2,
+      "pass_action": "Write A1 diagnosis and gate decision BEFORE launching A2/A3/A5/A6, then sequential bounded comparisons without test access",
+      "fail_action": "Stop expansion; document remaining candidates not run; keep A0; evaluate only executed model after locked selection",
+      "meaning": "feasibility gate, not acceptance/improvement criterion; allows testing whether learned fusion resolves a modest fixed-fusion tradeoff"
+    },
+    "selection": {
+      "requires": [
+        "validation Image Dice strictly higher than A0/B1",
+        "small validation Image Dice >= A0",
+        "validation Boundary IoU >= A0",
+        "GT-positive validation TP=0 count <= A0",
+        "GT-empty validation FP-image count <= A0",
+        "active forward parameter count <= 1.01 * A0"
+      ],
+      "ranking": "highest overall validation Image Dice; exact ties favor earlier A1,A2,A3,A5,A6; retain A0 if none eligible",
+      "latency": "reported using same-image shared-GPU sequential inference including cached A0; not a noisy wall-time tuning criterion",
+      "test_access": "selection persisted before all new test probabilities, no architecture or loss changes from test"
+    },
+    "analysis": {
+      "gate_collapse": "validation per-image/stage mean, std, normalized entropy, fraction max weight >0.95, subgroups for evaluation only",
+      "interventions": [
+        "A1/A3 drop_local with remaining weights renormalized",
+        "A3 fixed_prior_gate instead of input gate"
+      ],
+      "intervention_policy": "descriptive validation only AFTER primary selection, no retraining, not evidence of robust training or causal physiological importance"
+    }
+  }
+}
