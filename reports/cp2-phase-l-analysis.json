@@ -1,0 +1,136 @@
+{
+  "created_utc": "2026-11-08T16:26:58.244607+00:00",
+  "status": "COMPLETED \u2014 DESCRIPTIVE POSTHOC ANALYSIS",
+  "source_results_sha256": "ed56d05e77e24ee5d543df2fc32957eed8e8bf71b30a32abc99900fecf94e984",
+  "run_root": "outputs/cp2/phase_l/20261108T065944Z",
+  "training_changed": false,
+  "selection_changed": false,
+  "dice_contributions": {
+    "validation": {
+      "L1": {
+        "gt_positive": -0.0011783966262068036,
+        "gt_empty": -0.00847457627118644,
+        "total": -0.009652972897393641
+      },
+      "L2": {
+        "gt_positive": 0.005158216737758213,
+        "gt_empty": -0.00847457627118644,
+        "total": -0.00331635953342857
+      },
+      "L3": {
+        "gt_positive": 0.0017334626501511157,
+        "gt_empty": -0.00847457627118644,
+        "total": -0.006741113621035466
+      },
+      "L4": {
+        "gt_positive": 0.002137841494120719,
+        "gt_empty": -0.01694915254237288,
+        "total": -0.014811311048252507
+      }
+    },
+    "test": {
+      "L1": {
+        "gt_positive": -0.003304800617300676,
+        "gt_empty": 0.0,
+        "total": -0.0033048006173007627
+      },
+      "L2": {
+        "gt_positive": 0.014931051647652977,
+        "gt_empty": 0.0,
+        "total": 0.01493105164765296
+      },
+      "L3": {
+        "gt_positive": 0.006792413304086645,
+        "gt_empty": 0.0,
+        "total": 0.006792413304086531
+      },
+      "L4": {
+        "gt_positive": 0.014832148137376489,
+        "gt_empty": -0.01532567049808429,
+        "total": -0.0004935223607078765
+      }
+    }
+  },
+  "recipe_contrasts": {
+    "validation": {
+      "L1-L0": {
+        "image_dice": -0.009652972897393641,
+        "data_dice": -0.014960030306591654,
+        "data_precision": -0.037246892603190584,
+        "data_recall": 0.007987229753695146,
+        "small_image_dice": 0.020484794516690386,
+        "boundary_iou": -0.03013707043784597
+      },
+      "L2-L1": {
+        "image_dice": 0.006336613363965071,
+        "data_dice": 0.014517617957305773,
+        "data_precision": 0.01846403119680673,
+        "data_recall": 0.010276785766242247,
+        "small_image_dice": -0.008123155013746497,
+        "boundary_iou": 0.0112018967241998
+      },
+      "L3-L0": {
+        "image_dice": -0.006741113621035466,
+        "data_dice": -0.02113562295935678,
+        "data_precision": 0.004338393484772829,
+        "data_recall": -0.04474246864214326,
+        "small_image_dice": 0.03111767667144405,
+        "boundary_iou": 0.0032574594230719844
+      },
+      "L4-L2": {
+        "image_dice": -0.011494951514823937,
+        "data_dice": -0.0034124743737600216,
+        "data_precision": 0.0002564549827536178,
+        "data_recall": -0.007276476996619374,
+        "small_image_dice": -0.00998794512020218,
+        "boundary_iou": -0.007197894008989625
+      }
+    },
+    "test": {
+      "L1-L0": {
+        "image_dice": -0.0033048006173007627,
+        "data_dice": -0.00477823720812065,
+        "data_precision": -0.04503122082742861,
+        "data_recall": 0.03309481461578079,
+        "small_image_dice": 0.016417342367569643,
+        "boundary_iou": -0.01598538575370556
+      },
+      "L2-L1": {
+        "image_dice": 0.018235852264953722,
+        "data_dice": 0.010687036963153207,
+        "data_precision": 0.01107844900997057,
+        "data_recall": 0.010285263270373157,
+        "small_image_dice": 0.01492169068596172,
+        "boundary_iou": 0.022648585891222317
+      },
+      "L3-L0": {
+        "image_dice": 0.006792413304086531,
+        "data_dice": -0.016400986995164346,
+        "data_precision": -0.0042197524437340705,
+        "data_recall": -0.02658876212341066,
+        "small_image_dice": 0.05138600138799354,
+        "boundary_iou": 0.02095960912399486
+      },
+      "L4-L2": {
+        "image_dice": -0.015424574008360836,
+        "data_dice": -0.0016849035390852363,
+        "data_precision": -0.004393808637584651,
+        "data_recall": 0.0011044394079298137,
+        "small_image_dice": 0.012141917525685497,
+        "boundary_iou": -0.009090931176514383
+      }
+    }
+  },
+  "figures": [
+    {
+      "path": "reports/figures/cp2-phase-l/dice_contributions.png",
+      "sha256": "1c072204aff123ad48d4663fe19c0137386eac5fd2960f49d07f5841f0a0473e"
+    },
+    {
+      "path": "reports/figures/cp2-phase-l/dice_contributions.svg",
+      "sha256": "807723d58d1f6d6f11ef70152502c317d2b627b420e110aafb3457d63983c323"
+    }
+  ],
+  "interpretation": "Weighted positive/empty mean differences exactly sum to overall mean Dice difference; no subgroup exclusion or evaluator change",
+  "caveat": "Posthoc explanation, not new training/model selection. Unknown patient grouping, one seed, adaptive checkpoint budgets; exposed source-test is descriptive."
+}

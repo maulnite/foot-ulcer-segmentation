@@ -72,17 +72,19 @@ L5–L7 adalah pengembangan **bersyarat setelah diagnosis**, bukan matriks otoma
 
 ## Eksekusi dan artefak
 
+Baseline control Fase P, initial weights dan dataset sah harus sudah tersedia lokal dengan checksum yang sama. Repo publik menyediakan kode dan skor, bukan bobot/dataset mentah. Jalankan dari root repository. Driver preflight membuat inventory preservasi, memeriksa primitive penulis yang dipin, menjalankan tests dan smoke, lalu menulis gate dari hasil aktual; file `passed` tidak dibuat manual.
+
 ```bash
-.venv-training/bin/python scripts/run_cp2_phase_l.py \
-  --root outputs/cp2/phase_l/<timestamp> --stage prepare
-.venv-xfuseg/bin/python -m pytest -o addopts='' -q
-.venv-training/bin/python scripts/run_cp2_phase_l.py \
-  --root outputs/cp2/phase_l/<timestamp> --stage smoke --device cuda:0
+.venv-training/bin/python scripts/preflight_cp2_phase_l.py \
+  --root outputs/cp2/phase_l/<timestamp> --device cuda:0
 # Setelah tests, reference oracle dan empat real-data smoke lulus:
 .venv-training/bin/python scripts/run_cp2_phase_l.py \
   --root outputs/cp2/phase_l/<timestamp> --stage train --device cuda:0
 .venv-training/bin/python scripts/run_cp2_phase_l.py \
   --root outputs/cp2/phase_l/<timestamp> --stage status
+# Sesudah training selesai, atau gunakan --wait sebagai CPU-only watcher:
+.venv-training/bin/python scripts/finish_cp2_phase_l.py \
+  --root outputs/cp2/phase_l/<timestamp> --wait
 ```
 
 Satu proses mengeksekusi L1→L2→L3→L4 secara berurutan. Smoke masing-masing memakai enam gambar nyata, termasuk GT kosong, untuk forward/backward/optimizer/validation/checkpoint replay. Skor smoke bersifat diagnostik.
@@ -90,3 +92,18 @@ Satu proses mengeksekusi L1→L2→L3→L4 secara berurutan. Smoke masing-masing
 `--resume` hanya setelah memeriksa kegagalan; config, source, package versions dan input identities harus sama. Completed stages tidak dilatih ulang. Checkpoint/NPZ/JSON memakai atomic replace; partial export dipindahkan ke arsip lokal sebelum replay, tidak dihapus. Log persisten, status, component losses, LR, waktu, peak CUDA allocated/reserved dan pemakaian keseluruhan GPU disimpan. GPU sharing memengaruhi waktu; pekerjaan pengguna lain tidak disentuh.
 
 Run ada di `outputs/cp2/phase_l/<timestamp>/`, pointer lokal `outputs/cp2/latest_phase_l.json`. Model/data/gambar klinis tetap lokal. Hanya source, config, agregat metrik, membership tanpa foto, dan grafik penelitian yang masuk Git.
+
+Render ulang laporan completed menggunakan `.venv-analysis/bin/python scripts/report_cp2_phase_l.py --root <run>`. Validator `scripts/validate_cp2_phase_l.py --root <run> --output <nama-QA-baru.json>` menjaga evidence lama. Panggil interpreter melalui path virtualenv aslinya; jangan meresolusikan symlink Python ke base interpreter. Versi training dipin oleh hash source pada preflight dan checkpoint; helper presentasi boleh disempurnakan tanpa mengubah training atau canonical metrics.
+
+## Hasil dan replay analisis setelah training
+
+Run `20261108T065944Z` telah menuntaskan L1–L4. [Laporan](../reports/cp2-phase-l.md), [review keputusan](../reports/cp2-phase-l-review.md), dan [QA](../reports/cp2-phase-l-validation.json) mencatat hasil nyata. **L0/B1 dipertahankan** oleh guard validation; L2 mempunyai source-test Dice tertinggi tetapi tidak mengubah selection. Protokol training tetap identik dengan commit pratraining `54e570ac687536dae93ce75cc239c11e37e5ef34`. Tambahan ini adalah dokumentasi setelah hasil, bukan perubahan aturan.
+
+Setelah `finish_cp2_phase_l.py` dan artifact QA lulus, dua langkah CPU berikut membuat dekomposisi mean Dice dan gallery kasus nyata. Setiap langkah menolak overwrite evidence completed. Gallery foto/GT/overlay hanya lokal; public JSON berisi angka dan provenance.
+
+```bash
+.venv-analysis/bin/python scripts/analyze_cp2_phase_l.py --root <run>
+.venv-analysis/bin/python scripts/cp2_phase_l_cases.py --root <run>
+```
+
+Periksa grafik secara langsung; keberhasilan save PNG saja tidak menyelesaikan review visual. L5–L7 tetap tindak lanjut bersyarat. Semua historical CP1/P, notebook pengguna dan checkpoint dipertahankan.

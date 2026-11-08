@@ -1,0 +1,222 @@
+{
+  "status": "COMPLETED \u2014 TRAINING, ARTIFACT QA AND DIRECT VISUAL REVIEW",
+  "checked_utc": "2026-11-08T16:32:31.389349+00:00",
+  "scope": "CP2 L.1 single-seed L1-L4; L0 cached; L5-L7 and later phases not executed",
+  "run_root": "outputs/cp2/phase_l/20261108T065944Z",
+  "frozen_training_commit": "54e570ac687536dae93ce75cc239c11e37e5ef34",
+  "frozen_training_sources_still_identical": true,
+  "selected_validation_candidate": "L0",
+  "final_tests": {
+    "tests": 87,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "pretraining_tests": 80,
+  "reference_oracle_fixtures": 40,
+  "real_data_gpu_smoke_experiments": 4,
+  "syntax_files": 66,
+  "dependency_checks": {
+    ".venv-training": "passed",
+    ".venv-analysis": "passed"
+  },
+  "staged_whitespace_check": "passed",
+  "ruff": "NOT RUN \u2014 not installed in existing environments; no environment changed",
+  "historical_and_user_files_unchanged": 7917,
+  "new_predictions_verified": 1516,
+  "canonical_artifact_validation": {
+    "path": "reports/cp2-phase-l-validation.json",
+    "sha256": "7751362673675017004a2c3091863f3bbd36e0195cb5ecf3f2a9b1d3d6739e9a"
+  },
+  "direct_visual_review": {
+    "images": [
+      {
+        "path": "reports/figures/cp2-phase-l/training_losses.png",
+        "dimensions": [
+          2098,
+          1458
+        ],
+        "sha256": "e6fa3a2bef4bcd0ccb498140bea49b73801fbcc4a66d505990572b2f67fbb64e",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-l/checkpoint_and_lr.png",
+        "dimensions": [
+          2098,
+          818
+        ],
+        "sha256": "5e128da6636252ce6d5d0efbc51383b4d4b6419aff513b6edcb8e16feb5146bc",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-l/segmentation_and_boundary.png",
+        "dimensions": [
+          2418,
+          1458
+        ],
+        "sha256": "9bfe8a1b57ea5bb925c8d2d0d1bfbe22f74cb4153daf94e56459cccdd0fd4ad0",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-l/foreground_and_empty_errors.png",
+        "dimensions": [
+          1938,
+          1458
+        ],
+        "sha256": "841d83852232cfb40f686914abb08f54cca69069ce673bcb33e4c84206c598f1",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-l/paired_dice_effects.png",
+        "dimensions": [
+          2098,
+          818
+        ],
+        "sha256": "a16410cc771ccc568310ffe6ed936cba6f29132b861528e4692599f4047e369b",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-l/boundary_component_scales.png",
+        "dimensions": [
+          2098,
+          818
+        ],
+        "sha256": "a421edc100831c1e802dfd6d3af0ccd63f764839423362feff0fd38bcbdf48ff",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-l/dice_contributions.png",
+        "dimensions": [
+          2098,
+          861
+        ],
+        "sha256": "1c072204aff123ad48d4663fe19c0137386eac5fd2960f49d07f5841f0a0473e",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "outputs/cp2/phase_l/20261108T065944Z/error_analysis/validation_local_gallery.png",
+        "dimensions": [
+          2816,
+          2256
+        ],
+        "sha256": "54aea630557319cb03c5ce16ba5402bef6509db0cd1c3b37edd47f72aae1af7c",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "outputs/cp2/phase_l/20261108T065944Z/error_analysis/test_local_gallery.png",
+        "dimensions": [
+          2757,
+          2256
+        ],
+        "sha256": "d348b454b73bba13d11af7813a5df096368cb28bc942481a8032fa5bc0f8789c",
+        "direct_visual_review": "passed"
+      }
+    ],
+    "checks": [
+      "readable axes/titles/legends/units",
+      "honest bounds and baseline comparisons",
+      "model colors consistent on comparative plots",
+      "all-zero validation miss counts explicitly shown",
+      "actual sample/GT/overlay alignment in both local galleries",
+      "no case fabricated when no validation total miss exists",
+      "union crop retains predictions beyond RGB crop; metrics remain full resolution",
+      "component decomposition exactly sums to canonical overall Dice differences"
+    ],
+    "limitations": [
+      "Boundary component near zero at later epochs is compressed on full objective scale; numeric selected-epoch values are supplied in review.",
+      "Local gallery labels intended for full-resolution viewing; no patient-independence or clinical diagnosis established."
+    ]
+  },
+  "publication_audit": {
+    "files_scanned_before_this_quality_record": 47,
+    "issues": [],
+    "raw_clinical_media_or_checkpoints_staged": false,
+    "private_home_paths_or_credential_patterns_found": false,
+    "only_aggregate_png_and_vector_svg_figures": true,
+    "local_gallery_paths_ignored_by_git": true,
+    "csv_line_ending_normalization": "Git LF normalization allowed; all 10 per-image tables verified semantically against original exports",
+    "csv_tables": [
+      {
+        "path": "reports/tables/cp2-phase-l-l0-validation.csv",
+        "rows": 118,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l0-test.csv",
+        "rows": 261,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l1-validation.csv",
+        "rows": 118,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l1-test.csv",
+        "rows": 261,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l2-validation.csv",
+        "rows": 118,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l2-test.csv",
+        "rows": 261,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l3-validation.csv",
+        "rows": 118,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l3-test.csv",
+        "rows": 261,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l4-validation.csv",
+        "rows": 118,
+        "git_index_equals_scientific_csv_semantically": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-l-l4-test.csv",
+        "rows": 261,
+        "git_index_equals_scientific_csv_semantically": true
+      }
+    ]
+  },
+  "posthoc_sources": {
+    "scripts/analyze_cp2_phase_l.py": "37ed16ae91bc7779a088387e6b087ec4649420a5d8c41476d3c2804215350dc3",
+    "scripts/cp2_phase_l_cases.py": "ad302ee957a679b347278afeeb8a066e71dc42d5c59e6da8c28d6dc71bbcf07d",
+    "scripts/finish_cp2_phase_l.py": "a14e7f57e31c739f716cf818eee9913d0e69efb5d53de11470c3262cb7c47b95",
+    "scripts/preflight_cp2_phase_l.py": "88c64d4cebe9b9976ee593109f8b2dc8fd43f4ba964a4dd69074d2f60b4f6ebc",
+    "scripts/report_cp2_phase_l.py": "40b00c8367d9b7ab4c02a4fa49c367437830cf9d52b44f103dd5da96990709d4",
+    "scripts/validate_cp2_phase_l.py": "65277cc641252ee9dafbc05a45fa4a6e90e4f1e31f54de31cb639d26c2646fee",
+    "src/foot_ulcer_segmentation/cp2_phase_l_report.py": "bc5bc8f2d52ee06e7a8c42058255757abc02fe47205d6908c0f671ee7a522ce5",
+    "tests/test_cp2_phase_l_reporting.py": "0b78781083ce71e8f7b3e8dd9f8bc9c82ecadd89d3e107c85f2348e1c1421b4e"
+  },
+  "recovered_resource_interruption": {
+    "events": [
+      {
+        "created_utc": "2026-11-08T09:08:53.330951+00:00",
+        "cause": "DataLoader POSIX shared memory ENOSPC in /dev/shm; shared space recovered before retry",
+        "failed_utc": "2026-11-08T09:04:06.352100+00:00",
+        "objective_id": "L2",
+        "completed_epoch_boundary": 4,
+        "last_checkpoint_sha256": "ca25f0de1dafec047c48d7c1034cf7ed84805198f1c4790342c0ffc526f88c71",
+        "resume_optimizer_scheduler_rng_verified": true,
+        "shared_memory_available_bytes_before_resume": 1072828416,
+        "configuration_source_environment_worker_count_batch_precision_unchanged": true,
+        "shared_resources_modified_or_deleted": false,
+        "completed_L1_retrained": false,
+        "preserved_failure_directory": "outputs/cp2/phase_l/20261108T065944Z/interruptions/20261108T090853Z",
+        "incomplete_epoch_updates": "discarded; replay starts from full checkpoint after epoch 4"
+      }
+    ]
+  },
+  "source_test_interpretation": "descriptive, CP1/P exposed; never used to change selection; RGB bootstrap excludes unknown patient and seed uncertainty",
+  "later_training_stages_executed": false
+}
