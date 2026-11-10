@@ -1,0 +1,203 @@
+{
+  "scope": "one sequential GPU trainer; overall samples include other users; no exclusive-hardware timing claim",
+  "inference": {
+    "A0": {
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup": 5,
+      "timed_steps": 30,
+      "median_ms": 45.25266750715673,
+      "p95_ms": 57.29304777923971,
+      "peak_cuda_allocated_bytes": 329111040,
+      "peak_cuda_reserved_bytes": 446693376,
+      "gpu_overall": {
+        "utc": "2026-11-09T08:50:03.305815+00:00",
+        "gpu_csv": "2026/11/09 08:50:03.281, NVIDIA A100-SXM4-80GB, 46654, 34499, 100, 234.23, 58",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "scope": "same-image sequential forward+sigmoid; excludes data/GT/loss/export; shared load, not exclusive hardware benchmark"
+    },
+    "A1": {
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup": 5,
+      "timed_steps": 30,
+      "median_ms": 46.34584719315171,
+      "p95_ms": 57.3616365669295,
+      "peak_cuda_allocated_bytes": 334230016,
+      "peak_cuda_reserved_bytes": 446693376,
+      "gpu_overall": {
+        "utc": "2026-11-09T08:50:33.322910+00:00",
+        "gpu_csv": "2026/11/09 08:50:32.321, NVIDIA A100-SXM4-80GB, 46654, 34499, 77, 302.75, 59",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "scope": "same-image sequential forward+sigmoid; excludes data/GT/loss/export; shared load, not exclusive hardware benchmark"
+    },
+    "A2": {
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup": 5,
+      "timed_steps": 30,
+      "median_ms": 43.91771648079157,
+      "p95_ms": 49.83609248884022,
+      "peak_cuda_allocated_bytes": 334231040,
+      "peak_cuda_reserved_bytes": 446693376,
+      "gpu_overall": {
+        "utc": "2026-11-09T08:50:59.820956+00:00",
+        "gpu_csv": "2026/11/09 08:50:58.798, NVIDIA A100-SXM4-80GB, 46654, 34499, 89, 270.53, 57",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "scope": "same-image sequential forward+sigmoid; excludes data/GT/loss/export; shared load, not exclusive hardware benchmark"
+    },
+    "A3": {
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup": 5,
+      "timed_steps": 30,
+      "median_ms": 48.02922951057553,
+      "p95_ms": 59.16169988922775,
+      "peak_cuda_allocated_bytes": 334245376,
+      "peak_cuda_reserved_bytes": 446693376,
+      "gpu_overall": {
+        "utc": "2026-11-09T08:51:35.527055+00:00",
+        "gpu_csv": "2026/11/09 08:51:28.918, NVIDIA A100-SXM4-80GB, 46662, 34491, 51, 343.50, 61",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "scope": "same-image sequential forward+sigmoid; excludes data/GT/loss/export; shared load, not exclusive hardware benchmark"
+    },
+    "A5": {
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup": 5,
+      "timed_steps": 30,
+      "median_ms": 47.730285907164216,
+      "p95_ms": 60.52091184537857,
+      "peak_cuda_allocated_bytes": 334395904,
+      "peak_cuda_reserved_bytes": 446693376,
+      "gpu_overall": {
+        "utc": "2026-11-09T08:52:53.425349+00:00",
+        "gpu_csv": "2026/11/09 08:52:53.123, NVIDIA A100-SXM4-80GB, 46662, 34491, 81, 263.74, 60",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "scope": "same-image sequential forward+sigmoid; excludes data/GT/loss/export; shared load, not exclusive hardware benchmark"
+    },
+    "A6": {
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup": 5,
+      "timed_steps": 30,
+      "median_ms": 59.588257456198335,
+      "p95_ms": 71.38850316405296,
+      "peak_cuda_allocated_bytes": 329332736,
+      "peak_cuda_reserved_bytes": 446693376,
+      "gpu_overall": {
+        "utc": "2026-11-09T08:53:25.620035+00:00",
+        "gpu_csv": "2026/11/09 08:53:23.024, NVIDIA A100-SXM4-80GB, 46662, 34491, 79, 209.32, 60",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "scope": "same-image sequential forward+sigmoid; excludes data/GT/loss/export; shared load, not exclusive hardware benchmark"
+    }
+  },
+  "fresh_models": {
+    "A1": {
+      "completed_epochs": 69,
+      "sum_completed_epoch_compute_seconds": 6943.95849074889,
+      "median_epoch_compute_seconds": 97.2240913072601,
+      "mean_step_seconds": 0.2800874975289805,
+      "last_invocation_seconds": 7503.234144371934,
+      "environment_record_to_finish_seconds": 7465.142726,
+      "peak_cuda_allocated_bytes_last_invocation": 2404002816,
+      "peak_cuda_reserved_bytes_last_invocation": 2541748224,
+      "GPU_overall_sample_count": 923,
+      "GPU_overall_peak_used_MiB": 27358.0,
+      "GPU_overall_mean_utilization_percent": 67.15276273022752,
+      "minimum_sampled_free_shm_bytes": 279027712,
+      "caveat": "Invocation/allocator peaks cover the last process only if resumed; completed-epoch sums omit failed partial work. Overall GPU numbers include other processes."
+    },
+    "A2": {
+      "completed_epochs": 66,
+      "sum_completed_epoch_compute_seconds": 6063.31028389791,
+      "median_epoch_compute_seconds": 91.11837101704441,
+      "mean_step_seconds": 0.2548168124447731,
+      "last_invocation_seconds": 6621.658903826028,
+      "environment_record_to_finish_seconds": 6618.031015,
+      "peak_cuda_allocated_bytes_last_invocation": 2459807232,
+      "peak_cuda_reserved_bytes_last_invocation": 2600468480,
+      "GPU_overall_sample_count": 843,
+      "GPU_overall_peak_used_MiB": 18331.0,
+      "GPU_overall_mean_utilization_percent": 47.52075919335706,
+      "minimum_sampled_free_shm_bytes": 876953600,
+      "caveat": "Invocation/allocator peaks cover the last process only if resumed; completed-epoch sums omit failed partial work. Overall GPU numbers include other processes."
+    },
+    "A3": {
+      "completed_epochs": 57,
+      "sum_completed_epoch_compute_seconds": 5089.082190579735,
+      "median_epoch_compute_seconds": 88.41497786715627,
+      "mean_step_seconds": 0.2476798160676932,
+      "last_invocation_seconds": 5365.3117795931175,
+      "environment_record_to_finish_seconds": 5364.055058,
+      "peak_cuda_allocated_bytes_last_invocation": 2459868160,
+      "peak_cuda_reserved_bytes_last_invocation": 2600468480,
+      "GPU_overall_sample_count": 693,
+      "GPU_overall_peak_used_MiB": 4533.0,
+      "GPU_overall_mean_utilization_percent": 35.94516594516595,
+      "minimum_sampled_free_shm_bytes": 953655296,
+      "caveat": "Invocation/allocator peaks cover the last process only if resumed; completed-epoch sums omit failed partial work. Overall GPU numbers include other processes."
+    },
+    "A5": {
+      "completed_epochs": 51,
+      "sum_completed_epoch_compute_seconds": 4567.3763855914585,
+      "median_epoch_compute_seconds": 90.09052441362292,
+      "mean_step_seconds": 0.24911454697760227,
+      "last_invocation_seconds": 4929.560841845814,
+      "environment_record_to_finish_seconds": 4925.250879,
+      "peak_cuda_allocated_bytes_last_invocation": 2406114816,
+      "peak_cuda_reserved_bytes_last_invocation": 2543845376,
+      "GPU_overall_sample_count": 667,
+      "GPU_overall_peak_used_MiB": 4479.0,
+      "GPU_overall_mean_utilization_percent": 35.47076461769115,
+      "minimum_sampled_free_shm_bytes": 953655296,
+      "caveat": "Invocation/allocator peaks cover the last process only if resumed; completed-epoch sums omit failed partial work. Overall GPU numbers include other processes."
+    },
+    "A6": {
+      "completed_epochs": 140,
+      "sum_completed_epoch_compute_seconds": 22836.08311650483,
+      "median_epoch_compute_seconds": 131.28348377603106,
+      "mean_step_seconds": 0.4547339621256976,
+      "last_invocation_seconds": 24629.834345758893,
+      "environment_record_to_finish_seconds": 24629.335998,
+      "peak_cuda_allocated_bytes_last_invocation": 2367433216,
+      "peak_cuda_reserved_bytes_last_invocation": 2495610880,
+      "GPU_overall_sample_count": 2214,
+      "GPU_overall_peak_used_MiB": 78846.0,
+      "GPU_overall_mean_utilization_percent": 81.57497741644083,
+      "minimum_sampled_free_shm_bytes": 723374080,
+      "caveat": "Invocation/allocator peaks cover the last process only if resumed; completed-epoch sums omit failed partial work. Overall GPU numbers include other processes."
+    }
+  },
+  "resource_interruptions": null
+}

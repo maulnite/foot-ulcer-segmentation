@@ -88,3 +88,19 @@ Gunakan existing environment proyek dan baseline assets lokal yang checksum-nya 
 ```
 
 Training berjalan sekuensial: A1 → ekspor/diagnosis validation → keputusan perluasan tersimpan → kandidat perluasan yang diizinkan → seluruh validation → selection tersimpan → seluruh test. `--resume` hanya setelah memeriksa penyebab interupsi dan kecocokan source/config/input/environment/checkpoint. Completed stages tidak dilatih ulang. Jalankan Python lewat path virtualenv aslinya, tanpa meresolusikan symlink ke base interpreter. Simpan stdout/stderr ke log persisten; runner menulis workflow/status JSON dan GPU/shared-memory samples untuk pemantauan.
+
+## Catatan pelaksanaan setelah protokol dikunci
+
+Run `outputs/cp2/phase_a/20261108T185142Z` menyelesaikan A1/A2/A3/A5/A6, **383 completed epochs**. Preregistration commit `d8242d79b3fd04052ac5e26ef8677c327b4c01cc` dibuat sebelum training. A1 dianalisis sebelum perluasan; primary selection tersimpan sebelum semua test exports baru. **A0/B1 tetap terpilih** karena tidak ada kandidat yang memenuhi seluruh guard. Aturan di atas tidak direvisi berdasarkan hasil. [Hasil](../reports/cp2-phase-a.md), [review ilmiah](../reports/cp2-phase-a-review.md), [QA](../reports/cp2-phase-a-quality.json).
+
+Tahap posthoc terpisah dari training. Perintah berikut untuk **run baru yang sudah completed**, bukan menimpa artefak analysis/QA yang sudah ada:
+
+```bash
+.venv-training/bin/python scripts/analyze_cp2_phase_a.py --root <run> --device cuda:0
+.venv-analysis/bin/python scripts/report_cp2_phase_a.py --root <run>
+.venv-training/bin/python scripts/validate_cp2_phase_a.py --root <run>
+.venv-analysis/bin/python scripts/cp2_phase_a_cases.py --root <run>
+.venv-xfuseg/bin/python -m pytest -o addopts= -q
+```
+
+`finish_cp2_phase_a.py --root <run> --device cuda:0 --wait` mengoordinasikan analysis → report → artifact QA setelah trainer berhenti; direct visual review tetap manual. Analysis dan gallery menolak overwrite direktori yang ada. Jika perlu audit ulang, validator menerima `--output <run>/qa-baru.json`; analysis menerima nama direktori baru melalui `--output-name`. Tidak perlu retraining untuk membaca laporan/CSV/figures atau memverifikasi cached artifacts. Notebook CP1 serta artefak P/L dipertahankan.
