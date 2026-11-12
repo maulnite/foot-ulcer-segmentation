@@ -1,0 +1,109 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-12T17:03:36.082471+00:00",
+  "run_root": "outputs/cp2/phase_h/20261112T105427Z",
+  "historical_and_user_files_unchanged": 12200,
+  "changed": [],
+  "training_sources_and_protocol_unchanged": true,
+  "preregistered_before_full_training": true,
+  "all_original_initial_tensors_match_B1": true,
+  "paired_H1_H2_head_initialization": true,
+  "initial_main_H0_H1_H2_bit_exact": true,
+  "removable_head_main_predictions_bit_exact": true,
+  "paired_inputs": {
+    "status": "passed",
+    "baseline_comparisons": [
+      {
+        "variant": "H1",
+        "common_B1_epochs": 55
+      },
+      {
+        "variant": "H2",
+        "common_B1_epochs": 55
+      }
+    ],
+    "all_candidate_pairwise_common_epoch_inputs_equal": true
+  },
+  "duplicate_rgb_overlap": 0,
+  "patient_independence_established": false,
+  "expansion_recomputed_validation_only_and_before_H2": true,
+  "selection_recomputed_validation_only_and_before_all_new_test_exports": true,
+  "checkpoints_hashes_and_earliest_peak_epoch_verified": true,
+  "primary_predictions_verified": 758,
+  "evaluations": [
+    {
+      "variant": "H1",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "variant": "H1",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "variant": "H2",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "variant": "H2",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    }
+  ],
+  "auxiliary_validation_predictions_verified": 236,
+  "auxiliary": [
+    {
+      "variant": "H1",
+      "predictions": 118,
+      "independent_cv2_target_oracle_metrics_and_checksum": "passed"
+    },
+    {
+      "variant": "H2",
+      "predictions": 118,
+      "independent_cv2_target_oracle_metrics_and_checksum": "passed"
+    }
+  ],
+  "preflight": {
+    "status": "passed",
+    "created_utc": "2026-11-12T11:03:49.396891+00:00",
+    "historical_files_unchanged": 12200,
+    "tests": {
+      "tests": 114,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "real_data_smoke_models": [
+      "H1",
+      "H2"
+    ],
+    "training_sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+      "src/foot_ulcer_segmentation/cp2_heads.py": "265ee3dc1785452850ccca6c954b2d069dec831869e3c2719c7c4b124edcf098",
+      "src/foot_ulcer_segmentation/cp2_phase_h.py": "de89e612cd895495df9972fb52d692b1cf86a2bd011132bacb15784ac0acb2e0",
+      "scripts/run_cp2_phase_h.py": "051638e1905908911f2f222f0e02c51b4081f70136fbf7967907e7be3d336904"
+    },
+    "protocol_fingerprint": "9ed4073fb16722deec5d620f53cbfd3c9f0b13cd4c4ae7c9425252fcf91cc26a",
+    "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5"
+  },
+  "limitations": "one seed; RGB group not patient split; previously exposed test; no external data"
+}

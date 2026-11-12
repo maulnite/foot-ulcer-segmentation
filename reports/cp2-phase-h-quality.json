@@ -1,0 +1,205 @@
+{
+  "status": "COMPLETED — REAL AUXILIARY SCREENING, ARTIFACT QA AND DIRECT VISUAL REVIEW",
+  "checked_utc": "2026-11-12T17:06:27.637625+00:00",
+  "scope": "H1 segmentation auxiliary and H2 boundary auxiliary, seed42; H0 cached; H3/L3/attention combinations deferred",
+  "run_root": "outputs/cp2/phase_h/20261112T105427Z",
+  "frozen_training_commit": "db1d4a212a84dea9b79c2af43d6cf014bc9b4c6d",
+  "frozen_training_sources_still_identical": true,
+  "selected_validation_candidate": "H0 = L0/B1",
+  "completed_fresh_epochs": 135,
+  "final_tests": {
+    "tests": 117,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "pretraining_tests": 114,
+  "real_data_gpu_smoke_experiments": 2,
+  "syntax_files": 86,
+  "dependency_checks": {
+    ".venv-training": "passed",
+    ".venv-analysis": "passed"
+  },
+  "ruff": "NOT RUN — not installed in existing environments; no environment changed",
+  "historical_and_user_files_unchanged": 12200,
+  "primary_predictions_verified": 758,
+  "auxiliary_validation_predictions_verified": 236,
+  "cached_validation_checkpoint_replay": {
+    "models": 3,
+    "images_each": 118,
+    "bit_exact_probability_maps": 354,
+    "head_bypassed_main_bit_exact": true
+  },
+  "canonical_artifact_validation": {
+    "path": "reports/cp2-phase-h-validation.json",
+    "sha256": "8087b2f8925f6eaf9ccaf81ac6b24ca8afaace2894a405816d87fc6539e1595f"
+  },
+  "direct_visual_review": {
+    "images": [
+      {
+        "path": "reports/figures/cp2-phase-h/auxiliary_architecture.png",
+        "dimensions": [
+          2098,
+          786
+        ],
+        "sha256": "925dd032c1861bb23a93e286a8458e953becd0404af500e5ca42d6707e0af0bd",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-h/checkpoint_and_lr.png",
+        "dimensions": [
+          2098,
+          818
+        ],
+        "sha256": "77f37ca70877945a4af5d8db12799dd8fc1044a9b584fe7d7d0fc991fc3d60dd",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-h/foreground_and_empty_errors.png",
+        "dimensions": [
+          1938,
+          1458
+        ],
+        "sha256": "2c59a5b38db2eb60e239fa62d3d5e177889415681fe3bd8f6c6891ac9cf0582e",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-h/paired_effects.png",
+        "dimensions": [
+          1938,
+          738
+        ],
+        "sha256": "ba41621d91b49aed5232b1a1c63d819c03aadee093933c7d17a9e2b844eddd78",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-h/segmentation_and_boundary.png",
+        "dimensions": [
+          2258,
+          1458
+        ],
+        "sha256": "2c547b563ab60abfa096e57a5a0500f1dff6fe704a586fc63bae525f1a700ccb",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "reports/figures/cp2-phase-h/training_objectives.png",
+        "dimensions": [
+          2098,
+          1938
+        ],
+        "sha256": "c1925e2fd43590b16e2d78281921d2a2165d115366bfe74d85ae21a13ef8fdd5",
+        "direct_visual_review": "passed"
+      },
+      {
+        "path": "outputs/cp2/phase_h/20261112T105427Z/error_analysis/test_local_gallery.png",
+        "dimensions": [
+          2816,
+          2256
+        ],
+        "sha256": "e351a6b8c34932e7988bbd8757db08ddc861dc1a8798cb1bc3e872aa5dc2af4e",
+        "direct_visual_review": "passed; LOCAL ONLY"
+      },
+      {
+        "path": "outputs/cp2/phase_h/20261112T105427Z/error_analysis/validation_local_gallery.png",
+        "dimensions": [
+          2816,
+          2256
+        ],
+        "sha256": "ca7fb7346c3aa631b88fc731a0a512cc7911669260a51c7e2d8c8dc881d695a0",
+        "direct_visual_review": "passed; LOCAL ONLY"
+      }
+    ],
+    "checks": [
+      "Readable axes, units, legends and honest scales; every numerical figure derives from real completed runs",
+      "Zero validation misses shown as zero, not an empty/missing chart",
+      "Checkpoint markers and LR transitions match primary validation history",
+      "H1 mask auxiliary and H2 boundary auxiliary losses/targets explicitly distinguished",
+      "Diagram footer overlap corrected before final render; frozen training code unchanged",
+      "Direct local inspection confirms RGB/GT/predicted-mask alignment and six deterministic symmetric case rules",
+      "Failures retained: lower H2 random/median validation Dice, GT-empty FP, missed 20-pixel source-test GT",
+      "Union display crop includes all predictions; input/metrics remain 224x224",
+      "Only aggregate PNG/SVG public; clinical galleries remain ignored by Git"
+    ],
+    "limitations": [
+      "Native source crops can be tiny; local gallery intended for full-resolution zoom",
+      "Visual inspection is not clinical annotation adjudication"
+    ]
+  },
+  "publication_audit": {
+    "new_branch_files_scanned_before_quality_record": 42,
+    "issues": [],
+    "raw_clinical_media_or_checkpoints_staged": false,
+    "private_home_paths_or_credentials_found": false,
+    "local_gallery_paths_ignored_by_git": true,
+    "csv_tables": [
+      {
+        "path": "reports/tables/cp2-phase-h-h0-history.csv",
+        "rows": 55,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h0-test.csv",
+        "rows": 261,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h0-validation.csv",
+        "rows": 118,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h1-history.csv",
+        "rows": 55,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h1-test.csv",
+        "rows": 261,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h1-validation.csv",
+        "rows": 118,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h2-history.csv",
+        "rows": 80,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h2-test.csv",
+        "rows": 261,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-h2-validation.csv",
+        "rows": 118,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      },
+      {
+        "path": "reports/tables/cp2-phase-h-membership.csv",
+        "rows": 1050,
+        "git_index_semantically_equals_local_numeric_artifact": true
+      }
+    ],
+    "csv_line_endings": "Git CRLF-to-LF normalization allowed; indexed numeric rows semantically identical"
+  },
+  "posthoc_sources": {
+    "scripts/validate_cp2_phase_h.py": "3c6ff11561998f49747a0e6312218fbab5268d8273ccc1995742da51abe42aa9",
+    "scripts/analyze_cp2_phase_h.py": "100ea45667bec5754802384c6a65da841c19f7c67d3087ff16bb93064da57415",
+    "scripts/report_cp2_phase_h.py": "36d6b2a942fd680b7d4bca6da8e16cc8af9a515b7570864c14ed01aa29f56ccd",
+    "scripts/finish_cp2_phase_h.py": "ea165f6333ab22e2631edb9daee8a3748c9201bd6ba6a63645bcb06ec9b3a824",
+    "scripts/cp2_phase_h_cases.py": "a728ad0a536ac2d04ec10173d290bb4534d5ea0e6de7dbdcc52d67527e14a3b2",
+    "tests/test_cp2_phase_h_reporting.py": "9501f95e53fc0ebb92dd6dfe93f98b355da69ddc1fbc710ef829d21159f7f759"
+  },
+  "phase_h_training_interruptions": null,
+  "source_test_interpretation": "descriptive CP1/P/L/A-exposed source-test; validation selection locked before any new test export; no test tuning",
+  "deferred": [
+    "H3 boundary-guided local branch",
+    "L3 combination",
+    "attention combinations",
+    "multiseed",
+    "external evaluation"
+  ]
+}

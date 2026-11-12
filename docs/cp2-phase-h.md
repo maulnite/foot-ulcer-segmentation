@@ -58,3 +58,33 @@ Run baru append-only `outputs/cp2/phase_h/<timestamp>/`. Config/source/manifest/
 Gunakan interpreter virtualenv tanpa meresolusikan symlink ke base Python. `--resume` hanya setelah inspeksi kegagalan dan verifikasi source/config/input/checkpoint/environment; completed stages tidak dilatih ulang. Seluruh foto/GT/clinical overlays tetap lokal; hanya hasil numerik dan grafik agregat masuk Git. Tidak ada dataset/weights tambahan atau environment upgrade.
 
 H3, L3 combinations, attention combinations, multiseed, boundary-guided inference dan external evaluation **belum termasuk eksekusi ini**. Satu-seed screening, validation reuse dan test exposure tetap membatasi interpretasi.
+
+## Hasil eksekusi 12 November 2026 — tambahan setelah preregistration
+
+Preregistration di atas tetap; kode/config training dibekukan pada commit `db1d4a212a84dea9b79c2af43d6cf014bc9b4c6d`. Run `outputs/cp2/phase_h/20261112T105427Z` menyelesaikan **H1 55 epoch (best 25)** dan **H2 80 epoch (best 50)**. H0 tidak dilatih ulang. H1 lolos gate kelayakan H2, tetapi tidak memenuhi guard penerimaan.
+
+| Model | Validation Image Dice | Small val | Boundary IoU val | Empty-FP validation | Source-test Image Dice |
+|---|---:|---:|---:|---:|---:|
+| H0 = B1 cached | 0.8428 | 0.7728 | 0.5393 | 4/7 | 0.8329 |
+| H1 segmentation auxiliary | 0.8360 | 0.7850 | 0.5342 | 4/7 | 0.8333 |
+| H2 boundary auxiliary | 0.8488 | 0.8056 | 0.5577 | 5/7 | 0.8477 |
+
+**Keputusan tetap H0/B1:** H2 gagal guard no-extra-empty-FP; H1 gagal overall/boundary. Selection disimpan sebelum test baru. Source-test bersifat deskriptif dan tidak digunakan untuk memilih ulang. [Laporan lengkap](../reports/cp2-phase-h.md), [review ilmiah](../reports/cp2-phase-h-review.md), [QA](../reports/cp2-phase-h-validation.json).
+
+Untuk memeriksa run yang selesai tanpa retraining:
+
+```bash
+.venv-training/bin/python scripts/run_cp2_phase_h.py \
+  --root outputs/cp2/phase_h/20261112T105427Z --stage status
+.venv-xfuseg/bin/python -m pytest
+```
+
+Posthoc helper terpisah dari frozen training fingerprints:
+
+- `analyze_cp2_phase_h.py`: reload checkpoint, replay primary validation, diagnosis auxiliary dan mask-only latency; hanya sesudah selection. Output directory baru diperlukan jika analisis diulang.
+- `report_cp2_phase_h.py`: membaca artefak tervalidasi untuk tabel/kurva/grafik CPU; tidak melatih atau memilih ulang.
+- `validate_cp2_phase_h.py`: checksum, manifest, raw GT, threshold, metrics, chronology, paired initialization/inputs dan historical preservation. Gunakan `--output <nama-qa-baru.json>` jika mengulang agar bukti QA lama tetap tersimpan.
+- `finish_cp2_phase_h.py --root <run> --device cuda:0 --wait`: menunggu trainer selesai/keluar lalu menjalankan ketiganya berurutan; completed stages di-load, tidak dilatih ulang. Completed workflow tidak menampilkan ulang gallery atau menggantikan direct visual review.
+- `cp2_phase_h_cases.py`: gallery lokal deterministik dari prediksi checksum-validated; menolak overwrite direktori gallery selesai. Numeric case provenance boleh publik, clinical imagery tetap lokal.
+
+Artefak model/cache/raw data tidak masuk Git; clone GitHub saja dapat membaca hasil publik, tetapi tidak otomatis menjalankan replay tanpa aset lokal yang dirujuk manifest dan checksum. Fresh full run tetap memerlukan preregistration/gate tests baru, direktori baru, shared initial state serta baseline historis yang sama. Jangan menyalin timestamp/claim preregistration run ini untuk run lain.

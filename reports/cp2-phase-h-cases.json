@@ -1,0 +1,247 @@
+{
+  "status": "completed",
+  "source": "real cached, checksum-validated original-image predictions",
+  "media_policy": "Clinical source/GT/overlay galleries remain local; no clinical imagery committed",
+  "selection_rules": "Same six symmetric deterministic rules, including failures; repeats across rules allowed",
+  "case_selection": {
+    "validation": [
+      {
+        "rule": "Random seed 42",
+        "sample_id": "train/0fe849d1ae06c9d2ba348e0a968b5ab2_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          43,
+          36
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.9047619047619048,
+          "H1": 0.8735632183908046,
+          "H2": 0.8172043010752689
+        }
+      },
+      {
+        "rule": "Median mean Dice semua model, GT positif",
+        "sample_id": "train/5fda1a9b96d7be43ad8e3b9e8bdc6215_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          153,
+          53
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.9496080627099664,
+          "H1": 0.9542422832325113,
+          "H2": 0.8557612600165792
+        }
+      },
+      {
+        "rule": "First ID TP=0 pada salah satu model",
+        "sample_id": null,
+        "available": false
+      },
+      {
+        "rule": "First ID GT kosong + FP; fallback kosong",
+        "sample_id": "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          59,
+          94
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.0,
+          "H1": 0.0,
+          "H2": 0.0
+        }
+      },
+      {
+        "rule": "First ID mask multi-komponen",
+        "sample_id": "train/45fb5f2db8202432f78f9862336cdf14_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          71,
+          149
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.8960396039603961,
+          "H1": 0.8704094554664416,
+          "H2": 0.9255468593216938
+        }
+      },
+      {
+        "rule": "GT positif terkecil",
+        "sample_id": "train/a5731674eeb2889c6a9a882d4b98a69b_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          47,
+          47
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.7945205479452054,
+          "H1": 0.5666666666666667,
+          "H2": 0.875
+        }
+      }
+    ],
+    "test": [
+      {
+        "rule": "Random seed 42",
+        "sample_id": "test/bddd694789472ca2f679ca9263576c4c_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          44,
+          50
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.8713080168776371,
+          "H1": 0.8794466403162056,
+          "H2": 0.8905742145178764
+        }
+      },
+      {
+        "rule": "Median mean Dice semua model, GT positif",
+        "sample_id": "test/c147a0982732a3b9ffd4ed05f0c52590_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          137,
+          39
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.9240909090909091,
+          "H1": 0.917357222844345,
+          "H2": 0.9158338885187652
+        }
+      },
+      {
+        "rule": "First ID TP=0 pada salah satu model",
+        "sample_id": "test/c597b0deca08c4a4ff2679f23fc007ad_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          42,
+          50
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.0,
+          "H1": 0.0,
+          "H2": 0.7755102040816326
+        }
+      },
+      {
+        "rule": "First ID GT kosong + FP; fallback kosong",
+        "sample_id": "test/bbcede236aef5e690eb18bb7cc585c69_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          40,
+          41
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.0,
+          "H1": 0.0,
+          "H2": 0.0
+        }
+      },
+      {
+        "rule": "First ID mask multi-komponen",
+        "sample_id": "test/baba5451a41a555f6ea4355b4c53db59_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          94,
+          141
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.85007006071929,
+          "H1": 0.8808380619816674,
+          "H2": 0.8490878938640133
+        }
+      },
+      {
+        "rule": "GT positif terkecil",
+        "sample_id": "test/c597b0deca08c4a4ff2679f23fc007ad_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          42,
+          50
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "H0": 0.0,
+          "H1": 0.0,
+          "H2": 0.7755102040816326
+        }
+      }
+    ]
+  },
+  "local_files": [
+    {
+      "path": "outputs/cp2/phase_h/20261112T105427Z/error_analysis/validation_local_gallery.png",
+      "sha256": "ca7fb7346c3aa631b88fc731a0a512cc7911669260a51c7e2d8c8dc881d695a0"
+    },
+    {
+      "path": "outputs/cp2/phase_h/20261112T105427Z/error_analysis/test_local_gallery.png",
+      "sha256": "e351a6b8c34932e7988bbd8757db08ddc861dc1a8798cb1bc3e872aa5dc2af4e"
+    }
+  ]
+}
