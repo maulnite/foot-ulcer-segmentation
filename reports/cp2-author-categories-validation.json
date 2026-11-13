@@ -1,0 +1,165 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-13T06:58:16.532499+00:00",
+  "historical_and_user_files_unchanged": 13375,
+  "changed": [],
+  "unique_models": 13,
+  "unique_predictions_verified": 3393,
+  "cache_checks": [
+    {
+      "source_model": "B0",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "B1",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "L1",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "L2",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "L3",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "L4",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "A1",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "A2",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "A3",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "A5",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "A6",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "H1",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    },
+    {
+      "source_model": "H2",
+      "images": 261,
+      "raw_GT_probability_checksums_threshold_all_metrics_and_original_CSV": "passed"
+    }
+  ],
+  "all_original_overall_metrics_reproduced": true,
+  "author_category_partition_counts_and_weighted_metrics_consistent": true,
+  "alias_B1_not_retrained_or_double_counted": true,
+  "original_source_test": 278,
+  "eligible_test": 261,
+  "excluded_test": 17,
+  "no_training_no_inference_no_GPU": true,
+  "direct_visual_review": "passed — four real-data aggregate figures inspected",
+  "original_numerical_validation_sha256": "4ab3e15a4676132791c427f729d818dccf51f8ca508585334d003c95af4348a2",
+  "independent_validation": {
+    "status": "passed",
+    "unique_prediction_rows": 3393,
+    "phase_alias_category_rows": 160,
+    "independent_CSV_group_reduction_and_membership": "passed",
+    "all_numerical_results_unchanged_after_presentation_polish": true,
+    "executed_source_snapshots_match_original_hashes": true,
+    "calculation_function_AST_unchanged": [
+      "phase_sources",
+      "protected_files",
+      "evaluate_sources",
+      "category_table",
+      "main"
+    ],
+    "final_figure_checksums": "passed"
+  },
+  "final_historical_preservation": {
+    "status": "passed",
+    "files": 13375,
+    "changed": []
+  },
+  "tests": {
+    "tests": 124,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "syntax_files": 89,
+  "dependency_check": {
+    ".venv-xfuseg": "passed"
+  },
+  "ruff": "NOT RUN — not installed; no environment changes",
+  "reviewed_images": [
+    {
+      "path": "reports/figures/cp2-author-categories/cohort.png",
+      "dimensions": [
+        1938,
+        742
+      ],
+      "sha256": "c790cfb01048b267e16b5a6218c7413b0f6017371e6c7a5766feba6efb34a8fb",
+      "direct_visual_review": "passed"
+    },
+    {
+      "path": "reports/figures/cp2-author-categories/data_based_dice.png",
+      "dimensions": [
+        2258,
+        1618
+      ],
+      "sha256": "6dc380f13aa7ca34e2e7a0d9ab56e4a1639888d63d3cb5602c22016fa7e5611b",
+      "direct_visual_review": "passed"
+    },
+    {
+      "path": "reports/figures/cp2-author-categories/empty_false_positives.png",
+      "dimensions": [
+        1938,
+        1298
+      ],
+      "sha256": "e1055f12435c9f21a8987325d9f6acb6723f349ddf017717e8af3d17871b55d4",
+      "direct_visual_review": "passed"
+    },
+    {
+      "path": "reports/figures/cp2-author-categories/image_based_dice.png",
+      "dimensions": [
+        2258,
+        1618
+      ],
+      "sha256": "447d454b6735304e58e6f3af90732ab94b9913ee2c8dd2c5470f9ae00fa1d27c",
+      "direct_visual_review": "passed"
+    }
+  ],
+  "visual_checks": [
+    "All category counts and labels readable; support legend moved below plot to avoid C1 overlap",
+    "Image vs Data Dice explicitly separated; honest full 0–1 scale",
+    "C0 errors shown independently with n=16; no clinical imagery",
+    "Per-phase baseline aliases labeled cached; original test exclusions retained"
+  ],
+  "final_source_hashes": {
+    "scripts/analyze_cp2_author_categories.py": "e543c75ee548292795f32fd6611b72f8f6cf7fb7c72089051758d72be35ae609",
+    "src/foot_ulcer_segmentation/cp2_categories.py": "6c63300183967779d5306a18ad05f6d15ee5a72f3a8ce1afebc219810aee4e0b",
+    "tests/test_cp2_categories.py": "812600c01eea8d430d8c18f35e13fd2acdafaaea445b8b1c80506098ce87957a"
+  }
+}
