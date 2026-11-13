@@ -1478,7 +1478,7 @@
     },
     {
       "file": "reports/figures/cp2-cp1-recipe/training_curves.svg",
-      "sha256": "82156494d25b3401b8ed5792c31628260519991aaa9beb841b21088bfcbc8d3c"
+      "sha256": "f1f3480dac7e2eeb948190f9dbd2fcc0eac721390ad4a6f3230c0e08d7746ef7"
     },
     {
       "file": "reports/figures/cp2-cp1-recipe/region_boundary_comparison.png",
@@ -1486,7 +1486,7 @@
     },
     {
       "file": "reports/figures/cp2-cp1-recipe/region_boundary_comparison.svg",
-      "sha256": "dd586148333b206a48b1c69c0c21975c4758e18bb8e1cb67397ef717c0e478f3"
+      "sha256": "fec90190515d46ac2998916e56c1c065e22eeb2e164761e3f3c2b93cd9ef2720"
     },
     {
       "file": "reports/figures/cp2-cp1-recipe/empty_false_positives.png",
@@ -1494,7 +1494,7 @@
     },
     {
       "file": "reports/figures/cp2-cp1-recipe/empty_false_positives.svg",
-      "sha256": "0aee98d4fc417b7a053191c1c36458a7c36985681bf5d964b59da43e13381f37"
+      "sha256": "895774f6809fc16634540acd1a20bd0f44554f89cca4b0253a0725a33ab31c4c"
     }
   ],
   "validation": {

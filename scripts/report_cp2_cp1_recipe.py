@@ -69,6 +69,9 @@ def main():
         for suffix in ('png', 'svg'):
             path = figures / f'{name}.{suffix}'
             fig.savefig(path, dpi=160, bbox_inches='tight')
+            if suffix == 'svg':
+                # Matplotlib path data includes trailing spaces; keep Git diffs clean.
+                path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines()) + '\n')
             files.append({'file': str(path.relative_to(ROOT)), 'sha256': digest_file(path)})
         plt.close(fig)
 

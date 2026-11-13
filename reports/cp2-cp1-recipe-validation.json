@@ -79,5 +79,20 @@
   },
   "no_new_raw_media_or_checkpoint_publication": true,
   "ruff": "NOT RUN \u2014 unavailable; syntax and git diff --check used; no environment changes",
-  "interpretation": "One-seed exploratory experiment. RH2 selected before source-test. No confirmatory significance or patient independence claim."
+  "interpretation": "One-seed exploratory experiment. RH2 selected before source-test. No confirmatory significance or patient independence claim.",
+  "svg_whitespace_normalization": [
+    {
+      "file": "reports/figures/cp2-cp1-recipe/empty_false_positives.svg",
+      "XML_semantics_unchanged": true
+    },
+    {
+      "file": "reports/figures/cp2-cp1-recipe/region_boundary_comparison.svg",
+      "XML_semantics_unchanged": true
+    },
+    {
+      "file": "reports/figures/cp2-cp1-recipe/training_curves.svg",
+      "XML_semantics_unchanged": true
+    }
+  ],
+  "CSV_line_endings": "Local published CSV copies byte-match private exports. Git normalizes CRLF to LF; numeric content is preserved."
 }
