@@ -27,20 +27,40 @@ def read(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, required=True)
+    parser.add_argument('--figures-only', action='store_true',
+                        help='Refresh presentation figures after preserving originals; numeric fields must match')
     args = parser.parse_args()
     root = args.root.resolve()
     if read(root / 'final_validation.json')['status'] != 'passed':
         raise ValueError('Require independent verification of completed real runs')
+    output_root = ROOT
     publication = ROOT / 'reports/cp2-cp1-recipe-results.json'
-    if publication.exists():
-        raise FileExistsError('Preserve previously published results; use an explicit new report')
+    cached = None
+    if publication.exists() and not args.figures_only:
+        cached = read(publication)
+        if cached['run_root'] != str(root.relative_to(ROOT)):
+            # A reproduction run must not replace the historical public report.
+            output_root = root / 'presentation'
+            publication = output_root / 'reports/cp2-cp1-recipe-results.json'
+            cached = read(publication) if publication.exists() else None
     config = read(root / 'protocol.json')
     manifest = read(root / 'data/manifest.json')
     selection = read(root / 'selection.json')
     metrics = {n: {s: read(root / n / f'evaluation-{s}.json') for s in ('validation', 'test')} for n in NAMES}
     statuses = {n: read(root / n / 'status.json') for n in NAMES}
-    figures = ROOT / 'reports/figures/cp2-cp1-recipe'
-    figures.mkdir(parents=True, exist_ok=False)
+    if cached is not None:
+        if cached['metrics'] != metrics or cached['statuses'] != statuses:
+            raise ValueError('Existing completed report differs; preserve and inspect')
+        print('CACHED verified completed report; no figures or numerical results overwritten')
+        return
+    if args.figures_only:
+        previous = read(publication)
+        if previous['metrics'] != metrics or previous['statuses'] != statuses:
+            raise ValueError('Presentation refresh cannot change experiment results')
+        if not (root / 'presentation_v1/cp2-cp1-recipe-results.json').exists():
+            raise ValueError('Preserve original report and figures before presentation refresh')
+    figures = output_root / 'reports/figures/cp2-cp1-recipe'
+    figures.mkdir(parents=True, exist_ok=args.figures_only)
     plt.rcParams.update({'font.size': 12, 'axes.spines.top': False, 'axes.spines.right': False,
                          'figure.facecolor': 'white', 'savefig.facecolor': 'white'})
     files = []
@@ -82,7 +102,7 @@ def main():
             ax.bar(positions + offset, [getter(metrics[n][split]) for n in NAMES], .24, label=label)
         ax.set(xticks=positions, xticklabels=NAMES, ylim=(0, 1), ylabel='Score [0–1]',
                title=f"{split.title()} — n={len(manifest['splits'][split])} images")
-        ax.legend(frameon=False, loc='upper left')
+        ax.legend(frameon=False, loc='upper center', bbox_to_anchor=(.5, -.12), ncol=3, fontsize=10)
     fig.suptitle('REAL / FRESH — segmentation quality; source-test exploratory', fontsize=15)
     save(fig, 'region_boundary_comparison')
 
@@ -97,6 +117,14 @@ def main():
     fig.suptitle('REAL / FRESH — false positives on empty masks', fontsize=15)
     save(fig, 'empty_false_positives')
 
+    if args.figures_only:
+        previous['figures'] = files
+        previous['presentation_updated_utc'] = datetime.now(timezone.utc).isoformat()
+        previous['visual_review'] = 'PENDING repeated direct inspection after legend layout correction'
+        write_json(publication, previous)
+        print('Updated figures only; all model metrics, statuses and selection preserved')
+        return
+
     rows = []
     for name in NAMES:
         for split in ('validation', 'test'):
@@ -109,7 +137,7 @@ def main():
                          'empty_fp_images': m['gt_empty']['images_with_prediction'],
                          'selected_epoch': statuses[name]['selected_epoch'],
                          'completed_epochs': statuses[name]['completed_epochs']})
-    table = ROOT / 'reports/tables/cp2-cp1-recipe-metrics.csv'
+    table = output_root / 'reports/tables/cp2-cp1-recipe-metrics.csv'
     table.parent.mkdir(parents=True, exist_ok=True)
     with table.open('x', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
@@ -154,7 +182,7 @@ def main():
               '.venv-training/bin/python scripts/run_cp2_cp1_recipe.py --root outputs/cp2/cp1_recipe/<new-run> --stage preflight --device cuda:0',
               '.venv-training/bin/python scripts/run_cp2_cp1_recipe.py --root outputs/cp2/cp1_recipe/<new-run> --stage train --device cuda:0',
               '```', '', 'Gunakan `--resume` setelah pemeriksaan run terinterupsi; completed stages diverifikasi dan tidak dilatih ulang. Checkpoint, raw data dan probability maps tetap lokal.']
-    (ROOT / 'reports/cp2-cp1-recipe.md').write_text('\n'.join(lines) + '\n')
+    (output_root / 'reports/cp2-cp1-recipe.md').write_text('\n'.join(lines) + '\n')
     print(f'Generated {len(files)} real-result figure files and completed report')
 
 

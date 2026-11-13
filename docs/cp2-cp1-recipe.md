@@ -113,6 +113,14 @@ root run untuk progress. Laporan final dan grafik dibuat **setelah** ketiga
 arm benar-benar selesai dan validasi independen lulus. Grafik memerlukan
 review visual langsung sebelum hasil dinyatakan final.
 
+Jika laporan publik sudah berasal dari run lain, reproduksi berikutnya menyimpan
+laporan pada `<new-run>/presentation/reports/` agar publikasi sebelumnya tetap
+utuh. Pemanggilan ulang renderer pada completed run yang sama memverifikasi
+metrics/statuses lalu memakai cache. Analisis berpasangan hasil final tersedia
+melalui `scripts/analyze_cp2_cp1_recipe.py`; tidak menjalankan model atau training.
+
+[Hasil final dan review ilmiah](../reports/cp2-cp1-recipe-review.md).
+
 ## Audit preflight awal
 
 Protokol B1 sementara pada commit `5747b50` hanya menjalankan engineering smoke, bukan full training. Preflight menangkap ketidaksamaan urutan/input pada arm pertama akibat lazy import sebelum common seed. Gate memblokir training penuh. Catatan lama dipertahankan; regression test baru memeriksa first-import RNG, dan permintaan pengguna mengubah protokol efektif menjadi B0 sumber pada run terpisah.

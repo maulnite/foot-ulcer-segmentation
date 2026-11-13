@@ -1,0 +1,1549 @@
+{
+  "status": "COMPLETED \u2014 TARGETED CP1 TRAINING-RECIPE EXPLORATORY COMPARISON",
+  "created_utc": "2026-11-13T16:01:51.016047+00:00",
+  "run_root": "outputs/cp2/cp1_recipe/20261113T082016Z",
+  "protocol": {
+    "name": "cp2-cp1-training-recipe-targeted-control",
+    "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+    "seed": 42,
+    "split_seed": 42,
+    "cpu_threads": 2,
+    "data": {
+      "root": "data/raw/chronic_wound",
+      "validation_fraction": 0.15,
+      "image_size": [
+        224,
+        224
+      ],
+      "conflict_policy": "quarantine_entire_exact_rgb_group",
+      "overlap_policy": "exclude_source_train_groups_present_in_source_test",
+      "duplicate_policy": "one_lexicographic_representative_per_unconflicted_group",
+      "patient_ids_available": false
+    },
+    "model": {
+      "encoder_name": "efficientnet-b7",
+      "encoder_weights": "imagenet",
+      "classes": 1,
+      "activation": null,
+      "decoder_attention_type": "pscse"
+    },
+    "loss": {
+      "dice_epsilon": 1.0,
+      "dice_beta": 1.0,
+      "focal_alpha": null,
+      "focal_gamma": 2.0,
+      "focal_epsilon": 1e-06,
+      "focal_reduction": "mean",
+      "focal_normalized": false,
+      "focal_reduced_threshold": null,
+      "component_weights": [
+        1.0,
+        1.0
+      ],
+      "aggregation": "reference_batch_global_dice_and_pixel_mean_focal",
+      "B0": "dice(sigmoid(z), y) + focal_with_logits(sigmoid(z), y)",
+      "B1": "dice(sigmoid(z), y) + focal_with_logits(z, y)"
+    },
+    "training": {
+      "batch_size": 2,
+      "num_workers": 4,
+      "max_epochs": 200,
+      "learning_rate": 0.0001,
+      "weight_decay": 1e-05,
+      "optimizer": "Adam",
+      "precision": "float32",
+      "amp": false,
+      "matmul_allow_tf32": true,
+      "cudnn_allow_tf32": true,
+      "cudnn_benchmark": false,
+      "checkpoint_policy": "author_if_loss_elif_iou",
+      "early_stopping_patience": 30,
+      "scheduler": {
+        "type": "ReduceLROnPlateau",
+        "monitor": "main_validation_regional_loss",
+        "mode": "min",
+        "factor": 0.1,
+        "patience": 10,
+        "threshold": 0.0001,
+        "threshold_mode": "rel",
+        "cooldown": 0,
+        "min_lr": 1e-05,
+        "eps": 1e-08
+      },
+      "augmentation": "unchanged_reference_get_training_augmentation",
+      "epoch_rng_seed_rule": "seed once; CP1 DataLoader global RNG; epoch-boundary RNG restored on resume; no epoch reseeding",
+      "finite_gradient_check_every_step": true
+    },
+    "evaluation": {
+      "prediction_threshold": 0.5,
+      "evaluator": "offline_hard_line_ordinary_confusion_counts",
+      "empty_image_rule": "both_empty_1; exactly_one_empty_0",
+      "empty_aggregate_dice": null,
+      "boundary_radius_diagonal_fraction": 0.01,
+      "boundary_radius_min_pixels": 1,
+      "boundary_erosion": "3x3_square_inner_boundary_zero_padded_round_radius_iterations",
+      "small_wound_fraction": 0.01,
+      "medium_wound_fraction": 0.05,
+      "test_policy": "Only after all three completed validation reports and selection.json; previously exposed source-test descriptive only"
+    },
+    "provenance": {
+      "scope": "CP1 training-policy bundle INCLUDING original probability-to-focal-with-logits mismatch on fixed CP2 audited cohort; not literal CP1 reproduction or warm start",
+      "precision": "preserve CP1 torch.float32 and PyTorch 1.11 TF32 defaults; no AMP",
+      "initialization": "Fresh shared phase-P ImageNet initialization, not trained CP1 checkpoint",
+      "cp1": "artifacts immutable; separate CP2 manifest, evaluator policy and run directories"
+    },
+    "phase_a": {
+      "control_root": "outputs/cp2/phase_p/20261107T170015Z",
+      "control_baseline": "B1",
+      "control_manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+      "control_initial_weights_sha256": "f2633bb3f946e94ecf347680ac186fd372bebf1e968177614d251f50ce09a27f",
+      "control_initial_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+      "control_B1_checkpoint_sha256": "e5f147018231b0e13926daa5d0158957e42831404ab05bd3151c1115592aeeeb",
+      "base_commit": "59bdb6fffea56794fb7bd433c8a358f4385b4bf2",
+      "loss": "B1 unchanged: source Dice(sigmoid(logits)) + source focal_with_logits(logits)",
+      "modified_stages": [
+        2,
+        3
+      ],
+      "stage_indexing": "zero-based source decoder.blocks; concatenated pre-conv channels 176/128, spatial 56/112 at input 224; decoder block 4 unchanged",
+      "experiment_order": [
+        "A1",
+        "A2",
+        "A3",
+        "A5",
+        "A6"
+      ],
+      "deferred": {
+        "A4": "NOT RUN \u2014 spatial gate deferred until evidence from global gate; no automatic stage-placement/combination matrix"
+      },
+      "fusion": {
+        "branch_order": [
+          "additive_half",
+          "maxout",
+          "local"
+        ],
+        "scale": 3.0,
+        "initial_weights": [
+          0.4444444444444444,
+          0.2222222222222222,
+          0.3333333333333333
+        ],
+        "formula": "3 * softmax(logits) dot [attention2(x)/2, attention1(x), x*sigmoid(PWConv(DWConv(x)))]",
+        "baseline": "attention2(x)+attention1(x); normalized equivalent weights [2/3,1/3,0] at scale 3",
+        "constant_gate": "one 3-vector per stage, trainable, initialized from log prior",
+        "input_gate": "GAP(input) -> Linear(C,max(8,C//16)) -> ReLU -> Linear(hidden,3) + log_prior; last weights/bias zero; softmax branch axis",
+        "local": "DWConv(C,C,3,padding=1,groups=C,bias=True) -> PWConv(C,1,1,bias=True) -> sigmoid; no intermediate activation or normalization",
+        "new_initialization": "fork_rng CPU, seed 42+20000+stage for local/capacity; +100 for input-gate; +200 for CBAM; original full state loaded exactly from P before additions"
+      },
+      "capacity": {
+        "A5": "original P-scSE + DWConv3x3(C,C) -> PWConv(C,h) -> ReLU -> PWConv(h,C); h=round(max(8,C//16)/2), last PW weights/bias zero",
+        "comparison": "added active parameters within 5% of A3 added active parameters; actual operations and output RMS reported; no exact functional equivalence claimed"
+      },
+      "cbam": {
+        "reference_repository": "Jongchan/attention-module",
+        "reference_revision": "459efad0e05ee7dde50c41ca10a3d0800bc3792a",
+        "implementation": "avg+max shared channel MLP reduction 16; max+mean spatial concat -> Conv7x7 biasFalse -> BatchNorm(eps1e-5,momentum0.01) -> sigmoid",
+        "output_scale": 3.0,
+        "caveat": "matched upper gain bound 3, not midpoint/distribution; two sigmoid maps midpoint gives 0.75x vs source 1.5x; replacement comparator, not isolated local-branch ablation"
+      },
+      "expansion_gate": {
+        "requires": "completed real A1, validation only, all integrity and finite-gradient checks passed",
+        "minimum_overall_dice_vs_B1": -0.03,
+        "minimum_small_dice_vs_B1": -0.03,
+        "maximum_extra_total_foreground_misses": 1,
+        "maximum_extra_empty_fp_images": 2,
+        "pass_action": "Write A1 diagnosis and gate decision BEFORE launching A2/A3/A5/A6, then sequential bounded comparisons without test access",
+        "fail_action": "Stop expansion; document remaining candidates not run; keep A0; evaluate only executed model after locked selection",
+        "meaning": "feasibility gate, not acceptance/improvement criterion; allows testing whether learned fusion resolves a modest fixed-fusion tradeoff"
+      },
+      "selection": {
+        "requires": [
+          "validation Image Dice strictly higher than A0/B1",
+          "small validation Image Dice >= A0",
+          "validation Boundary IoU >= A0",
+          "GT-positive validation TP=0 count <= A0",
+          "GT-empty validation FP-image count <= A0",
+          "active forward parameter count <= 1.01 * A0"
+        ],
+        "ranking": "highest overall validation Image Dice; exact ties favor earlier A1,A2,A3,A5,A6; retain A0 if none eligible",
+        "latency": "reported using same-image shared-GPU sequential inference including cached A0; not a noisy wall-time tuning criterion",
+        "test_access": "selection persisted before all new test probabilities, no architecture or loss changes from test"
+      },
+      "analysis": {
+        "gate_collapse": "validation per-image/stage mean, std, normalized entropy, fraction max weight >0.95, subgroups for evaluation only",
+        "interventions": [
+          "A1/A3 drop_local with remaining weights renormalized",
+          "A3 fixed_prior_gate instead of input gate"
+        ],
+        "intervention_policy": "descriptive validation only AFTER primary selection, no retraining, not evidence of robust training or causal physiological importance"
+      }
+    },
+    "phase_h": {
+      "control_root": "outputs/cp2/phase_p/20261107T170015Z",
+      "control_manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+      "control_initial_weights_sha256": "f2633bb3f946e94ecf347680ac186fd372bebf1e968177614d251f50ce09a27f",
+      "control_initial_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+      "control_B1_checkpoint_sha256": "e5f147018231b0e13926daa5d0158957e42831404ab05bd3151c1115592aeeeb",
+      "base_commit": "23189284e0ad13a4101461078f19c2382c26c5d2",
+      "experiment_order": [
+        "H1",
+        "H2"
+      ],
+      "cached_control": "H0 = B1; never retrained",
+      "stage": 3,
+      "feature_channels": 32,
+      "feature_shape": [
+        32,
+        112,
+        112
+      ],
+      "head": "Conv2d(32,1,1,bias=True); bilinear logits to 224x224; align_corners=False",
+      "head_seed": 30045,
+      "auxiliary_weight": 0.1,
+      "main_objective": "B1 source Dice(sigmoid(z)) + corrected-logit Focal; unchanged",
+      "auxiliary_objective": "same B1 primitives for H1/H2; weight 0.1; target is the ONLY H1-vs-H2 difference",
+      "targets": {
+        "H1": "actual augmented segmentation mask",
+        "H2": "3x3 morphological gradient, dilation minus erosion, explicit zero exterior, from actual augmented binary mask"
+      },
+      "inference": "primary mask uses original source network only; auxiliary head can be omitted; no GT at inference",
+      "expansion_gate": {
+        "overall_floor": -0.03,
+        "small_floor": -0.03,
+        "maximum_extra_misses": 1,
+        "maximum_extra_empty_fp": 2,
+        "policy": "H1 full validation diagnosis persisted before H2; gate feasibility only, not acceptance"
+      },
+      "selection": {
+        "higher_overall_dice": true,
+        "small_not_lower": true,
+        "boundary_not_lower": true,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": true,
+        "max_active_parameter_ratio": 1.01,
+        "ranking": "highest validation Image Dice among eligible, tie H1 before H2; otherwise retain H0"
+      },
+      "deferred": [
+        "H3 boundary-guided local branch",
+        "L3 combination",
+        "attention combinations",
+        "multiseed",
+        "external evaluation"
+      ],
+      "interpretation": "one-seed standalone auxiliary supervision screen; no selected attention from A; no novelty/clinical claim"
+    },
+    "recipe": {
+      "experiment_order": [
+        "R0",
+        "RH2",
+        "RA6"
+      ],
+      "main_loss": "B0",
+      "control_root": "outputs/cp2/phase_p/20261107T170015Z",
+      "control_manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+      "control_initial_weights_sha256": "f2633bb3f946e94ecf347680ac186fd372bebf1e968177614d251f50ce09a27f",
+      "control_initial_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+      "scope": "CP1 training-policy bundle INCLUDING original probability-to-focal-with-logits mismatch on fixed CP2 audited cohort; not literal CP1 reproduction or warm start",
+      "selection": "Reuse all phase-H validation guards relative to newly trained R0; rank eligible by validation Image Dice; retain R0 if none",
+      "hypotheses": {
+        "R0": "CP1 source loss and checkpoint/scheduler/epoch-RNG bundle may alter optimization relative to historical B0; no individual causal attribution",
+        "RH2": "Boundary auxiliary supervision may improve small/boundary metrics without extra empty FP under CP1 recipe",
+        "RA6": "Established CBAM comparator may retain its validation gain under the CP1 recipe"
+      },
+      "candidate_rationale": "Prior validation only: H2 improved overall/small/boundary with one extra empty FP; A6 highest overall validation Dice, also one extra empty FP. No selection from test ranking.",
+      "not_run": [
+        "all loss candidates",
+        "H3",
+        "H2+A6 combination",
+        "multiseed",
+        "external tuning"
+      ],
+      "common_randomness": "All original tensors from frozen phase-P initial weights. Reset Python/NumPy/CPU/CUDA RNG to one common post-base-construction state. CP1 loaders seeded by evolving global RNG; verify actual common-epoch data hashes.",
+      "user_decision": "Explicit user choice: CP1 including original focal input mismatch",
+      "objective_override": "Effective objective: main B0 in every arm; RH2 auxiliary also uses B0 primitives. Copied phase_a/phase_h blocks retain historical architecture provenance; their historical B1 descriptions do not override this recipe."
+    }
+  },
+  "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+  "selection": {
+    "created_utc": "2026-11-13T16:00:06.831100+00:00",
+    "validation_only": true,
+    "selected_candidate": "RH2",
+    "decisions": {
+      "RA6": {
+        "eligible": true,
+        "checks": {
+          "higher_overall_dice": true,
+          "small_not_lower": true,
+          "boundary_not_lower": true,
+          "no_extra_total_miss": true,
+          "no_extra_empty_fp": true,
+          "capacity_budget": true
+        },
+        "validation_image_dice": 0.8424348747633986,
+        "checkpoint_sha256": "cd9cd4bc0a349aae9b7031173a941d7d51fd58628b15246ab63efa7a42a8d2cb"
+      },
+      "RH2": {
+        "eligible": true,
+        "checks": {
+          "higher_overall_dice": true,
+          "small_not_lower": true,
+          "boundary_not_lower": true,
+          "no_extra_total_miss": true,
+          "no_extra_empty_fp": true,
+          "capacity_budget": true
+        },
+        "validation_image_dice": 0.8443512423271484,
+        "checkpoint_sha256": "69ca6582bbbbeecf235e1490923390ae44106941f047bcfad2b0621ff4044f16"
+      }
+    },
+    "unexecuted": [],
+    "caveat": "single-seed exploratory auxiliary-supervision screen",
+    "tie_order": [
+      "RA6",
+      "RH2"
+    ]
+  },
+  "metrics": {
+    "R0": {
+      "validation": {
+        "split": "validation",
+        "experiment": "R0",
+        "checkpoint_sha256": "a93335180ddb38be0beac1dfcc0ec646e8e2cee033d1d433ae054d521ead72c7",
+        "selected_epoch": 24,
+        "diagnostic_smoke_only": false,
+        "components": {
+          "dice": 0.12060127217890852,
+          "focal": 0.1705715906316951,
+          "regional": 0.29117286129523134,
+          "auxiliary_dice": 0.0,
+          "auxiliary_focal": 0.0,
+          "auxiliary": 0.0,
+          "weighted_auxiliary": 0.0,
+          "total": 0.29117286129523134,
+          "source_iou": 0.8035002482139458
+        },
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 118,
+          "counts": {
+            "tp": 157764,
+            "tn": 5733947,
+            "fp": 15172,
+            "fn": 13885
+          },
+          "data_based": {
+            "dice": 0.9156753776281614,
+            "iou": 0.8444660932076989,
+            "precision": 0.9122681223058687,
+            "recall": 0.9191081800597783
+          },
+          "image_based": {
+            "dice": 0.8262571104511618,
+            "iou": 0.7523333526835453,
+            "precision": 0.8274404182913442,
+            "recall": 0.8675823276733861,
+            "boundary_iou": 0.5058398843977185,
+            "pfom": 0.7312623654013152
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 117
+        },
+        "gt_positive": {
+          "images": 111,
+          "counts": {
+            "tp": 157764,
+            "tn": 5383754,
+            "fp": 14133,
+            "fn": 13885
+          },
+          "data_based": {
+            "dice": 0.9184446915405797,
+            "iou": 0.8491888342204885,
+            "precision": 0.9177821602417856,
+            "recall": 0.9191081800597783
+          },
+          "image_based": {
+            "dice": 0.8693544057048386,
+            "iou": 0.7907687893392641,
+            "precision": 0.8706123365619693,
+            "recall": 0.913285717706843,
+            "boundary_iou": 0.5287306879182954,
+            "pfom": 0.7683690010572541
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 111
+        },
+        "gt_empty": {
+          "images": 7,
+          "counts": {
+            "tp": 0,
+            "tn": 350193,
+            "fp": 1039,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.14285714285714285,
+            "iou": 0.14285714285714285,
+            "precision": 0.14285714285714285,
+            "recall": 0.14285714285714285,
+            "boundary_iou": 0.14285714285714285,
+            "pfom": 0.14285714285714285
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 6
+        },
+        "subgroups": {
+          "small": {
+            "images": 36,
+            "counts": {
+              "tp": 8382,
+              "tn": 1793215,
+              "fp": 3606,
+              "fn": 1133
+            },
+            "data_based": {
+              "dice": 0.7796121471422592,
+              "iou": 0.6388232603735368,
+              "precision": 0.6991991991408743,
+              "recall": 0.8809248553987467
+            },
+            "image_based": {
+              "dice": 0.7811075252617028,
+              "iou": 0.6742722382970413,
+              "precision": 0.7590716283134913,
+              "recall": 0.9021402335560258,
+              "boundary_iou": 0.5297028193439492,
+              "pfom": 0.7602446595187268
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 36
+          },
+          "medium": {
+            "images": 54,
+            "counts": {
+              "tp": 60331,
+              "tn": 2637253,
+              "fp": 6247,
+              "fn": 5673
+            },
+            "data_based": {
+              "dice": 0.9100933761747447,
+              "iou": 0.8350195844924636,
+              "precision": 0.9061702063608675,
+              "recall": 0.9140506635822974
+            },
+            "image_based": {
+              "dice": 0.8996109905374665,
+              "iou": 0.8284662035321659,
+              "precision": 0.913569688507931,
+              "recall": 0.9103326222902608,
+              "boundary_iou": 0.5369840045765358,
+              "pfom": 0.7769001909997797
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 54
+          },
+          "large": {
+            "images": 21,
+            "counts": {
+              "tp": 89051,
+              "tn": 953286,
+              "fp": 4280,
+              "fn": 7079
+            },
+            "data_based": {
+              "dice": 0.9400457086154934,
+              "iou": 0.8868738173400371,
+              "precision": 0.9541417106754011,
+              "recall": 0.9263601373044175
+            },
+            "image_based": {
+              "dice": 0.9428321254663145,
+              "iou": 0.8935409546298998,
+              "precision": 0.951363217126888,
+              "recall": 0.9399859358937409,
+              "boundary_iou": 0.5058413626388418,
+              "pfom": 0.7603590981282332
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 21
+          }
+        }
+      },
+      "test": {
+        "split": "test",
+        "experiment": "R0",
+        "checkpoint_sha256": "a93335180ddb38be0beac1dfcc0ec646e8e2cee033d1d433ae054d521ead72c7",
+        "selected_epoch": 24,
+        "diagnostic_smoke_only": false,
+        "components": {
+          "dice": 0.1220124832546438,
+          "focal": 0.17061927857744785,
+          "regional": 0.2926317617183423,
+          "auxiliary_dice": 0.0,
+          "auxiliary_focal": 0.0,
+          "auxiliary": 0.0,
+          "weighted_auxiliary": 0.0,
+          "total": 0.2926317617183423,
+          "source_iou": 0.8026072954517285
+        },
+        "interpretation": "Previously exposed source-test; exploratory only",
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 261,
+          "counts": {
+            "tp": 329264,
+            "tn": 12701881,
+            "fp": 29164,
+            "fn": 35627
+          },
+          "data_based": {
+            "dice": 0.9104254139598158,
+            "iou": 0.8355787897607299,
+            "precision": 0.9186335888911619,
+            "recall": 0.9023626233562835
+          },
+          "image_based": {
+            "dice": 0.8383746658725275,
+            "iou": 0.76878794783815,
+            "precision": 0.8545644348963567,
+            "recall": 0.8518790731684177,
+            "boundary_iou": 0.5384651138319847,
+            "pfom": 0.7439409287036006
+          },
+          "total_foreground_misses": 2,
+          "images_with_prediction": 254
+        },
+        "gt_positive": {
+          "images": 245,
+          "counts": {
+            "tp": 329264,
+            "tn": 11902227,
+            "fp": 26002,
+            "fn": 35627
+          },
+          "data_based": {
+            "dice": 0.9144228272446148,
+            "iou": 0.8423379287916583,
+            "precision": 0.9268097707044107,
+            "recall": 0.9023626233562835
+          },
+          "image_based": {
+            "dice": 0.8727175011948151,
+            "iou": 0.7985863444316618,
+            "precision": 0.889964561256935,
+            "recall": 0.8871038289671715,
+            "boundary_iou": 0.5532220192250937,
+            "pfom": 0.7721166628230195
+          },
+          "total_foreground_misses": 2,
+          "images_with_prediction": 243
+        },
+        "gt_empty": {
+          "images": 16,
+          "counts": {
+            "tp": 0,
+            "tn": 799654,
+            "fp": 3162,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.3125,
+            "iou": 0.3125,
+            "precision": 0.3125,
+            "recall": 0.3125,
+            "boundary_iou": 0.3125,
+            "pfom": 0.3125
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 11
+        },
+        "subgroups": {
+          "small": {
+            "images": 67,
+            "counts": {
+              "tp": 16993,
+              "tn": 3338764,
+              "fp": 4109,
+              "fn": 1926
+            },
+            "data_based": {
+              "dice": 0.8492041678118988,
+              "iou": 0.7379277401103905,
+              "precision": 0.8052791204243541,
+              "recall": 0.8981975791057563
+            },
+            "image_based": {
+              "dice": 0.8217213543101812,
+              "iou": 0.7277927428001549,
+              "precision": 0.81095908413664,
+              "recall": 0.8734792204122952,
+              "boundary_iou": 0.586731678343435,
+              "pfom": 0.7770535467457096
+            },
+            "total_foreground_misses": 2,
+            "images_with_prediction": 65
+          },
+          "medium": {
+            "images": 135,
+            "counts": {
+              "tp": 151178,
+              "tn": 6591162,
+              "fp": 14791,
+              "fn": 16629
+            },
+            "data_based": {
+              "dice": 0.90586501126504,
+              "iou": 0.8279280167316841,
+              "precision": 0.9108809476413614,
+              "recall": 0.9009040147258404
+            },
+            "image_based": {
+              "dice": 0.8845101303802743,
+              "iou": 0.8134159248282716,
+              "precision": 0.9104688438580503,
+              "recall": 0.8891980305944251,
+              "boundary_iou": 0.5459743015839866,
+              "pfom": 0.7752285222263168
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 135
+          },
+          "large": {
+            "images": 43,
+            "counts": {
+              "tp": 161093,
+              "tn": 1972301,
+              "fp": 7102,
+              "fn": 17072
+            },
+            "data_based": {
+              "dice": 0.9302055664626401,
+              "iou": 0.8695180469221744,
+              "precision": 0.9577752013974388,
+              "recall": 0.9041787107405821
+            },
+            "image_based": {
+              "dice": 0.9151532430839657,
+              "iou": 0.8623346689844207,
+              "precision": 0.9486922081385447,
+              "recall": 0.9017580511415322,
+              "boundary_iou": 0.5237637569139458,
+              "pfom": 0.7546545176540573
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 43
+          }
+        }
+      }
+    },
+    "RH2": {
+      "validation": {
+        "split": "validation",
+        "experiment": "RH2",
+        "checkpoint_sha256": "69ca6582bbbbeecf235e1490923390ae44106941f047bcfad2b0621ff4044f16",
+        "selected_epoch": 95,
+        "diagnostic_smoke_only": false,
+        "components": {
+          "dice": 0.10974455081810386,
+          "focal": 0.1704320177688437,
+          "regional": 0.2801765695971958,
+          "auxiliary_dice": 0.4043589355581898,
+          "auxiliary_focal": 0.17467215581465576,
+          "auxiliary": 0.5790310916254076,
+          "weighted_auxiliary": 0.05790311053900395,
+          "total": 0.338079679315373,
+          "source_iou": 0.8185187340792963
+        },
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 118,
+          "counts": {
+            "tp": 159117,
+            "tn": 5735328,
+            "fp": 13791,
+            "fn": 12532
+          },
+          "data_based": {
+            "dice": 0.9236033515499612,
+            "iou": 0.8580511216519734,
+            "precision": 0.9202408217033321,
+            "recall": 0.9269905446525933
+          },
+          "image_based": {
+            "dice": 0.8443512423271484,
+            "iou": 0.7769660115280981,
+            "precision": 0.8352770110392981,
+            "recall": 0.8842240360983213,
+            "boundary_iou": 0.5490502442614746,
+            "pfom": 0.7553449761341525
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 117
+        },
+        "gt_positive": {
+          "images": 111,
+          "counts": {
+            "tp": 159117,
+            "tn": 5384888,
+            "fp": 12999,
+            "fn": 12532
+          },
+          "data_based": {
+            "dice": 0.9257312408185825,
+            "iou": 0.8617315107617644,
+            "precision": 0.9244753538257658,
+            "recall": 0.9269905446525933
+          },
+          "image_based": {
+            "dice": 0.8885896089603922,
+            "iou": 0.816954859101942,
+            "precision": 0.8789431288525873,
+            "recall": 0.930976903239657,
+            "boundary_iou": 0.5746660254311173,
+            "pfom": 0.7939703349894595
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 111
+        },
+        "gt_empty": {
+          "images": 7,
+          "counts": {
+            "tp": 0,
+            "tn": 350440,
+            "fp": 792,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.14285714285714285,
+            "iou": 0.14285714285714285,
+            "precision": 0.14285714285714285,
+            "recall": 0.14285714285714285,
+            "boundary_iou": 0.14285714285714285,
+            "pfom": 0.14285714285714285
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 6
+        },
+        "subgroups": {
+          "small": {
+            "images": 36,
+            "counts": {
+              "tp": 8788,
+              "tn": 1793214,
+              "fp": 3607,
+              "fn": 727
+            },
+            "data_based": {
+              "dice": 0.8021907804655408,
+              "iou": 0.6697149824211466,
+              "precision": 0.7089955626697059,
+              "recall": 0.9235943246533269
+            },
+            "image_based": {
+              "dice": 0.815385041942405,
+              "iou": 0.7173615695286062,
+              "precision": 0.7713419735073744,
+              "recall": 0.935190769216487,
+              "boundary_iou": 0.5731037321291387,
+              "pfom": 0.7891910724486944
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 36
+          },
+          "medium": {
+            "images": 54,
+            "counts": {
+              "tp": 61120,
+              "tn": 2637775,
+              "fp": 5725,
+              "fn": 4884
+            },
+            "data_based": {
+              "dice": 0.9201424173309547,
+              "iou": 0.8520960838593583,
+              "precision": 0.9143541027613981,
+              "recall": 0.9260044845626629
+            },
+            "image_based": {
+              "dice": 0.9152516761098076,
+              "iou": 0.8509545942752283,
+              "precision": 0.9204049646069935,
+              "recall": 0.92417713478111,
+              "boundary_iou": 0.5845071471011368,
+              "pfom": 0.797583779125853
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 54
+          },
+          "large": {
+            "images": 21,
+            "counts": {
+              "tp": 89209,
+              "tn": 953899,
+              "fp": 3667,
+              "fn": 6921
+            },
+            "data_based": {
+              "dice": 0.9439806143720305,
+              "iou": 0.8939046263826177,
+              "precision": 0.9605172487945163,
+              "recall": 0.9280037449190888
+            },
+            "image_based": {
+              "dice": 0.9455235511784437,
+              "iou": 0.900258322210638,
+              "precision": 0.9567861032187638,
+              "recall": 0.9412382518870686,
+              "boundary_iou": 0.5520385010830305,
+              "pfom": 0.7928716429943299
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 21
+          }
+        }
+      },
+      "test": {
+        "split": "test",
+        "experiment": "RH2",
+        "checkpoint_sha256": "69ca6582bbbbeecf235e1490923390ae44106941f047bcfad2b0621ff4044f16",
+        "selected_epoch": 95,
+        "diagnostic_smoke_only": false,
+        "components": {
+          "dice": 0.10176122461566488,
+          "focal": 0.1704118426974493,
+          "regional": 0.27217306810935943,
+          "auxiliary_dice": 0.3863849526143256,
+          "auxiliary_focal": 0.17454117820918105,
+          "auxiliary": 0.5609261329847438,
+          "weighted_auxiliary": 0.05609261415159429,
+          "total": 0.32826568118033517,
+          "source_iou": 0.8266763324273452
+        },
+        "interpretation": "Previously exposed source-test; exploratory only",
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 261,
+          "counts": {
+            "tp": 335573,
+            "tn": 12705656,
+            "fp": 25389,
+            "fn": 29318
+          },
+          "data_based": {
+            "dice": 0.9246307447926784,
+            "iou": 0.8598262785670292,
+            "precision": 0.9296629562088816,
+            "recall": 0.919652718206479
+          },
+          "image_based": {
+            "dice": 0.8435745332167249,
+            "iou": 0.7769786812258421,
+            "precision": 0.8617117736469249,
+            "recall": 0.849155049532948,
+            "boundary_iou": 0.5580391956161459,
+            "pfom": 0.7598632286601029
+          },
+          "total_foreground_misses": 1,
+          "images_with_prediction": 257
+        },
+        "gt_positive": {
+          "images": 245,
+          "counts": {
+            "tp": 335573,
+            "tn": 11905287,
+            "fp": 22942,
+            "fn": 29318
+          },
+          "data_based": {
+            "dice": 0.9277584095238358,
+            "iou": 0.8652512808325613,
+            "precision": 0.9360082562767639,
+            "recall": 0.919652718206479
+          },
+          "image_based": {
+            "dice": 0.8864202170186335,
+            "iou": 0.81547524816304,
+            "precision": 0.9057419302932547,
+            "recall": 0.8923651752167322,
+            "boundary_iou": 0.5822376736972003,
+            "pfom": 0.7972420517562728
+          },
+          "total_foreground_misses": 1,
+          "images_with_prediction": 244
+        },
+        "gt_empty": {
+          "images": 16,
+          "counts": {
+            "tp": 0,
+            "tn": 800369,
+            "fp": 2447,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.1875,
+            "iou": 0.1875,
+            "precision": 0.1875,
+            "recall": 0.1875,
+            "boundary_iou": 0.1875,
+            "pfom": 0.1875
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 13
+        },
+        "subgroups": {
+          "small": {
+            "images": 67,
+            "counts": {
+              "tp": 16859,
+              "tn": 3339658,
+              "fp": 3215,
+              "fn": 2060
+            },
+            "data_based": {
+              "dice": 0.8647193085938502,
+              "iou": 0.7616788650600127,
+              "precision": 0.8398425824031164,
+              "recall": 0.8911147523182454
+            },
+            "image_based": {
+              "dice": 0.8301571871105065,
+              "iou": 0.7363693161735325,
+              "precision": 0.8439920894168977,
+              "recall": 0.8532217083415389,
+              "boundary_iou": 0.5980975689188206,
+              "pfom": 0.8079665481773304
+            },
+            "total_foreground_misses": 1,
+            "images_with_prediction": 66
+          },
+          "medium": {
+            "images": 135,
+            "counts": {
+              "tp": 153023,
+              "tn": 6591719,
+              "fp": 14234,
+              "fn": 14784
+            },
+            "data_based": {
+              "dice": 0.9133956497863095,
+              "iou": 0.8405963491694695,
+              "precision": 0.9148974332858122,
+              "recall": 0.911898788483723
+            },
+            "image_based": {
+              "dice": 0.8978557006565009,
+              "iou": 0.8300879140509827,
+              "precision": 0.9196571549696487,
+              "recall": 0.9007374091552284,
+              "boundary_iou": 0.5753486773548416,
+              "pfom": 0.7881292910245769
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 135
+          },
+          "large": {
+            "images": 43,
+            "counts": {
+              "tp": 165691,
+              "tn": 1973910,
+              "fp": 5493,
+              "fn": 12474
+            },
+            "data_based": {
+              "dice": 0.9485700545872465,
+              "iou": 0.9021714273219671,
+              "precision": 0.9679117207159085,
+              "recall": 0.929986248696826
+            },
+            "image_based": {
+              "dice": 0.9381837684775265,
+              "iou": 0.8928563539403597,
+              "precision": 0.958269465349132,
+              "recall": 0.9270712379828016,
+              "boundary_iou": 0.5791539882639419,
+              "pfom": 0.8091416200950656
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 43
+          }
+        }
+      }
+    },
+    "RA6": {
+      "validation": {
+        "split": "validation",
+        "experiment": "RA6",
+        "checkpoint_sha256": "cd9cd4bc0a349aae9b7031173a941d7d51fd58628b15246ab63efa7a42a8d2cb",
+        "selected_epoch": 81,
+        "diagnostic_smoke_only": false,
+        "components": {
+          "dice": 0.11323667885893482,
+          "focal": 0.17029191149493395,
+          "regional": 0.28352859111155493,
+          "auxiliary_dice": 0.0,
+          "auxiliary_focal": 0.0,
+          "auxiliary": 0.0,
+          "weighted_auxiliary": 0.0,
+          "total": 0.28352859111155493,
+          "source_iou": 0.8147108671018632
+        },
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 118,
+          "counts": {
+            "tp": 156005,
+            "tn": 5737704,
+            "fp": 11415,
+            "fn": 15644
+          },
+          "data_based": {
+            "dice": 0.9201961842574815,
+            "iou": 0.8521883057244888,
+            "precision": 0.931818181812616,
+            "recall": 0.9088605235048915
+          },
+          "image_based": {
+            "dice": 0.8424348747633986,
+            "iou": 0.7728444889489068,
+            "precision": 0.8672730864613252,
+            "recall": 0.8562894417607985,
+            "boundary_iou": 0.5423075036370981,
+            "pfom": 0.7465527621787278
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 116
+        },
+        "gt_positive": {
+          "images": 111,
+          "counts": {
+            "tp": 156005,
+            "tn": 5387033,
+            "fp": 10854,
+            "fn": 15644
+          },
+          "data_based": {
+            "dice": 0.9217212000898058,
+            "iou": 0.8548078661673791,
+            "precision": 0.9349510664636912,
+            "recall": 0.9088605235048915
+          },
+          "image_based": {
+            "dice": 0.8775433803791086,
+            "iou": 0.8035644116754144,
+            "precision": 0.9039479657877149,
+            "recall": 0.8922716588087769,
+            "boundary_iou": 0.5584890579205187,
+            "pfom": 0.7756146480818907
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 111
+        },
+        "gt_empty": {
+          "images": 7,
+          "counts": {
+            "tp": 0,
+            "tn": 350671,
+            "fp": 561,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.2857142857142857,
+            "iou": 0.2857142857142857,
+            "precision": 0.2857142857142857,
+            "recall": 0.2857142857142857,
+            "boundary_iou": 0.2857142857142857,
+            "pfom": 0.2857142857142857
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 5
+        },
+        "subgroups": {
+          "small": {
+            "images": 36,
+            "counts": {
+              "tp": 8417,
+              "tn": 1793647,
+              "fp": 3174,
+              "fn": 1098
+            },
+            "data_based": {
+              "dice": 0.7975931014877287,
+              "iou": 0.6633304436391102,
+              "precision": 0.7261668535306559,
+              "recall": 0.8846032579206933
+            },
+            "image_based": {
+              "dice": 0.8003737860835028,
+              "iou": 0.7024051677695785,
+              "precision": 0.8147933072657797,
+              "recall": 0.8742903729650922,
+              "boundary_iou": 0.575562056720191,
+              "pfom": 0.7630919684649938
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 36
+          },
+          "medium": {
+            "images": 54,
+            "counts": {
+              "tp": 58624,
+              "tn": 2639918,
+              "fp": 3582,
+              "fn": 7380
+            },
+            "data_based": {
+              "dice": 0.9144996490133375,
+              "iou": 0.8424683125795065,
+              "precision": 0.9424171301652186,
+              "recall": 0.8881885946171719
+            },
+            "image_based": {
+              "dice": 0.9035255990451581,
+              "iou": 0.8354108429791139,
+              "precision": 0.9448343319966627,
+              "recall": 0.8854455452686117,
+              "boundary_iou": 0.5579284803107054,
+              "pfom": 0.7832224919291039
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 54
+          },
+          "large": {
+            "images": 21,
+            "counts": {
+              "tp": 88964,
+              "tn": 953468,
+              "fp": 4098,
+              "fn": 7166
+            },
+            "data_based": {
+              "dice": 0.9404625988413886,
+              "iou": 0.88761623497538,
+              "precision": 0.9559648406335995,
+              "recall": 0.9254551128583642
+            },
+            "image_based": {
+              "dice": 0.9430226940303047,
+              "iou": 0.8950894350187634,
+              "precision": 0.9516481530023098,
+              "recall": 0.9406495836440896,
+              "boundary_iou": 0.5306625452606007,
+              "pfom": 0.7775190718180237
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 21
+          }
+        }
+      },
+      "test": {
+        "split": "test",
+        "experiment": "RA6",
+        "checkpoint_sha256": "cd9cd4bc0a349aae9b7031173a941d7d51fd58628b15246ab63efa7a42a8d2cb",
+        "selected_epoch": 81,
+        "diagnostic_smoke_only": false,
+        "components": {
+          "dice": 0.11684909667677552,
+          "focal": 0.17027387785092565,
+          "regional": 0.28712297498269845,
+          "auxiliary_dice": 0.0,
+          "auxiliary_focal": 0.0,
+          "auxiliary": 0.0,
+          "weighted_auxiliary": 0.0,
+          "total": 0.28712297498269845,
+          "source_iou": 0.8067029770321519
+        },
+        "interpretation": "Previously exposed source-test; exploratory only",
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 261,
+          "counts": {
+            "tp": 321417,
+            "tn": 12712970,
+            "fp": 18075,
+            "fn": 43474
+          },
+          "data_based": {
+            "dice": 0.9126199808910778,
+            "iou": 0.8392833828568612,
+            "precision": 0.946758686505288,
+            "recall": 0.8808575711626736
+          },
+          "image_based": {
+            "dice": 0.83109250462365,
+            "iou": 0.7647224770327912,
+            "precision": 0.878685454700124,
+            "recall": 0.8139634317248782,
+            "boundary_iou": 0.5426736400919091,
+            "pfom": 0.7412846355266225
+          },
+          "total_foreground_misses": 4,
+          "images_with_prediction": 252
+        },
+        "gt_positive": {
+          "images": 245,
+          "counts": {
+            "tp": 321417,
+            "tn": 11913031,
+            "fp": 15198,
+            "fn": 43474
+          },
+          "data_based": {
+            "dice": 0.9163627966118608,
+            "iou": 0.8456361536354758,
+            "precision": 0.9548504968555921,
+            "recall": 0.8808575711626736
+          },
+          "image_based": {
+            "dice": 0.8649597702317251,
+            "iou": 0.7942553734920755,
+            "precision": 0.9156608313336013,
+            "recall": 0.8467120640007886,
+            "boundary_iou": 0.5577053880162787,
+            "pfom": 0.7692868974385654
+          },
+          "total_foreground_misses": 4,
+          "images_with_prediction": 241
+        },
+        "gt_empty": {
+          "images": 16,
+          "counts": {
+            "tp": 0,
+            "tn": 799939,
+            "fp": 2877,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.3125,
+            "iou": 0.3125,
+            "precision": 0.3125,
+            "recall": 0.3125,
+            "boundary_iou": 0.3125,
+            "pfom": 0.3125
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 11
+        },
+        "subgroups": {
+          "small": {
+            "images": 67,
+            "counts": {
+              "tp": 15455,
+              "tn": 3339026,
+              "fp": 3847,
+              "fn": 3464
+            },
+            "data_based": {
+              "dice": 0.8087177206247874,
+              "iou": 0.6788632170482798,
+              "precision": 0.800694228535867,
+              "recall": 0.816903641798356
+            },
+            "image_based": {
+              "dice": 0.773961127193477,
+              "iou": 0.6801336546580323,
+              "precision": 0.8324829963500012,
+              "recall": 0.7740987787549466,
+              "boundary_iou": 0.5459352860657166,
+              "pfom": 0.7381636571019905
+            },
+            "total_foreground_misses": 3,
+            "images_with_prediction": 64
+          },
+          "medium": {
+            "images": 135,
+            "counts": {
+              "tp": 149731,
+              "tn": 6598491,
+              "fp": 7462,
+              "fn": 18076
+            },
+            "data_based": {
+              "dice": 0.9214215384615385,
+              "iou": 0.8542925445979934,
+              "precision": 0.9525296927919656,
+              "recall": 0.8922810133016364
+            },
+            "image_based": {
+              "dice": 0.8972249565184023,
+              "iou": 0.8316585061869808,
+              "precision": 0.943792268986695,
+              "recall": 0.8738030242469228,
+              "boundary_iou": 0.5734687345372345,
+              "pfom": 0.7914741951172253
+            },
+            "total_foreground_misses": 1,
+            "images_with_prediction": 134
+          },
+          "large": {
+            "images": 43,
+            "counts": {
+              "tp": 156231,
+              "tn": 1975514,
+              "fp": 3889,
+              "fn": 21934
+            },
+            "data_based": {
+              "dice": 0.9236649570628316,
+              "iou": 0.8581574697570052,
+              "precision": 0.9757119660193873,
+              "recall": 0.8768894002701041
+            },
+            "image_based": {
+              "dice": 0.9054506756936139,
+              "iou": 0.8546444955401843,
+              "precision": 0.9569438746064755,
+              "recall": 0.8748006797738886,
+              "boundary_iou": 0.5265552729083394,
+              "pfom": 0.7481234536230158
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 43
+          }
+        }
+      }
+    }
+  },
+  "statuses": {
+    "R0": {
+      "status": "completed",
+      "identity": "c67b67d81077e571e7123e519e308bd80f3f6610493dcf654d8c4cd5b6d70679",
+      "diagnostic_smoke_only": false,
+      "completed_epochs": 54,
+      "selected_epoch": 24,
+      "training_sources": {
+        "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+        "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+        "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+        "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+        "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+        "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+        "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+        "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+        "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+        "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+        "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+        "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+        "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+        "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+        "src/foot_ulcer_segmentation/cp2_recipe.py": "13114f4a47e69c0a96e34e278cd3a1dbb4ca5df6d84e2b6957d3b2226f5d9eca",
+        "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+        "src/foot_ulcer_segmentation/cp2_heads.py": "265ee3dc1785452850ccca6c954b2d069dec831869e3c2719c7c4b124edcf098",
+        "src/foot_ulcer_segmentation/cp2_phase_h.py": "de89e612cd895495df9972fb52d692b1cf86a2bd011132bacb15784ac0acb2e0",
+        "scripts/run_cp2_cp1_recipe.py": "2c987984ab93b9afde5621d855493c0c713481c54df0024e2f7d473f0fdba8b5",
+        "configs/cp2/cp1_recipe.json": "989f1dcc087af576dc56151b618c8df187d2b6c38e289e57c9eba69ca26470aa"
+      },
+      "best_checkpoint_sha256": "a93335180ddb38be0beac1dfcc0ec646e8e2cee033d1d433ae054d521ead72c7",
+      "checkpoint_reload_passed": true,
+      "seconds": 5436.890365183819,
+      "updated_utc": "2026-11-13T09:54:05.883557+00:00",
+      "test_images_evaluated": 0,
+      "training_steps": 18144,
+      "active_forward_parameters": 64898248,
+      "registered_parameters": 70968939,
+      "peak_cuda_allocated_bytes": 2385964544,
+      "peak_cuda_reserved_bytes": 2533359616
+    },
+    "RH2": {
+      "status": "completed",
+      "identity": "7bf9c79a1e54a0fb5ce2f1d16e44995ec12dca280d7ddf3f69cb184433b3f13e",
+      "diagnostic_smoke_only": false,
+      "completed_epochs": 125,
+      "selected_epoch": 95,
+      "training_sources": {
+        "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+        "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+        "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+        "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+        "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+        "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+        "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+        "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+        "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+        "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+        "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+        "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+        "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+        "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+        "src/foot_ulcer_segmentation/cp2_recipe.py": "13114f4a47e69c0a96e34e278cd3a1dbb4ca5df6d84e2b6957d3b2226f5d9eca",
+        "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+        "src/foot_ulcer_segmentation/cp2_heads.py": "265ee3dc1785452850ccca6c954b2d069dec831869e3c2719c7c4b124edcf098",
+        "src/foot_ulcer_segmentation/cp2_phase_h.py": "de89e612cd895495df9972fb52d692b1cf86a2bd011132bacb15784ac0acb2e0",
+        "scripts/run_cp2_cp1_recipe.py": "2c987984ab93b9afde5621d855493c0c713481c54df0024e2f7d473f0fdba8b5",
+        "configs/cp2/cp1_recipe.json": "989f1dcc087af576dc56151b618c8df187d2b6c38e289e57c9eba69ca26470aa"
+      },
+      "best_checkpoint_sha256": "69ca6582bbbbeecf235e1490923390ae44106941f047bcfad2b0621ff4044f16",
+      "checkpoint_reload_passed": true,
+      "seconds": 11949.128912585787,
+      "updated_utc": "2026-11-13T13:13:15.096887+00:00",
+      "test_images_evaluated": 0,
+      "training_steps": 42000,
+      "active_forward_parameters": 64898281,
+      "registered_parameters": 70968972,
+      "peak_cuda_allocated_bytes": 2388080128,
+      "peak_cuda_reserved_bytes": 2533359616
+    },
+    "RA6": {
+      "status": "completed",
+      "identity": "25e57e7d55a5dae8b1733e490ea105d0bf47be82fcf381f7275e25f5dcc5bb93",
+      "diagnostic_smoke_only": false,
+      "completed_epochs": 111,
+      "selected_epoch": 81,
+      "training_sources": {
+        "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+        "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+        "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+        "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+        "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+        "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+        "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+        "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+        "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+        "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+        "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+        "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+        "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+        "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+        "src/foot_ulcer_segmentation/cp2_recipe.py": "13114f4a47e69c0a96e34e278cd3a1dbb4ca5df6d84e2b6957d3b2226f5d9eca",
+        "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+        "src/foot_ulcer_segmentation/cp2_heads.py": "265ee3dc1785452850ccca6c954b2d069dec831869e3c2719c7c4b124edcf098",
+        "src/foot_ulcer_segmentation/cp2_phase_h.py": "de89e612cd895495df9972fb52d692b1cf86a2bd011132bacb15784ac0acb2e0",
+        "scripts/run_cp2_cp1_recipe.py": "2c987984ab93b9afde5621d855493c0c713481c54df0024e2f7d473f0fdba8b5",
+        "configs/cp2/cp1_recipe.json": "989f1dcc087af576dc56151b618c8df187d2b6c38e289e57c9eba69ca26470aa"
+      },
+      "best_checkpoint_sha256": "cd9cd4bc0a349aae9b7031173a941d7d51fd58628b15246ab63efa7a42a8d2cb",
+      "checkpoint_reload_passed": true,
+      "seconds": 10011.571263615042,
+      "updated_utc": "2026-11-13T16:00:06.748664+00:00",
+      "test_images_evaluated": 0,
+      "training_steps": 37296,
+      "active_forward_parameters": 64891593,
+      "registered_parameters": 70975382,
+      "peak_cuda_allocated_bytes": 2370664960,
+      "peak_cuda_reserved_bytes": 2533359616
+    }
+  },
+  "figures": [
+    {
+      "file": "reports/figures/cp2-cp1-recipe/training_curves.png",
+      "sha256": "f991ba3e0bc2b2bfc5b2fce12c8c73e0a1496c2c3f0d0de3d38ee4f3928c7234"
+    },
+    {
+      "file": "reports/figures/cp2-cp1-recipe/training_curves.svg",
+      "sha256": "82156494d25b3401b8ed5792c31628260519991aaa9beb841b21088bfcbc8d3c"
+    },
+    {
+      "file": "reports/figures/cp2-cp1-recipe/region_boundary_comparison.png",
+      "sha256": "33f3bcb9537971be5d65dbb3e4f8feef1964d7bf4824535087fbc156c68b02e0"
+    },
+    {
+      "file": "reports/figures/cp2-cp1-recipe/region_boundary_comparison.svg",
+      "sha256": "dd586148333b206a48b1c69c0c21975c4758e18bb8e1cb67397ef717c0e478f3"
+    },
+    {
+      "file": "reports/figures/cp2-cp1-recipe/empty_false_positives.png",
+      "sha256": "070257c625398ac67f50f3668310ec616a721aae673b59924f8d1269b9703a3d"
+    },
+    {
+      "file": "reports/figures/cp2-cp1-recipe/empty_false_positives.svg",
+      "sha256": "0aee98d4fc417b7a053191c1c36458a7c36985681bf5d964b59da43e13381f37"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "source_policy_replayed": true,
+    "validation_selection_replayed": true,
+    "prediction_exports": [
+      {
+        "model": "R0",
+        "split": "validation",
+        "predictions": 118,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "R0",
+        "split": "test",
+        "predictions": 261,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RH2",
+        "split": "validation",
+        "predictions": 118,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RH2",
+        "split": "test",
+        "predictions": 261,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RA6",
+        "split": "validation",
+        "predictions": 118,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RA6",
+        "split": "test",
+        "predictions": 261,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      }
+    ],
+    "no_patient_independence_claim": true,
+    "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5"
+  },
+  "visual_review": "PASSED \u2014 three aggregate figures directly inspected; legend corrected without numerical changes",
+  "presentation_updated_utc": "2026-11-13T16:03:32.145519+00:00",
+  "review_document": "reports/cp2-cp1-recipe-review.md",
+  "qa_document": "reports/cp2-cp1-recipe-validation.json"
+}

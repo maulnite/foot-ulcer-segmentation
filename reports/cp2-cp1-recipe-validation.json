@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-13T16:08:15.661824+00:00",
+  "run_root": "outputs/cp2/cp1_recipe/20261113T082016Z",
+  "completed_real_models": [
+    "R0",
+    "RH2",
+    "RA6"
+  ],
+  "tests": {
+    "tests": 136,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "syntax_files": 95,
+  "predictions_verified": 1137,
+  "historical_user_files_unchanged": 13511,
+  "original_training_sources_unchanged": true,
+  "public_metrics_statuses_selection_exactly_equal_executed_results": true,
+  "per_image_tables_exact_copies": true,
+  "checkpoint_and_export_validation": {
+    "status": "passed",
+    "source_policy_replayed": true,
+    "validation_selection_replayed": true,
+    "prediction_exports": [
+      {
+        "model": "R0",
+        "split": "validation",
+        "predictions": 118,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "R0",
+        "split": "test",
+        "predictions": 261,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RH2",
+        "split": "validation",
+        "predictions": 118,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RH2",
+        "split": "test",
+        "predictions": 261,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RA6",
+        "split": "validation",
+        "predictions": 118,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      },
+      {
+        "model": "RA6",
+        "split": "test",
+        "predictions": 261,
+        "checksums_raw_GT_threshold_metrics_CSV": "passed"
+      }
+    ],
+    "no_patient_independence_claim": true,
+    "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5"
+  },
+  "visual_review": {
+    "status": "passed",
+    "figures": [
+      "training_curves",
+      "region_boundary_comparison",
+      "empty_false_positives"
+    ],
+    "method": "Direct image inspection; aggregate bars legend moved below plots; original figure/render source preserved; no scientific numbers changed"
+  },
+  "analysis": {
+    "file": "reports/cp2-cp1-recipe-analysis.json",
+    "sha256": "4b2d5c4f2363ead2ec426455b1813b038fd2b042c918ffa97f91577b534954ac"
+  },
+  "no_new_raw_media_or_checkpoint_publication": true,
+  "ruff": "NOT RUN \u2014 unavailable; syntax and git diff --check used; no environment changes",
+  "interpretation": "One-seed exploratory experiment. RH2 selected before source-test. No confirmatory significance or patient independence claim."
+}
