@@ -83,7 +83,7 @@
     "test_policy": "Only after all three completed validation reports and selection.json; previously exposed source-test descriptive only"
   },
   "provenance": {
-    "scope": "CP1 training-policy bundle on fixed CP2 audited cohort, not literal CP1 reproduction or warm start",
+    "scope": "CP1 training-policy bundle INCLUDING original probability-to-focal-with-logits mismatch on fixed CP2 audited cohort; not literal CP1 reproduction or warm start",
     "precision": "preserve CP1 torch.float32 and PyTorch 1.11 TF32 defaults; no AMP",
     "initialization": "Fresh shared phase-P ImageNet initialization, not trained CP1 checkpoint",
     "cp1": "artifacts immutable; separate CP2 manifest, evaluator policy and run directories"
@@ -234,15 +234,15 @@
       "RH2",
       "RA6"
     ],
-    "main_loss": "B1",
+    "main_loss": "B0",
     "control_root": "outputs/cp2/phase_p/20261107T170015Z",
     "control_manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
     "control_initial_weights_sha256": "f2633bb3f946e94ecf347680ac186fd372bebf1e968177614d251f50ce09a27f",
     "control_initial_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
-    "scope": "CP1 training-policy bundle on fixed CP2 audited cohort, not literal CP1 reproduction or warm start",
+    "scope": "CP1 training-policy bundle INCLUDING original probability-to-focal-with-logits mismatch on fixed CP2 audited cohort; not literal CP1 reproduction or warm start",
     "selection": "Reuse all phase-H validation guards relative to newly trained R0; rank eligible by validation Image Dice; retain R0 if none",
     "hypotheses": {
-      "R0": "CP1 checkpoint/scheduler/epoch-RNG bundle may alter optimization relative to historical B1; no individual causal attribution",
+      "R0": "CP1 source loss and checkpoint/scheduler/epoch-RNG bundle may alter optimization relative to historical B0; no individual causal attribution",
       "RH2": "Boundary auxiliary supervision may improve small/boundary metrics without extra empty FP under CP1 recipe",
       "RA6": "Established CBAM comparator may retain its validation gain under the CP1 recipe"
     },
@@ -254,6 +254,8 @@
       "multiseed",
       "external tuning"
     ],
-    "common_randomness": "All original tensors from frozen phase-P initial weights. Reset Python/NumPy/CPU/CUDA RNG to one common post-base-construction state. CP1 loaders seeded by evolving global RNG; verify actual common-epoch data hashes."
+    "common_randomness": "All original tensors from frozen phase-P initial weights. Reset Python/NumPy/CPU/CUDA RNG to one common post-base-construction state. CP1 loaders seeded by evolving global RNG; verify actual common-epoch data hashes.",
+    "user_decision": "Explicit user choice: CP1 including original focal input mismatch",
+    "objective_override": "Effective objective: main B0 in every arm; RH2 auxiliary also uses B0 primitives. Copied phase_a/phase_h blocks retain historical architecture provenance; their historical B1 descriptions do not override this recipe."
   }
 }

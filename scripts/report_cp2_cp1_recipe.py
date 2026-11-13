@@ -125,8 +125,8 @@ def main():
     lines = ['# CP2 — Targeted CP1 training-recipe comparison', '',
              f"Run: `{root.relative_to(ROOT)}`. Seed 42; split 671/118/261 tetap. Ini eksperimen eksploratif satu seed, bukan reproduksi CP1 identik.", '',
              '## Pertanyaan dan protokol', '',
-             'Apakah H2 atau A6 memberi manfaat ketika checkpoint if-loss/elif-IoU, scheduler main validation loss, early stopping sumber dan evolving RNG CP1 digunakan? Semua arm memakai B1 yang benar, preprocessing/augmentasi sumber, Adam 1e-4, WD 1e-5, batch 2, FP32 tanpa AMP. Bobot awal sumber dibuktikan identik; bukan warm-start checkpoint CP1.', '',
-             'R0 = P-scSE asli; RH2 = auxiliary boundary head 33 parameter, bobot 0,1; RA6 = CBAM stage 2–3 dengan gain historis 3. Pada H2, scheduler/checkpoint memakai loss mask utama saja, bukan auxiliary loss. Source IoU memakai threshold >0,5 dan batch averaging; pelaporan akhir tetap threshold ≥0,5 dan evaluator CP2.', '',
+             'Apakah H2 atau A6 memberi manfaat ketika checkpoint if-loss/elif-IoU, scheduler main validation loss, early stopping sumber dan evolving RNG CP1 digunakan? Sesuai pilihan pengguna, semua arm memakai B0 sumber termasuk focal input mismatch, preprocessing/augmentasi sumber, Adam 1e-4, WD 1e-5, batch 2, FP32 tanpa AMP. Bobot awal sumber dibuktikan identik; bukan warm-start checkpoint CP1.', '',
+             'R0 = P-scSE asli; RH2 = auxiliary boundary head 33 parameter, auxiliary B0 berbobot 0,1; RA6 = CBAM stage 2–3 dengan gain historis 3. Pada H2, scheduler/checkpoint memakai loss mask utama saja, bukan auxiliary loss. Source IoU memakai threshold >0,5 dan batch averaging; pelaporan akhir tetap threshold ≥0,5 dan evaluator CP2.', '',
              '## Hasil yang benar-benar dijalankan', '',
              '| Model | Split | Image Dice | Data Dice | Small Dice | Boundary IoU | Miss | Empty FP | Epoch dipilih/selesai |',
              '|---|---|---:|---:|---:|---:|---:|---:|---:|']

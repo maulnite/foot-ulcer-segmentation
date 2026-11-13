@@ -9,9 +9,10 @@ from torch.utils.data import DataLoader, TensorDataset, RandomSampler, BatchSamp
 
 from foot_ulcer_segmentation.checkpoint import AuthorCheckpointPolicy, random_state, restore_random_state
 from foot_ulcer_segmentation.common import ROOT, write_json
-from foot_ulcer_segmentation.cp2_heads import HeadObjective, HeadOutputs
+from foot_ulcer_segmentation.cp2_heads import HeadOutputs, morphological_boundary
+from foot_ulcer_segmentation.cp2_protocol import BaselineObjective
 from foot_ulcer_segmentation.cp2_recipe import (
-    EXPERIMENTS, RecipeObjective, RecordingBatchSampler, validate_config, verify_paired_inputs,
+    EXPERIMENTS, RecipeObjective, RecordingBatchSampler, initial_state, validate_config, verify_paired_inputs,
 )
 from foot_ulcer_segmentation.engine import setup as initialize_rng
 
@@ -19,7 +20,7 @@ from foot_ulcer_segmentation.engine import setup as initialize_rng
 def test_configuration_is_bounded_and_preserves_the_registered_controls():
     config = json.loads((ROOT / "configs/cp2/cp1_recipe.json").read_text())
     validate_config(config)
-    for keys, value in [(('recipe', 'main_loss'), 'B0'), (('recipe', 'experiment_order'), ['R0']),
+    for keys, value in [(('recipe', 'main_loss'), 'B1'), (('recipe', 'experiment_order'), ['R0']),
                         (('training', 'batch_size'), 4), (('training', 'amp'), True),
                         (('training', 'checkpoint_policy'), 'highest_dice')]:
         changed = copy.deepcopy(config)
@@ -51,7 +52,7 @@ def test_recording_batch_sampler_matches_cp1_order_and_global_rng_exactly():
 
 @pytest.mark.parametrize('name', EXPERIMENTS)
 @pytest.mark.parametrize('empty', [False, True])
-def test_main_loss_remains_b1_and_validation_iou_uses_source_strict_threshold(name, empty):
+def test_main_loss_preserves_source_mismatch_and_iou_uses_source_strict_threshold(name, empty):
     logits = torch.linspace(-1, 1, 42).reshape(2, 1, 3, 7).requires_grad_()
     truth = torch.zeros_like(logits)
     if not empty:
@@ -60,8 +61,14 @@ def test_main_loss_remains_b1_and_validation_iou_uses_source_strict_threshold(na
     outputs = HeadOutputs(logits, auxiliary if name == 'RH2' else None)
     objective = RecipeObjective(name)
     parts = objective.components(outputs, truth)
-    expected = HeadObjective('H2' if name == 'RH2' else 'H0').components(outputs, truth)
-    assert all(torch.equal(parts[k], v) for k, v in expected.items())
+    original = BaselineObjective('B0')
+    assert torch.equal(parts['regional'], original(logits, truth))
+    if name == 'RH2':
+        expected = original(logits, truth) + .1 * original(auxiliary, morphological_boundary(truth))
+    else:
+        expected = original(logits, truth)
+    assert torch.equal(parts['total'], expected)
+    assert not torch.equal(parts['regional'], BaselineObjective('B1')(logits, truth))
     prediction = (logits.detach().sigmoid() > .5).float()
     intersection = (prediction * truth).sum()
     union = prediction.sum() + truth.sum() - intersection
@@ -104,3 +111,21 @@ def test_epoch_boundary_global_rng_resume_preserves_next_loader_order():
     restarted = DataLoader(dataset, batch_size=2, shuffle=True)
     actual = torch.cat([x[0] for x in restarted])
     assert torch.equal(actual, expected)
+
+
+def test_first_lazy_reference_import_cannot_change_common_rng(monkeypatch):
+    import foot_ulcer_segmentation.cp2_recipe as recipe
+    imported = []
+
+    def lazy_import():
+        if not imported:
+            torch.rand(77)
+            imported.append(True)
+
+    monkeypatch.setattr(recipe, 'load_reference', lazy_import)
+    monkeypatch.setattr(recipe, 'build_model', lambda *a, **k: torch.nn.Linear(3, 4))
+    monkeypatch.setattr(torch.cuda, 'is_available', lambda: False)
+    config = {'seed': 42, 'cpu_threads': 2}
+    first = initial_state(config)
+    second = initial_state(config)
+    assert torch.equal(first['torch'], second['torch'])

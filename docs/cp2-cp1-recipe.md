@@ -5,7 +5,7 @@
 CP2 memperbaiki integritas split dan memperjelas prosedur penelitian, tetapi
 belum membuktikan bahwa paket optimisasinya lebih efektif dari CP1. Eksperimen
 ini menguji kandidat terbatas dengan **kebijakan training CP1**, mempertahankan
-data bersih dan objective B1. Ini tidak mengulang seluruh fase dan tidak
+data bersih dan objective sumber B0 (termasuk focal input mismatch). Ini tidak mengulang seluruh fase dan tidak
 memakai trained checkpoint CP1 sebagai inisialisasi.
 
 Pada manifest yang sudah diverifikasi, 103/118 gambar validation CP2 pernah
@@ -16,9 +16,9 @@ yang sah pada split ini. Ketiga arm dilatih dari shared initial weights fase P.
 
 | Arm | Arsitektur | Main objective | Pertanyaan |
 |---|---|---|---|
-| R0 | P-scSE asli | B1 | Bagaimana paket kebijakan CP1 berperilaku pada split CP2? |
-| RH2 | P-scSE + auxiliary boundary head | B1 + 0,1×B1 auxiliary | Apakah supervisi batas membantu tanpa menambah empty FP? |
-| RA6 | CBAM pada decoder stage 2–3 | B1 | Apakah pembanding attention mapan mempertahankan manfaatnya? |
+| R0 | P-scSE asli | B0 sumber | Bagaimana paket kebijakan CP1 berperilaku pada split CP2? |
+| RH2 | P-scSE + auxiliary boundary head | B0 sumber + 0,1×B0 auxiliary | Apakah supervisi batas membantu tanpa menambah empty FP? |
+| RA6 | CBAM pada decoder stage 2–3 | B0 sumber | Apakah pembanding attention mapan mempertahankan manfaatnya? |
 
 H2 dipilih karena meningkatkan overall/small/boundary validation, walaupun gagal
 guard empty FP. A6 dipilih karena overall validation tertinggi pada fase A,
@@ -57,11 +57,11 @@ CP1 tidak mempunyai head auxiliary.
 - Manifest 671 train / 118 validation / 261 test, hash
   `fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5`.
 - Tidak mengembalikan duplikat/konflik yang dikecualikan. Raw data tidak dihapus.
-- Objective B1: Dice(sigmoid(logits)) + focal-with-logits(logits).
+- Sesuai pilihan eksplisit pengguna, objective sumber B0: Dice(sigmoid(logits)) + focal-with-logits(sigmoid(logits)). Input mismatch sengaja dipertahankan; ini bukan loss logits yang benar. Pada RH2, auxiliary memakai primitive B0 yang sama dan bobot 0,1.
 - Semua pairable source tensors sama persis dengan initial weights fase P;
   head/gain/CBAM sama dengan fase H/A. Bukan warm-start bobot hasil training.
 - Seluruh arm dimulai dari common post-construction CPU/CUDA/Python/NumPy RNG
-  state. Actual train order dan augmented bytes diverifikasi pada common epochs.
+  state. Lazy reference imports diselesaikan sebelum seed bersama karena import pertama dapat mengonsumsi RNG. Actual train order dan augmented bytes diverifikasi pada common epochs.
 - Forward mask utama tidak menerima GT; target boundary berasal dari mask
   sesudah augmentasi geometrik, morphological gradient 3×3, exterior zero.
 - Evaluator dan guard historis terhadap **R0 baru**: overall Image Dice lebih
@@ -76,7 +76,7 @@ confirmatory test. Tidak ada threshold tuning dari test.
 
 ## Batas interpretasi
 
-Perbandingan R0 dengan B1 historis mengubah **paket** checkpoint, scheduler,
+Perbandingan R0 dengan B0 historis mengubah **paket** checkpoint, scheduler,
 early stopping dan RNG sekaligus; tidak mengisolasi kontribusi setiap faktor.
 Perbandingan RH2/RA6 terhadap R0 menguji arsitektur di dalam paket yang sama.
 Jumlah epoch dapat berbeda karena early stopping/checkpoint validation.
@@ -112,3 +112,7 @@ Lihat `status.json`, `history.json`, `train_workflow.json`, dan console log di
 root run untuk progress. Laporan final dan grafik dibuat **setelah** ketiga
 arm benar-benar selesai dan validasi independen lulus. Grafik memerlukan
 review visual langsung sebelum hasil dinyatakan final.
+
+## Audit preflight awal
+
+Protokol B1 sementara pada commit `5747b50` hanya menjalankan engineering smoke, bukan full training. Preflight menangkap ketidaksamaan urutan/input pada arm pertama akibat lazy import sebelum common seed. Gate memblokir training penuh. Catatan lama dipertahankan; regression test baru memeriksa first-import RNG, dan permintaan pengguna mengubah protokol efektif menjadi B0 sumber pada run terpisah.

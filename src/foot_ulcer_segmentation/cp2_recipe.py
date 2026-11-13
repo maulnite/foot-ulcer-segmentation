@@ -2,7 +2,8 @@
 
 Historical training modules are imported, never edited. This is an exploratory
 policy-bundle comparison, not an exact CP1 reproduction or a causal isolation of
-checkpointing alone. The corrected B1 main objective remains fixed in all arms.
+checkpointing alone. The original B0 focal-input mismatch is fixed in all arms,
+as explicitly requested by the user; no corrected-logit claim is made.
 """
 
 from datetime import datetime, timezone
@@ -21,10 +22,11 @@ from .cp2_data import verify_cp2_manifest
 from .cp2_heads import AuxiliarySegmentationModel, HeadObjective, build_head_model
 from .cp2_phase_h import select_candidate
 from .cp2_phase_l import _verify_precision, phase_l_sources, train_epoch, validate_epoch
+from .cp2_protocol import BaselineObjective
 from .cp2_train import export_evaluation, gpu_snapshot, tensor_fingerprint
 from .data import make_dataset
 from .engine import environment_record, setup
-from .reference import build_loss_and_metrics, build_model, verify_reference
+from .reference import build_loss_and_metrics, build_model, load_reference, verify_reference
 
 
 EXPERIMENTS = ("R0", "RH2", "RA6")
@@ -50,8 +52,8 @@ def validate_config(config):
     control = read(ROOT / config["recipe"]["control_root"] / "protocol.json")
     if tuple(config["recipe"]["experiment_order"]) != EXPERIMENTS:
         raise ValueError("Exactly R0, RH2, RA6 are registered")
-    if config["recipe"]["main_loss"] != "B1":
-        raise ValueError("This registered experiment preserves corrected B1 loss")
+    if config["recipe"]["main_loss"] != "B0":
+        raise ValueError("This registered experiment preserves the explicitly requested CP1 mismatch")
     for key in ("seed", "cpu_threads", "data", "model", "loss"):
         if config[key] != control[key]:
             raise ValueError(f"Frozen CP2 control changed: {key}")
@@ -109,11 +111,12 @@ def make_loader(config, manifest, split, smoke=False):
 
 
 class RecipeObjective(HeadObjective):
-    """Record the exact source batch-IoU alongside fixed B1 objective components."""
+    """Record exact source batch-IoU alongside source B0 main/auxiliary primitives."""
     def __init__(self, experiment):
         if experiment not in EXPERIMENTS:
             raise ValueError("Unknown recipe experiment")
         super().__init__("H2" if experiment == "RH2" else "H0")
+        self.baseline = BaselineObjective("B0")
         _, metrics = build_loss_and_metrics()
         self.source_iou = metrics[0]
 
@@ -160,6 +163,9 @@ def prepare(config, root):
 
 def initial_state(config):
     """Capture one common post-construction RNG state, independently of added modules."""
+    # First imports may consume RNG. Complete lazy imports BEFORE the common seed,
+    # otherwise the first arm differs from later arms despite the same seed.
+    load_reference()
     setup(config["seed"], config["cpu_threads"])
     if torch.cuda.is_available():
         torch.cuda.get_rng_state_all()  # Materialize seeded CUDA generators before capturing.
