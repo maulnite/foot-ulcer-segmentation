@@ -1,0 +1,389 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-15T08:10:19.174103+00:00",
+  "split": "validation",
+  "seed": 42,
+  "no_training_or_new_inference": true,
+  "prediction_validation": {
+    "B1": {
+      "status": "passed",
+      "split": "validation",
+      "predictions": 118
+    },
+    "H2": {
+      "status": "passed",
+      "split": "validation",
+      "predictions": 118
+    },
+    "A6": {
+      "status": "passed",
+      "split": "validation",
+      "predictions": 118
+    }
+  },
+  "summaries": {
+    "B1": {
+      "gt_empty_images": 7,
+      "fp_images": 4,
+      "fp_pixels": 526,
+      "largest_component_pixels": 265
+    },
+    "H2": {
+      "gt_empty_images": 7,
+      "fp_images": 5,
+      "fp_pixels": 721,
+      "largest_component_pixels": 271
+    },
+    "A6": {
+      "gt_empty_images": 7,
+      "fp_images": 5,
+      "fp_pixels": 735,
+      "largest_component_pixels": 266
+    }
+  },
+  "comparisons": {
+    "H2": {
+      "new_fp_cases_vs_B1": [
+        "train/a23fa00a3aae6b6f3da31c6157aeb670_4.png"
+      ],
+      "resolved_fp_cases_vs_B1": [],
+      "shared_fp_cases_with_B1": [
+        "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+        "train/4aba015fe18465451bd74c5a9b30a853_1.png",
+        "train/4fff394b855d2d3c86469e487132e55c_1.png",
+        "train/a936e3e598229d7d4931fd9f1dbafdf1_0.png"
+      ]
+    },
+    "A6": {
+      "new_fp_cases_vs_B1": [
+        "train/a23fa00a3aae6b6f3da31c6157aeb670_4.png"
+      ],
+      "resolved_fp_cases_vs_B1": [],
+      "shared_fp_cases_with_B1": [
+        "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+        "train/4aba015fe18465451bd74c5a9b30a853_1.png",
+        "train/4fff394b855d2d3c86469e487132e55c_1.png",
+        "train/a936e3e598229d7d4931fd9f1dbafdf1_0.png"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "model": "B1",
+      "case": "V01",
+      "sample_id": "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+      "rgb_group": "52bc1014b0235dfa97f1c00b888465bc2eeec87a4f51350114b93e30a9f665cb",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 265,
+      "fp_fraction": 0.00528140943877551,
+      "components_8_connected": 1,
+      "largest_component_pixels": 265,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.11709958541331754,
+      "centroid_y_fraction": 0.23259158981301292,
+      "maximum_probability": 0.999996542930603
+    },
+    {
+      "model": "B1",
+      "case": "V02",
+      "sample_id": "train/4aba015fe18465451bd74c5a9b30a853_1.png",
+      "rgb_group": "442fc7842850c18f46d95f3ca7815fce29575371aac325bb16ffa19ed3b9d7c4",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 74,
+      "fp_fraction": 0.0014748086734693877,
+      "components_8_connected": 1,
+      "largest_component_pixels": 74,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.06623439583080838,
+      "centroid_y_fraction": 0.09453399587928736,
+      "maximum_probability": 0.9831872582435608
+    },
+    {
+      "model": "B1",
+      "case": "V03",
+      "sample_id": "train/4ac0262d24c7d2942622f93202b82008_1.png",
+      "rgb_group": "1140576b8a328fff01b39be3646875e510225f92c83500c8b98f5e321d41822f",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 0,
+      "fp_fraction": 0.0,
+      "components_8_connected": 0,
+      "largest_component_pixels": 0,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": null,
+      "centroid_y_fraction": null,
+      "maximum_probability": 0.14201287925243378
+    },
+    {
+      "model": "B1",
+      "case": "V04",
+      "sample_id": "train/4fff394b855d2d3c86469e487132e55c_1.png",
+      "rgb_group": "2e493f24f5e8af29a0e854a73935a27a6b469f75625ac5dd7282a06697d4910b",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 37,
+      "fp_fraction": 0.0007374043367346938,
+      "components_8_connected": 1,
+      "largest_component_pixels": 37,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.08495939886074416,
+      "centroid_y_fraction": 0.10338140831414373,
+      "maximum_probability": 0.9504775404930115
+    },
+    {
+      "model": "B1",
+      "case": "V05",
+      "sample_id": "train/6ae0729fa22bba50c7b8aff237cf502b_3.png",
+      "rgb_group": "c0755f3621740c9fec957758afc3f86b6df332ebf643d6a1720ec33f37f2f6e3",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 0,
+      "fp_fraction": 0.0,
+      "components_8_connected": 0,
+      "largest_component_pixels": 0,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": null,
+      "centroid_y_fraction": null,
+      "maximum_probability": 0.027072453871369362
+    },
+    {
+      "model": "B1",
+      "case": "V06",
+      "sample_id": "train/a23fa00a3aae6b6f3da31c6157aeb670_4.png",
+      "rgb_group": "d7305f24289adc8e2f90a5dd5060722509e901179047b2c1c4a22a64cb37adca",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 0,
+      "fp_fraction": 0.0,
+      "components_8_connected": 0,
+      "largest_component_pixels": 0,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": null,
+      "centroid_y_fraction": null,
+      "maximum_probability": 0.36935749650001526
+    },
+    {
+      "model": "B1",
+      "case": "V07",
+      "sample_id": "train/a936e3e598229d7d4931fd9f1dbafdf1_0.png",
+      "rgb_group": "fe7b1043ee460a588399caa2a2edf7cf848cfcd24605e5309e04865cc13fe8e2",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 150,
+      "fp_fraction": 0.0029894770408163264,
+      "components_8_connected": 1,
+      "largest_component_pixels": 150,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.10230194319880419,
+      "centroid_y_fraction": 0.27680119581464874,
+      "maximum_probability": 0.9961297512054443
+    },
+    {
+      "model": "H2",
+      "case": "V01",
+      "sample_id": "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+      "rgb_group": "52bc1014b0235dfa97f1c00b888465bc2eeec87a4f51350114b93e30a9f665cb",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 271,
+      "fp_fraction": 0.005400988520408163,
+      "components_8_connected": 1,
+      "largest_component_pixels": 271,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.11857759833203713,
+      "centroid_y_fraction": 0.23273708073403604,
+      "maximum_probability": 0.9999717473983765
+    },
+    {
+      "model": "H2",
+      "case": "V02",
+      "sample_id": "train/4aba015fe18465451bd74c5a9b30a853_1.png",
+      "rgb_group": "442fc7842850c18f46d95f3ca7815fce29575371aac325bb16ffa19ed3b9d7c4",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 136,
+      "fp_fraction": 0.0027104591836734694,
+      "components_8_connected": 1,
+      "largest_component_pixels": 136,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.06597863360590873,
+      "centroid_y_fraction": 0.09736876813505672,
+      "maximum_probability": 0.9988610744476318
+    },
+    {
+      "model": "H2",
+      "case": "V03",
+      "sample_id": "train/4ac0262d24c7d2942622f93202b82008_1.png",
+      "rgb_group": "1140576b8a328fff01b39be3646875e510225f92c83500c8b98f5e321d41822f",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 0,
+      "fp_fraction": 0.0,
+      "components_8_connected": 0,
+      "largest_component_pixels": 0,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": null,
+      "centroid_y_fraction": null,
+      "maximum_probability": 0.38411256670951843
+    },
+    {
+      "model": "H2",
+      "case": "V04",
+      "sample_id": "train/4fff394b855d2d3c86469e487132e55c_1.png",
+      "rgb_group": "2e493f24f5e8af29a0e854a73935a27a6b469f75625ac5dd7282a06697d4910b",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 101,
+      "fp_fraction": 0.0020129145408163264,
+      "components_8_connected": 1,
+      "largest_component_pixels": 101,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.08893131465612929,
+      "centroid_y_fraction": 0.10899968920658883,
+      "maximum_probability": 0.9989433884620667
+    },
+    {
+      "model": "H2",
+      "case": "V05",
+      "sample_id": "train/6ae0729fa22bba50c7b8aff237cf502b_3.png",
+      "rgb_group": "c0755f3621740c9fec957758afc3f86b6df332ebf643d6a1720ec33f37f2f6e3",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 0,
+      "fp_fraction": 0.0,
+      "components_8_connected": 0,
+      "largest_component_pixels": 0,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": null,
+      "centroid_y_fraction": null,
+      "maximum_probability": 0.015631282702088356
+    },
+    {
+      "model": "H2",
+      "case": "V06",
+      "sample_id": "train/a23fa00a3aae6b6f3da31c6157aeb670_4.png",
+      "rgb_group": "d7305f24289adc8e2f90a5dd5060722509e901179047b2c1c4a22a64cb37adca",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 44,
+      "fp_fraction": 0.0008769132653061224,
+      "components_8_connected": 1,
+      "largest_component_pixels": 44,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.05870362821035467,
+      "centroid_y_fraction": 0.0785772523440685,
+      "maximum_probability": 0.8507968187332153
+    },
+    {
+      "model": "H2",
+      "case": "V07",
+      "sample_id": "train/a936e3e598229d7d4931fd9f1dbafdf1_0.png",
+      "rgb_group": "fe7b1043ee460a588399caa2a2edf7cf848cfcd24605e5309e04865cc13fe8e2",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 169,
+      "fp_fraction": 0.0033681441326530613,
+      "components_8_connected": 1,
+      "largest_component_pixels": 169,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.10096319685833312,
+      "centroid_y_fraction": 0.28065380635232307,
+      "maximum_probability": 0.9953966736793518
+    },
+    {
+      "model": "A6",
+      "case": "V01",
+      "sample_id": "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+      "rgb_group": "52bc1014b0235dfa97f1c00b888465bc2eeec87a4f51350114b93e30a9f665cb",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 266,
+      "fp_fraction": 0.005301339285714286,
+      "components_8_connected": 1,
+      "largest_component_pixels": 266,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.11815974914865639,
+      "centroid_y_fraction": 0.23316699821302134,
+      "maximum_probability": 0.9998892545700073
+    },
+    {
+      "model": "A6",
+      "case": "V02",
+      "sample_id": "train/4aba015fe18465451bd74c5a9b30a853_1.png",
+      "rgb_group": "442fc7842850c18f46d95f3ca7815fce29575371aac325bb16ffa19ed3b9d7c4",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 138,
+      "fp_fraction": 0.0027503188775510204,
+      "components_8_connected": 1,
+      "largest_component_pixels": 138,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.06778449340352245,
+      "centroid_y_fraction": 0.09832975888737246,
+      "maximum_probability": 0.999927282333374
+    },
+    {
+      "model": "A6",
+      "case": "V03",
+      "sample_id": "train/4ac0262d24c7d2942622f93202b82008_1.png",
+      "rgb_group": "1140576b8a328fff01b39be3646875e510225f92c83500c8b98f5e321d41822f",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 0,
+      "fp_fraction": 0.0,
+      "components_8_connected": 0,
+      "largest_component_pixels": 0,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": null,
+      "centroid_y_fraction": null,
+      "maximum_probability": 0.06186126917600632
+    },
+    {
+      "model": "A6",
+      "case": "V04",
+      "sample_id": "train/4fff394b855d2d3c86469e487132e55c_1.png",
+      "rgb_group": "2e493f24f5e8af29a0e854a73935a27a6b469f75625ac5dd7282a06697d4910b",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 95,
+      "fp_fraction": 0.0018933354591836734,
+      "components_8_connected": 1,
+      "largest_component_pixels": 95,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.09129100778852962,
+      "centroid_y_fraction": 0.11154118480056645,
+      "maximum_probability": 0.9978233575820923
+    },
+    {
+      "model": "A6",
+      "case": "V05",
+      "sample_id": "train/6ae0729fa22bba50c7b8aff237cf502b_3.png",
+      "rgb_group": "c0755f3621740c9fec957758afc3f86b6df332ebf643d6a1720ec33f37f2f6e3",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 0,
+      "fp_fraction": 0.0,
+      "components_8_connected": 0,
+      "largest_component_pixels": 0,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": null,
+      "centroid_y_fraction": null,
+      "maximum_probability": 0.4035346508026123
+    },
+    {
+      "model": "A6",
+      "case": "V06",
+      "sample_id": "train/a23fa00a3aae6b6f3da31c6157aeb670_4.png",
+      "rgb_group": "d7305f24289adc8e2f90a5dd5060722509e901179047b2c1c4a22a64cb37adca",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 193,
+      "fp_fraction": 0.0038464604591836736,
+      "components_8_connected": 1,
+      "largest_component_pixels": 193,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.07409558772276306,
+      "centroid_y_fraction": 0.08831524896024535,
+      "maximum_probability": 0.9992758631706238
+    },
+    {
+      "model": "A6",
+      "case": "V07",
+      "sample_id": "train/a936e3e598229d7d4931fd9f1dbafdf1_0.png",
+      "rgb_group": "fe7b1043ee460a588399caa2a2edf7cf848cfcd24605e5309e04865cc13fe8e2",
+      "source": "CACHED REAL seed42 validation probability maps; freshly recomputed geometry",
+      "fp_pixels": 43,
+      "fp_fraction": 0.0008569834183673469,
+      "components_8_connected": 1,
+      "largest_component_pixels": 43,
+      "border_3px_fp_pixels": 0,
+      "centroid_x_fraction": 0.10877046615914068,
+      "centroid_y_fraction": 0.2756283241213891,
+      "maximum_probability": 0.9836906790733337
+    }
+  ],
+  "interpretation": "Same 0.5 threshold and empty rules; any FP gives empty-image Dice 0. Geometry does not establish cause or annotation correctness. No relabeling, component filtering or threshold tuning.",
+  "limitations": "Only seven empty validation examples, reused validation, no clinical adjudication or patient independence."
+}
