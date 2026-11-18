@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-18T09:14:06.817781+00:00",
+  "prediction_checks": [
+    {
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_metrics_CSV_presence": "passed"
+    },
+    {
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_metrics_CSV_presence": "passed"
+    }
+  ],
+  "predictions_verified": 379,
+  "preregistered_before_training": true,
+  "first_actual_step_verified": true,
+  "separate_smoke_training_runs": 0,
+  "training_runs": 1,
+  "all_original_initial_tensors_match_B1": true,
+  "paired_inputs": {
+    "status": "passed",
+    "common_epochs": 52,
+    "actual_order_and_augmented_bytes_equal": true
+  },
+  "earliest_best_validation_checkpoint_verified": true,
+  "selection_before_new_test": true,
+  "checkpoint_reload": "main and presence bit exact",
+  "historical_user_files": {
+    "files": 479,
+    "unchanged": true
+  },
+  "patient_independence_claimed": false,
+  "preflight": {
+    "status": "passed",
+    "created_utc": "2026-11-18T05:59:56.814376+00:00",
+    "tests": {
+      "tests": 188,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "preservation": {
+      "files": 479,
+      "unchanged": true
+    },
+    "dependency_checks": {
+      ".venv-training": "No broken requirements found.",
+      ".venv-xfuseg": "No broken requirements found."
+    },
+    "training_sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+      "src/foot_ulcer_segmentation/cp2_presence.py": "c0063ab831b2c635f7e38e7b57e512a1f07ecfdb854525eb12d29d1467f09fbd",
+      "src/foot_ulcer_segmentation/cp2_phase_n.py": "a42d035ec07c2d7799a74f3bd4d8317a239c5aedb2974ed034b6f8ce26a16674",
+      "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+      "scripts/run_cp2_phase_n.py": "cd3384f64d0092e47794da15136b8244227141c1919875daa451d6f9d52325de",
+      "scripts/report_cp2_phase_n.py": "561bd9cbe5f24f8e6356a1b7bbcd1dd4bd15631c9c3cbb725ed2e4199989c887",
+      "scripts/validate_cp2_phase_a.py": "8a3c2f0d3b0d354e2c60ed132580ad092192d1c9d35b1b41fb0ea8c54992a6ba",
+      "scripts/validate_cp2_phase_l.py": "65277cc641252ee9dafbc05a45fa4a6e90e4f1e31f54de31cb639d26c2646fee"
+    },
+    "protocol_fingerprint": "792aa2cf5f796106a82b04b8bea003a1fffdd023ac059c9e9861644c756ee721",
+    "standalone_smoke_training": false,
+    "user_instruction": "Full training one seed without a separate smoke training run",
+    "gpu_update_checks": "enforced on first actual full-training optimizer step",
+    "ruff": "NOT RUN \u2014 unavailable in existing environments"
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewed_utc": "2026-11-18T12:59:48.791858+00:00",
+    "method": "Direct visual inspection with view_image of both full-resolution generated figures",
+    "checks": [
+      "Readable titles, axes, units, legends and class/split labels",
+      "Training curves and comparison bars match actual B1/N1 outputs",
+      "Honest 0\u2013100 metric axes; no overlapping plot labels",
+      "Source validation/test roles and CACHED/FRESH provenance visible",
+      "No patient imagery or raw masks"
+    ],
+    "figure_sha256": {
+      "training.png": "66fa403df749b9683cb279d150a27df8128332c8d1c6debd81382448878b0fee",
+      "comparison.png": "2b6dc6df3c24b91fbf72e6241dacbbac5307899c7227217d18577b935e822806"
+    },
+    "scientific_result": "N1 not eligible; B1 retained; no combinations launched"
+  }
+}
