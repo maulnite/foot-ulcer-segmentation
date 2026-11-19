@@ -1,0 +1,996 @@
+{
+  "created_at_utc": "2026-10-26T08:15:00.609361+00:00",
+  "provenance": {
+    "repository": "https://github.com/uwm-bigdata/wound-segmentation",
+    "commit": "42a272dfe0679f20675e826385925cb7562934b6",
+    "archive": "data/downloads/wound-segmentation-42a272dfe0679f20675e826385925cb7562934b6.tar.gz",
+    "archive_sha256": "6a6977dce562430dff415cbe481fa30f71c7f49b45e018d87f9cb464795c0968",
+    "chronic_wound_zip_sha256": "e5199325b87c4af3df8f0c59d64847297fbce93906e0d7da955d451081ef8561",
+    "verified_git_blobs": 2224,
+    "license_status": "No standalone license file found at upstream repository root; redistribution terms need review."
+  },
+  "datasets": {
+    "chronic_wound": {
+      "splits": {
+        "train": {
+          "images": 831,
+          "masks": 831,
+          "size": [
+            224,
+            224
+          ],
+          "image_modes": {
+            "RGB": 831
+          },
+          "mask_modes": {
+            "RGB": 831
+          },
+          "mask_values": [
+            0,
+            255
+          ],
+          "empty_masks": 52
+        },
+        "test": {
+          "images": 278,
+          "masks": 278,
+          "size": [
+            224,
+            224
+          ],
+          "image_modes": {
+            "RGB": 278
+          },
+          "mask_modes": {
+            "RGB": 278
+          },
+          "mask_values": [
+            0,
+            255
+          ],
+          "empty_masks": 17
+        }
+      },
+      "manifest": "data/manifests/chronic_wound.csv",
+      "manifest_sha256": "d7db3278ed720db3101ddbf6604e58f83e3efa9c7b70ea0f14c1f89e98cbd330",
+      "identical_rgb_pixel_groups": [
+        [
+          {
+            "split": "train",
+            "id": "1576e366442683aac204404e081eb938_1"
+          },
+          {
+            "split": "train",
+            "id": "22476241644edd0ccb41dc9d27c26d3b_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1576e366442683aac204404e081eb938_2"
+          },
+          {
+            "split": "train",
+            "id": "22476241644edd0ccb41dc9d27c26d3b_2"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1576e366442683aac204404e081eb938_3"
+          },
+          {
+            "split": "train",
+            "id": "22476241644edd0ccb41dc9d27c26d3b_3"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1636f83a5221bc82ca5083fbe9dcaee5_0"
+          },
+          {
+            "split": "train",
+            "id": "4c04a102ed471b05e3d0be9ae55db91a_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "17ac7a71251dd0572d75d074db6e1964_0"
+          },
+          {
+            "split": "test",
+            "id": "f866514f4d9da8c409ec5a5b7c60b912_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1ad70e82589acbd9638b6e465366a7fe_0"
+          },
+          {
+            "split": "train",
+            "id": "58b1025b124be051254cf0071fae910f_0"
+          },
+          {
+            "split": "test",
+            "id": "d89317533d1ca29abe05734f949b0934_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1c27d8289cbfa6a1a0da01d7ec757a46_0"
+          },
+          {
+            "split": "train",
+            "id": "3ed2bf6e2ef1d94d42c949a841a561d3_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1d557cd47276255d999c71bc49ccf493_0"
+          },
+          {
+            "split": "test",
+            "id": "c8cf2da63be1a27497baa852387fe31f_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1d557cd47276255d999c71bc49ccf493_1"
+          },
+          {
+            "split": "test",
+            "id": "c8cf2da63be1a27497baa852387fe31f_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1d557cd47276255d999c71bc49ccf493_2"
+          },
+          {
+            "split": "test",
+            "id": "c8cf2da63be1a27497baa852387fe31f_2"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "2c13c4147e8715cf645381ed4e06e55e_0"
+          },
+          {
+            "split": "test",
+            "id": "c265c21a78fbc8365180265e1332d004_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "2ddef25c454171474b25f986aec589be_0"
+          },
+          {
+            "split": "train",
+            "id": "92451abdfb6109ed435b9431d025d4e3_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "302d6a35b8498b1e57120c3dc277b097_0"
+          },
+          {
+            "split": "train",
+            "id": "9eb946a13df2fec02decd7a9a8c24664_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "393ca23ea4bd9b810100a85518c720c9_0"
+          },
+          {
+            "split": "test",
+            "id": "fb9adc0e6d8c4fdebd66255342088626_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "440078c6936219a7a496ebc67228d5d5_0"
+          },
+          {
+            "split": "train",
+            "id": "4cb7afba9a7708f2dd1fe874de7cc56d_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "440078c6936219a7a496ebc67228d5d5_1"
+          },
+          {
+            "split": "train",
+            "id": "4cb7afba9a7708f2dd1fe874de7cc56d_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "484aa6be0ea024aadc8f154b7c637a6f_0"
+          },
+          {
+            "split": "train",
+            "id": "5f1aa951a7c2daf54acd85dcd6fe5c06_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "52ef1e670e4b103c7fd06e24ba0a07ec_0"
+          },
+          {
+            "split": "train",
+            "id": "97afdc101911ffc33d0fc166cacbaf1b_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "53b50f36a529702794331e1014345ae1_0"
+          },
+          {
+            "split": "test",
+            "id": "b99276bf857375e23da3a9f5388cd6ce_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "5c73b842f2fe0c289cb2a6d4326ba406_0"
+          },
+          {
+            "split": "test",
+            "id": "d950fc3ee06a1970c0361244bc6d039a_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "5c73b842f2fe0c289cb2a6d4326ba406_1"
+          },
+          {
+            "split": "test",
+            "id": "d950fc3ee06a1970c0361244bc6d039a_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_0"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_1"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_2"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_2"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_3"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_3"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "6fed027b91cec55f75de19f29b9a972f_0"
+          },
+          {
+            "split": "train",
+            "id": "b9fff21bebb15ba7d8c3f54063e37799_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "71111745329c7b6029c48edf964dbed5_0"
+          },
+          {
+            "split": "test",
+            "id": "f5c1ec5e8557e6e79bcdec53ea11567b_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "816b2c8cbdaa48026c25f79587082816_0"
+          },
+          {
+            "split": "train",
+            "id": "870640cd12cfdfe8366e97db14227891_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "ab023a8ca6aa2bee24280d3ac25c0082_0"
+          },
+          {
+            "split": "test",
+            "id": "fe5ddb7a17c9668b1ff27b281efe6c29_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "b72c7981ed24cbb21bf1d6044d3ae39c_0"
+          },
+          {
+            "split": "test",
+            "id": "d76818df608939dece3a817709df7f83_0"
+          }
+        ]
+      ],
+      "cross_split_identical_rgb_pixel_groups": [
+        [
+          {
+            "split": "train",
+            "id": "17ac7a71251dd0572d75d074db6e1964_0"
+          },
+          {
+            "split": "test",
+            "id": "f866514f4d9da8c409ec5a5b7c60b912_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1ad70e82589acbd9638b6e465366a7fe_0"
+          },
+          {
+            "split": "train",
+            "id": "58b1025b124be051254cf0071fae910f_0"
+          },
+          {
+            "split": "test",
+            "id": "d89317533d1ca29abe05734f949b0934_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1d557cd47276255d999c71bc49ccf493_0"
+          },
+          {
+            "split": "test",
+            "id": "c8cf2da63be1a27497baa852387fe31f_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1d557cd47276255d999c71bc49ccf493_1"
+          },
+          {
+            "split": "test",
+            "id": "c8cf2da63be1a27497baa852387fe31f_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "1d557cd47276255d999c71bc49ccf493_2"
+          },
+          {
+            "split": "test",
+            "id": "c8cf2da63be1a27497baa852387fe31f_2"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "2c13c4147e8715cf645381ed4e06e55e_0"
+          },
+          {
+            "split": "test",
+            "id": "c265c21a78fbc8365180265e1332d004_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "393ca23ea4bd9b810100a85518c720c9_0"
+          },
+          {
+            "split": "test",
+            "id": "fb9adc0e6d8c4fdebd66255342088626_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "53b50f36a529702794331e1014345ae1_0"
+          },
+          {
+            "split": "test",
+            "id": "b99276bf857375e23da3a9f5388cd6ce_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "5c73b842f2fe0c289cb2a6d4326ba406_0"
+          },
+          {
+            "split": "test",
+            "id": "d950fc3ee06a1970c0361244bc6d039a_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "5c73b842f2fe0c289cb2a6d4326ba406_1"
+          },
+          {
+            "split": "test",
+            "id": "d950fc3ee06a1970c0361244bc6d039a_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_0"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_1"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_1"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_2"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_2"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "61dfd31019c941d34b7661056af0a125_3"
+          },
+          {
+            "split": "test",
+            "id": "c95105b1727344ae36f8dca2a1ba4543_3"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "71111745329c7b6029c48edf964dbed5_0"
+          },
+          {
+            "split": "test",
+            "id": "f5c1ec5e8557e6e79bcdec53ea11567b_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "ab023a8ca6aa2bee24280d3ac25c0082_0"
+          },
+          {
+            "split": "test",
+            "id": "fe5ddb7a17c9668b1ff27b281efe6c29_0"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "b72c7981ed24cbb21bf1d6044d3ae39c_0"
+          },
+          {
+            "split": "test",
+            "id": "d76818df608939dece3a817709df7f83_0"
+          }
+        ]
+      ],
+      "cross_split_filename_source_groups": [],
+      "nonbinary_mask_samples": [],
+      "patient_independence": "Not established; filenames are not verified patient identifiers."
+    },
+    "fuseg_2021": {
+      "splits": {
+        "train": {
+          "images": 810,
+          "masks": 810,
+          "size": [
+            512,
+            512
+          ],
+          "image_modes": {
+            "RGB": 810
+          },
+          "mask_modes": {
+            "RGB": 810
+          },
+          "mask_values": [
+            0,
+            255
+          ],
+          "empty_masks": 19
+        },
+        "validation": {
+          "images": 200,
+          "masks": 200,
+          "size": [
+            512,
+            512
+          ],
+          "image_modes": {
+            "RGB": 200
+          },
+          "mask_modes": {
+            "RGB": 200
+          },
+          "mask_values": [
+            0,
+            32,
+            255
+          ],
+          "empty_masks": 5
+        },
+        "test": {
+          "images": 200,
+          "masks": 0,
+          "size": [
+            512,
+            512
+          ],
+          "image_modes": {
+            "RGB": 200
+          },
+          "mask_modes": {},
+          "mask_values": [],
+          "empty_masks": null
+        }
+      },
+      "manifest": "data/manifests/fuseg_2021.csv",
+      "manifest_sha256": "77b7adeab45f3ebbd6e96e793ace4f8115795f06066156f1c3aa32b6da3ff716",
+      "identical_rgb_pixel_groups": [
+        [
+          {
+            "split": "train",
+            "id": "0087"
+          },
+          {
+            "split": "train",
+            "id": "0635"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0088"
+          },
+          {
+            "split": "train",
+            "id": "0151"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0092"
+          },
+          {
+            "split": "train",
+            "id": "0335"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0111"
+          },
+          {
+            "split": "train",
+            "id": "0386"
+          },
+          {
+            "split": "train",
+            "id": "0889"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0121"
+          },
+          {
+            "split": "validation",
+            "id": "0284"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0123"
+          },
+          {
+            "split": "train",
+            "id": "0894"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0132"
+          },
+          {
+            "split": "train",
+            "id": "0825"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0209"
+          },
+          {
+            "split": "train",
+            "id": "0617"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0220"
+          },
+          {
+            "split": "train",
+            "id": "0664"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0318"
+          },
+          {
+            "split": "train",
+            "id": "0415"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0359"
+          },
+          {
+            "split": "train",
+            "id": "0934"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0360"
+          },
+          {
+            "split": "train",
+            "id": "0766"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0399"
+          },
+          {
+            "split": "train",
+            "id": "0892"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0426"
+          },
+          {
+            "split": "train",
+            "id": "0826"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0481"
+          },
+          {
+            "split": "train",
+            "id": "0769"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0569"
+          },
+          {
+            "split": "validation",
+            "id": "0545"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0636"
+          },
+          {
+            "split": "validation",
+            "id": "0356"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0720"
+          },
+          {
+            "split": "train",
+            "id": "1008"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0762"
+          },
+          {
+            "split": "train",
+            "id": "0885"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0803"
+          },
+          {
+            "split": "validation",
+            "id": "0201"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0980"
+          },
+          {
+            "split": "validation",
+            "id": "0485"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0983"
+          },
+          {
+            "split": "validation",
+            "id": "0096"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0997"
+          },
+          {
+            "split": "validation",
+            "id": "0256"
+          }
+        ],
+        [
+          {
+            "split": "validation",
+            "id": "0303"
+          },
+          {
+            "split": "validation",
+            "id": "0339"
+          }
+        ],
+        [
+          {
+            "split": "test",
+            "id": "1028"
+          },
+          {
+            "split": "test",
+            "id": "1105"
+          }
+        ],
+        [
+          {
+            "split": "test",
+            "id": "1055"
+          },
+          {
+            "split": "test",
+            "id": "1464"
+          },
+          {
+            "split": "test",
+            "id": "1467"
+          }
+        ],
+        [
+          {
+            "split": "test",
+            "id": "1060"
+          },
+          {
+            "split": "test",
+            "id": "1222"
+          }
+        ],
+        [
+          {
+            "split": "test",
+            "id": "1163"
+          },
+          {
+            "split": "test",
+            "id": "1217"
+          }
+        ],
+        [
+          {
+            "split": "test",
+            "id": "1363"
+          },
+          {
+            "split": "test",
+            "id": "1399"
+          },
+          {
+            "split": "test",
+            "id": "1450"
+          }
+        ]
+      ],
+      "cross_split_identical_rgb_pixel_groups": [
+        [
+          {
+            "split": "train",
+            "id": "0121"
+          },
+          {
+            "split": "validation",
+            "id": "0284"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0569"
+          },
+          {
+            "split": "validation",
+            "id": "0545"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0636"
+          },
+          {
+            "split": "validation",
+            "id": "0356"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0803"
+          },
+          {
+            "split": "validation",
+            "id": "0201"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0980"
+          },
+          {
+            "split": "validation",
+            "id": "0485"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0983"
+          },
+          {
+            "split": "validation",
+            "id": "0096"
+          }
+        ],
+        [
+          {
+            "split": "train",
+            "id": "0997"
+          },
+          {
+            "split": "validation",
+            "id": "0256"
+          }
+        ]
+      ],
+      "cross_split_filename_source_groups": [],
+      "nonbinary_mask_samples": [
+        {
+          "split": "validation",
+          "sample_id": "0233",
+          "values": [
+            0,
+            32,
+            255
+          ],
+          "nonbinary_pixels": 84
+        }
+      ],
+      "patient_independence": "Not established; filenames are not verified patient identifiers."
+    }
+  },
+  "chronic_wound_matches_paper_counts": false,
+  "cross_dataset_overlap": "Paper reports overlap; crop-to-full-image correspondence has not been resolved. Do not combine datasets as independent samples.",
+  "transformations": "None. Original bytes and provided splits preserved; no new validation splits created.",
+  "files_audited": 2319
+}

@@ -1,0 +1,6 @@
+fold_idx(0-based),min_val_loss,best_epoch(0-based),checkpoint
+0,0.26972795,111,best_model_1.pth
+1,0.27448413,120,best_model_2.pth
+2,0.26318264,132,best_model_3.pth
+3,0.26238188,162,best_model_4.pth
+4,0.27135298,65,best_model_5.pth

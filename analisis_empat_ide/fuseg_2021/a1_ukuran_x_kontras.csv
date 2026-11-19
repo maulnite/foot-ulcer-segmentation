@@ -1,0 +1,5 @@
+ukuran,kontras,n,dice_mean,miss_total
+besar,rendah,29,0.9036641937677256,0.0
+besar,tinggi,43,0.9492429726437186,0.0
+kecil(<1%),rendah,68,0.7813014162215914,0.029411764705882353
+kecil(<1%),tinggi,55,0.88734425728494,0.0

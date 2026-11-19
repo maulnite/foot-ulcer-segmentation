@@ -1,0 +1,46 @@
+nohup: ignoring input
+torch 2.7.1+cu118 | cuda: True
+EXP=lg_cl_bw | LG=True CL=True BW=True RDS=False FREQ=False UP=nearest SA=False | device=cuda
+Run: lg_cl_bw_efficientnet-b7_2026-11-15_13-12-21
+No. of training images  : 689
+No. of validation images: 121
+No. of test images      : 200 (folder validation)
+Contoh gambar   : 0923.png | shape (512, 512, 3)
+Nilai unik mask : [  0 255] | shape (512, 512)
+Loaded pretrained weights for efficientnet-b7
+Encoder channels : [3, 64, 48, 80, 224, 640]
+UP_MODE          : nearest
+Parameter total  : 65.84 M  (encoder 62.14 M | decoder+head 3.70 M)
+Referensi paper  : FUSegNet 64.90 M (baseline, efficientnet-b7)
+train 0:   0%|          | 0/345 [00:00<?, ?it/s]                                                Traceback (most recent call last):
+  File "/home/nafisnaufal1426/fuseg/ganta/notebook/08_combined_lg_cl_bw_fuseg_2021.py", line 823, in <module>
+    tr = run_epoch(model, train_loader, optimizer, desc=f'train {epoch}')
+  File "/home/nafisnaufal1426/fuseg/ganta/notebook/08_combined_lg_cl_bw_fuseg_2021.py", line 754, in run_epoch
+    logits = model(x)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nafisnaufal1426/fuseg/ganta/notebook/08_combined_lg_cl_bw_fuseg_2021.py", line 665, in forward
+    return self.head(self.decoder(self.encoder(x), extra_by_block or None))
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nafisnaufal1426/fuseg/ganta/notebook/08_combined_lg_cl_bw_fuseg_2021.py", line 384, in forward
+    x = blk(x, dc)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/efficientnet_pytorch/model.py", line 106, in forward
+    x = self._bn0(x)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 193, in forward
+    return F.batch_norm(
+  File "/home/nafisnaufal1426/venvs/ganta/lib/python3.10/site-packages/torch/nn/functional.py", line 2822, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 79.25 GiB of which 14.75 MiB is free. Process 11061 has 20.15 GiB memory in use. Process 17157 has 416.00 MiB memory in use. Process 39799 has 10.87 GiB memory in use. Process 41651 has 4.31 GiB memory in use. Process 44660 has 7.12 GiB memory in use. Process 44657 has 7.14 GiB memory in use. Process 44663 has 7.14 GiB memory in use. Process 77682 has 8.16 GiB memory in use. Process 77683 has 8.16 GiB memory in use. Including non-PyTorch memory, this process has 5.71 GiB memory in use. Of the allocated memory 5.10 GiB is allocated by PyTorch, and 125.16 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
