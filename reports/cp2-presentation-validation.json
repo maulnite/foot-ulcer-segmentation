@@ -1,0 +1,512 @@
+{
+  "status": "PASSED \u2014 AVAILABLE P0 ASSETS; FINAL COMBINATIONS/CASCADE DEFERRED",
+  "created_utc": "2026-11-19T16:15:58.857108+00:00",
+  "base_commit": "e5b44695ff28a957ba41311188b7a269b037f231",
+  "production_run": "outputs/presentation/cp2_p0/20261119T155448Z/20261119T161333Z",
+  "training_performed": false,
+  "compute": {
+    "device": "CPU only",
+    "torch_threads": 4,
+    "opencv_threads": 1,
+    "gpu_jobs_modified": false,
+    "production_wall_seconds_including_hash_validation": 114.24656871706247,
+    "original_cascade_trace_wall_seconds": [
+      0.7577638458460569,
+      0.5390408923849463
+    ],
+    "replay_timing_is_not_deployment_latency_benchmark": true
+  },
+  "unit_integration_tests": {
+    "passed": 233,
+    "warnings": 29,
+    "wall_seconds": 6.38,
+    "new_tests": 9,
+    "command": "CUDA_VISIBLE_DEVICES='' .venv-xfuseg/bin/python -m pytest -ra",
+    "log_sha256": "e19c1d9a4c4a88c58d261e94be2f24acd9e962e92e469268e54345e6abdbb922"
+  },
+  "dependencies": "pip check: No broken requirements found; no installs or upgrades",
+  "code_checks": {
+    "compileall": "passed",
+    "ruff": "NOT RUN \u2014 not installed; environment unchanged",
+    "git_diff_cached_check": "passed"
+  },
+  "metric_verification": {
+    "cp2_completed_models": 15,
+    "cp2_validation_images_per_model": 118,
+    "cp2_source_test_images_per_model": 261,
+    "cp2_checked_predictions": 5685,
+    "cp1_checked_test_predictions": 278,
+    "fresh_original_cascade_cases": 2,
+    "probability_threshold": ">=0.5",
+    "raw_GT_and_prediction_checksums": "passed",
+    "printed_counts_and_dice": "passed",
+    "original_cascade_capture_matches_actual_model_input_and_exact_stitch": "passed",
+    "checkpoint_and_original_model_selection_changed": false,
+    "metric_units": "fractions in JSON; percent or pp explicitly indicated on figures"
+  },
+  "preservation": {
+    "checked": 612,
+    "all_unchanged": true
+  },
+  "active_and_unfinished_workflows": {
+    "cp2_cascade": "untouched; no interim checkpoint consumed for these figures",
+    "latest_combinations": "untouched; no repair/resume or final metric publication"
+  },
+  "asset_counts": {
+    "png": 26,
+    "svg": 2
+  },
+  "png_dimensions": [
+    2400,
+    1350
+  ],
+  "visual_review": {
+    "method": "Assistant opened every PNG and both SVG rasterizations using view_image; unchanged rerenders matched by SHA256",
+    "svg_renderer": "Inkscape 0.92.5, headless, dedicated local profile",
+    "svg_renderer_note": "Initial newer CLI syntax rejected; rerun with supported --export-png; headless DBus warnings, exit 0 and readable renders",
+    "assets": [
+      {
+        "file": "06_phase_p_case_gallery.png",
+        "sha256": "46c329eee24bfb25aaf9091feefae56a98b22a66730f63ce30c1cd38c5c5bb29",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "06_phase_p_case_gallery_zoom.png",
+        "sha256": "10ebd772f2e976d2f08f94c58a66862142570ce941d640771e682bee0a018f5a",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "06_phase_p_case_gallery_masks.png",
+        "sha256": "7ab2fca2c41a74415db4b070006bd52ca9c12cd6c2a0b469248c5802dc2e2e9d",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "07_phase_l_case_gallery.png",
+        "sha256": "bb36af44141c1245a2ad53d13ad65e53ba937816059edf766fb8e72db2aef4d2",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "07_phase_l_case_gallery_zoom.png",
+        "sha256": "cdc79d7b6b4673506b95c18db4cd197924a9f2e2c100f6aa4fe2b583e34e9264",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "07_phase_l_case_gallery_masks.png",
+        "sha256": "b038e77e6ec9eaf8158d53ab9c89a6defab7ea34099db84e70816149a26518c7",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "08_phase_a_case_gallery.png",
+        "sha256": "1bdddc3823d583491ac51c1e122a8f84198519caf3243e0eda89b38d0af63b25",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "08_phase_a_case_gallery_zoom.png",
+        "sha256": "2f53b5d0278ed52ca6188a5f729d12efda7ead0c76c6421ba51088c43eb4e6db",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "08_phase_a_case_gallery_masks.png",
+        "sha256": "ba6794619919ce86f60cd103c21fdcb7cd1bb72d95f588a5289b9ae31ff579d6",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "09_phase_h_case_gallery.png",
+        "sha256": "253d2d3821c3b5f5e9cafa759e3be724c02ce7b098b5105aa43076683d696859",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "09_phase_h_case_gallery_zoom.png",
+        "sha256": "8afc2ff095cdb07230bc45271c3332fc827b5e83bf1859b21308b100d5730b17",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "09_phase_h_case_gallery_masks.png",
+        "sha256": "92ff4706a4aac7ab3d3f90608a5f06c5b1266a9bfdc0a510e14ac310d12b6957",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "10_phase_n_case_gallery.png",
+        "sha256": "2eea4ffde10ec4ceb88f104a9bc769ad2193d5f1ddb2570380e3ac1f445b46a9",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "10_phase_n_case_gallery_zoom.png",
+        "sha256": "491bce4895f376f907699ac29d9c6f6dbfbc29f1063682da2c1cc4d161976c9b",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "10_phase_n_case_gallery_masks.png",
+        "sha256": "767721da2e9568ed5ab7da352ac75d9c1840d86b6e90fe76dab5e06aa204670d",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "15_cross_model_real_cases.png",
+        "sha256": "39130d0f71006fd4253f9f2823d0f74b9e7c7249efb60eea38643f0905d67e7b",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "15_cross_model_real_cases_zoom.png",
+        "sha256": "076dd00346f1463b1e7077e47994549fe2d5a05c307701e71ba2add42bd8c970",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "15_cross_model_real_cases_masks.png",
+        "sha256": "96f07e822f5632793a7c5171e428da166f3abbe1b3cc9bf96a419024267fb7c3",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "03_cp1_failure_gallery.png",
+        "sha256": "094c1577f716274c91a39eb7c721c4d7765ac19ddc7a3f0052908f3149990d9d",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "03_cp1_failure_gallery_zoom.png",
+        "sha256": "6fffc0bb0e8ef416e12696dbb54f7947d7e607f9b649350d9ae123037dcd9d67",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "03_cp1_failure_gallery_masks.png",
+        "sha256": "c9b37a1789ab166bccaf92c2fabfd11f3b82b172cafeb9be2cf723c459169def",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "14_cp2_same_cohort_scoreboard.png",
+        "sha256": "68e3882e4b4f687d7145f6bbe6186dea9c3487eede9287a9c320ab3aa6f70517",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "14_cp2_same_cohort_scoreboard.svg",
+        "sha256": "8ce0bac02b8cb46f2d461187274a9c13e5730cb36f432c5927dae3a3f6050fdb",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": false,
+        "rendered_png_sha256": "acae9d7b06e87377f495d99c96dfe01e5cd5d8ad87c5d0fef0b2cf610a0fbde3",
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ],
+        "publication_transform": {
+          "operation": "strip trailing whitespace in publication SVG only",
+          "renderer_output_sha256": "83c054fd68022646e80e5b006288bf2528f5fd54720b835b3caf11c0342133bd",
+          "pixel_identity_verified_by_Inkscape_render": true
+        },
+        "reviewed_render_pixels_identical_to_published": true
+      },
+      {
+        "file": "14_cp2_guard_tradeoffs.png",
+        "sha256": "8967f156e82752b7018540b2277add23cab58b3e1ecc8a38f7c8ea08e631b7bc",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "14_cp2_guard_tradeoffs.svg",
+        "sha256": "9eb000ab5689fa3d2c4cbb700ef530ddecff88ee6cc73c3558c5fbc9e2d9dcf2",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": false,
+        "rendered_png_sha256": "55f4f68fc32ecd6d1201e250bea1bc9f26844050ce3e81a04f80bac399bab851",
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ],
+        "publication_transform": {
+          "operation": "strip trailing whitespace in publication SVG only",
+          "renderer_output_sha256": "81c33dcd69f0a7238aa0aba7f6d7f677df11f244a49ff948de0e4c1b80a7f6c0",
+          "pixel_identity_verified_by_Inkscape_render": true
+        },
+        "reviewed_render_pixels_identical_to_published": true
+      },
+      {
+        "file": "11_combinations_completed_context.png",
+        "sha256": "3ca21a6f0caa446e315ec172abe0710f0b02e19a7fbd72ab8fe3b0f74086fdc8",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "12_cascade_original_walkthrough.png",
+        "sha256": "b76e5f47809a9f2ecf760f4dcb1d86af7ccf5e91a4bcbfd708fc3d33d2e3eba2",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      },
+      {
+        "file": "12_cascade_original_walkthrough_zoom.png",
+        "sha256": "88464e3347b98e6ab9353eacbe44b4919f5cc12be37f51dacb5a382d641255bb",
+        "pixel_review": "passed",
+        "reviewed_bytes_identical_to_published": true,
+        "rendered_png_sha256": null,
+        "checks": [
+          "readable fonts and legends",
+          "no clipped labels or material overlap",
+          "paired photo/GT/model alignment",
+          "full field retained",
+          "consistent TP/FP/FN colors",
+          "explicit evidence and cohort labels"
+        ]
+      }
+    ]
+  },
+  "publication": {
+    "selected_clinical_analysis_panels_authorized_by_user": true,
+    "full_dataset_or_checkpoints_published": false,
+    "original_dataset_licensing_audit_changed": false
+  },
+  "deferred": {
+    "11_combinations_final_comparison.png": "Latest combination workflow has no passed final report; do not resume or repair it for visual production",
+    "13_cascade_cp2_final_walkthrough.png": "CP2 cascade training is active; do not load its interim checkpoint or label interim outputs final",
+    "external_co2_case_gallery.png": "Optional clinical gallery deferred: CC BY versus CC BY-NC-ND ambiguity; aggregate external plots already exist"
+  }
+}

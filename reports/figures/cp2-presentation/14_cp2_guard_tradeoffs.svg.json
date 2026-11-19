@@ -1,0 +1,525 @@
+{
+  "file": "14_cp2_guard_tradeoffs.svg",
+  "sha256": "9eb000ab5689fa3d2c4cbb700ef530ddecff88ee6cc73c3558c5fbc9e2d9dcf2",
+  "selection": "Validation deltas vs B1 with each phase's original guard; no model reselection",
+  "evidence": {
+    "models": {
+      "B0": {
+        "epoch": 17,
+        "checkpoint_sha256": "0390dab68e58a93d7255cdbdfac750f0ab52c0dde868c274c87b0601b7d518df",
+        "family": "P",
+        "seed": 42
+      },
+      "B1": {
+        "epoch": 25,
+        "checkpoint_sha256": "e5f147018231b0e13926daa5d0158957e42831404ab05bd3151c1115592aeeeb",
+        "family": "P",
+        "seed": 42
+      },
+      "L1": {
+        "epoch": 37,
+        "checkpoint_sha256": "ea4375be108ee14b76655810906c0421c580507b7d07d558c11a6b033e1a926d",
+        "family": "L",
+        "seed": 42
+      },
+      "L2": {
+        "epoch": 33,
+        "checkpoint_sha256": "e3b5ca18a8de32b438b2d4c77fb6538caf175f0b40a154f685852354c0c4f613",
+        "family": "L",
+        "seed": 42
+      },
+      "L3": {
+        "epoch": 41,
+        "checkpoint_sha256": "b888db077600fbef4a08c397210f6782941408023852a3c065963b98a8aa2c84",
+        "family": "L",
+        "seed": 42
+      },
+      "L4": {
+        "epoch": 39,
+        "checkpoint_sha256": "dc65a372ac54700df19aa93a915e74fd5f64e5cb990d0f31ec0a401a72bb2a2c",
+        "family": "L",
+        "seed": 42
+      },
+      "A1": {
+        "epoch": 39,
+        "checkpoint_sha256": "81d85e8ff5fa1dbb8305384003dabbe5f7ea8a75e40775e67896cded319f7aee",
+        "family": "A",
+        "seed": 42
+      },
+      "A2": {
+        "epoch": 36,
+        "checkpoint_sha256": "af53295fa5e4360edadbf675fb6ff82645e747d4896a969151056a048ed3f156",
+        "family": "A",
+        "seed": 42
+      },
+      "A3": {
+        "epoch": 27,
+        "checkpoint_sha256": "b9dfdf1ac5094462aef9ff15ced00e0d5b68a36c7e4b40bc719f82ef91b790b0",
+        "family": "A",
+        "seed": 42
+      },
+      "A5": {
+        "epoch": 21,
+        "checkpoint_sha256": "30b17b93f7f6bc596abbd48b64b0db92de9af1ee9c5a1def039bb57a88894613",
+        "family": "A",
+        "seed": 42
+      },
+      "A6": {
+        "epoch": 110,
+        "checkpoint_sha256": "a242f2d52d9560337c997ecdb36fe27c200f2bce61d3222aa09bc69c2c709204",
+        "family": "A",
+        "seed": 42
+      },
+      "H1": {
+        "epoch": 25,
+        "checkpoint_sha256": "63362d5accfa4e40dc3119b65e99937968118239143eadcf2dcd1f67b7b3dc31",
+        "family": "H",
+        "seed": 42
+      },
+      "H2": {
+        "epoch": 50,
+        "checkpoint_sha256": "a02071ca3e7013bc013e71be8c0243faa40abfeff36f34ad191126d84f1f4dbc",
+        "family": "H",
+        "seed": 42
+      },
+      "N1": {
+        "epoch": 22,
+        "checkpoint_sha256": "470429e368388811fd84d09289eed4d13ddbe00f4eabe9a88d88dcc6ea8b88ef",
+        "family": "N",
+        "seed": 42
+      },
+      "A1H2": {
+        "epoch": 34,
+        "checkpoint_sha256": "65fa2d8ac4d0726312a3bf30ab8979259e857a20e3ce2ff731af7f10bef871e1",
+        "family": "C",
+        "seed": 42
+      }
+    },
+    "metrics_recomputed": {
+      "B0": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8360661952945463,
+          "small_dice": 0.7713927643268261,
+          "boundary_iou": 0.5223892745261653,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 4
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8372604410899176,
+          "small_dice": 0.7882224227168049,
+          "boundary_iou": 0.530292508882083,
+          "misses": 1,
+          "empty_images": 16,
+          "empty_fp_images": 10
+        }
+      },
+      "B1": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8427647785636088,
+          "small_dice": 0.7728488003256934,
+          "boundary_iou": 0.539268718526894,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 4
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8328934505171869,
+          "small_dice": 0.7622103001630682,
+          "boundary_iou": 0.5353400157759324,
+          "misses": 4,
+          "empty_images": 16,
+          "empty_fp_images": 9
+        }
+      },
+      "L1": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8331118056662151,
+          "small_dice": 0.7933335948423837,
+          "boundary_iou": 0.509131648089048,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8295886498998861,
+          "small_dice": 0.7786276425306379,
+          "boundary_iou": 0.5193546300222268,
+          "misses": 3,
+          "empty_images": 16,
+          "empty_fp_images": 9
+        }
+      },
+      "L2": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8394484190301802,
+          "small_dice": 0.7852104398286373,
+          "boundary_iou": 0.5203335448132478,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8478245021648398,
+          "small_dice": 0.7935493332165996,
+          "boundary_iou": 0.5420032159134491,
+          "misses": 2,
+          "empty_images": 16,
+          "empty_fp_images": 9
+        }
+      },
+      "L3": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8360236649425733,
+          "small_dice": 0.8039664769971374,
+          "boundary_iou": 0.5425261779499659,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8396858638212734,
+          "small_dice": 0.8135963015510618,
+          "boundary_iou": 0.5562996248999272,
+          "misses": 4,
+          "empty_images": 16,
+          "empty_fp_images": 9
+        }
+      },
+      "L4": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8279534675153563,
+          "small_dice": 0.7752224947084351,
+          "boundary_iou": 0.5131356508042582,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 6
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.832399928156479,
+          "small_dice": 0.8056912507422851,
+          "boundary_iou": 0.5329122847369347,
+          "misses": 3,
+          "empty_images": 16,
+          "empty_fp_images": 13
+        }
+      },
+      "A1": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8463065223168107,
+          "small_dice": 0.8010661137968607,
+          "boundary_iou": 0.5430938553775435,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8250223675970912,
+          "small_dice": 0.7802296054646534,
+          "boundary_iou": 0.5393120831024628,
+          "misses": 4,
+          "empty_images": 16,
+          "empty_fp_images": 11
+        }
+      },
+      "A2": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8450056233970857,
+          "small_dice": 0.7992232287333785,
+          "boundary_iou": 0.5460958017572927,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8454939765055058,
+          "small_dice": 0.7890776950349575,
+          "boundary_iou": 0.5563537178776874,
+          "misses": 4,
+          "empty_images": 16,
+          "empty_fp_images": 10
+        }
+      },
+      "A3": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8420633217586844,
+          "small_dice": 0.7724005577499321,
+          "boundary_iou": 0.5380026706674267,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 4
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8300544505597937,
+          "small_dice": 0.7602391645755798,
+          "boundary_iou": 0.5381281902107897,
+          "misses": 4,
+          "empty_images": 16,
+          "empty_fp_images": 10
+        }
+      },
+      "A5": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8389642748485793,
+          "small_dice": 0.7803676651768268,
+          "boundary_iou": 0.5254518688244406,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8257830361982005,
+          "small_dice": 0.7689532190105898,
+          "boundary_iou": 0.5167252855202121,
+          "misses": 7,
+          "empty_images": 16,
+          "empty_fp_images": 9
+        }
+      },
+      "A6": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8516808612065091,
+          "small_dice": 0.8176769593183509,
+          "boundary_iou": 0.5542979296536739,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8440523116376588,
+          "small_dice": 0.7908006320451719,
+          "boundary_iou": 0.5547450142648097,
+          "misses": 3,
+          "empty_images": 16,
+          "empty_fp_images": 10
+        }
+      },
+      "H1": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8360216803792176,
+          "small_dice": 0.7849907493609201,
+          "boundary_iou": 0.5342097321136454,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 4
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.83329182621962,
+          "small_dice": 0.7922070793271293,
+          "boundary_iou": 0.5415869134477315,
+          "misses": 4,
+          "empty_images": 16,
+          "empty_fp_images": 9
+        }
+      },
+      "H2": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8488255344612968,
+          "small_dice": 0.8055763835895309,
+          "boundary_iou": 0.5576626404797167,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8477312264307705,
+          "small_dice": 0.8091516587500501,
+          "boundary_iou": 0.5595672345424063,
+          "misses": 0,
+          "empty_images": 16,
+          "empty_fp_images": 10
+        }
+      },
+      "N1": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8268697482345755,
+          "small_dice": 0.7822971291875356,
+          "boundary_iou": 0.5237247030906618,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 6
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8266635433786648,
+          "small_dice": 0.7745324381543796,
+          "boundary_iou": 0.5330676630137672,
+          "misses": 3,
+          "empty_images": 16,
+          "empty_fp_images": 12
+        }
+      },
+      "A1H2": {
+        "validation": {
+          "images": 118,
+          "image_dice": 0.8418384661430784,
+          "small_dice": 0.7882554526521262,
+          "boundary_iou": 0.5334811796912728,
+          "misses": 0,
+          "empty_images": 7,
+          "empty_fp_images": 5
+        },
+        "test": {
+          "images": 261,
+          "image_dice": 0.8398346333953581,
+          "small_dice": 0.7863380269218753,
+          "boundary_iou": 0.5459063091038829,
+          "misses": 4,
+          "empty_images": 16,
+          "empty_fp_images": 9
+        }
+      }
+    },
+    "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+    "validation_images": 118,
+    "source_test_images": 261,
+    "source": "REAL / CACHED",
+    "original_guards": {
+      "B0": {},
+      "B1": {},
+      "L1": {
+        "higher_overall_image_dice": false,
+        "no_small_wound_image_dice_decline": true,
+        "no_more_total_foreground_misses": true,
+        "no_more_empty_gt_images_with_fp": false
+      },
+      "L2": {
+        "higher_overall_image_dice": false,
+        "no_small_wound_image_dice_decline": true,
+        "no_more_total_foreground_misses": true,
+        "no_more_empty_gt_images_with_fp": false
+      },
+      "L3": {
+        "higher_overall_image_dice": false,
+        "no_small_wound_image_dice_decline": true,
+        "no_more_total_foreground_misses": true,
+        "no_more_empty_gt_images_with_fp": false
+      },
+      "L4": {
+        "higher_overall_image_dice": false,
+        "no_small_wound_image_dice_decline": true,
+        "no_more_total_foreground_misses": true,
+        "no_more_empty_gt_images_with_fp": false
+      },
+      "A1": {
+        "higher_overall_dice": true,
+        "small_not_lower": true,
+        "boundary_not_lower": true,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": false,
+        "capacity_budget": true
+      },
+      "A2": {
+        "higher_overall_dice": true,
+        "small_not_lower": true,
+        "boundary_not_lower": true,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": false,
+        "capacity_budget": true
+      },
+      "A3": {
+        "higher_overall_dice": false,
+        "small_not_lower": false,
+        "boundary_not_lower": false,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": true,
+        "capacity_budget": true
+      },
+      "A5": {
+        "higher_overall_dice": false,
+        "small_not_lower": true,
+        "boundary_not_lower": false,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": false,
+        "capacity_budget": true
+      },
+      "A6": {
+        "higher_overall_dice": true,
+        "small_not_lower": true,
+        "boundary_not_lower": true,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": false,
+        "capacity_budget": true
+      },
+      "H1": {
+        "higher_overall_dice": false,
+        "small_not_lower": true,
+        "boundary_not_lower": false,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": true,
+        "capacity_budget": true
+      },
+      "H2": {
+        "higher_overall_dice": true,
+        "small_not_lower": true,
+        "boundary_not_lower": true,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": false,
+        "capacity_budget": true
+      },
+      "N1": {
+        "higher_overall_dice": false,
+        "small_not_lower": true,
+        "boundary_not_lower": false,
+        "positive_pixel_recall_not_lower": true,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp_images": false,
+        "no_extra_empty_fp_pixels": false,
+        "empty_fp_improved": false,
+        "capacity_budget": true
+      },
+      "A1H2": {
+        "higher_overall_dice": false,
+        "small_not_lower": true,
+        "boundary_not_lower": false,
+        "no_extra_total_miss": true,
+        "no_extra_empty_fp": false,
+        "capacity_budget": true
+      }
+    }
+  },
+  "source_attribution": {
+    "dataset": "Chronic Wound / AZH wound-care-center patches",
+    "url": "https://github.com/uwm-bigdata/wound-segmentation/tree/42a272dfe0679f20675e826385925cb7562934b6",
+    "redistribution_status": "Selected analysis panels explicitly authorized for public push by the user; original dataset licensing audit remains unchanged; no full dataset mirror"
+  },
+  "code_sha256": {
+    "scripts/build_cp2_presentation.py": "c5e9603984ec306a6dd676abd2638a887f6014fa6b1e18c7cfc0c06fc1256020",
+    "src/foot_ulcer_segmentation/presentation.py": "3d5a0723e7de6e0b07cfbfa2893c4b331ee94879c9565f3186e397f9d86d0337",
+    "src/foot_ulcer_segmentation/presentation_plots.py": "6fdac3bd645d984bb69e87928d1deab3604955aadbe639078d8a42b9e6cbefd3",
+    "src/foot_ulcer_segmentation/presentation_replay.py": "70a82ada28aa9c59f523b721345d08f1d760235b2420e7c3772a05def34c72a4"
+  },
+  "base_commit": "e5b44695ff28a957ba41311188b7a269b037f231",
+  "publication_transform": {
+    "operation": "strip trailing whitespace in publication SVG only",
+    "renderer_output_sha256": "81c33dcd69f0a7238aa0aba7f6d7f677df11f244a49ff948de0e4c1b80a7f6c0",
+    "pixel_identity_verified_by_Inkscape_render": true
+  }
+}
