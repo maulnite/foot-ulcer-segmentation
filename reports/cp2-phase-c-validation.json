@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-18T18:29:31.504717+00:00",
+  "predictions_verified": 1516,
+  "fresh_predictions_verified": 379,
+  "evaluations": [
+    {
+      "model": "B1",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "model": "B1",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "model": "A1",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "model": "A1",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "model": "H2",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "model": "H2",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "model": "A1H2",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "model": "A1H2",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_metrics_CSV": "passed"
+    }
+  ],
+  "preregistered_before_full_training": true,
+  "cached_controls_preserved": true,
+  "shared_source_local_and_head_initialization": true,
+  "actual_first_step_finite_nonzero_gradients_and_updates": true,
+  "checkpoint_replay": "main and auxiliary boundary outputs bit exact",
+  "paired_inputs": {
+    "status": "passed",
+    "actual_order_and_augmented_bytes_equal": true,
+    "pairs": [
+      {
+        "first": "B1",
+        "second": "A1",
+        "common_epochs": 55
+      },
+      {
+        "first": "B1",
+        "second": "H2",
+        "common_epochs": 55
+      },
+      {
+        "first": "B1",
+        "second": "A1H2",
+        "common_epochs": 55
+      },
+      {
+        "first": "A1",
+        "second": "H2",
+        "common_epochs": 69
+      },
+      {
+        "first": "A1",
+        "second": "A1H2",
+        "common_epochs": 64
+      },
+      {
+        "first": "H2",
+        "second": "A1H2",
+        "common_epochs": 64
+      }
+    ]
+  },
+  "earliest_best_checkpoint_verified": true,
+  "selection_before_new_test": true,
+  "patient_independence_claimed": false,
+  "new_training_runs": 1,
+  "standalone_smoke_training_runs": 0,
+  "historical_user_files": {
+    "files": 505,
+    "unchanged": true
+  },
+  "preflight": {
+    "status": "passed",
+    "created_utc": "2026-11-18T14:16:04.793576+00:00",
+    "tests": {
+      "tests": 198,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "preservation": {
+      "files": 505,
+      "unchanged": true
+    },
+    "dependency_checks": {
+      ".venv-training": "No broken requirements found.",
+      ".venv-xfuseg": "No broken requirements found."
+    },
+    "training_sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+      "src/foot_ulcer_segmentation/cp2_heads.py": "265ee3dc1785452850ccca6c954b2d069dec831869e3c2719c7c4b124edcf098",
+      "src/foot_ulcer_segmentation/cp2_phase_h.py": "de89e612cd895495df9972fb52d692b1cf86a2bd011132bacb15784ac0acb2e0",
+      "scripts/run_cp2_phase_h.py": "051638e1905908911f2f222f0e02c51b4081f70136fbf7967907e7be3d336904",
+      "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+      "src/foot_ulcer_segmentation/cp2_phase_n.py": "a42d035ec07c2d7799a74f3bd4d8317a239c5aedb2974ed034b6f8ce26a16674",
+      "src/foot_ulcer_segmentation/cp2_presence.py": "c0063ab831b2c635f7e38e7b57e512a1f07ecfdb854525eb12d29d1467f09fbd",
+      "src/foot_ulcer_segmentation/cp2_screening.py": "52d4fc7bb871345d4c5d66299f340ff19f258c4f420b9d41046d093f89003b03",
+      "src/foot_ulcer_segmentation/cp2_phase_c.py": "6e827233599b1affa9e73540ed2ae3bfece69e75a1c07dd3afb20fe4bf7e02ef",
+      "scripts/run_cp2_phase_c.py": "d7d69d49552c099e3ac0aeed96df8bf464e37d31276bb081ce4daa5890dc12c0",
+      "scripts/report_cp2_phase_c.py": "bfbb2d0be168d20c2b507b08d703be8f2f2ed119cab108355e0ab04aaa29c1e7",
+      "scripts/validate_cp2_phase_a.py": "8a3c2f0d3b0d354e2c60ed132580ad092192d1c9d35b1b41fb0ea8c54992a6ba",
+      "scripts/validate_cp2_phase_l.py": "65277cc641252ee9dafbc05a45fa4a6e90e4f1e31f54de31cb639d26c2646fee"
+    },
+    "protocol_fingerprint": "465942d0d1dea73eb52b3042576305b66e16c559982ffcc56ab5f665223de45a",
+    "standalone_smoke_training": false,
+    "fresh_training_runs": 1,
+    "actual_first_step_checks": "encoder, both local branches and boundary head; finite nonzero gradients/updates",
+    "ruff": "NOT RUN \u2014 unavailable; existing environments unchanged"
+  },
+  "visual_review": "passed \u2014 both actual figures inspected; append-only visual_review.json records hashes",
+  "visual_review_evidence": "outputs/cp2/phase_c/20261118T140338Z/visual_review.json"
+}
