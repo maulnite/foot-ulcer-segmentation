@@ -1,0 +1,35 @@
+{
+  "snapshot_utc": "2026-11-19T15:25:49.196236+00:00",
+  "not_final_training_or_model_selection_results": true,
+  "B1A6H2": {
+    "status": "completed",
+    "completed_epochs": 67,
+    "selected_epoch": 37,
+    "selected_validation_image_dice": 0.8424357259743462,
+    "finished_utc": "2026-11-19T05:04:19.237909+00:00",
+    "stop_reason": "early_stopping_30_nonimproving_epochs",
+    "seconds_this_invocation": 14134.201144495048,
+    "checkpoint_replay": {
+      "primary_and_auxiliary_bit_exact": true,
+      "head_removal_primary_bit_exact": true
+    },
+    "best_checkpoint_sha256": "e2d80d240c9076991a0454287b7854caeb938c6711eddffd6b6d103557abfcc6",
+    "status_source_sha256_at_snapshot": "9378a3a09ad8dbb36141324d78cd7d112738e8b8cb3204c13464ca0aa5d4c00d"
+  },
+  "L3A6H2": {
+    "status": "running",
+    "completed_epochs": 160,
+    "selected_epoch": 133,
+    "status_source_sha256_at_snapshot": "0bb3dfa831cc1e45838fb962915b9ffdb978c437ed580e6d5de79c1e82aff455",
+    "best_validation_image_dice_so_far": 0.8296452012189097,
+    "current_bad_epochs": 27
+  },
+  "clean_cascade": {
+    "status": "running",
+    "completed_epochs": 28,
+    "selected_epoch": 27,
+    "status_source_sha256_at_snapshot": "ec02f39f233c25485d6584499c3fb317974c8753b901013f538faa69eac14323",
+    "best_validation_image_dice_so_far": 0.8709698564004176,
+    "current_bad_epochs": 1
+  }
+}

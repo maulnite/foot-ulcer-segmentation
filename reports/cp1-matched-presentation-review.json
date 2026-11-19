@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "reviewed_utc": "2026-11-19T15:25:49.196236+00:00",
+  "method": "Opened all three actual PNG figures using view_image before publication",
+  "figures": {
+    "source_training_curves.png": "68e7a94f195a4464d0710e554f2cfecf76834971e8ad982a0fe046f1fe408954",
+    "region_boundary.png": "6000d911648a0842c6a5fefc5b3f498ad7097f769cad345fb5a79259f41c944e",
+    "empty_false_positives.png": "4ec855328282acfcd2d3d368fbb9c2d944e5da43c03c6c4fa31cb89dc8ef777e"
+  },
+  "checks": [
+    "Readable axes, units, legends and original-cohort labels",
+    "CH2 training objective distinguished from shared main-task validation loss",
+    "Validation/test and GT-empty denominators displayed correctly"
+  ],
+  "legacy_record_preserved": "Existing cp1-matched-results.json retains its original PENDING visual-review field; this later review completes that presentation step without mutating protected artifacts"
+}
