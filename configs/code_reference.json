@@ -1,0 +1,113 @@
+{
+  "status": "audited_source_behavior_not_yet_a_runnable_training_config",
+  "reference": {
+    "repository": "https://github.com/mrinal054/FUSegNet",
+    "commit": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+    "entrypoint": "fusegnet_train.py",
+    "documentation": "docs/reference-audit.md"
+  },
+  "data": {
+    "local_root": "data/raw/chronic_wound",
+    "source_train_images": 831,
+    "source_test_images": 278,
+    "test_category_names_match_author_artifact": true,
+    "paper_train_images": 810,
+    "paper_test_images": 200,
+    "paper_count_discrepancy": "unresolved; do not arbitrarily subsample",
+    "split": {
+      "input_order": "unsorted os.listdir; author order not published",
+      "python_shuffle_seed": 42,
+      "validation_fraction": 0.15,
+      "validation_rounding": "int(N * fraction)",
+      "local_train_after_holdout": 707,
+      "local_validation_after_holdout": 124,
+      "author_exact_split_recovered": false,
+      "deduplication": false
+    }
+  },
+  "preprocessing": {
+    "image_read": "OpenCV BGR to RGB",
+    "image_mean": [0.485, 0.456, 0.406],
+    "image_std": [0.229, 0.224, 0.225],
+    "image_range": [0, 1],
+    "mask_read": "OpenCV grayscale, divide by 255, add channel",
+    "mask_binarization_at_loading": false,
+    "tensor_format": "CHW float32",
+    "resize_in_loader": false,
+    "training_augmentation": "fusegnet_train.py:get_training_augmentation; preserve nested OneOf and Compose",
+    "validation_augmentation": "empty Compose"
+  },
+  "model": {
+    "implementation": "author-vendored segmentation_models_pytorch",
+    "encoder": "efficientnet-b7",
+    "encoder_weights_for_training": "imagenet",
+    "freeze_encoder": false,
+    "encoder_depth": 5,
+    "encoder_feature_channels": [3, 64, 48, 80, 224, 640],
+    "decoder_channels": [256, 128, 64, 32, 16],
+    "decoder_attention_type": "pscse",
+    "scse_reduction_ratio": 16,
+    "attention_branch_weights_shared": false,
+    "upsampling": "nearest, scale factor 2",
+    "post_attention_block": "Conv2d-BatchNorm2d-ReLU",
+    "post_attention_blocks_per_stage": 1,
+    "output_activation": "sigmoid",
+    "registered_parameters": 70968939,
+    "parameters_in_forward_called_modules": 64898248,
+    "unused_registered_parameters": 6070691
+  },
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.00001,
+    "batch_size": 2,
+    "num_workers": 4,
+    "max_epochs": 200,
+    "torch_seed_in_reference_entrypoint": null,
+    "numpy_seed_in_reference_entrypoint": null,
+    "loss": {
+      "expression": "utils.DiceLoss() + utils.FocalLoss()",
+      "dice_epsilon": 1.0,
+      "dice_beta": 1.0,
+      "dice_aggregation": "batch-level soft score",
+      "focal_alpha": null,
+      "focal_gamma": 2.0,
+      "focal_reduction": "mean",
+      "focal_normalized": false,
+      "focal_input_behavior": "sigmoid probabilities passed to focal_loss_with_logits; source mismatch is an explicit reproduction issue"
+    },
+    "scheduler": {
+      "name": "ReduceLROnPlateau",
+      "monitor": "validation loss",
+      "mode": "min",
+      "factor": 0.1,
+      "patience": 10,
+      "min_lr": 0.00001
+    },
+    "checkpoint": {
+      "condition": "if loss improves, save; elif tracked IoU improves, save",
+      "best_iou_updated_on_loss_improvement": false,
+      "early_stopping_patience": 30,
+      "early_stopping_reset": "either checkpoint branch"
+    }
+  },
+  "evaluation": {
+    "training_prediction_threshold": "> 0.5",
+    "inference_prediction_threshold": ">= 0.5",
+    "validation_history": "mean of per-batch metrics; not dataset-level final scores",
+    "source_evaluators_disagree": true,
+    "inline_evaluator_quirk": "perfect matches assign all pixels TP, including background",
+    "offline_evaluator": "utils/eval.py with HARD_LINE=True",
+    "offline_empty_empty_image_score": 1.0,
+    "offline_empty_nonempty_image_score": 0.0,
+    "offline_empty_empty_pixel_counts": "all TN; TP=FP=FN=0",
+    "fuseg_test_masks": "not publicly included",
+    "pfom_source_implementation_found": false
+  },
+  "ensemble": {
+    "folds": 5,
+    "fold_construction": "Python-shuffled unsorted file list, then KFold(shuffle=False)",
+    "paper_matching_aggregation": "mean probability, then >= 0.5",
+    "additional_source_branch": "majority voting"
+  }
+}

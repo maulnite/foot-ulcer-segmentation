@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="964.597187pt" height="399.619656pt" viewBox="0 0 964.597187 399.619656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-30T07:52:06.691736</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.7.5, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 399.619656
+L 964.597187 399.619656
+L 964.597187 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 18.304844 318.516094
+L 937.384844 318.516094
+L 937.384844 105.540094
+L 18.304844 105.540094
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 18.304844 280.932094
+L 43.125816 280.932094
+L 43.125816 216.900094
+L 18.304844 216.900094
+z
+" clip-path="url(#p1f162054e9)" style="fill: #b86545"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 43.125816 280.932094
+L 937.384844 280.932094
+L 937.384844 216.900094
+L 43.125816 216.900094
+z
+" clip-path="url(#p1f162054e9)" style="fill: #ddd5e8"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m5c9458e220" d="M 0 0
+L 0 3.5
+" style="stroke: #352b43; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5c9458e220" x="18.304844" y="318.516094" style="fill: #352b43; stroke: #352b43; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="fill: #352b43; font: 14px 'DejaVu Sans'; text-anchor: middle" x="18.304844" y="336.153906" transform="rotate(-0 18.304844 336.153906)">0%</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m5c9458e220" x="248.074844" y="318.516094" style="fill: #352b43; stroke: #352b43; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="fill: #352b43; font: 14px 'DejaVu Sans'; text-anchor: middle" x="248.074844" y="336.153906" transform="rotate(-0 248.074844 336.153906)">25%</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m5c9458e220" x="477.844844" y="318.516094" style="fill: #352b43; stroke: #352b43; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="fill: #352b43; font: 14px 'DejaVu Sans'; text-anchor: middle" x="477.844844" y="336.153906" transform="rotate(-0 477.844844 336.153906)">50%</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m5c9458e220" x="707.614844" y="318.516094" style="fill: #352b43; stroke: #352b43; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="fill: #352b43; font: 14px 'DejaVu Sans'; text-anchor: middle" x="707.614844" y="336.153906" transform="rotate(-0 707.614844 336.153906)">75%</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m5c9458e220" x="937.384844" y="318.516094" style="fill: #352b43; stroke: #352b43; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="fill: #352b43; font: 14px 'DejaVu Sans'; text-anchor: middle" x="937.384844" y="336.153906" transform="rotate(-0 937.384844 336.153906)">100%</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="fill: #352b43; font: 16px 'DejaVu Sans'; text-anchor: middle" x="477.844844" y="355.222969" transform="rotate(-0 477.844844 355.222969)">Persentase seluruh piksel mask (%)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="patch_5">
+    <path d="M 159.812328 164.943937
+Q 96.187695 191.236236 32.563062 217.528535
+" style="fill: none; stroke: #b86545; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_7">
+    <text style="fill: #b86545; font: 700 18px 'DejaVu Sans'" transform="translate(137.785244 138.280031)">Luka: 2,70%</text>
+    <text style="fill: #b86545; font: 700 18px 'DejaVu Sans'" transform="translate(137.785244 158.436094)">958.034 piksel</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #352b43; font: 700 20px 'DejaVu Sans'" transform="translate(388.984431 243.158906)">Background: 97,30%</text>
+    <text style="fill: #352b43; font: 700 20px 'DejaVu Sans'" transform="translate(405.278181 265.710781)">34.516.398 piksel</text>
+   </g>
+  </g>
+  <g id="text_9">
+   <text style="fill: #352b43; font: 700 25px 'DejaVu Sans'; text-anchor: start" x="18.304844" y="26.196094" transform="rotate(-0 18.304844 26.196094)">Background mendominasi target segmentasi</text>
+  </g>
+  <g id="text_10">
+   <text style="fill: #352b43; font: 18px 'DejaVu Sans'; text-anchor: start" x="18.304844" y="59.604094" transform="rotate(-0 18.304844 59.604094)">Chronic Wound · train aktual n=707 · background:luka = 36.03:1</text>
+  </g>
+  <g id="text_11">
+   <text style="fill: #746d78; font: 14px 'DejaVu Sans'" transform="translate(18.304844 373.831156)">Denominator: 35.474.432 piksel · seluruh kanvas 224 × 224, termasuk padding hitam.</text>
+   <text style="fill: #746d78; font: 14px 'DejaVu Sans'" transform="translate(18.304844 389.508094)">Foreground = mask 255; background = 0. Bukan proporsi jaringan tubuh atau luas fisik.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p1f162054e9">
+   <rect x="18.304844" y="105.540094" width="919.08" height="212.976"/>
+  </clipPath>
+ </defs>
+</svg>

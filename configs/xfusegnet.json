@@ -1,0 +1,73 @@
+{
+  "name": "cp1-xfusegnet-01",
+  "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+  "seed": 42,
+  "cpu_threads": 2,
+  "data": {
+    "root": "data/raw/fuseg_2021",
+    "manifest": "data/splits/fuseg_2021_xfusegnet/manifest.json",
+    "staging": "outputs/xfusegnet/cp1-xfusegnet-01/dataset",
+    "image_size": [
+      512,
+      512
+    ],
+    "source_counts": {
+      "train": 810,
+      "validation": 200,
+      "test": 200
+    },
+    "labeled_pool": 1010,
+    "folds": 5,
+    "shuffle_seed": 42,
+    "kfold_shuffle": false
+  },
+  "model": {
+    "encoder_name": "efficientnet-b7",
+    "encoder_weights": "imagenet",
+    "classes": 1,
+    "activation": "sigmoid",
+    "decoder_attention_type": "pscse"
+  },
+  "training": {
+    "batch_size": 2,
+    "num_workers": 4,
+    "max_epochs": 200,
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "early_stopping_patience": 30,
+    "scheduler": {
+      "factor": 0.1,
+      "patience": 10,
+      "min_lr": 1e-05
+    },
+    "checkpoint_policy": "author_if_loss_elif_iou",
+    "loss": "author_dice_plus_focal_with_probability_input"
+  },
+  "evaluation": {
+    "prediction_threshold": 0.5,
+    "evaluator": "offline_hard_line",
+    "also_report_author_inline": true
+  },
+  "provenance": {
+    "dataset": "810 provided train + 200 provided validation form 1010 labeled pool, matching paper training count; 200 test images isolated",
+    "file_order": "capture staged os.listdir order, seed-42 shuffle, KFold(5,shuffle=False); original author order unknown",
+    "random_seeds": "Python shuffle seed 42 published; global torch/numpy seed 42 is additional reproducibility setting, original values unknown",
+    "source_quirks": "original augmentation, focal probability input, loss/IoU elif selection, and saved epoch off-by-one retained",
+    "protocol_limits": "OOF is internal validation selected using each fold; official 89.23% cannot be verified without organizer masks/evaluation; source RGB duplicates retained; patient independence unknown"
+  },
+  "declared_at_utc": "2026-10-28T04:48:28.285550+00:00",
+  "run_dir": "outputs/runs/cp1-xfusegnet-01",
+  "workflow_dir": "outputs/xfusegnet/cp1-xfusegnet-01",
+  "implementation": {
+    "training_source": "xfusegnet_train.py",
+    "inference_source": "xfusegnet_test.py",
+    "training_loop": "execute original AST with bookkeeping hooks only",
+    "torch_numpy_seed": 42,
+    "rng_policy": "seed once, continue RNG across five folds; Python seed 42 shuffle as source",
+    "aggregation": "numpy float32 mean of five raw sigmoid probability maps, then >=0.5",
+    "training_masks": "original grayscale/255 including fractional 32/255 values",
+    "evaluation_masks": "grayscale/255 >=0.5 for offline OOF/PFOM only",
+    "test_masks": "absent; no local official test metrics",
+    "oof": "one validation-fold model per labeled image; no five-model ensemble on training pool"
+  }
+}

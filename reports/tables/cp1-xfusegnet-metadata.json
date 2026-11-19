@@ -1,0 +1,217 @@
+{
+  "created_at_utc": "2026-10-29T03:46:36.625748+00:00",
+  "diagnostic_fixture": false,
+  "config": {
+    "name": "cp1-xfusegnet-01",
+    "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+    "seed": 42,
+    "cpu_threads": 2,
+    "data": {
+      "root": "data/raw/fuseg_2021",
+      "manifest": "data/splits/fuseg_2021_xfusegnet/manifest.json",
+      "staging": "outputs/xfusegnet/cp1-xfusegnet-01/dataset",
+      "image_size": [
+        512,
+        512
+      ],
+      "source_counts": {
+        "train": 810,
+        "validation": 200,
+        "test": 200
+      },
+      "labeled_pool": 1010,
+      "folds": 5,
+      "shuffle_seed": 42,
+      "kfold_shuffle": false
+    },
+    "model": {
+      "encoder_name": "efficientnet-b7",
+      "encoder_weights": "imagenet",
+      "classes": 1,
+      "activation": "sigmoid",
+      "decoder_attention_type": "pscse"
+    },
+    "training": {
+      "batch_size": 2,
+      "num_workers": 4,
+      "max_epochs": 200,
+      "learning_rate": 0.0001,
+      "weight_decay": 1e-05,
+      "early_stopping_patience": 30,
+      "scheduler": {
+        "factor": 0.1,
+        "patience": 10,
+        "min_lr": 1e-05
+      },
+      "checkpoint_policy": "author_if_loss_elif_iou",
+      "loss": "author_dice_plus_focal_with_probability_input"
+    },
+    "evaluation": {
+      "prediction_threshold": 0.5,
+      "evaluator": "offline_hard_line",
+      "also_report_author_inline": true
+    },
+    "provenance": {
+      "dataset": "810 provided train + 200 provided validation form 1010 labeled pool, matching paper training count; 200 test images isolated",
+      "file_order": "capture staged os.listdir order, seed-42 shuffle, KFold(5,shuffle=False); original author order unknown",
+      "random_seeds": "Python shuffle seed 42 published; global torch/numpy seed 42 is additional reproducibility setting, original values unknown",
+      "source_quirks": "original augmentation, focal probability input, loss/IoU elif selection, and saved epoch off-by-one retained",
+      "protocol_limits": "OOF is internal validation selected using each fold; official 89.23% cannot be verified without organizer masks/evaluation; source RGB duplicates retained; patient independence unknown"
+    },
+    "declared_at_utc": "2026-10-28T04:48:28.285550+00:00",
+    "run_dir": "outputs/runs/cp1-xfusegnet-01",
+    "workflow_dir": "outputs/xfusegnet/cp1-xfusegnet-01",
+    "implementation": {
+      "training_source": "xfusegnet_train.py",
+      "inference_source": "xfusegnet_test.py",
+      "training_loop": "execute original AST with bookkeeping hooks only",
+      "torch_numpy_seed": 42,
+      "rng_policy": "seed once, continue RNG across five folds; Python seed 42 shuffle as source",
+      "aggregation": "numpy float32 mean of five raw sigmoid probability maps, then >=0.5",
+      "training_masks": "original grayscale/255 including fractional 32/255 values",
+      "evaluation_masks": "grayscale/255 >=0.5 for offline OOF/PFOM only",
+      "test_masks": "absent; no local official test metrics",
+      "oof": "one validation-fold model per labeled image; no five-model ensemble on training pool"
+    }
+  },
+  "config_fingerprint": "7d95d870f81c06b46ad80a09fcc9aa2aa2042d69430e69ea804432abaa7f9cb8",
+  "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+  "oof_evaluation": {
+    "images": 1010,
+    "units": "fraction",
+    "prediction_rule": "probability >= 0.5",
+    "offline_hard_line": {
+      "counts": {
+        "tp": 3120823,
+        "tn": 261154494,
+        "fp": 237022,
+        "fn": 253101
+      },
+      "data_based": {
+        "dice": 0.9271925403263244,
+        "iou": 0.8642674246580082,
+        "precision": 0.9294124654351439,
+        "recall": 0.9249831946419289
+      },
+      "image_based": {
+        "dice": 0.8803226710993622,
+        "iou": 0.8127174649621374,
+        "precision": 0.889846234036783,
+        "recall": 0.8970904152990067
+      }
+    },
+    "author_inline_legacy": {
+      "counts": {
+        "tp": 7052983,
+        "tn": 257222334,
+        "fp": 237022,
+        "fn": 253101
+      },
+      "data_based": {
+        "dice": 0.9664209364577045,
+        "iou": 0.9350237156947104,
+        "precision": 0.9674867164012964,
+        "recall": 0.9653575020488451
+      }
+    },
+    "undefined_aggregate_dice": "null when the entire collection has no positive GT or prediction"
+  },
+  "oof_mean_pfom": 0.7314754465764081,
+  "oof_positive_gt_pfom": 0.7340671410164018,
+  "oof_sentinel2_proxy": 0.7780101000417546,
+  "pfom_protocol": {
+    "name": "cp1-pfom-v1",
+    "paper": "https://arxiv.org/pdf/2305.02961v2",
+    "paper_sections": [
+      "3.2.6, Equation 13",
+      "4.2, contour test and Figure 6"
+    ],
+    "beta": 0.1111111111111111,
+    "canny": {
+      "sigma": 0.1,
+      "low_threshold": 0.1,
+      "high_threshold": 0.2,
+      "use_quantiles": false,
+      "mode": "constant",
+      "cval": 0.0
+    },
+    "input": "Binary GT and cached >=0.5 prediction, float64 0/1 for Canny, full 224x224 canvas",
+    "distance": "Nearest GT edge for each predicted edge; Euclidean pixels; asymmetric prediction-to-GT",
+    "normalization": "max(number of GT edges, number of predicted edges), separately per image",
+    "aggregation": "Arithmetic mean over images; also report median, both-edge-nonempty subset, and categories",
+    "empty_edges_bounded": {
+      "both_empty": 1.0,
+      "gt_empty": 0.0,
+      "prediction_empty": 0.0
+    },
+    "empty_edges_paper_sentinel2_proxy": {
+      "both_empty": 2.0,
+      "gt_empty": 2.0,
+      "prediction_empty": 2.0
+    },
+    "paper_specified": [
+      "Equation 13",
+      "beta=1/9",
+      "Canny sigma=0.1",
+      "replacement value 2 for no-edge cases"
+    ],
+    "explicit_analysis_choices": [
+      "scikit-image 0.19.3 Canny implementation; thresholds 0.1/0.2, float64 input, and border defaults made explicit",
+      "Bounded extension: both edge maps empty => 1, exactly one empty => 0",
+      "Sentinel-2 proxy interprets 'no edge in any of the images' as either edge map being empty"
+    ],
+    "exact_author_implementation_available": false,
+    "comparability": "Authors did not publish PFOM code or all Canny settings. Sentinel behavior is ambiguous and not implied by Equation 13. These results are a documented implementation, not verified numerical reproduction of Figure 6."
+  },
+  "official_test_metrics": null,
+  "oof_is_ensemble_evaluation": false,
+  "oof_examples": [
+    "0240.png",
+    "0671.png",
+    "1000.png",
+    "0611.png",
+    "0692.png"
+  ],
+  "test_examples": [
+    "1011.png",
+    "1108.png",
+    "1205.png",
+    "1298.png",
+    "1382.png"
+  ],
+  "all_oof_pairs_verified": true,
+  "all_test_ensembles_verified": true,
+  "checkpoints": [
+    {
+      "fold": 1,
+      "checkpoint_sha256": "05ddb4fe705faa59ffb42cecf12ec6b4e37b68a2f97b44ecd860c670886843bd",
+      "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+      "config_fingerprint": "7d95d870f81c06b46ad80a09fcc9aa2aa2042d69430e69ea804432abaa7f9cb8"
+    },
+    {
+      "fold": 2,
+      "checkpoint_sha256": "0b1cbb385c763e776c6d5816f2c01298d973e326d7a6ab85b0b8ba77e3163f7e",
+      "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+      "config_fingerprint": "7d95d870f81c06b46ad80a09fcc9aa2aa2042d69430e69ea804432abaa7f9cb8"
+    },
+    {
+      "fold": 3,
+      "checkpoint_sha256": "e7d412096ab84f6c18636cd572b6318591de80995e24fecb72bbdd65e77e481f",
+      "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+      "config_fingerprint": "7d95d870f81c06b46ad80a09fcc9aa2aa2042d69430e69ea804432abaa7f9cb8"
+    },
+    {
+      "fold": 4,
+      "checkpoint_sha256": "af20ad02af4af8c48b2acb6213c869430c3e2b966142a8434b6dcc1e562a11b6",
+      "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+      "config_fingerprint": "7d95d870f81c06b46ad80a09fcc9aa2aa2042d69430e69ea804432abaa7f9cb8"
+    },
+    {
+      "fold": 5,
+      "checkpoint_sha256": "0a9d35aa27daf657ad040715548f498e0b24c7cedaed8a4af06567ae9c345da6",
+      "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+      "config_fingerprint": "7d95d870f81c06b46ad80a09fcc9aa2aa2042d69430e69ea804432abaa7f9cb8"
+    }
+  ],
+  "source_sha256": "2a99cb395be7a6d01c2c5cade695ccc11b9c9a71a575486d276e64029df4bce7"
+}

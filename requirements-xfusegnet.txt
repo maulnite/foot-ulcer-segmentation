@@ -1,0 +1,4 @@
+# Inherit the frozen training environment; add only original-script plotting.
+-c requirements-training.lock.txt
+matplotlib==3.7.5
+contourpy==1.1.1

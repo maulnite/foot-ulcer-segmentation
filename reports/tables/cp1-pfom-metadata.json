@@ -1,0 +1,98 @@
+{
+  "protocol": {
+    "name": "cp1-pfom-v1",
+    "paper": "https://arxiv.org/pdf/2305.02961v2",
+    "paper_sections": [
+      "3.2.6, Equation 13",
+      "4.2, contour test and Figure 6"
+    ],
+    "beta": 0.1111111111111111,
+    "canny": {
+      "sigma": 0.1,
+      "low_threshold": 0.1,
+      "high_threshold": 0.2,
+      "use_quantiles": false,
+      "mode": "constant",
+      "cval": 0.0
+    },
+    "input": "Binary GT and cached >=0.5 prediction, float64 0/1 for Canny, full 224x224 canvas",
+    "distance": "Nearest GT edge for each predicted edge; Euclidean pixels; asymmetric prediction-to-GT",
+    "normalization": "max(number of GT edges, number of predicted edges), separately per image",
+    "aggregation": "Arithmetic mean over images; also report median, both-edge-nonempty subset, and categories",
+    "empty_edges_bounded": {
+      "both_empty": 1.0,
+      "gt_empty": 0.0,
+      "prediction_empty": 0.0
+    },
+    "empty_edges_paper_sentinel2_proxy": {
+      "both_empty": 2.0,
+      "gt_empty": 2.0,
+      "prediction_empty": 2.0
+    },
+    "paper_specified": [
+      "Equation 13",
+      "beta=1/9",
+      "Canny sigma=0.1",
+      "replacement value 2 for no-edge cases"
+    ],
+    "explicit_analysis_choices": [
+      "scikit-image 0.19.3 Canny implementation; thresholds 0.1/0.2, float64 input, and border defaults made explicit",
+      "Bounded extension: both edge maps empty => 1, exactly one empty => 0",
+      "Sentinel-2 proxy interprets 'no edge in any of the images' as either edge map being empty"
+    ],
+    "exact_author_implementation_available": false,
+    "comparability": "Authors did not publish PFOM code or all Canny settings. Sentinel behavior is ambiguous and not implied by Equation 13. These results are a documented implementation, not verified numerical reproduction of Figure 6."
+  },
+  "protocol_fingerprint": "2897aa5a663fcb466a2715d86d7352915ab728de0080bbbe971b92c0f9483bb0",
+  "implementation_sha256": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+  "libraries": {
+    "numpy": "1.24.1",
+    "scipy": "1.8.1",
+    "scikit-image": "0.19.3"
+  },
+  "prediction_identity": {
+    "checkpoint_sha256": "5d7cf8cd011c1681d853ff1306b293774fa770a217cf7f29f0223e8498d1a999",
+    "config_fingerprint": "86ee03891cb5da1bda31efcba4332b52f345f5a8ae8057b1fb600e6e11dcbc8b",
+    "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+    "threshold": 0.5,
+    "evaluation_sha256": {
+      "validation.csv": "12ccc7d63277e4e8432d416e742cf14d9139f91505364e0ba2bf8283a6bc4396",
+      "evaluation-test.csv": "8234f027e2d475246335ce5a833287291112825b61f73aec44e259315552d245"
+    }
+  },
+  "summaries": {
+    "validation": {
+      "n": 124,
+      "mean": 0.7243997268060866,
+      "median": 0.7965997424917703,
+      "mean_positive_gt": 0.7637005749909107,
+      "n_both_edges_nonempty": 114,
+      "mean_both_edges_nonempty": 0.7703997028417081,
+      "edge_cases": {
+        "both_nonempty": 114,
+        "both_empty": 2,
+        "gt_empty": 7,
+        "prediction_empty": 1
+      },
+      "mean_paper_sentinel2_proxy": 0.8695610171286672
+    },
+    "test": {
+      "n": 278,
+      "mean": 0.7781768634813551,
+      "median": 0.8557946204624673,
+      "mean_positive_gt": 0.7905485365816733,
+      "n_both_edges_nonempty": 257,
+      "mean_both_edges_nonempty": 0.8028527939603765,
+      "edge_cases": {
+        "both_nonempty": 257,
+        "both_empty": 10,
+        "gt_empty": 7,
+        "prediction_empty": 4
+      },
+      "mean_paper_sentinel2_proxy": 0.8932847771504199
+    }
+  },
+  "per_image_csv_sha256": "a0d938d38de941f389ed247873e299716d4be7b513af394c33c29dd9785337b6",
+  "training_performed": false,
+  "inference_performed": false
+}

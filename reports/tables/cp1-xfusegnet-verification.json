@@ -1,0 +1,81 @@
+{
+  "verified_at_utc": "2026-10-28T05:06:13.043065+00:00",
+  "status": "passed",
+  "tests_passed": 37,
+  "source_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+  "source_training_file_sha256": "46b95658d4d46f338de60f18289e0e5c2cebdd68b97749b1f494fb09033d508b",
+  "original_training_loop_ast_sha256": "5b9a319a1d997ed187980ddd4a2147313dc295bdf750d40922cb9651c4301ab9",
+  "numeric_ast_parity_verified_by_test": true,
+  "runtime_sha256": {
+    "scripts/xfuseg_data.py": "81f56c9e12571c1f23c0caa9c6d479c0b81431ac6e09421bd4a73ae57412bf91",
+    "scripts/xfuseg_train.py": "d24abcf5be07caf315eaff37a8a41df6f7862d2fa71e8b7f7403d8679a8923b3",
+    "scripts/run_xfusegnet.py": "206c2ca4ee623a739a9ec5025ef76dfab1c20f62372ff19450135eecaf96d804",
+    "configs/xfusegnet.json": "8fcf4ca8578ef578922139ec637dbf69ab81880592523a8548757c77787a3786"
+  },
+  "config_fingerprint": "7d95d870f81c06b46ad80a09fcc9aa2aa2042d69430e69ea804432abaa7f9cb8",
+  "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+  "fold_sizes": [
+    {
+      "fold": 1,
+      "train": 808,
+      "validation": 202,
+      "validation_identical_rgb_to_train": 12
+    },
+    {
+      "fold": 2,
+      "train": 808,
+      "validation": 202,
+      "validation_identical_rgb_to_train": 10
+    },
+    {
+      "fold": 3,
+      "train": 808,
+      "validation": 202,
+      "validation_identical_rgb_to_train": 9
+    },
+    {
+      "fold": 4,
+      "train": 808,
+      "validation": 202,
+      "validation_identical_rgb_to_train": 4
+    },
+    {
+      "fold": 5,
+      "train": 808,
+      "validation": 202,
+      "validation_identical_rgb_to_train": 10
+    }
+  ],
+  "frozen_baseline_source_packages_and_pretrained_weights_match": true,
+  "gpu_smoke": {
+    "status": "passed",
+    "smoke_only": true,
+    "folds": 5,
+    "started_at_utc": "2026-10-28T05:02:46.378534+00:00",
+    "finished_at_utc": "2026-10-28T05:03:30.381289+00:00",
+    "seconds": 44.002771875821054,
+    "split_fingerprint": "93aac316e596dcc34b8d55174ea1b10a564cb07f7398e4616c78409552076e2a",
+    "source_training_loop_executed": true,
+    "official_test_metrics_available": false,
+    "checkpoint_prediction_equality_passed": true,
+    "finite_gradients_passed": true,
+    "encoder_updated": true,
+    "temporary_checkpoints_removed": true
+  },
+  "smoke_is_reproduction_result": false,
+  "tests_log_sha256": "787c92955192476f4ed6630c1cf9bed24779d76b19cdd49e161ea2535edcad91",
+  "analysis_fixture": {
+    "diagnostic_only": true,
+    "all_cells_executed": true,
+    "code_cells": 5,
+    "figures": 4,
+    "error_outputs": 0
+  },
+  "limitations": {
+    "dataset": "810 provided train + 200 provided validation form 1010 labeled pool, matching paper training count; 200 test images isolated",
+    "file_order": "capture staged os.listdir order, seed-42 shuffle, KFold(5,shuffle=False); original author order unknown",
+    "random_seeds": "Python shuffle seed 42 published; global torch/numpy seed 42 is additional reproducibility setting, original values unknown",
+    "source_quirks": "original augmentation, focal probability input, loss/IoU elif selection, and saved epoch off-by-one retained",
+    "protocol_limits": "OOF is internal validation selected using each fold; official 89.23% cannot be verified without organizer masks/evaluation; source RGB duplicates retained; patient independence unknown"
+  }
+}

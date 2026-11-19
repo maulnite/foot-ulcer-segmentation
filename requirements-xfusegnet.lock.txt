@@ -1,0 +1,8 @@
+# Additional packages over unchanged requirements-training.lock.txt.
+-c requirements-training.lock.txt
+matplotlib==3.7.5
+contourpy==1.1.1
+cycler==0.12.1
+fonttools==4.65.0
+kiwisolver==1.5.1
+pyparsing==3.3.3

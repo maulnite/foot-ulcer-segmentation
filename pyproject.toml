@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "foot-ulcer-segmentation"
+version = "0.1.0"
+description = "Reproducible FUSegNet baseline and foot ulcer segmentation experiments"
+requires-python = ">=3.10,<3.11"
+dependencies = []
+
+[project.scripts]
+fuseg = "foot_ulcer_segmentation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

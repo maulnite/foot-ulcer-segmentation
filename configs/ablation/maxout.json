@@ -1,0 +1,67 @@
+{
+  "name": "cp1-attention-maxout-01",
+  "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+  "seed": 42,
+  "cpu_threads": 2,
+  "data": {
+    "root": "data/raw/chronic_wound",
+    "split_manifest": "data/splits/chronic_wound_author_code/manifest.json",
+    "validation_fraction": 0.15,
+    "shuffle_seed": 42,
+    "source_counts": {
+      "train": 831,
+      "test": 278
+    },
+    "image_size": [
+      224,
+      224
+    ]
+  },
+  "model": {
+    "encoder_name": "efficientnet-b7",
+    "encoder_weights": "imagenet",
+    "classes": 1,
+    "activation": "sigmoid",
+    "decoder_attention_type": "pscse"
+  },
+  "training": {
+    "batch_size": 2,
+    "num_workers": 4,
+    "max_epochs": 200,
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "early_stopping_patience": 30,
+    "scheduler": {
+      "factor": 0.1,
+      "patience": 10,
+      "min_lr": 1e-05
+    },
+    "checkpoint_policy": "author_if_loss_elif_iou",
+    "loss": "author_dice_plus_focal_with_probability_input"
+  },
+  "evaluation": {
+    "prediction_threshold": 0.5,
+    "evaluator": "offline_hard_line",
+    "also_report_author_inline": true
+  },
+  "provenance": {
+    "dataset_count_discrepancy": "source 831/278 versus paper 810/200; unresolved",
+    "split_order": "capture local unsorted os.listdir order, then apply author shuffle",
+    "explicit_training_seed": "additional reproducibility setting; original torch/numpy seeds unknown",
+    "source_loss_and_checkpoint_quirks": "preserved; see docs/reference-audit.md",
+    "evaluation_discrepancy": "report offline and inline separately; paper table evaluator unknown",
+    "ablation": "Only regular-stage forward branch selection changes; original full constructor, initialization, final shorted stage, loss and checkpoint quirks retained."
+  },
+  "ablation": {
+    "variant": "maxout_only",
+    "modified_stages": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "final_stage_policy": "unchanged_author_shorted",
+    "expected_split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+    "baseline_run": "outputs/runs/cp1-baseline-01"
+  }
+}
