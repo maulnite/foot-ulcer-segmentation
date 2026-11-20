@@ -1,0 +1,305 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-20T16:16:27.549896+00:00",
+  "checks": [
+    {
+      "condition": "B1",
+      "split": "validation",
+      "predictions": 118,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "B1",
+      "split": "test",
+      "predictions": 261,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "A6",
+      "split": "validation",
+      "predictions": 118,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "A6",
+      "split": "test",
+      "predictions": 261,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "H2",
+      "split": "validation",
+      "predictions": 118,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "H2",
+      "split": "test",
+      "predictions": 261,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "L3",
+      "split": "validation",
+      "predictions": 118,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "L3",
+      "split": "test",
+      "predictions": 261,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "B1A6H2",
+      "split": "validation",
+      "predictions": 118,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "B1A6H2",
+      "split": "test",
+      "predictions": 261,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "L3A6H2",
+      "split": "validation",
+      "predictions": 118,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    },
+    {
+      "condition": "L3A6H2",
+      "split": "test",
+      "predictions": 261,
+      "probability_hashes_raw_GT_threshold_metrics_CSV": "passed"
+    }
+  ],
+  "predictions_verified": 2274,
+  "fresh_predictions_verified": 758,
+  "new_training_runs": 2,
+  "standalone_smoke_training": false,
+  "initial_models_and_auxiliary_heads_paired_exactly": true,
+  "separate_loss_run_identities": true,
+  "checkpoint_reload_bit_exact": true,
+  "earliest_best_checkpoints_verified": true,
+  "actual_input_pairing": {
+    "status": "passed",
+    "actual_order_and_augmented_bytes_equal": true,
+    "pairs": [
+      {
+        "first": "B1",
+        "second": "A6",
+        "common_epochs": 55
+      },
+      {
+        "first": "B1",
+        "second": "H2",
+        "common_epochs": 55
+      },
+      {
+        "first": "B1",
+        "second": "L3",
+        "common_epochs": 55
+      },
+      {
+        "first": "B1",
+        "second": "B1A6H2",
+        "common_epochs": 55
+      },
+      {
+        "first": "B1",
+        "second": "L3A6H2",
+        "common_epochs": 55
+      },
+      {
+        "first": "A6",
+        "second": "H2",
+        "common_epochs": 80
+      },
+      {
+        "first": "A6",
+        "second": "L3",
+        "common_epochs": 71
+      },
+      {
+        "first": "A6",
+        "second": "B1A6H2",
+        "common_epochs": 67
+      },
+      {
+        "first": "A6",
+        "second": "L3A6H2",
+        "common_epochs": 140
+      },
+      {
+        "first": "H2",
+        "second": "L3",
+        "common_epochs": 71
+      },
+      {
+        "first": "H2",
+        "second": "B1A6H2",
+        "common_epochs": 67
+      },
+      {
+        "first": "H2",
+        "second": "L3A6H2",
+        "common_epochs": 80
+      },
+      {
+        "first": "L3",
+        "second": "B1A6H2",
+        "common_epochs": 67
+      },
+      {
+        "first": "L3",
+        "second": "L3A6H2",
+        "common_epochs": 71
+      },
+      {
+        "first": "B1A6H2",
+        "second": "L3A6H2",
+        "common_epochs": 67
+      }
+    ]
+  },
+  "source_validation_selection_before_new_test": true,
+  "cached_controls_preserved": true,
+  "historical_user_files": {
+    "files": 548,
+    "unchanged": true,
+    "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+    "verified_relocations": [
+      {
+        "original": "../ganta/notebook/13_cascade_crop_refine_chronic_wound.py",
+        "current": "../ganta/notebook/scripts/13_cascade_crop_refine_chronic_wound.py",
+        "sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371"
+      }
+    ]
+  },
+  "preflight": {
+    "status": "passed",
+    "utc": "2026-11-19T00:57:14.446645+00:00",
+    "tests": {
+      "tests": 224,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "dependency_checks": {
+      ".venv-training": "No broken requirements found.",
+      ".venv-xfuseg": "No broken requirements found."
+    },
+    "preservation": {
+      "files": 548,
+      "unchanged": true
+    },
+    "sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+      "src/foot_ulcer_segmentation/cp2_heads.py": "265ee3dc1785452850ccca6c954b2d069dec831869e3c2719c7c4b124edcf098",
+      "src/foot_ulcer_segmentation/cp2_phase_h.py": "de89e612cd895495df9972fb52d692b1cf86a2bd011132bacb15784ac0acb2e0",
+      "scripts/run_cp2_phase_h.py": "051638e1905908911f2f222f0e02c51b4081f70136fbf7967907e7be3d336904",
+      "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+      "src/foot_ulcer_segmentation/cp2_phase_n.py": "a42d035ec07c2d7799a74f3bd4d8317a239c5aedb2974ed034b6f8ce26a16674",
+      "src/foot_ulcer_segmentation/cp2_presence.py": "c0063ab831b2c635f7e38e7b57e512a1f07ecfdb854525eb12d29d1467f09fbd",
+      "src/foot_ulcer_segmentation/cp2_screening.py": "52d4fc7bb871345d4c5d66299f340ff19f258c4f420b9d41046d093f89003b03",
+      "src/foot_ulcer_segmentation/cp2_phase_c.py": "6e827233599b1affa9e73540ed2ae3bfece69e75a1c07dd3afb20fe4bf7e02ef",
+      "scripts/run_cp2_phase_c.py": "d7d69d49552c099e3ac0aeed96df8bf464e37d31276bb081ce4daa5890dc12c0",
+      "scripts/report_cp2_phase_c.py": "bfbb2d0be168d20c2b507b08d703be8f2f2ed119cab108355e0ab04aaa29c1e7",
+      "scripts/validate_cp2_phase_a.py": "8a3c2f0d3b0d354e2c60ed132580ad092192d1c9d35b1b41fb0ea8c54992a6ba",
+      "scripts/validate_cp2_phase_l.py": "65277cc641252ee9dafbc05a45fa4a6e90e4f1e31f54de31cb639d26c2646fee",
+      "src/foot_ulcer_segmentation/cp2_combinations.py": "35ecc4084090be1164961a4882aec72f473cfa6babd801b3ed36d129238bdb41",
+      "scripts/run_cp2_combinations.py": "eb1bca395255efc29d69c19832a2aa90f1a02c5b669d1248e5941838a22b2e97",
+      "scripts/report_cp2_combinations.py": "a025f385855d1e07d1d438272903435d1f79305789dbfaa59b0afaa9a1efb9b2"
+    },
+    "config_fingerprint": "99a6d008239b40c4ce2bc7f65c469e0147511c1bfb92b977f9f1e6e4af2a3e45",
+    "new_training_runs": 2,
+    "standalone_smoke_training": false,
+    "actual_first_step_checks": "encoder, CBAM channel and spatial gates at both stages, H2 head",
+    "ruff": "NOT RUN \u2014 unavailable; shared environments unchanged"
+  },
+  "external_inference": false,
+  "patient_level_claim": false,
+  "full_three_factor_matrix": false,
+  "visual_review": "PASSED \u2014 both actual PNGs inspected after rendering",
+  "execution_policy_amendment": {
+    "kind": "user-authorized scheduling-only amendment",
+    "approved_utc": "2026-11-19T01:07:22.837209+00:00",
+    "max_concurrent_local_training_processes": 2,
+    "scientific_config_unchanged": true,
+    "new_models_trained_sequentially": true,
+    "override_sha256": "a8c2e8ec15673a475356f77ea6527d4fffb1a3e11255d8d58b65d2f403268c14",
+    "launcher_sha256": "6b73559b12a6b56cc8ce5a086c529e6645f8716253c9b28321a5261ecd83f1d9"
+  },
+  "canonical_final_validation_sha256": "2635ac7b6bc2a51b115b4016e36ee850d17bff2b8de5e9fee7cdff83dd4c0f4a",
+  "visual_review_evidence": [
+    {
+      "path": "reports/figures/cp2-phase-c-combinations/training.png",
+      "sha256": "e56e193ea11de41fc8b513d80d06ad1f751258282a5081291961e8e65fac37bd",
+      "status": "passed",
+      "review": "opened actual PNG via view_image; readable fonts/axes/legends, no clipped labels; consistent colors, honest 0\u2013100% evaluation scales"
+    },
+    {
+      "path": "reports/figures/cp2-phase-c-combinations/comparison.png",
+      "sha256": "b1b3830be413c55ee53adc82babfc9784ae3abf8d213d1fcdd803eda3da96a8d",
+      "status": "passed",
+      "review": "opened actual PNG via view_image; readable fonts/axes/legends, no clipped labels; consistent colors, honest 0\u2013100% evaluation scales"
+    }
+  ],
+  "publication_recovery": {
+    "status": "completed",
+    "finished_utc": "2026-11-20T16:16:53.762896+00:00",
+    "run": "outputs/cp2/phase_c_combinations/20261119T004726Z",
+    "training_or_new_inference_performed": false,
+    "device": "cpu",
+    "threads": 2,
+    "frozen_report_sha256": "a025f385855d1e07d1d438272903435d1f79305789dbfaa59b0afaa9a1efb9b2",
+    "publication_dispatcher_sha256": "2013b855380aa466ebb42f4710c01e83d8670aa5d07e13ddcfa205ffbc0fb8e8",
+    "preservation": {
+      "files": 1409,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": []
+    },
+    "historical_preservation_with_relocation": {
+      "files": 548,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": [
+        {
+          "original": "../ganta/notebook/13_cascade_crop_refine_chronic_wound.py",
+          "current": "../ganta/notebook/scripts/13_cascade_crop_refine_chronic_wound.py",
+          "sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371"
+        }
+      ]
+    },
+    "old_failed_workflow_and_logs_preserved": true,
+    "canonical_final_validation_sha256": "2635ac7b6bc2a51b115b4016e36ee850d17bff2b8de5e9fee7cdff83dd4c0f4a",
+    "selected_candidate": "B1",
+    "visual_review": "PASSED \u2014 see visual_review_evidence",
+    "helper_sha256": "2ce40907cb28988c7f5fd459762d1e7deed8e16103cf5662ff40558956ccfed0"
+  },
+  "publication_tests": {
+    "passed": 237,
+    "warnings": 29,
+    "wall_seconds": 4.5,
+    "new_preservation_tests": 4,
+    "command": "CUDA_VISIBLE_DEVICES='' .venv-xfuseg/bin/python -m pytest -ra",
+    "log_sha256": "1d96a49bf74b2c99bc9191cd001a1713ceafd333410e32cf81cf771e7354c45a",
+    "ruff": "NOT RUN \u2014 not installed; no dependency changes"
+  }
+}
