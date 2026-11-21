@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "published_utc": "2026-11-19T15:25:49.196236+00:00",
+  "original_ganta_all_17_negatives_checked": true,
+  "original_ganta_fresh_masks_equal_saved_masks_on_all_17": true,
+  "original_inputs_preserved": {
+    "files_checked": 56,
+    "all_unchanged": true
+  },
+  "cp2_all_7_validation_negatives_checked": true,
+  "cp2_checkpoint_is_interim_epoch27": true,
+  "cp2_source_test_not_accessed": true,
+  "cp2_source_code_config_manifest_unchanged": true,
+  "visual_reviews": {
+    "original_ganta": {
+      "status": "passed",
+      "reviewed_utc": "2026-11-19T14:47:08.893293+00:00",
+      "method": "Opened and visually inspected all three actual PNG pages with view_image",
+      "figures": {
+        "original_ganta_empty_gt_page_1.png": "4f84634627f4dc002c2b3eb9b68b90fbd19505fdfcc25ef138a559243a42657c",
+        "original_ganta_empty_gt_page_2.png": "1c9c604266a6ab24ee759914c88eb8950e4619ea70ac6477b65743307a6e1e10",
+        "original_ganta_empty_gt_page_3.png": "5f0de0ef31375822ee215e906211a5f0fe95582ce3fa9e05b29069b1c1d7b8bd"
+      },
+      "all_12_original_cascade_fp_cases_displayed": true,
+      "observations": [
+        "Titles, counts, columns and overlays readable; original and fresh masks visually consistent",
+        "Each row shows actual RGB, fully empty GT, original saved cascade output and fresh CPU output",
+        "Some photos contain wound-like visible areas despite entirely empty annotations; annotation review warranted",
+        "Display zoom does not change model inputs, masks, thresholds, or pixel counts"
+      ],
+      "original_checkpoint_configuration": true,
+      "cp2_weights_or_training_protocol_used": false
+    },
+    "cp2_interim": {
+      "status": "passed",
+      "reviewed_utc": "2026-11-19T14:41:15.761373+00:00",
+      "method": "Both actual figures opened and visually inspected with view_image",
+      "figures": {
+        "empty_gt_contact_sheet.png": "fcb0939e2cedca00e276b7a0a933e64b823c8987eb54387ce25203954708623d",
+        "empty_gt_zoom.png": "7618ab9ad5465fb1d6696729c612644bbf2b324386e8f3057a910474fd0171d0"
+      },
+      "observations": [
+        "All seven GT-empty validation cases included in the contact sheet; four cascade-positive cases all included in zoom",
+        "GT columns fully black; red overlays identify positive model predictions at threshold 0.5",
+        "Zoom bounds identical across each row and derived only from nonblack source RGB; no change to inference grid",
+        "Some source photos contain wound-like visible regions despite empty masks; this is an annotation-audit flag, not a clinical determination",
+        "No final test result, model selection, or threshold change claimed"
+      ]
+    }
+  },
+  "no_training_or_threshold_changes": true
+}

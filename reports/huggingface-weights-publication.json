@@ -1,0 +1,194 @@
+{
+  "status": "COMPLETED — ALL AVAILABLE ORIE AND GANTA CHECKPOINTS PUBLISHED",
+  "verified_utc": "2026-11-21T10:49:37.651087+00:00",
+  "repo_id": "maulnite/foot-ulcer-segmentation-weights",
+  "verified_revision": "4ff21e0a225993e840ed4d953f7ad03b9b348c5a",
+  "checkpoint_paths_verified": 171,
+  "remote_files_verified": 1133,
+  "logical_checkpoint_bytes": 128333339745,
+  "unique_checkpoint_contents": 141,
+  "all_checkpoint_SHA256_match_server": true,
+  "source_checkpoint_SHA256_rechecked": true,
+  "protected_research_files_unchanged": 610,
+  "training_executed": false,
+  "GPU_used": false,
+  "raw_datasets_or_media_included": false,
+  "final_revision": "b9cf18ef27a2583f89dc3a93614721c74926504c",
+  "url": "https://huggingface.co/maulnite/foot-ulcer-segmentation-weights",
+  "local_publication_run": "outputs/model-publication/20261121T102717Z",
+  "collection_counts": {
+    "orie/cp2": 118,
+    "orie/cp1": 16,
+    "ganta/chronic-wound": 11,
+    "ganta/fuseg-2021": 26
+  },
+  "owner_counts": {
+    "orie": 134,
+    "ganta": 37
+  },
+  "checkpoint_roles": {
+    "historical_selected_checkpoint": 73,
+    "last_training_checkpoint_not_selected": 38,
+    "initialization_only_not_trained": 11,
+    "engineering_smoke_not_research_result": 45,
+    "cascade_coarse_stage": 2,
+    "cascade_refiner_stage": 2
+  },
+  "logical_checkpoint_GiB": 119.51973638031632,
+  "unique_checkpoint_GiB": 100.89091819245368,
+  "frozen_external_registry_records_verified": 26,
+  "selected_checkpoint_status_hashes_verified": 49,
+  "strict_json_metadata_validation": "passed",
+  "tests": {
+    "passed": 254,
+    "failures_or_errors": 0,
+    "warnings": 29,
+    "new_publication_tests": 11,
+    "ruff": "NOT RUN — unavailable; no packages changed"
+  },
+  "anonymous_access_checks": {
+    "status": "PASSED",
+    "samples": [
+      {
+        "owner": "orie",
+        "path": "orie/cp2/phase_p/20261107T170015Z/B1/best.pth",
+        "anonymous_download_access": true,
+        "SHA256_and_size_match": true
+      },
+      {
+        "owner": "ganta",
+        "path": "ganta/chronic-wound/cascade_chronic_wound_efficientnet-b7_2026-11-14_00-59-20/stage2_refiner.pth",
+        "anonymous_download_access": true,
+        "SHA256_and_size_match": true
+      }
+    ]
+  },
+  "checkpoint_directories_without_weights": [
+    "ganta/output_chronic_wound/checkpoints/cl_dpsc_chronic_wound_efficientnet-b7_2026-11-08_13-21-03",
+    "ganta/output_fuseg_2021/checkpoints/bw_ftl_efficientnet-b7_2026-11-06_20-26-27",
+    "ganta/output_fuseg_2021/checkpoints/lg_cl_bw_efficientnet-b7_2026-11-06_20-26-58",
+    "ganta/output_fuseg_2021/checkpoints/lg_cl_bw_efficientnet-b7_2026-11-15_13-12-21",
+    "ganta/output_fuseg_2021/checkpoints/lg_pscse_efficientnet-b7_2026-11-06_20-16-55",
+    "ganta/output_fuseg_2021/checkpoints/xFUSegNet_efficientnet-b7_2026-10-29_20-38-42",
+    "ganta/output_fuseg_2021/checkpoints/xFUSegNet_efficientnet-b7_2026-10-29_20-50-44",
+    "ganta/output_fuseg_2021/checkpoints/xFUSegNet_efficientnet-b7_2026-10-30_00-26-09"
+  ],
+  "excluded_files": [
+    {
+      "owner": "orie",
+      "path": "outputs/cache/torch/hub/checkpoints/efficientnet-b7-dcc49843.pth",
+      "reason": "upstream pretrained download cache; not an experiment-trained checkpoint"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/runs/cp1-xfusegnet-01/fold-1/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/runs/cp1-xfusegnet-01/fold-2/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/runs/cp1-xfusegnet-01/fold-3/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/runs/cp1-xfusegnet-01/fold-4/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/runs/cp1-xfusegnet-01/fold-5/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-01/fold-1/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-01/fold-2/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-01/fold-3/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-01/fold-4/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-01/fold-5/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-02/fold-1/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-02/fold-2/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-02/fold-3/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-02/fold-4/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-02/fold-5/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-03/fold-1/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-03/fold-2/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-03/fold-3/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-03/fold-4/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    },
+    {
+      "owner": "orie",
+      "path": "outputs/smoke/xfusegnet-source-03/fold-5/end-rng.pth",
+      "reason": "RNG-only state; no model parameters"
+    }
+  ],
+  "preparation_started_utc": "2026-11-21T10:27:29.503171+00:00",
+  "prepared_utc": "2026-11-21T10:30:17.797663+00:00",
+  "upload_started_utc": "2026-11-21T10:30:41.090431+00:00",
+  "all_files_uploaded_utc": "2026-11-21T10:47:43.731599+00:00",
+  "completed_utc": "2026-11-21T10:49:39.822910+00:00",
+  "media_published": false,
+  "shared_environment_modified": false,
+  "models_retrained_or_reselected": false,
+  "original_checkpoint_bytes_preserved": true,
+  "model_catalog_url": "https://huggingface.co/maulnite/foot-ulcer-segmentation-weights/blob/main/CATALOG.md",
+  "hub_validation_url": "https://huggingface.co/maulnite/foot-ulcer-segmentation-weights/blob/main/publication-validation.json"
+}

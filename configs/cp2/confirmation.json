@@ -1,0 +1,56 @@
+{
+  "name": "cp2-b1-h2-a6-seed-confirmation",
+  "base_config": "configs/cp2/phase_p.json",
+  "base_root": "outputs/cp2/phase_p/20261107T170015Z",
+  "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+  "models": [
+    "B1",
+    "H2",
+    "A6"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "fresh_seeds": [
+    43,
+    44
+  ],
+  "cached_seed": 42,
+  "cached_roots": {
+    "B1": "outputs/cp2/phase_p/20261107T170015Z",
+    "H2": "outputs/cp2/phase_h/20261112T105427Z",
+    "A6": "outputs/cp2/phase_a/20261108T185142Z"
+  },
+  "architecture_configs": {
+    "H2": "configs/cp2/phase_h.json",
+    "A6": "configs/cp2/phase_a.json"
+  },
+  "seed_policy": "split_seed stays 42; per-seed shared ImageNet encoder/new decoder state; epoch RNG is training_seed + 10007 * zero_based_epoch; H2 head seed training_seed + 30003; A6 existing seed + 20200 + stage",
+  "training_policy": "all phase-P settings unchanged except training seed; each seed shares source tensors and actual inputs across its three models; FP32, no AMP, one sequential trainer",
+  "selection": {
+    "data": "validation only, equal weighting of seeds 42/43/44",
+    "min_full_guard_seed_passes": 2,
+    "max_active_parameter_ratio": 1.01,
+    "guards": [
+      "mean Image Dice strictly higher than paired B1",
+      "mean small Dice not lower",
+      "mean Boundary IoU not lower",
+      "mean total foreground misses not higher",
+      "mean empty-FP image count not higher",
+      "active training params <=1.01*B1"
+    ],
+    "ranking": "highest mean validation Image Dice among eligible; exact ties H2 before A6; otherwise retain B1",
+    "historical": "seed42 screening failures remain failures; this is a separately preregistered exploratory replication, not retroactive reselection",
+    "test": "all models/seeds reported only after persisted validation-only decision; exposed source-test is descriptive, never used for routing",
+    "routing": "if BOTH H2 and A6 eligible, recommend bounded combination preregistration; if replicated mean empty-FP excess remains, recommend presence-supervision preregistration; otherwise hold/diagnose. Do not auto-launch new architectures."
+  },
+  "scope": "six fresh full runs only; no CP1 retraining, no changed labels/split/threshold/empty rules, no external data, no H3/L3/combination/presence training before result review",
+  "limitations": [
+    "selection of candidates informed by reused validation; not confirmatory evidence on independent data",
+    "three seeds assess training variability on ONE duplicate-group split, not patient independence",
+    "no claim of bitwise historical GPU replay; cached seed42 original artifacts immutable",
+    "mask-empty is an annotation property, not diagnosis of healthy tissue"
+  ]
+}

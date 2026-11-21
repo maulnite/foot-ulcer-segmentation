@@ -1,0 +1,36 @@
+{
+  "name": "cp2-presentation-p0-read-only",
+  "seed": 42,
+  "threshold": 0.5,
+  "cpu_threads": 4,
+  "canvas": [224, 224],
+  "figure_pixels": [2400, 1350],
+  "dpi": 150,
+  "manifest": "outputs/cp2/phase_p/20261107T170015Z/data/manifest.json",
+  "cp1_run": "outputs/runs/cp1-baseline-01",
+  "cp1_cache": "outputs/analysis/cp1-baseline-01/prediction-manifest.json",
+  "original_ganta_replay": "outputs/partner-cascade/20261117T110234Z",
+  "partner_root": "../ganta",
+  "partner_source": "notebook/scripts/13_cascade_crop_refine_chronic_wound.py",
+  "families": [
+    {"id": "P", "report": "reports/cp2-phase-p-results.json", "models": ["B0", "B1"]},
+    {"id": "L", "report": "reports/cp2-phase-l-results.json", "models": ["L1", "L2", "L3", "L4"]},
+    {"id": "A", "report": "reports/cp2-phase-a-results.json", "models": ["A1", "A2", "A3", "A5", "A6"]},
+    {"id": "H", "report": "reports/cp2-phase-h-results.json", "models": ["H1", "H2"]},
+    {"id": "N", "report": "reports/cp2-phase-n-results.json", "models": ["N1"]},
+    {"id": "C", "report": "reports/cp2-phase-c-results.json", "models": ["A1H2"]}
+  ],
+  "selection_policy": "posthoc illustrations; largest declared gain/regression, lexicographic ties; never training/model selection",
+  "overlay_colors": {"tp": "#009E73", "fp": "#D55E00", "fn": "#0072B2"},
+  "source_attribution": {
+    "dataset": "Chronic Wound / AZH wound-care-center patches",
+    "url": "https://github.com/uwm-bigdata/wound-segmentation/tree/42a272dfe0679f20675e826385925cb7562934b6",
+    "redistribution_status": "Selected analysis panels explicitly authorized for public push by the user; original dataset licensing audit remains unchanged; no full dataset mirror"
+  },
+  "publish_clinical_analysis_panels": true,
+  "defer": {
+    "11_combinations_final_comparison.png": "Latest combination workflow has no passed final report; do not resume or repair it for visual production",
+    "13_cascade_cp2_final_walkthrough.png": "CP2 cascade training is active; do not load its interim checkpoint or label interim outputs final",
+    "external_co2_case_gallery.png": "Optional clinical gallery deferred: CC BY versus CC BY-NC-ND ambiguity; aggregate external plots already exist"
+  }
+}

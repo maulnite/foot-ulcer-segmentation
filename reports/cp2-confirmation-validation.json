@@ -1,0 +1,207 @@
+{
+  "status": "passed",
+  "artifact_validation": {
+    "status": "passed",
+    "created_utc": "2026-11-16T20:04:31.077382+00:00",
+    "exports": [
+      {
+        "seed": 42,
+        "model": "B1",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 42,
+        "model": "B1",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 42,
+        "model": "H2",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 42,
+        "model": "H2",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 42,
+        "model": "A6",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 42,
+        "model": "A6",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 43,
+        "model": "B1",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 43,
+        "model": "B1",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 43,
+        "model": "H2",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 43,
+        "model": "H2",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 43,
+        "model": "A6",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 43,
+        "model": "A6",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 44,
+        "model": "B1",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 44,
+        "model": "B1",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 44,
+        "model": "H2",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 44,
+        "model": "H2",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 44,
+        "model": "A6",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 44,
+        "model": "A6",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      }
+    ],
+    "new_prediction_count": 2274,
+    "cached_prediction_count": 1137,
+    "selection_before_new_test": true,
+    "earliest_best_checkpoint_replayed": true,
+    "preservation": {
+      "status": "passed",
+      "unchanged_files": 16325
+    },
+    "patient_independence_claimed": false
+  },
+  "postprocess_recovery": {
+    "cause": "JSON converts integer dictionary keys to strings",
+    "raw_python_decision_equal": false,
+    "json_roundtrip_decision_equal": true,
+    "all_scientific_values_exactly_equal": true,
+    "selected_candidate_unchanged": "B1",
+    "training_or_inference_executed": false,
+    "frozen_validator_code_object_unchanged": true,
+    "repair_source_sha256": "82acd963292216aa3c2de01d2e628ec3929580dc1a40968c462ffa678adc56d0",
+    "original_failed_workflow_preserved": true
+  },
+  "postprocess_workflow": {
+    "status": "completed",
+    "finished_utc": "2026-11-16T20:05:20.660351+00:00",
+    "CPU_only": true,
+    "original_training_workflow_status": "failed; retained as historical evidence",
+    "final_validation": "passed",
+    "scientific_decision_unchanged": true,
+    "training_or_inference_executed": false
+  },
+  "preservation": {
+    "status": "passed",
+    "unchanged_files": 16325,
+    "existing_run_files_unchanged": 2463
+  },
+  "tests": {
+    "passed": 153,
+    "warnings": 29,
+    "regression_cases_added": 3,
+    "ruff": "not installed; not run; no dependency changes"
+  },
+  "visual_review": {
+    "status": "passed",
+    "utc": "2026-11-16T20:06:44.192666+00:00",
+    "direct_image_inspection": true,
+    "figures": [
+      {
+        "path": "reports/figures/cp2-confirmation/three_seed_image_dice.png",
+        "sha256": "ca91441b2b9c6abac24e30475385577f6bcb6900bae1e862c2fb6a915be8c8b0"
+      },
+      {
+        "path": "reports/figures/cp2-confirmation/three_seed_image_dice.svg",
+        "sha256": "096889116326c27b0977a31c31a6e9c87cd0345524e6fbe99987589dfd50afb1"
+      },
+      {
+        "path": "reports/figures/cp2-confirmation/training_curves.png",
+        "sha256": "7184d8fa7bb05a5ef29a69f43d5b6112bf0e282b993fccc8d764a82d487c6e0f"
+      },
+      {
+        "path": "reports/figures/cp2-confirmation/training_curves.svg",
+        "sha256": "ccdc679f2ef31a9082d4ac55b07d29770dae0bdbcdac52beff3d5b2e8bdde382"
+      }
+    ],
+    "checks": [
+      "readable axes/fonts/legends",
+      "all three seeds shown without favorable-seed selection",
+      "validation/test clearly distinguished",
+      "checkpoint markers match statuses",
+      "loss definitions and model differences explained",
+      "actual A6 seed44 validation-loss instability retained, not hidden"
+    ],
+    "scope": "Presentation-only review; canonical run metrics/checkpoints/decision unchanged"
+  }
+}

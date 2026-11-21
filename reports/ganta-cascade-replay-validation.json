@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "run": "outputs/partner-cascade/20261117T110234Z",
+  "checks": {
+    "coarse": {
+      "unique_prediction_rows": 278,
+      "counts_and_metrics_consistent": true
+    },
+    "cascade": {
+      "unique_prediction_rows": 278,
+      "counts_and_metrics_consistent": true
+    }
+  },
+  "hashes_match_recorded_execution": true,
+  "input_preservation": {
+    "files_checked": 839,
+    "all_unchanged": true
+  },
+  "tests": {
+    "command": ".venv-xfuseg/bin/python -m pytest",
+    "passed": 165,
+    "warnings": 29,
+    "elapsed_seconds": 3.39
+  },
+  "dependency_checks": {
+    "training_environment": "No broken requirements found",
+    "xfuseg_environment": "No broken requirements found"
+  },
+  "visual_review": "passed; labels, units, bar baselines, mean/p95 annotations and candidate counts checked",
+  "bitwise_replay": "NOT IDENTICAL \u2014 44 changed pixels across 35/278 masks; explicitly reported",
+  "gpu_latency": "NOT RUN \u2014 GPU BUSY",
+  "artifacts_sha256": {
+    "outputs/partner-cascade/20261117T110234Z/paired_timing.csv": "e11dd538a16b0584e21ed38503816ee8e765226863db0fc1739298ddb8a20879",
+    "outputs/partner-cascade/20261117T110234Z/replay_comparison.csv": "d6596a8796c5c8c83d1ff79de5628fa0bc4fc6315d0e61b36a71318ca7c0bb25",
+    "outputs/partner-cascade/20261117T110234Z/status.json": "f085b655f3113716a63b37430ada8aafa5afe9a9da9523f18b6ac932b25f1d4c",
+    "outputs/partner-cascade/20261117T110234Z/coarse_per_image.csv": "ef155e542aae58c55bf62d44b74a69069e020aaed5d0f8382e97524918206765",
+    "outputs/partner-cascade/20261117T110234Z/cascade_per_image.csv": "1813f8ba333a88232c2cb544da769642938c4d6d7da1e7862e25ab359402cd50",
+    "outputs/partner-cascade/20261117T110234Z/result.json": "4211fc3995fe5ddeffcf3d1e05819b33e17b3e8cfc48a98a7b0a06983b705d42",
+    "outputs/partner-cascade/20261117T110234Z/input_inventory.json": "68958f801efcb95a314ac9ac074021373033050ea300bbdd01bd469c8eecc974",
+    "outputs/partner-cascade/20261117T110234Z/protocol.json": "07dbb3f8902bcf3d79e5ebbeaa692b2f6c58516d585c8a0d546c4d45b2ed0a6f"
+  }
+}

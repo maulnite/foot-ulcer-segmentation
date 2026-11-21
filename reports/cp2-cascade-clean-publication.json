@@ -1,0 +1,138 @@
+{
+  "status": "COMPLETED \u2014 FINAL CASCADE SOURCE/EXTERNAL RESULTS AND REPORTING QA",
+  "utc": "2026-11-21T03:40:48.950949+00:00",
+  "base_commit": "0de894db2c9a0dbfef2e32d555fe5f0b9a5c215d",
+  "run": "outputs/cp2/cascade/20261118T161151Z",
+  "training_performed_during_recovery": false,
+  "new_model_inference_during_recovery": false,
+  "publication_execution": {
+    "status": "completed",
+    "finished_utc": "2026-11-21T03:39:37.303356+00:00",
+    "run": "outputs/cp2/cascade/20261118T161151Z",
+    "training_or_new_inference_performed": false,
+    "device": "cpu",
+    "threads": 2,
+    "frozen_report_sha256": "67787d7a1d8a9ea60f7db71dce5d3ef64be1abb111ed87967a51958bf23df601",
+    "publication_dispatcher_sha256": "d88ce65ff9c3c740fdd55c96ce19c89041f23e58f1228c7ccdc3584f50f79ed3",
+    "publication_helper_sha256": "2ce40907cb28988c7f5fd459762d1e7deed8e16103cf5662ff40558956ccfed0",
+    "preservation": {
+      "files": 2663,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": []
+    },
+    "historical_preservation_with_relocation": {
+      "files": 522,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": [
+        {
+          "original": "../ganta/notebook/13_cascade_crop_refine_chronic_wound.py",
+          "current": "../ganta/notebook/scripts/13_cascade_crop_refine_chronic_wound.py",
+          "sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371"
+        }
+      ]
+    },
+    "old_failed_workflow_and_logs_preserved": true,
+    "canonical_validation_sha256": "2196279d177f6f90aad1a684048d1e04795ded0da79b808c2e379d173fdf0c01",
+    "selected_candidate": "cascade",
+    "visual_review": "PASSED \u2014 both actual PNGs opened",
+    "visual_review_at_generation": "PENDING \u2014 inspect both actual figures"
+  },
+  "figures": [
+    {
+      "path": "reports/figures/cp2-cascade-clean/training.png",
+      "sha256": "c66b12c2dba4fcc2178b6870f732dc19a484991ea99739d1e0d1ca67065ecf07",
+      "pixel_review": "passed",
+      "checks": [
+        "actual PNG opened with view_image",
+        "readable labels and legends",
+        "no clipped text",
+        "honest evaluation scale 0\u2013100%",
+        "coarse and cascade consistently colored"
+      ]
+    },
+    {
+      "path": "reports/figures/cp2-cascade-clean/comparison.png",
+      "sha256": "1988484bbcd2a010e969c9d60b203fbee6f344840bb1b1cafc36f04b57b9f166",
+      "pixel_review": "passed",
+      "checks": [
+        "actual PNG opened with view_image",
+        "readable labels and legends",
+        "no clipped text",
+        "honest evaluation scale 0\u2013100%",
+        "coarse and cascade consistently colored"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "path": "reports/tables/cp2-cascade-clean-co2wounds-cascade.csv",
+      "rows": 558,
+      "sha256": "4c49d771b81ea9320e0dc900595ae13363a22ea30d75fd73dcc6dd39756612aa"
+    },
+    {
+      "path": "reports/tables/cp2-cascade-clean-co2wounds-coarse.csv",
+      "rows": 558,
+      "sha256": "6977ce3a57d629f10df7e2fd3e4308eeb6763d3eb8b4eed1489a4a9f83c6c905"
+    },
+    {
+      "path": "reports/tables/cp2-cascade-clean-summary.csv",
+      "rows": 6,
+      "sha256": "c026d641fd0498b559a7110f46cd47bf1a58f40dda92241c36474ff0d2f2cd63"
+    },
+    {
+      "path": "reports/tables/cp2-cascade-clean-test-cascade.csv",
+      "rows": 261,
+      "sha256": "c7a497a1230f96f32e4ddf5aee82778339a28eb25b51b320aadd5236e0cb08e0"
+    },
+    {
+      "path": "reports/tables/cp2-cascade-clean-test-coarse.csv",
+      "rows": 261,
+      "sha256": "465fed54ee4a71eee54bcc78343c25d62997e2f109e65b91d444821b037ce4b0"
+    },
+    {
+      "path": "reports/tables/cp2-cascade-clean-validation-cascade.csv",
+      "rows": 118,
+      "sha256": "4a4134ac7d053d0890244395f4d16a6f3075e74913c0a726b3942c5e5aa8400c"
+    },
+    {
+      "path": "reports/tables/cp2-cascade-clean-validation-coarse.csv",
+      "rows": 118,
+      "sha256": "c77f1334571bd2f605be4c2b19f89189bd8b97cf906daae7cf8d08725d94a6b6"
+    }
+  ],
+  "training_history": {
+    "public_path": "reports/training/cp2-cascade-clean-refiner-history.csv",
+    "sha256": "cfd88d71316f84b7b9cb1eb763a089f5c42b9ad415a669d1d7b0a9d4b2a7b199",
+    "source_history_sha256": "65a2a75471f979811b92bd00b500a122c49811d6dcb16977c8d7d99f19ea9aa3",
+    "epochs": 76,
+    "score_units": "fraction"
+  },
+  "tests": {
+    "passed": 237,
+    "warnings": 29,
+    "seconds": 4.88,
+    "command": "CUDA_VISIBLE_DEVICES='' .venv-xfuseg/bin/python -m pytest -ra",
+    "log_sha256": "d205f8eacddee6f4764e085807b3d2d4997b1290d2bcd9eba23432a11a1ed516",
+    "dependency_check": "No broken requirements found; no environment changes",
+    "ruff": "NOT RUN \u2014 not installed"
+  },
+  "selection_unchanged": "cascade; original validation-only guards all passed before test/CO2",
+  "limitations": [
+    "one exploratory seed42",
+    "RGB duplicate groups, not patient-level",
+    "source-test and CO2 previously exposed",
+    "two-model added computational cost",
+    "CO2 foreground misses worsened 143 to 153"
+  ],
+  "artifacts": {
+    "reports/cp2-cascade-clean.md": "938196e472295c5aaf2892caee25849018137d6ee59fe97b3742cbee0b1379f5",
+    "reports/cp2-cascade-clean-validation.json": "4e94c9c088751a661bd9a05d584c13634438ecd91f46ba554d8260b062addb87",
+    "reports/cp2-cascade-clean-results.json": "7cdee11ea1ed0547f40ab95c9cd53b15c8ea7f2b21b290a82599ea8890125cd8"
+  },
+  "checkpoint_hashes": {
+    "refiner": "a30cc65200e3a39be9a7ef60e2e1c8f5aebe79aa3278bfdecfa16949832a52a9",
+    "coarse": "e5f147018231b0e13926daa5d0158957e42831404ab05bd3151c1115592aeeeb"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "status": "COMPLETED \u2014 PHASE P ONLY",
+  "checked_utc": "2026-11-08T04:01:47.772839+00:00",
+  "run_root": "outputs/cp2/phase_p/20261107T170015Z",
+  "training_implementation_commit": "3f9fe45",
+  "models_actually_trained": [
+    "B0",
+    "B1"
+  ],
+  "seeds": [
+    42
+  ],
+  "completed_epochs": {
+    "B0": 47,
+    "B1": 55
+  },
+  "selected_epochs": {
+    "B0": 17,
+    "B1": 25
+  },
+  "full_test_suite": {
+    "tests": 60,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "environment": ".venv-xfuseg",
+    "warnings": 29,
+    "junit_file": "outputs/cp2/phase_p/20261107T170015Z/final_tests.xml",
+    "junit_sha256": "78a874f240abbbee3dff588732dd0140336ebdc7dfcbebc8682958bbbb1783dd"
+  },
+  "syntax_checks": {
+    "status": "passed",
+    "python_files": 53
+  },
+  "dependency_checks": {
+    "training": "passed",
+    "analysis": "passed",
+    "packages_installed_or_upgraded": 0
+  },
+  "ruff": "NOT RUN \u2014 unavailable in the audited project environments; syntax and diff checks passed",
+  "artifact_validation": {
+    "status": "passed",
+    "original_files_unchanged": 7001,
+    "predictions_verified": 758,
+    "duplicate_rgb_overlap": 0,
+    "patient_independence_established": false,
+    "common_epoch_inputs_identical": 47,
+    "local_evidence": "outputs/cp2/phase_p/20261107T170015Z/qa-final-csv-20261108.json",
+    "evidence_sha256": "c524eb9eece7897eb4545c4037187272531b6f79f1d5d6d703cd1fd9f489c10a"
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewed_utc": "2026-11-08T04:00:37.056575+00:00",
+    "method": "Direct visual inspection of 3 aggregate figures and 2 local real-data galleries",
+    "figures": [
+      {
+        "path": "reports/figures/cp2-phase-p/training_curves.png",
+        "sha256": "3f3a4a8f77d3d5730783aea111302d8bda323e3ca5d4b55c04280012fe038791"
+      },
+      {
+        "path": "reports/figures/cp2-phase-p/training_curves.svg",
+        "sha256": "05230ae212907a7d45e2bb93bce172ad7d0ce93323942c7e308e8f1520b7c9c7"
+      },
+      {
+        "path": "reports/figures/cp2-phase-p/subgroup_comparison.png",
+        "sha256": "cabe2283196b6f948c36ed7231b01b861defaeefb1146344dac026463e3cde7c"
+      },
+      {
+        "path": "reports/figures/cp2-phase-p/subgroup_comparison.svg",
+        "sha256": "587d0a8e6197510ce4f3399e324d5c2b1806ffc5ad76c484f37d4b44de13180f"
+      },
+      {
+        "path": "reports/figures/cp2-phase-p/paired_errors.png",
+        "sha256": "6a8eab37c73fe63e67df6678b568be4c58b69ad1dd4f03c0459e3bc462381351"
+      },
+      {
+        "path": "reports/figures/cp2-phase-p/paired_errors.svg",
+        "sha256": "89bad45b35631269d9176b32c0593ec2d1dc65722f8d4f6d58e850e197275834"
+      }
+    ],
+    "checks": [
+      "Axis labels and units readable",
+      "Legend positions clear",
+      "No empty scientific panels; absent validation TP=0 case explicitly marked unavailable",
+      "Dice axes 0\u20131 and paired identity line correct",
+      "Histogram counts agree with paired CSV population",
+      "Learning-rate log scale identified",
+      "No new clinical photos included in public figures"
+    ],
+    "local_galleries": [
+      {
+        "path": "outputs/cp2/phase_p/20261107T170015Z/error_analysis/validation_local_gallery.png",
+        "sha256": "0639acc23b9addfb76ef70d7948728b0c88734b5b9a78252d56dc0cf3f622f82"
+      },
+      {
+        "path": "outputs/cp2/phase_p/20261107T170015Z/error_analysis/test_local_gallery.png",
+        "sha256": "b5f6cff0d9b094e4dfd0c04c5bfba1be48b64201590d154b9b8fa11827257a45"
+      }
+    ],
+    "observations": [
+      "Original black padding is preserved and visible; small subgroup uses canvas area",
+      "GT-empty example with lesion-like appearance requires expert annotation review; no labels or metrics changed",
+      "Deterministic selected cases include failures and may repeat across rules"
+    ],
+    "render_replay_png_pixels_unchanged": true
+  },
+  "protected_completed_run_artifacts": "No initial weights, checkpoints, canonical evaluation metrics, raw data or completed experiment manifests overwritten",
+  "training_source_hashes_unchanged": true,
+  "advanced_phases_executed": false,
+  "external_datasets_used": 0,
+  "user_notebook_sha256": "91104168e303530c2716682bd104a5644765b8e447cb6b3b21c923850ca0e95a",
+  "uploaded_roadmap_sha256": "e4a3112934b82d1dea1c271487932986ec90836b50b29553d2ef8f91492fb174",
+  "publication_formatting": {
+    "SVG_trailing_whitespace_normalized": [
+      {
+        "path": "reports/figures/cp2-phase-p/paired_errors.svg",
+        "before_sha256": "e24f893829d595d6edca6c73c5ceb3829a2af6c2a2c8c0b1a4b094b83f24f8a3",
+        "sha256": "89bad45b35631269d9176b32c0593ec2d1dc65722f8d4f6d58e850e197275834",
+        "SVG_semantics_unchanged": true
+      },
+      {
+        "path": "reports/figures/cp2-phase-p/subgroup_comparison.svg",
+        "before_sha256": "c5e53b009a6d52c9ab70a7d96be6afae2af9be2098231808f0add7df50093d9e",
+        "sha256": "587d0a8e6197510ce4f3399e324d5c2b1806ffc5ad76c484f37d4b44de13180f",
+        "SVG_semantics_unchanged": true
+      },
+      {
+        "path": "reports/figures/cp2-phase-p/training_curves.svg",
+        "before_sha256": "ae148b65619d9c1a634a712b94d08173edc1a5b9e0f7ef75011225398866feab",
+        "sha256": "05230ae212907a7d45e2bb93bce172ad7d0ce93323942c7e308e8f1520b7c9c7",
+        "SVG_semantics_unchanged": true
+      }
+    ],
+    "scientific_values_changed": false,
+    "PNG_figures_unchanged": true,
+    "original_SVGs_preserved_locally": "outputs/cp2/phase_p/20261107T170015Z/publication_original_svg"
+  }
+}

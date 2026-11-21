@@ -1,0 +1,167 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-11-10T18:19:43.660612+00:00",
+  "run_root": "outputs/cp2/phase_a/20261108T185142Z",
+  "historical_and_user_files_unchanged": 9680,
+  "changed": [],
+  "training_sources_and_protocol_unchanged": true,
+  "preregistered_before_full_training": true,
+  "all_original_initial_tensors_match_B1": true,
+  "paired_local_initialization_A1_A2_A3": true,
+  "A1_A2_A3_initial_forward_equal": true,
+  "paired_inputs": {
+    "status": "passed",
+    "baseline_comparisons": [
+      {
+        "variant": "A1",
+        "common_B1_epochs": 55
+      },
+      {
+        "variant": "A2",
+        "common_B1_epochs": 55
+      },
+      {
+        "variant": "A3",
+        "common_B1_epochs": 55
+      },
+      {
+        "variant": "A5",
+        "common_B1_epochs": 51
+      },
+      {
+        "variant": "A6",
+        "common_B1_epochs": 55
+      }
+    ],
+    "all_candidate_pairwise_common_epoch_inputs_equal": true
+  },
+  "duplicate_rgb_overlap": 0,
+  "patient_independence_established": false,
+  "expansion_recomputed_from_A1_validation_only": true,
+  "expansion_saved_before_expanded_training": true,
+  "selection_recomputed_from_validation_only": true,
+  "selection_precedes_all_new_test_probabilities": true,
+  "checkpoint_hashes_epochs_and_metadata_verified": true,
+  "primary_predictions_verified": 1895,
+  "evaluations": [
+    {
+      "variant": "A1",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A1",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A2",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A2",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A3",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A3",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A5",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A5",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A6",
+      "split": "validation",
+      "predictions": 118,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    },
+    {
+      "variant": "A6",
+      "split": "test",
+      "predictions": 261,
+      "checksums_GT_threshold_region_boundary_subgroup_and_CSV": "passed"
+    }
+  ],
+  "validation_intervention_predictions_verified": 354,
+  "interventions": [
+    {
+      "label": "A1-drop_local",
+      "validation_images": 118,
+      "metrics_recomputed": true
+    },
+    {
+      "label": "A3-drop_local",
+      "validation_images": 118,
+      "metrics_recomputed": true
+    },
+    {
+      "label": "A3-fixed_prior_gate",
+      "validation_images": 118,
+      "metrics_recomputed": true
+    }
+  ],
+  "per_image_gate_RMS_and_entropy_rows": 1416,
+  "preflight": {
+    "status": "passed",
+    "created_utc": "2026-11-08T19:05:45.285275+00:00",
+    "training_sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+      "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+      "src/foot_ulcer_segmentation/cp2_phase_a.py": "d249c86a150aca654066e0f263a4c194972f52c1759b370c81507e0f90495508",
+      "scripts/run_cp2_phase_a.py": "48e487e44588b4ac0f7741eba8abd6a14541054558ba85b0d8ed9f8b1caa7a9c"
+    },
+    "protocol_fingerprint": "034f03134302f18849b935b12976d5811cab7cfdb401743a9d844fcfb2dbcad7",
+    "historical_files_unchanged": 9680,
+    "tests": {
+      "tests": 100,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "real_data_smoke_models": [
+      "A1",
+      "A2",
+      "A3",
+      "A5",
+      "A6"
+    ],
+    "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5"
+  },
+  "limitations": "one seed; RGB group split, not patient; CP1/P/L-exposed test descriptive; no external data"
+}

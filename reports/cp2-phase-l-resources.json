@@ -1,0 +1,168 @@
+{
+  "scope": "One sequential GPU trainer; unrelated workloads preserved",
+  "batch1_inference": {
+    "L1": {
+      "sample_id": "train/0020126b06a719c36fed196c2c71f2f0_0.png",
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup_steps": 5,
+      "timed_steps": 30,
+      "latency_median_ms": 76.90624729730189,
+      "latency_p95_ms": 81.56001099850982,
+      "peak_cuda_allocated_bytes": 329311744,
+      "peak_cuda_reserved_bytes": 362807296,
+      "gpu_overall": {
+        "utc": "2026-11-08T16:24:08.017274+00:00",
+        "gpu_csv": "2026/11/08 16:24:07.621, NVIDIA A100-SXM4-80GB, 20995, 60158, 100, 205.47, 54",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "caveat": "Shared-GPU forward+sigmoid only, same image, excludes data loading/GT loss/export"
+    },
+    "L2": {
+      "sample_id": "train/0020126b06a719c36fed196c2c71f2f0_0.png",
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup_steps": 5,
+      "timed_steps": 30,
+      "latency_median_ms": 68.95340303890407,
+      "latency_p95_ms": 81.76842231769115,
+      "peak_cuda_allocated_bytes": 329311744,
+      "peak_cuda_reserved_bytes": 362807296,
+      "gpu_overall": {
+        "utc": "2026-11-08T16:24:30.570157+00:00",
+        "gpu_csv": "2026/11/08 16:24:30.542, NVIDIA A100-SXM4-80GB, 20995, 60158, 99, 202.54, 54",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "caveat": "Shared-GPU forward+sigmoid only, same image, excludes data loading/GT loss/export"
+    },
+    "L3": {
+      "sample_id": "train/0020126b06a719c36fed196c2c71f2f0_0.png",
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup_steps": 5,
+      "timed_steps": 30,
+      "latency_median_ms": 78.70041392743587,
+      "latency_p95_ms": 81.79527788888663,
+      "peak_cuda_allocated_bytes": 329311744,
+      "peak_cuda_reserved_bytes": 362807296,
+      "gpu_overall": {
+        "utc": "2026-11-08T16:24:51.385890+00:00",
+        "gpu_csv": "2026/11/08 16:24:51.355, NVIDIA A100-SXM4-80GB, 20995, 60158, 100, 200.14, 55",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "caveat": "Shared-GPU forward+sigmoid only, same image, excludes data loading/GT loss/export"
+    },
+    "L4": {
+      "sample_id": "train/0020126b06a719c36fed196c2c71f2f0_0.png",
+      "input_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "warmup_steps": 5,
+      "timed_steps": 30,
+      "latency_median_ms": 79.35476931743324,
+      "latency_p95_ms": 84.9162493366748,
+      "peak_cuda_allocated_bytes": 329311744,
+      "peak_cuda_reserved_bytes": 362807296,
+      "gpu_overall": {
+        "utc": "2026-11-08T16:25:21.921987+00:00",
+        "gpu_csv": "2026/11/08 16:25:18.809, NVIDIA A100-SXM4-80GB, 20995, 60158, 100, 203.47, 56",
+        "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+      },
+      "caveat": "Shared-GPU forward+sigmoid only, same image, excludes data loading/GT loss/export"
+    }
+  },
+  "objectives": {
+    "L1": {
+      "full_invocation_seconds": 6282.883774091955,
+      "invocation_scope": "single uninterrupted invocation",
+      "completed_epoch_compute_seconds_sum": 6133.304710795637,
+      "completed_epoch_with_checkpoint_seconds_sum": 6269.497739860788,
+      "environment_record_to_finish_seconds": 6275.355513,
+      "epoch_seconds_median": 84.17355533502996,
+      "training_step_seconds_mean": 0.2545014771861172,
+      "peak_cuda_allocated_bytes": 2385961984,
+      "peak_cuda_reserved_bytes": 2503999488,
+      "sampled_gpu_overall_peak_used_MiB": 44056.0,
+      "sampled_gpu_utilization_mean_percent": 50.09019264448336,
+      "gpu_overall_samples": 1142,
+      "caveat": "GPU-wide sampling includes other processes. For resumed stages, allocator peaks cover the final invocation; failed-session peak was not saved. Environment-to-finish includes interruption pause."
+    },
+    "L2": {
+      "full_invocation_seconds": 6684.771886532195,
+      "invocation_scope": "last resumed invocation",
+      "completed_epoch_compute_seconds_sum": 6864.566067357548,
+      "completed_epoch_with_checkpoint_seconds_sum": 7024.656649744138,
+      "environment_record_to_finish_seconds": 7394.648892,
+      "epoch_seconds_median": 107.4791073272936,
+      "training_step_seconds_mean": 0.3019433078948151,
+      "peak_cuda_allocated_bytes": 2391150080,
+      "peak_cuda_reserved_bytes": 2512388096,
+      "sampled_gpu_overall_peak_used_MiB": 79237.0,
+      "sampled_gpu_utilization_mean_percent": 69.71312143439283,
+      "gpu_overall_samples": 1227,
+      "caveat": "GPU-wide sampling includes other processes. For resumed stages, allocator peaks cover the final invocation; failed-session peak was not saved. Environment-to-finish includes interruption pause."
+    },
+    "L3": {
+      "full_invocation_seconds": 6977.221674569882,
+      "invocation_scope": "single uninterrupted invocation",
+      "completed_epoch_compute_seconds_sum": 6816.900724545587,
+      "completed_epoch_with_checkpoint_seconds_sum": 6969.638288593851,
+      "environment_record_to_finish_seconds": 6975.597169,
+      "epoch_seconds_median": 94.56025707907975,
+      "training_step_seconds_mean": 0.2654618824009035,
+      "peak_cuda_allocated_bytes": 2385964032,
+      "peak_cuda_reserved_bytes": 2503999488,
+      "sampled_gpu_overall_peak_used_MiB": 39234.0,
+      "sampled_gpu_utilization_mean_percent": 78.03571428571429,
+      "gpu_overall_samples": 1232,
+      "caveat": "GPU-wide sampling includes other processes. For resumed stages, allocator peaks cover the final invocation; failed-session peak was not saved. Environment-to-finish includes interruption pause."
+    },
+    "L4": {
+      "full_invocation_seconds": 11976.556676291395,
+      "invocation_scope": "single uninterrupted invocation",
+      "completed_epoch_compute_seconds_sum": 11403.272459200583,
+      "completed_epoch_with_checkpoint_seconds_sum": 11956.275439694524,
+      "environment_record_to_finish_seconds": 11975.934496,
+      "epoch_seconds_median": 144.14857352431864,
+      "training_step_seconds_mean": 0.4578727727774463,
+      "peak_cuda_allocated_bytes": 2385963008,
+      "peak_cuda_reserved_bytes": 2503999488,
+      "sampled_gpu_overall_peak_used_MiB": 79326.0,
+      "sampled_gpu_utilization_mean_percent": 98.39013452914799,
+      "gpu_overall_samples": 1338,
+      "caveat": "GPU-wide sampling includes other processes. For resumed stages, allocator peaks cover the final invocation; failed-session peak was not saved. Environment-to-finish includes interruption pause."
+    }
+  },
+  "resource_interruptions": [
+    {
+      "created_utc": "2026-11-08T09:08:53.330951+00:00",
+      "cause": "DataLoader POSIX shared memory ENOSPC in /dev/shm; shared space recovered before retry",
+      "failed_utc": "2026-11-08T09:04:06.352100+00:00",
+      "objective_id": "L2",
+      "completed_epoch_boundary": 4,
+      "last_checkpoint_sha256": "ca25f0de1dafec047c48d7c1034cf7ed84805198f1c4790342c0ffc526f88c71",
+      "resume_optimizer_scheduler_rng_verified": true,
+      "shared_memory_available_bytes_before_resume": 1072828416,
+      "configuration_source_environment_worker_count_batch_precision_unchanged": true,
+      "shared_resources_modified_or_deleted": false,
+      "completed_L1_retrained": false,
+      "preserved_failure_directory": "outputs/cp2/phase_l/20261108T065944Z/interruptions/20261108T090853Z",
+      "incomplete_epoch_updates": "discarded; replay starts from full checkpoint after epoch 4"
+    }
+  ]
+}

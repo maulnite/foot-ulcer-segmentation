@@ -1,0 +1,120 @@
+{
+  "id": "cp2-cp1-matched",
+  "baseline": {
+    "name": "fusegnet-author-code-chronic-wound",
+    "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+    "seed": 42,
+    "cpu_threads": 2,
+    "data": {
+      "root": "data/raw/chronic_wound",
+      "split_manifest": "data/splits/chronic_wound_author_code/manifest.json",
+      "validation_fraction": 0.15,
+      "shuffle_seed": 42,
+      "source_counts": {
+        "train": 831,
+        "test": 278
+      },
+      "image_size": [
+        224,
+        224
+      ]
+    },
+    "model": {
+      "encoder_name": "efficientnet-b7",
+      "encoder_weights": "imagenet",
+      "classes": 1,
+      "activation": "sigmoid",
+      "decoder_attention_type": "pscse"
+    },
+    "training": {
+      "batch_size": 2,
+      "num_workers": 4,
+      "max_epochs": 200,
+      "learning_rate": 0.0001,
+      "weight_decay": 1e-05,
+      "early_stopping_patience": 30,
+      "scheduler": {
+        "factor": 0.1,
+        "patience": 10,
+        "min_lr": 1e-05
+      },
+      "checkpoint_policy": "author_if_loss_elif_iou",
+      "loss": "author_dice_plus_focal_with_probability_input"
+    },
+    "evaluation": {
+      "prediction_threshold": 0.5,
+      "evaluator": "offline_hard_line",
+      "also_report_author_inline": true
+    },
+    "provenance": {
+      "dataset_count_discrepancy": "source 831/278 versus paper 810/200; unresolved",
+      "split_order": "capture local unsorted os.listdir order, then apply author shuffle",
+      "explicit_training_seed": "additional reproducibility setting; original torch/numpy seeds unknown",
+      "source_loss_and_checkpoint_quirks": "preserved; see docs/reference-audit.md",
+      "evaluation_discrepancy": "report offline and inline separately; paper table evaluator unknown"
+    }
+  },
+  "baseline_run": "outputs/runs/cp1-baseline-01",
+  "split_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+  "expected_initial_state_sha256": "fd3fe8b007a897b5c3a977b8bbafec662fed4bdf6489d8a51a18376a4bb7e031",
+  "pretrained_sha256": "dcc49843b8ec5a097a8cb166eded1d7a09291093eff7735f603bcfcafce12c8e",
+  "models": [
+    "C0",
+    "CH2",
+    "CA6"
+  ],
+  "precision": {
+    "dtype": "float32",
+    "amp": false,
+    "matmul_allow_tf32": true,
+    "cudnn_allow_tf32": true,
+    "cudnn_benchmark": false
+  },
+  "variants": {
+    "C0": {
+      "factor": "unchanged original CP1 FUSegNet"
+    },
+    "CH2": {
+      "factor": "only auxiliary boundary supervision",
+      "stage": 3,
+      "channels": 32,
+      "head_seed": 30045,
+      "auxiliary_weight": 0.1,
+      "target": "3x3 morphological gradient of actual augmented binary GT, explicit zero exterior",
+      "validation_loss": "main source loss only, preserving checkpoint/scheduler task",
+      "inference": "original primary probability output; auxiliary is training-only"
+    },
+    "CA6": {
+      "factor": "only CBAM replacement stage 2-3",
+      "constructor_config": "configs/cp2/phase_a.json",
+      "gain": 3,
+      "initialization": "historical A6 constructor; restore complete pre-addition RNG"
+    }
+  },
+  "invariants": "Every original CP1 config key/value and every split row/order unchanged; original sigmoid model, source loss including focal mismatch, TrainEpoch/ValidEpoch, loaders, optimizer, scheduler, checkpoint and early stopping reused. Only model factor changes; bookkeeping/observation must consume no RNG.",
+  "selection": {
+    "data": "validation only, selected source-policy checkpoints",
+    "primary": "highest offline image Dice among candidates satisfying all unchanged research guards relative to fresh C0; otherwise retain C0",
+    "tie_order": [
+      "CH2",
+      "CA6"
+    ],
+    "guards": [
+      "overall Image Dice strictly higher",
+      "small Image Dice not lower (GT area >0 and <=1% full canvas)",
+      "Boundary IoU not lower",
+      "no extra total foreground misses",
+      "no extra GT-empty FP images",
+      "active training parameters <=1.01 * C0"
+    ],
+    "test": "only after validation-only selection.json; 278 original CP1 test images, already exposed; exploratory source-protocol analysis"
+  },
+  "limitations": [
+    "Original CP1 exact-RGB cross-split overlap and conflicting annotations deliberately retained for the requested source-protocol comparison; no claim of patient independence or clean generalization",
+    "One seed and source-test previously inspected",
+    "Same config and matched initial tensors do not guarantee bitwise replay of historical GPU training",
+    "New C0 is a controlled fresh baseline; old CP1 and the prior 671/118/261 runs remain immutable"
+  ],
+  "scope": "Exactly three arms; no new loss search, combinations, multiseed, external data, or primary notebook changes",
+  "engineering_validation": "CPU reference-vs-observed exact step/state/log comparison plus three real-data GPU smokes; no assertion of cross-run GPU bitwise determinism and no precision/determinism flag changes"
+}

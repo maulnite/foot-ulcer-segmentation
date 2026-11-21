@@ -1,0 +1,105 @@
+{
+  "status": "completed",
+  "source": "REAL / CACHED predictions; FRESH paired analysis",
+  "source_media_policy": "Original photo/GT/prediction galleries local only; no new raw clinical imagery in Git",
+  "case_selection": {
+    "validation": [
+      {
+        "rule": "Random seed 42",
+        "sample_id": "train/0fe849d1ae06c9d2ba348e0a968b5ab2_0.png",
+        "missing_case": false,
+        "B0_dice": 0.8,
+        "B1_dice": 0.9047619047619048
+      },
+      {
+        "rule": "Median paired Dice, GT positif",
+        "sample_id": "train/54d67064d4e326c7508a57080d93a354_0.png",
+        "missing_case": false,
+        "B0_dice": 0.8938331318016929,
+        "B1_dice": 0.9282618034131292
+      },
+      {
+        "rule": "Kegagalan TP=0 pada salah satu model",
+        "sample_id": null,
+        "missing_case": true,
+        "B0_dice": null,
+        "B1_dice": null
+      },
+      {
+        "rule": "GT kosong dengan FP; fallback GT kosong",
+        "sample_id": "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+        "missing_case": false,
+        "B0_dice": 0.0,
+        "B1_dice": 0.0
+      },
+      {
+        "rule": "GT multi-komponen (8-connected)",
+        "sample_id": "train/45fb5f2db8202432f78f9862336cdf14_0.png",
+        "missing_case": false,
+        "B0_dice": 0.8836045056320401,
+        "B1_dice": 0.8960396039603961
+      },
+      {
+        "rule": "Luas GT positif terkecil",
+        "sample_id": "train/a5731674eeb2889c6a9a882d4b98a69b_0.png",
+        "missing_case": false,
+        "B0_dice": 0.8113207547169812,
+        "B1_dice": 0.7945205479452054
+      }
+    ],
+    "test": [
+      {
+        "rule": "Random seed 42",
+        "sample_id": "test/bddd694789472ca2f679ca9263576c4c_0.png",
+        "missing_case": false,
+        "B0_dice": 0.7894736842105263,
+        "B1_dice": 0.8713080168776371
+      },
+      {
+        "rule": "Median paired Dice, GT positif",
+        "sample_id": "test/fb558da791876eaf1e251fb36cbe94ab_0.png",
+        "missing_case": false,
+        "B0_dice": 0.915606936416185,
+        "B1_dice": 0.9106124001521491
+      },
+      {
+        "rule": "Kegagalan TP=0 pada salah satu model",
+        "sample_id": "test/c597b0deca08c4a4ff2679f23fc007ad_0.png",
+        "missing_case": false,
+        "B0_dice": 0.0,
+        "B1_dice": 0.0
+      },
+      {
+        "rule": "GT kosong dengan FP; fallback GT kosong",
+        "sample_id": "test/bbcede236aef5e690eb18bb7cc585c69_0.png",
+        "missing_case": false,
+        "B0_dice": 0.0,
+        "B1_dice": 0.0
+      },
+      {
+        "rule": "GT multi-komponen (8-connected)",
+        "sample_id": "test/baba5451a41a555f6ea4355b4c53db59_0.png",
+        "missing_case": false,
+        "B0_dice": 0.8733738074588031,
+        "B1_dice": 0.85007006071929
+      },
+      {
+        "rule": "Luas GT positif terkecil",
+        "sample_id": "test/c597b0deca08c4a4ff2679f23fc007ad_0.png",
+        "missing_case": false,
+        "B0_dice": 0.0,
+        "B1_dice": 0.0
+      }
+    ]
+  },
+  "public_figures": [
+    {
+      "path": "reports/figures/cp2-phase-p/paired_errors.png",
+      "sha256": "6a8eab37c73fe63e67df6678b568be4c58b69ad1dd4f03c0459e3bc462381351"
+    },
+    {
+      "path": "reports/figures/cp2-phase-p/paired_errors.svg",
+      "sha256": "89bad45b35631269d9176b32c0593ec2d1dc65722f8d4f6d58e850e197275834"
+    }
+  ]
+}

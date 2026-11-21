@@ -1,0 +1,413 @@
+{
+  "created_utc": "2026-11-12T16:58:27.372155+00:00",
+  "run_root": "outputs/cp2/phase_h/20261112T105427Z",
+  "selection_sha256": "34d9444a16e893c1b8f14cc44ba376efc276fe8968e964e32b32e9aa9ef008d1",
+  "primary_selection_changed": false,
+  "source_sha256": "100ea45667bec5754802384c6a65da841c19f7c67d3087ff16bb93064da57415",
+  "models": {
+    "H0": {
+      "validation_images": 118,
+      "bit_exact_primary_probability_images": 118,
+      "maximum_primary_probability_difference": 0.0,
+      "hard_mask_replay_exact_images": 118,
+      "with_without_head_main_bit_exact": true,
+      "checkpoint_sha256": "e5f147018231b0e13926daa5d0158957e42831404ab05bd3151c1115592aeeeb",
+      "auxiliary_target": null,
+      "auxiliary_target_foreground_fraction": null,
+      "mask_only_inference": {
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "warmup": 5,
+        "timed_steps": 30,
+        "median_ms": 49.16530498303473,
+        "p95_ms": 58.814975875429795,
+        "peak_allocated_bytes": 329111040,
+        "peak_reserved_bytes": 362807296,
+        "gpu_overall": {
+          "utc": "2026-11-12T16:59:39.843911+00:00",
+          "gpu_csv": "2026/11/12 16:59:39.803, NVIDIA A100-SXM4-80GB, 56567, 24585, 100, 310.08, 65",
+          "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+        },
+        "scope": "main forward+sigmoid only; head bypassed; no data/GT/export; shared GPU, not exclusive hardware"
+      }
+    },
+    "H1": {
+      "validation_images": 118,
+      "bit_exact_primary_probability_images": 118,
+      "maximum_primary_probability_difference": 0.0,
+      "hard_mask_replay_exact_images": 118,
+      "with_without_head_main_bit_exact": true,
+      "checkpoint_sha256": "63362d5accfa4e40dc3119b65e99937968118239143eadcf2dcd1f67b7b3dc31",
+      "auxiliary_target": "actual augmented segmentation mask",
+      "auxiliary_target_foreground_fraction": 0.02899100251859218,
+      "auxiliary_metrics": {
+        "variant": "H1",
+        "split": "validation",
+        "target": "actual augmented segmentation mask",
+        "interpretation": "AUXILIARY task only; H1 mask and H2 boundary scores are NOT directly comparable",
+        "auxiliary_group_caveat": "Size groups describe auxiliary target area; H2 band area is NOT original wound area",
+        "checkpoint_sha256": "63362d5accfa4e40dc3119b65e99937968118239143eadcf2dcd1f67b7b3dc31",
+        "selection_sha256": "34d9444a16e893c1b8f14cc44ba376efc276fe8968e964e32b32e9aa9ef008d1",
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 118,
+          "counts": {
+            "tp": 144833,
+            "tn": 5737358,
+            "fp": 11761,
+            "fn": 26816
+          },
+          "data_based": {
+            "dice": 0.8824742644930738,
+            "iou": 0.789667957031843,
+            "precision": 0.9248949512693659,
+            "recall": 0.8437742136520238
+          },
+          "image_based": {
+            "dice": 0.8219805567559502,
+            "iou": 0.7484813852583998,
+            "precision": 0.8772096362702214,
+            "recall": 0.8301506846345478,
+            "boundary_iou": 0.5063087246347251,
+            "pfom": 0.714329819916001
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 115
+        },
+        "gt_positive": {
+          "images": 111,
+          "counts": {
+            "tp": 144833,
+            "tn": 5386680,
+            "fp": 11207,
+            "fn": 26816
+          },
+          "data_based": {
+            "dice": 0.8839661996588228,
+            "iou": 0.792060419123288,
+            "precision": 0.9281786721294015,
+            "recall": 0.8437742136520238
+          },
+          "image_based": {
+            "dice": 0.8467901414162353,
+            "iou": 0.768655887031452,
+            "precision": 0.90550213585483,
+            "recall": 0.8554755025844742,
+            "boundary_iou": 0.5112110766387168,
+            "pfom": 0.732350619370163
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 111
+        },
+        "gt_empty": {
+          "images": 7,
+          "counts": {
+            "tp": 0,
+            "tn": 350678,
+            "fp": 554,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.42857142857142855,
+            "iou": 0.42857142857142855,
+            "precision": 0.42857142857142855,
+            "recall": 0.42857142857142855,
+            "boundary_iou": 0.42857142857142855,
+            "pfom": 0.42857142857142855
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 4
+        },
+        "subgroups": {
+          "small": {
+            "images": 36,
+            "counts": {
+              "tp": 8114,
+              "tn": 1793821,
+              "fp": 3000,
+              "fn": 1401
+            },
+            "data_based": {
+              "dice": 0.7866595569344127,
+              "iou": 0.6483419895606598,
+              "precision": 0.7300701816870551,
+              "recall": 0.8527588018021273
+            },
+            "image_based": {
+              "dice": 0.7510002673288202,
+              "iou": 0.6521085162578653,
+              "precision": 0.8322790551598689,
+              "recall": 0.8067687253799678,
+              "boundary_iou": 0.504195036706236,
+              "pfom": 0.7040357284578497
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 36
+          },
+          "medium": {
+            "images": 54,
+            "counts": {
+              "tp": 58413,
+              "tn": 2639022,
+              "fp": 4478,
+              "fn": 7591
+            },
+            "data_based": {
+              "dice": 0.906365646456418,
+              "iou": 0.8287647909987124,
+              "precision": 0.9287974431806014,
+              "recall": 0.8849918186642478
+            },
+            "image_based": {
+              "dice": 0.8947785688075788,
+              "iou": 0.8227065126881766,
+              "precision": 0.9356164240141104,
+              "recall": 0.8812605183443444,
+              "boundary_iou": 0.5281858645797778,
+              "pfom": 0.7591801446546027
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 54
+          },
+          "large": {
+            "images": 21,
+            "counts": {
+              "tp": 78306,
+              "tn": 953837,
+              "fp": 3729,
+              "fn": 17824
+            },
+            "data_based": {
+              "dice": 0.8790278674262622,
+              "iou": 0.784165673591923,
+              "precision": 0.9545437922721456,
+              "recall": 0.8145844169269263
+            },
+            "image_based": {
+              "dice": 0.8876025408454938,
+              "iou": 0.8294640566688803,
+              "precision": 0.9535906760651847,
+              "recall": 0.87266850869539,
+              "boundary_iou": 0.479589118960241,
+              "pfom": 0.7119002244884274
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 21
+          }
+        }
+      },
+      "mask_only_inference": {
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "warmup": 5,
+        "timed_steps": 30,
+        "median_ms": 54.1417570784688,
+        "p95_ms": 57.74359728675335,
+        "peak_allocated_bytes": 329112064,
+        "peak_reserved_bytes": 362807296,
+        "gpu_overall": {
+          "utc": "2026-11-12T17:00:08.928736+00:00",
+          "gpu_csv": "2026/11/12 17:00:08.845, NVIDIA A100-SXM4-80GB, 56567, 24585, 100, 333.71, 65",
+          "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+        },
+        "scope": "main forward+sigmoid only; head bypassed; no data/GT/export; shared GPU, not exclusive hardware"
+      }
+    },
+    "H2": {
+      "validation_images": 118,
+      "bit_exact_primary_probability_images": 118,
+      "maximum_primary_probability_difference": 0.0,
+      "hard_mask_replay_exact_images": 118,
+      "with_without_head_main_bit_exact": true,
+      "checkpoint_sha256": "a02071ca3e7013bc013e71be8c0243faa40abfeff36f34ad191126d84f1f4dbc",
+      "auxiliary_target": "3x3 morphological gradient, dilation minus erosion, explicit zero exterior, from actual augmented binary mask",
+      "auxiliary_target_foreground_fraction": 0.006703691142770668,
+      "auxiliary_metrics": {
+        "variant": "H2",
+        "split": "validation",
+        "target": "3x3 morphological gradient, dilation minus erosion, explicit zero exterior, from actual augmented binary mask",
+        "interpretation": "AUXILIARY task only; H1 mask and H2 boundary scores are NOT directly comparable",
+        "auxiliary_group_caveat": "Size groups describe auxiliary target area; H2 band area is NOT original wound area",
+        "checkpoint_sha256": "a02071ca3e7013bc013e71be8c0243faa40abfeff36f34ad191126d84f1f4dbc",
+        "selection_sha256": "34d9444a16e893c1b8f14cc44ba376efc276fe8968e964e32b32e9aa9ef008d1",
+        "units": "fraction",
+        "threshold_rule": "probability >= 0.5",
+        "evaluator": "ordinary confusion counts; source offline_hard_line empty rules",
+        "all": {
+          "images": 118,
+          "counts": {
+            "tp": 27360,
+            "tn": 5857048,
+            "fp": 24029,
+            "fn": 12331
+          },
+          "data_based": {
+            "dice": 0.6007905138339921,
+            "iou": 0.4293785310667078,
+            "precision": 0.5324096596444295,
+            "recall": 0.6893250358849783
+          },
+          "image_based": {
+            "dice": 0.5892132013417044,
+            "iou": 0.45107458649767,
+            "precision": 0.5370201141735086,
+            "recall": 0.6733313581950477,
+            "boundary_iou": 0.45107458771367476,
+            "pfom": 0.7463333555285074
+          },
+          "total_foreground_misses": 1,
+          "images_with_prediction": 116
+        },
+        "gt_positive": {
+          "images": 111,
+          "counts": {
+            "tp": 27360,
+            "tn": 5506457,
+            "fp": 23388,
+            "fn": 12331
+          },
+          "data_based": {
+            "dice": 0.6050487068631896,
+            "iou": 0.4337418158113835,
+            "precision": 0.5391345471636492,
+            "recall": 0.6893250358849783
+          },
+          "image_based": {
+            "dice": 0.6083527725974878,
+            "iou": 0.46150271357409967,
+            "precision": 0.552868229481748,
+            "recall": 0.6977756780812219,
+            "boundary_iou": 0.4615027148667893,
+            "pfom": 0.7753814049762512
+          },
+          "total_foreground_misses": 1,
+          "images_with_prediction": 111
+        },
+        "gt_empty": {
+          "images": 7,
+          "counts": {
+            "tp": 0,
+            "tn": 350591,
+            "fp": 641,
+            "fn": 0
+          },
+          "data_based": {
+            "dice": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "image_based": {
+            "dice": 0.2857142857142857,
+            "iou": 0.2857142857142857,
+            "precision": 0.2857142857142857,
+            "recall": 0.2857142857142857,
+            "boundary_iou": 0.2857142857142857,
+            "pfom": 0.2857142857142857
+          },
+          "total_foreground_misses": 0,
+          "images_with_prediction": 5
+        },
+        "subgroups": {
+          "small": {
+            "images": 86,
+            "counts": {
+              "tp": 16302,
+              "tn": 4277533,
+              "fp": 14285,
+              "fn": 7016
+            },
+            "data_based": {
+              "dice": 0.6048418514052499,
+              "iou": 0.43352923967679363,
+              "precision": 0.5329715238325768,
+              "recall": 0.6991165622823948
+            },
+            "image_based": {
+              "dice": 0.6082360936442123,
+              "iou": 0.46258731294785804,
+              "precision": 0.5538401753728582,
+              "recall": 0.6986540052460269,
+              "boundary_iou": 0.46258731447171136,
+              "pfom": 0.7748067142223197
+            },
+            "total_foreground_misses": 1,
+            "images_with_prediction": 86
+          },
+          "medium": {
+            "images": 25,
+            "counts": {
+              "tp": 11058,
+              "tn": 1228924,
+              "fp": 9103,
+              "fn": 5315
+            },
+            "data_based": {
+              "dice": 0.6053539168993266,
+              "iou": 0.4340555817069377,
+              "precision": 0.5484846981524485,
+              "recall": 0.6753801990670384
+            },
+            "image_based": {
+              "dice": 0.6087541481967542,
+              "iou": 0.45777169172837057,
+              "precision": 0.5495247356163285,
+              "recall": 0.694754232634293,
+              "boundary_iou": 0.4577716922258571,
+              "pfom": 0.7773583411697745
+            },
+            "total_foreground_misses": 0,
+            "images_with_prediction": 25
+          },
+          "large": {
+            "images": 0,
+            "image_based": null,
+            "data_based": null
+          }
+        }
+      },
+      "mask_only_inference": {
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "warmup": 5,
+        "timed_steps": 30,
+        "median_ms": 52.62247030623257,
+        "p95_ms": 56.96048454847187,
+        "peak_allocated_bytes": 329112064,
+        "peak_reserved_bytes": 362807296,
+        "gpu_overall": {
+          "utc": "2026-11-12T17:00:37.456689+00:00",
+          "gpu_csv": "2026/11/12 17:00:37.421, NVIDIA A100-SXM4-80GB, 56567, 24585, 100, 311.27, 65",
+          "columns": "timestamp,name,memory_used_MiB,memory_free_MiB,gpu_util_percent,power_W,temp_C"
+        },
+        "scope": "main forward+sigmoid only; head bypassed; no data/GT/export; shared GPU, not exclusive hardware"
+      }
+    }
+  },
+  "status": "COMPLETED \u2014 real post-selection replay and auxiliary diagnosis",
+  "caveats": [
+    "No retraining or primary reselection",
+    "Auxiliary targets differ; no H1-vs-H2 auxiliary metric ranking",
+    "GT-empty means annotation empty, not healthy patient; H2 target bands are not wound areas"
+  ]
+}

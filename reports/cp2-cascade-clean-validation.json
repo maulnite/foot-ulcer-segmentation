@@ -1,0 +1,174 @@
+{
+  "status": "passed",
+  "utc": "2026-11-21T03:39:15.455367+00:00",
+  "checks": [
+    {
+      "split": "validation",
+      "model": "coarse",
+      "predictions_recomputed": 118,
+      "hashes_truth_threshold_region_boundary_and_csv": "passed"
+    },
+    {
+      "split": "validation",
+      "model": "cascade",
+      "predictions_recomputed": 118,
+      "hashes_truth_threshold_region_boundary_and_csv": "passed"
+    },
+    {
+      "split": "test",
+      "model": "coarse",
+      "predictions_recomputed": 261,
+      "hashes_truth_threshold_region_boundary_and_csv": "passed"
+    },
+    {
+      "split": "test",
+      "model": "cascade",
+      "predictions_recomputed": 261,
+      "hashes_truth_threshold_region_boundary_and_csv": "passed"
+    },
+    {
+      "split": "CO2Wounds",
+      "model": "coarse",
+      "predictions_recomputed": 558,
+      "hashes_truth_threshold_region_boundary_and_csv": "passed"
+    },
+    {
+      "split": "CO2Wounds",
+      "model": "cascade",
+      "predictions_recomputed": 558,
+      "hashes_truth_threshold_region_boundary_and_csv": "passed"
+    }
+  ],
+  "predictions_recomputed": 1874,
+  "earliest_best_full_validation_checkpoint": true,
+  "selection_before_test_and_external": true,
+  "preservation": {
+    "files": 522,
+    "unchanged": true,
+    "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+    "verified_relocations": [
+      {
+        "original": "../ganta/notebook/13_cascade_crop_refine_chronic_wound.py",
+        "current": "../ganta/notebook/scripts/13_cascade_crop_refine_chronic_wound.py",
+        "sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371"
+      }
+    ]
+  },
+  "checkpoint_reload_bit_exact": true,
+  "no_patient_independence_claim": true,
+  "new_training_runs": 1,
+  "preflight": {
+    "status": "passed",
+    "created_utc": "2026-11-18T16:23:30.185382+00:00",
+    "tests": {
+      "tests": 212,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "preservation": {
+      "files": 522,
+      "all_unchanged": true
+    },
+    "dependencies": {
+      ".venv-training": "No broken requirements found.",
+      ".venv-xfuseg": "No broken requirements found."
+    },
+    "source_membership": {
+      "train": 671,
+      "validation": 118,
+      "test": 261
+    },
+    "external_images": 558,
+    "sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_cascade.py": "1974c74fc3fed9bb7b44a546bb3446c44373c214221c28d930ea00f74d371da5",
+      "src/foot_ulcer_segmentation/cp2_screening.py": "52d4fc7bb871345d4c5d66299f340ff19f258c4f420b9d41046d093f89003b03",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_cascade.py": "aed3782a958c44c893987b94ec5cb0e43d042d47362cfdceb4981dd21ce594e8",
+      "scripts/report_cp2_cascade.py": "67787d7a1d8a9ea60f7db71dce5d3ef64be1abb111ed87967a51958bf23df601"
+    },
+    "config_sha256": "6631177c32b796c9da036f0700085808916f0c1f3eb2ceee6bbd5b473eef1f7c",
+    "standalone_smoke_training": false,
+    "ruff": "NOT RUN \u2014 unavailable; environments unchanged"
+  },
+  "visual_review": "PASSED \u2014 both actual PNGs inspected",
+  "visual_review_evidence": [
+    {
+      "path": "reports/figures/cp2-cascade-clean/training.png",
+      "sha256": "c66b12c2dba4fcc2178b6870f732dc19a484991ea99739d1e0d1ca67065ecf07",
+      "pixel_review": "passed",
+      "checks": [
+        "actual PNG opened with view_image",
+        "readable labels and legends",
+        "no clipped text",
+        "honest evaluation scale 0\u2013100%",
+        "coarse and cascade consistently colored"
+      ]
+    },
+    {
+      "path": "reports/figures/cp2-cascade-clean/comparison.png",
+      "sha256": "1988484bbcd2a010e969c9d60b203fbee6f344840bb1b1cafc36f04b57b9f166",
+      "pixel_review": "passed",
+      "checks": [
+        "actual PNG opened with view_image",
+        "readable labels and legends",
+        "no clipped text",
+        "honest evaluation scale 0\u2013100%",
+        "coarse and cascade consistently colored"
+      ]
+    }
+  ],
+  "publication_recovery": {
+    "status": "completed",
+    "finished_utc": "2026-11-21T03:39:37.303356+00:00",
+    "run": "outputs/cp2/cascade/20261118T161151Z",
+    "training_or_new_inference_performed": false,
+    "device": "cpu",
+    "threads": 2,
+    "frozen_report_sha256": "67787d7a1d8a9ea60f7db71dce5d3ef64be1abb111ed87967a51958bf23df601",
+    "publication_dispatcher_sha256": "d88ce65ff9c3c740fdd55c96ce19c89041f23e58f1228c7ccdc3584f50f79ed3",
+    "publication_helper_sha256": "2ce40907cb28988c7f5fd459762d1e7deed8e16103cf5662ff40558956ccfed0",
+    "preservation": {
+      "files": 2663,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": []
+    },
+    "historical_preservation_with_relocation": {
+      "files": 522,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": [
+        {
+          "original": "../ganta/notebook/13_cascade_crop_refine_chronic_wound.py",
+          "current": "../ganta/notebook/scripts/13_cascade_crop_refine_chronic_wound.py",
+          "sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371"
+        }
+      ]
+    },
+    "old_failed_workflow_and_logs_preserved": true,
+    "canonical_validation_sha256": "2196279d177f6f90aad1a684048d1e04795ded0da79b808c2e379d173fdf0c01",
+    "selected_candidate": "cascade",
+    "visual_review": "PASSED \u2014 see visual_review_evidence"
+  },
+  "tests_at_publication": {
+    "passed": 237,
+    "warnings": 29,
+    "seconds": 4.88,
+    "command": "CUDA_VISIBLE_DEVICES='' .venv-xfuseg/bin/python -m pytest -ra",
+    "log_sha256": "d205f8eacddee6f4764e085807b3d2d4997b1290d2bcd9eba23432a11a1ed516",
+    "dependency_check": "No broken requirements found; no environment changes",
+    "ruff": "NOT RUN \u2014 not installed"
+  }
+}

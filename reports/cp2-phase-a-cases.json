@@ -1,0 +1,280 @@
+{
+  "status": "completed",
+  "source": "real cached, checksum-validated original-image predictions",
+  "media_policy": "Clinical source/GT/overlay galleries remain local; no clinical imagery committed",
+  "selection_rules": "Same six symmetric deterministic rules, including failures; repeats across rules allowed",
+  "case_selection": {
+    "validation": [
+      {
+        "rule": "Random seed 42",
+        "sample_id": "train/0fe849d1ae06c9d2ba348e0a968b5ab2_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          43,
+          36
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.9047619047619048,
+          "A1": 0.8042328042328042,
+          "A2": 0.8128342245989305,
+          "A3": 0.8409090909090909,
+          "A5": 0.8505747126436781,
+          "A6": 0.7450980392156863
+        }
+      },
+      {
+        "rule": "Median mean Dice semua model, GT positif",
+        "sample_id": "train/1e5b8ab0add235d3d0685951241c6dac_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          33,
+          39
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.919104991394148,
+          "A1": 0.9060402684563759,
+          "A2": 0.9161073825503355,
+          "A3": 0.9195804195804196,
+          "A5": 0.9299145299145299,
+          "A6": 0.952054794520548
+        }
+      },
+      {
+        "rule": "First ID TP=0 pada salah satu model",
+        "sample_id": null,
+        "available": false
+      },
+      {
+        "rule": "First ID GT kosong + FP; fallback kosong",
+        "sample_id": "train/3da2dcfdb655b741e1b97119f964e460_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          59,
+          94
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": 0.0,
+          "A6": 0.0
+        }
+      },
+      {
+        "rule": "First ID mask multi-komponen",
+        "sample_id": "train/45fb5f2db8202432f78f9862336cdf14_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          71,
+          149
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.8960396039603961,
+          "A1": 0.9028290282902829,
+          "A2": 0.9176946410515673,
+          "A3": 0.9137406129490562,
+          "A5": 0.9414556962025317,
+          "A6": 0.9168184578020644
+        }
+      },
+      {
+        "rule": "GT positif terkecil",
+        "sample_id": "train/a5731674eeb2889c6a9a882d4b98a69b_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          47,
+          47
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.7945205479452054,
+          "A1": 0.8571428571428571,
+          "A2": 0.8842105263157894,
+          "A3": 0.65625,
+          "A5": 0.8636363636363636,
+          "A6": 0.8514851485148515
+        }
+      }
+    ],
+    "test": [
+      {
+        "rule": "Random seed 42",
+        "sample_id": "test/bddd694789472ca2f679ca9263576c4c_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          44,
+          50
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.8713080168776371,
+          "A1": 0.8822314049586777,
+          "A2": 0.9085239085239085,
+          "A3": 0.8884073672806068,
+          "A5": 0.872454448017149,
+          "A6": 0.30122591943957966
+        }
+      },
+      {
+        "rule": "Median mean Dice semua model, GT positif",
+        "sample_id": "test/fb558da791876eaf1e251fb36cbe94ab_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          70,
+          83
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.9106124001521491,
+          "A1": 0.9324911172522701,
+          "A2": 0.9308323563892146,
+          "A3": 0.9108835798255593,
+          "A5": 0.8906192065257694,
+          "A6": 0.9233152594887684
+        }
+      },
+      {
+        "rule": "First ID TP=0 pada salah satu model",
+        "sample_id": "test/be4c8e6e241704330a2835daa99f732f_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          57,
+          117
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.33205619412515963,
+          "A1": 0.2041958041958042,
+          "A2": 0.5484199796126402,
+          "A3": 0.4955555555555556,
+          "A5": 0.0,
+          "A6": 0.39457459926017263
+        }
+      },
+      {
+        "rule": "First ID GT kosong + FP; fallback kosong",
+        "sample_id": "test/bbcede236aef5e690eb18bb7cc585c69_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          40,
+          41
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": 0.0,
+          "A6": 0.0
+        }
+      },
+      {
+        "rule": "First ID mask multi-komponen",
+        "sample_id": "test/baba5451a41a555f6ea4355b4c53db59_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          94,
+          141
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.85007006071929,
+          "A1": 0.8778396913844835,
+          "A2": 0.8725573491928632,
+          "A3": 0.8539232053422371,
+          "A5": 0.8590774439272112,
+          "A6": 0.8893690579083837
+        }
+      },
+      {
+        "rule": "GT positif terkecil",
+        "sample_id": "test/c597b0deca08c4a4ff2679f23fc007ad_0.png",
+        "available": true,
+        "display_crop_xyxy": [
+          0,
+          0,
+          42,
+          50
+        ],
+        "actual_model_and_metric_grid": [
+          224,
+          224
+        ],
+        "dice": {
+          "A0": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": 0.0,
+          "A6": 0.0
+        }
+      }
+    ]
+  },
+  "local_files": [
+    {
+      "path": "outputs/cp2/phase_a/20261108T185142Z/error_analysis/validation_local_gallery.png",
+      "sha256": "bc9bda8995b0a24c4a9db6a4ae8084fe9834c4ef96ef24c3c1d8b8bf37e8cec0"
+    },
+    {
+      "path": "outputs/cp2/phase_a/20261108T185142Z/error_analysis/test_local_gallery.png",
+      "sha256": "08ca256392d65dedb998a8b3fac062fe49bd09d5059187a844cb86416bb099bb"
+    }
+  ]
+}

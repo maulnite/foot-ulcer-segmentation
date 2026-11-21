@@ -1,0 +1,159 @@
+{
+  "file": "12_cascade_original_walkthrough_zoom.png",
+  "sha256": "88464e3347b98e6ab9353eacbe44b4919f5cc12be37f51dacb5a382d641255bb",
+  "selection": "Maximum coarse-to-cascade Dice gain on original positive test images; maximum cascade FP on original GT-empty test images; ties lexicographic",
+  "evidence": [
+    {
+      "sample_id": "e69d6a1e37a0f67893e1020152cd4635_0.png",
+      "source": "REAL / FRESH CPU",
+      "split": "Ganta historical test n=278",
+      "seed": 42,
+      "source_sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371",
+      "models": {
+        "coarse": {
+          "epoch": 41,
+          "parameters": 64898248,
+          "checkpoint_sha256": "880d4a5b18b26ce07b01d7e3a7a6da00750bace20b4bad6246062ca0d1d1e1e2",
+          "strict_load": true
+        },
+        "refiner": {
+          "epoch": 27,
+          "parameters": 64898248,
+          "checkpoint_sha256": "aa6b5d2566e751dfa461576830e2e739c614c1470e6e6ce0c5079656e1bd1df9",
+          "strict_load": true
+        }
+      },
+      "image_sha256": "d77dcd417f5112c9214f94b3d400206ba6d5712f990d4fa50e55f459811453df",
+      "mask_sha256": "7c61a50b281dfee442f37a4a4a4c5779f674ec8d53168a30fd26cc3c08f6e031",
+      "metrics": {
+        "coarse": {
+          "tp": 81,
+          "tn": 49383,
+          "fp": 0,
+          "fn": 712,
+          "dice": 0.1853546910755149,
+          "iou": 0.10214375775265605,
+          "precision": 0.9999999876543212,
+          "recall": 0.10214375775265605,
+          "gt_pixels": 793,
+          "gt_fraction": 0.01580436862244898,
+          "prediction_pixels": 81,
+          "boundary_iou": 0.042352941176470586
+        },
+        "cascade": {
+          "tp": 485,
+          "tn": 49383,
+          "fp": 0,
+          "fn": 308,
+          "dice": 0.758998435054773,
+          "iou": 0.6116015124696071,
+          "precision": 0.9999999979381443,
+          "recall": 0.6116015124696071,
+          "gt_pixels": 793,
+          "gt_fraction": 0.01580436862244898,
+          "prediction_pixels": 485,
+          "boundary_iou": 0.20903954802259886
+        }
+      },
+      "boxes_xyxy": [
+        [
+          3,
+          0,
+          59,
+          56
+        ],
+        [
+          0,
+          0,
+          56,
+          56
+        ]
+      ],
+      "forward_calls": 3,
+      "wall_seconds_with_trace": 0.7577638458460569,
+      "trace_sha256": "8611a14f942e8d8b21fff9d235197a0d907ed6458f5fe71f3b26144792133983",
+      "crop_input_and_stitch_exactly_verified": true
+    },
+    {
+      "sample_id": "ca7f1d6a3136067a18843121a079ae09_0.png",
+      "source": "REAL / FRESH CPU",
+      "split": "Ganta historical test n=278",
+      "seed": 42,
+      "source_sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371",
+      "models": {
+        "coarse": {
+          "epoch": 41,
+          "parameters": 64898248,
+          "checkpoint_sha256": "880d4a5b18b26ce07b01d7e3a7a6da00750bace20b4bad6246062ca0d1d1e1e2",
+          "strict_load": true
+        },
+        "refiner": {
+          "epoch": 27,
+          "parameters": 64898248,
+          "checkpoint_sha256": "aa6b5d2566e751dfa461576830e2e739c614c1470e6e6ce0c5079656e1bd1df9",
+          "strict_load": true
+        }
+      },
+      "image_sha256": "04581bc881f9b5ad2d0f159e0ab1b0b50e6a2f14b3680aef8d3c64dd779416e1",
+      "mask_sha256": "a788d702766dc485341c0254378757ebcdb291621dd0dca9595001cd10d850cc",
+      "metrics": {
+        "coarse": {
+          "tp": 0,
+          "tn": 49452,
+          "fp": 724,
+          "fn": 0,
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "gt_pixels": 0,
+          "gt_fraction": 0.0,
+          "prediction_pixels": 724,
+          "boundary_iou": 0.0
+        },
+        "cascade": {
+          "tp": 0,
+          "tn": 49421,
+          "fp": 755,
+          "fn": 0,
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "gt_pixels": 0,
+          "gt_fraction": 0.0,
+          "prediction_pixels": 755,
+          "boundary_iou": 0.0
+        }
+      },
+      "boxes_xyxy": [
+        [
+          0,
+          26,
+          68,
+          94
+        ]
+      ],
+      "forward_calls": 2,
+      "wall_seconds_with_trace": 0.5390408923849463,
+      "trace_sha256": "b63330982fdaf19c768c789401ca80dd19a92dc97d18290edef2481d2a3aa6f2",
+      "crop_input_and_stitch_exactly_verified": true
+    }
+  ],
+  "source_attribution": {
+    "dataset": "Chronic Wound / AZH wound-care-center patches",
+    "url": "https://github.com/uwm-bigdata/wound-segmentation/tree/42a272dfe0679f20675e826385925cb7562934b6",
+    "redistribution_status": "Selected analysis panels explicitly authorized for public push by the user; original dataset licensing audit remains unchanged; no full dataset mirror"
+  },
+  "code_sha256": {
+    "scripts/build_cp2_presentation.py": "c5e9603984ec306a6dd676abd2638a887f6014fa6b1e18c7cfc0c06fc1256020",
+    "src/foot_ulcer_segmentation/presentation.py": "3d5a0723e7de6e0b07cfbfa2893c4b331ee94879c9565f3186e397f9d86d0337",
+    "src/foot_ulcer_segmentation/presentation_plots.py": "6fdac3bd645d984bb69e87928d1deab3604955aadbe639078d8a42b9e6cbefd3",
+    "src/foot_ulcer_segmentation/presentation_replay.py": "70a82ada28aa9c59f523b721345d08f1d760235b2420e7c3772a05def34c72a4"
+  },
+  "base_commit": "e5b44695ff28a957ba41311188b7a269b037f231",
+  "pixels": [
+    2400,
+    1350
+  ]
+}

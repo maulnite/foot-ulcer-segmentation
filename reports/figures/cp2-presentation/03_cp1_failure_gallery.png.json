@@ -1,0 +1,107 @@
+{
+  "file": "03_cp1_failure_gallery.png",
+  "sha256": "094c1577f716274c91a39eb7c721c4d7765ac19ddc7a3f0052908f3149990d9d",
+  "selection": "minimum GT pixels among TP=0; maximum FP on GT-empty; minimum recall with TP>0 and FN>FP; ties lexicographic",
+  "evidence": [
+    {
+      "model": "CP1 original",
+      "split": "historical test n=278",
+      "seed": 42,
+      "sample_id": "d2480a941c86c7b123b2e129529ed2cb_0.png",
+      "selected_epoch": 52,
+      "checkpoint_sha256": "5d7cf8cd011c1681d853ff1306b293774fa770a217cf7f29f0223e8498d1a999",
+      "cache_sha256": "5574e0996264925d3123c069a8fa6c648a02f7f201a0271d4c93c8f401497e4c",
+      "manifest_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+      "image_sha256": "b318116d9a6f32c9dedb3e80e3d5bf5c60446021e0762c9465d3468a06046dec",
+      "mask_sha256": "7a9fa3e75a70d835319af52109ba43e53c9cd610d51f59247c3f1c93778e469e",
+      "metrics_recomputed": {
+        "name": "d2480a941c86c7b123b2e129529ed2cb_0.png",
+        "tp": 0,
+        "tn": 50112,
+        "fp": 0,
+        "fn": 64,
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "gt_pixels": 64,
+        "gt_fraction": 0.0012755102040816326,
+        "prediction_pixels": 0,
+        "boundary_iou": 0.0
+      },
+      "source": "REAL / CACHED"
+    },
+    {
+      "model": "CP1 original",
+      "split": "historical test n=278",
+      "seed": 42,
+      "sample_id": "e91e3180dc0c15eb6663684e70370f33_0.png",
+      "selected_epoch": 52,
+      "checkpoint_sha256": "5d7cf8cd011c1681d853ff1306b293774fa770a217cf7f29f0223e8498d1a999",
+      "cache_sha256": "604fbbd2a199f44005b76f8fbc0828144bf22495fec8d13e00ff4fdf2ff82d91",
+      "manifest_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+      "image_sha256": "644f08b0234eccff0850707caf9b0a72a0db21b5d963c12ad1f6e4597751a2c3",
+      "mask_sha256": "a788d702766dc485341c0254378757ebcdb291621dd0dca9595001cd10d850cc",
+      "metrics_recomputed": {
+        "name": "e91e3180dc0c15eb6663684e70370f33_0.png",
+        "tp": 0,
+        "tn": 48947,
+        "fp": 1229,
+        "fn": 0,
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "gt_pixels": 0,
+        "gt_fraction": 0.0,
+        "prediction_pixels": 1229,
+        "boundary_iou": 0.0
+      },
+      "source": "REAL / CACHED"
+    },
+    {
+      "model": "CP1 original",
+      "split": "historical test n=278",
+      "seed": 42,
+      "sample_id": "d2fb7d55c1c68c32359f92dc0aad620d_0.png",
+      "selected_epoch": 52,
+      "checkpoint_sha256": "5d7cf8cd011c1681d853ff1306b293774fa770a217cf7f29f0223e8498d1a999",
+      "cache_sha256": "edc01143402df61eb30b84d44ea0ef03b574148f525995ba3664d72253a505b3",
+      "manifest_fingerprint": "7937d6b039db4eedf736dd0482a6379917fd9640d39d03c2c5fdac5047166925",
+      "image_sha256": "f8ab73e0f5f670de4a6f7565d3194e855d1b268d6981c99c049ed19e9b75341b",
+      "mask_sha256": "290fb49fe5fffb7c56045df72477daacc8467bcf8712c91f5c95644dd16cec32",
+      "metrics_recomputed": {
+        "name": "d2fb7d55c1c68c32359f92dc0aad620d_0.png",
+        "tp": 11,
+        "tn": 50103,
+        "fp": 0,
+        "fn": 62,
+        "dice": 0.2619047619047619,
+        "iou": 0.1506849294426722,
+        "precision": 0.9999999090909174,
+        "recall": 0.1506849294426722,
+        "gt_pixels": 73,
+        "gt_fraction": 0.0014548788265306123,
+        "prediction_pixels": 11,
+        "boundary_iou": 0.1506849315068493
+      },
+      "source": "REAL / CACHED"
+    }
+  ],
+  "source_attribution": {
+    "dataset": "Chronic Wound / AZH wound-care-center patches",
+    "url": "https://github.com/uwm-bigdata/wound-segmentation/tree/42a272dfe0679f20675e826385925cb7562934b6",
+    "redistribution_status": "Selected analysis panels explicitly authorized for public push by the user; original dataset licensing audit remains unchanged; no full dataset mirror"
+  },
+  "code_sha256": {
+    "scripts/build_cp2_presentation.py": "c5e9603984ec306a6dd676abd2638a887f6014fa6b1e18c7cfc0c06fc1256020",
+    "src/foot_ulcer_segmentation/presentation.py": "3d5a0723e7de6e0b07cfbfa2893c4b331ee94879c9565f3186e397f9d86d0337",
+    "src/foot_ulcer_segmentation/presentation_plots.py": "6fdac3bd645d984bb69e87928d1deab3604955aadbe639078d8a42b9e6cbefd3",
+    "src/foot_ulcer_segmentation/presentation_replay.py": "70a82ada28aa9c59f523b721345d08f1d760235b2420e7c3772a05def34c72a4"
+  },
+  "base_commit": "e5b44695ff28a957ba41311188b7a269b037f231",
+  "pixels": [
+    2400,
+    1350
+  ]
+}

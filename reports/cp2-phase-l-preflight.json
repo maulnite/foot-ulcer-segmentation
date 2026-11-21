@@ -1,0 +1,136 @@
+{
+  "status": "PRETRAINING VERIFIED; full training running when recorded",
+  "created_utc": "2026-11-08T07:22:28.968467+00:00",
+  "run_root": "outputs/cp2/phase_l/20261108T065944Z",
+  "training_commit": "54e570ac687536dae93ce75cc239c11e37e5ef34",
+  "branch": "feat/cp2-phase-l",
+  "pretraining_checks": {
+    "status": "passed",
+    "created_utc": "2026-11-08T07:11:39.489740+00:00",
+    "training_commit": "54e570ac687536dae93ce75cc239c11e37e5ef34",
+    "tests": {
+      "tests": 80,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "test_environment": ".venv-xfuseg existing",
+    "protocol_fingerprint": "926f0bab907df7d30663d05196588206814a64cc8e176d7b147105451052d035",
+    "training_sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f"
+    },
+    "original_files_unchanged": 7917,
+    "syntax_files": 58,
+    "dependency_checks": "training and analysis pip check passed; no installs/upgrades",
+    "smoke": "all L1-L4 real-data forward/backward/optimizer/validation/encoder-update/checkpoint replay passed; input and initialization exactly match phase-P B1 smoke",
+    "boundary_oracle": "40 exact synthetic masks, signed distances and product-mean equal pinned author implementation; not model performance",
+    "precision": "float32, AMP off, inherited TF32 flags unchanged",
+    "full_training_processes": 1
+  },
+  "smoke": {
+    "L1": {
+      "status": "passed",
+      "diagnostic_smoke_only": true,
+      "completed_epochs": 1,
+      "checkpoint_replay_exact": true,
+      "encoder_update_verified_in_smoke": true,
+      "peak_cuda_allocated_bytes": 2385969152,
+      "peak_cuda_reserved_bytes": 2466250752
+    },
+    "L2": {
+      "status": "passed",
+      "diagnostic_smoke_only": true,
+      "completed_epochs": 1,
+      "checkpoint_replay_exact": true,
+      "encoder_update_verified_in_smoke": true,
+      "peak_cuda_allocated_bytes": 2385969152,
+      "peak_cuda_reserved_bytes": 2466250752
+    },
+    "L3": {
+      "status": "passed",
+      "diagnostic_smoke_only": true,
+      "completed_epochs": 1,
+      "checkpoint_replay_exact": true,
+      "encoder_update_verified_in_smoke": true,
+      "peak_cuda_allocated_bytes": 2385971200,
+      "peak_cuda_reserved_bytes": 2468347904
+    },
+    "L4": {
+      "status": "passed",
+      "diagnostic_smoke_only": true,
+      "completed_epochs": 1,
+      "checkpoint_replay_exact": true,
+      "encoder_update_verified_in_smoke": true,
+      "peak_cuda_allocated_bytes": 2385970176,
+      "peak_cuda_reserved_bytes": 2466250752
+    }
+  },
+  "boundary_reference_oracle": {
+    "status": "passed",
+    "fixtures": 40,
+    "fixtures_kind": "synthetic engineering masks, not scientific performance",
+    "distance_maps": "bit exact",
+    "surface_product_mean": "bit exact",
+    "max_absolute_loss_error": 0,
+    "reference": {
+      "repository": "LIVIAETS/boundary-loss",
+      "revision": "171c32d88a4ce59af8be46fb88b96d3637b9515b",
+      "files": {
+        "losses.py": {
+          "blob_sha": "e7d6096c84af1794b0d49a3f6e0de5bdd97218d6",
+          "sha256": "34d3a7644ef6d959eb8781ff13da463a378db17c19c52efd27caba888768c013",
+          "url": "https://github.com/LIVIAETS/boundary-loss/blob/171c32d88a4ce59af8be46fb88b96d3637b9515b/losses.py"
+        },
+        "utils.py": {
+          "blob_sha": "173a9c73ba045e37003e6da7582648a7a44590ce",
+          "sha256": "6d947d606520622ab78d1a5f253d6d19c982a7d73303d3970dc009086b7e2cea",
+          "url": "https://github.com/LIVIAETS/boundary-loss/blob/171c32d88a4ce59af8be46fb88b96d3637b9515b/utils.py"
+        },
+        "LICENSE": {
+          "blob_sha": "49fe55229fd38e752bf3a7490fa2d3386c758fa9",
+          "sha256": "0ca98d94d5a5ab6abba059d2e02d9a302db5853386cfefc3e967fe158998bfdb",
+          "url": "https://github.com/LIVIAETS/boundary-loss/blob/171c32d88a4ce59af8be46fb88b96d3637b9515b/LICENSE"
+        },
+        "readme.md": {
+          "blob_sha": "ea49a808d777cc9ccd6a9c923a12d7adcb2026e7",
+          "sha256": "5112f8cc27b54afa6d1cc095931dd9a9fa24ff5b3a9a86ddc478dca14927dd42",
+          "url": "https://github.com/LIVIAETS/boundary-loss/blob/171c32d88a4ce59af8be46fb88b96d3637b9515b/readme.md"
+        }
+      }
+    },
+    "empty_GT_policy": "zero foreground distance map; regional term remains active",
+    "code_execution": "only audited one_hot2dist, SurfaceLoss and predicate helpers extracted via AST; no third-party environment installation",
+    "engineering_note": "Initial isolated oracle extraction lacked the typing.Set annotation alias; supplied without changing any loss calculation or training code."
+  },
+  "cohort": {
+    "train": 671,
+    "validation": 118,
+    "source_test": 261
+  },
+  "data_role": "duplicate-group split, no patient identifiers, previously exposed source-test",
+  "historical_files_protected": 7917,
+  "primary_models": [
+    "L1",
+    "L2",
+    "L3",
+    "L4"
+  ],
+  "control": "L0 is CACHED phase-P B1; never retrained",
+  "original_GPU": "A100 81920 MiB total / 9099 MiB used / 72053 MiB free; 0% utilization; one unrelated GPU process retained",
+  "scope": "L.1 four fixed losses, one seed; no automatic L5-L7/architecture/external/multi-seed matrix",
+  "precision": "FP32, AMP off, TF32 CP1 flags preserved; environment unchanged",
+  "launcher_failure": "Initial launcher incorrectly resolved venv symlink and failed cv2 import before training; failure preserved and venv path corrected. No training/config/dependency changed."
+}

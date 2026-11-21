@@ -1,5 +1,24 @@
 # Research roadmap
 
+## Status · 21 November 2026
+
+CP1 reproduction and the implemented CP2 sequence are complete. The original
+roadmap below is retained as context; it does not imply all candidate proposals
+were executed. Completed CP2 work covers P/L/A/H/N, seed confirmation,
+recipe/matched sensitivity, three combinations, final Cascade, external
+analysis, scientific figures, and verified checkpoint publication.
+
+- [Final Cascade and error trade-offs](../reports/cp2-cascade-clean.md).
+- [Complete phase/result index](../reports/README.md).
+- [Presentation-ready figures](../reports/cp2-presentation-final-visual-index.md).
+- [All available Orie + Ganta weights](https://huggingface.co/maulnite/foot-ulcer-segmentation-weights).
+- [Release guide](releases.md).
+
+Cascade is the final candidate under its own source-validation guards. H3,
+independent clinical validation, and confirmatory multiseed Cascade experiments
+remain future research. Test/external observations do not change historical
+model-selection decisions or establish clinical superiority.
+
 ## Objective
 
 Reproduce FUSegNet as the reference benchmark for foot ulcer segmentation, analyze its behavior, and evaluate an extension supported by controlled experiments. The internship guidebook frames this as **Reproduce → Rethink → Reinvent**.

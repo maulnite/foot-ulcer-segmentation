@@ -1,0 +1,220 @@
+{
+  "status": "passed",
+  "models": 26,
+  "raw_rgb_to_input_tensors_verified": 558,
+  "predictions_verified": 14508,
+  "boundary_pfom_checks": 78,
+  "model_checks": [
+    {
+      "model": "CP1_original",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "B0_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "B1_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "L1_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "L2_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "L3_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "L4_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "A1_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "A2_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "A3_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "A5_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "A6_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "H1_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "H2_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "R0_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "RH2_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "RA6_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "C0_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "CH2_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "CA6_s42",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "B1_s43",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "H2_s43",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "A6_s43",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "B1_s44",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "H2_s44",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    },
+    {
+      "model": "A6_s44",
+      "predictions_verified": 558,
+      "all_probability_checksums": true,
+      "all_native_region_metrics_recomputed": true,
+      "boundary_pfom_independently_recomputed": 3
+    }
+  ],
+  "protected_files": 461,
+  "historical_files_unchanged": true,
+  "engineering": {
+    "tests_passed": 175,
+    "warnings": 29,
+    "test_seconds": 12.82,
+    "command": ".venv-xfuseg/bin/python -m pytest",
+    "compileall": "passed",
+    "dependency_checks": "training and xfuseg passed",
+    "ruff": "NOT RUN \u2014 not installed; no environment change"
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewed_utc": "2026-11-18T04:57:43.597681+00:00",
+    "method": "Visual inspection of every full generated figure using view_image",
+    "checks": [
+      "Readable titles, axis labels, units and model identifiers",
+      "All 26 checkpoints shown in registry order",
+      "Non-truncated 0\u2013100 performance scales and symmetric paired delta axes",
+      "Mean/SD and all three seed markers visible",
+      "Legends readable and no overlapping plotted annotations",
+      "No patient images, masks or embedded media"
+    ],
+    "figures": {
+      "all_models.png": "c5b43e085983cdb2cb7f89c3a74f5fd8449a9f528eb762cc599ef82b9e5302bf",
+      "focal_paired_effects.png": "cec613c547f0290e912b723390d4a1b8aec200334e581cd28c555124528851f0",
+      "three_seeds.png": "4ebc317d23c80a6803dd9d6dd05eb62e8dc57ed74bff242f9788c8b17e6c5054"
+    }
+  }
+}

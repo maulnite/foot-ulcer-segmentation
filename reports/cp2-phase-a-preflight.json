@@ -1,0 +1,682 @@
+{
+  "status": "PREFLIGHT PASSED \u2014 real training not yet launched",
+  "run_root": "outputs/cp2/phase_a/20261108T185142Z",
+  "preflight": {
+    "status": "passed",
+    "created_utc": "2026-11-08T19:05:45.285275+00:00",
+    "training_sources": {
+      "src/foot_ulcer_segmentation/cp2_train.py": "e0330d078984cc9bdd3f3ebdc7aadeabe5da6cec6f9bb3af4d54d826a16bed12",
+      "src/foot_ulcer_segmentation/cp2_data.py": "01010f927855eaf8ff028bfe61f0db61d1b0d41c731d9fe5556466e2d6a8a063",
+      "src/foot_ulcer_segmentation/cp2_protocol.py": "b6faafda051314b8d834b3775d1f886bf23f98fe56c972e9a3005e0fdb2774f8",
+      "src/foot_ulcer_segmentation/reference.py": "a7420cc75abcead583a70e00012cb500add3ea0d8d7a0db24f94b4ea6b02f791",
+      "src/foot_ulcer_segmentation/data.py": "19aa6047be7b4407d59285665ee7e50e381792b62027ea79bb734c7450ae7a6d",
+      "src/foot_ulcer_segmentation/checkpoint.py": "48ebc309f9898bbb97a03c645a5fdfa32ba1141863f3e4c1551601b8abc828de",
+      "src/foot_ulcer_segmentation/evaluation.py": "8bd57b1498ed3db833e11923fb45a76f0113de215be7ab79a912d1d101430ff6",
+      "src/foot_ulcer_segmentation/engine.py": "c6f8c025ccba1fa90d5ddbe0f79bf323603f11ce96dc35693d985a88f5b73d94",
+      "src/foot_ulcer_segmentation/common.py": "9eb17206f1fdbcee884b0144c9a9dee147fafc1723c105e9002e4b543f97e2ab",
+      "scripts/pfom_metrics.py": "dd3eb5ff72c5acdf454454eaf42c5738d0c6ea7d1ffb6aa74e9f0bb9e5214242",
+      "requirements-training.lock.txt": "5a7d5a7efc8f4149e114c5261334fb38c22f4336ed1d0e4899e33178edd830a5",
+      "src/foot_ulcer_segmentation/cp2_losses.py": "2666b8b9a75e0bfda3d23289fce4e67b6395e3a24e32f9f8af5bd8f884b9d27d",
+      "src/foot_ulcer_segmentation/cp2_phase_l.py": "74104f62426e97557583edb44bd34ddbb1e89ed7551b3d9764cb19c060a2c007",
+      "scripts/run_cp2_phase_l.py": "4661c85c45fc79a293f19d5b58901cea7cd24979254ccaba08e05d333042287f",
+      "src/foot_ulcer_segmentation/cp2_attention.py": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+      "src/foot_ulcer_segmentation/cp2_phase_a.py": "d249c86a150aca654066e0f263a4c194972f52c1759b370c81507e0f90495508",
+      "scripts/run_cp2_phase_a.py": "48e487e44588b4ac0f7741eba8abd6a14541054558ba85b0d8ed9f8b1caa7a9c"
+    },
+    "protocol_fingerprint": "034f03134302f18849b935b12976d5811cab7cfdb401743a9d844fcfb2dbcad7",
+    "historical_files_unchanged": 9680,
+    "tests": {
+      "tests": 100,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "real_data_smoke_models": [
+      "A1",
+      "A2",
+      "A3",
+      "A5",
+      "A6"
+    ],
+    "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5"
+  },
+  "architecture": {
+    "status": "passed",
+    "profiles": {
+      "A0": {
+        "registered_parameters": 70968939,
+        "active_forward_parameters": 64898248,
+        "conv_linear_MACs_per_image": 6806443200,
+        "MAC_caveat": "multiply-accumulate counts for Conv2d/Linear only; pooling, normalization, interpolation and elementwise operations excluded",
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "output_shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0
+        }
+      },
+      "A1": {
+        "registered_parameters": 70972285,
+        "active_forward_parameters": 64901594,
+        "conv_linear_MACs_per_image": 6828018880,
+        "MAC_caveat": "multiply-accumulate counts for Conv2d/Linear only; pooling, normalization, interpolation and elementwise operations excluded",
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "output_shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0
+        }
+      },
+      "A2": {
+        "registered_parameters": 70972291,
+        "active_forward_parameters": 64901600,
+        "conv_linear_MACs_per_image": 6828018880,
+        "MAC_caveat": "multiply-accumulate counts for Conv2d/Linear only; pooling, normalization, interpolation and elementwise operations excluded",
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "output_shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0
+        }
+      },
+      "A3": {
+        "registered_parameters": 70975327,
+        "active_forward_parameters": 64904636,
+        "conv_linear_MACs_per_image": 6828021897,
+        "MAC_caveat": "multiply-accumulate counts for Conv2d/Linear only; pooling, normalization, interpolation and elementwise operations excluded",
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "output_shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0
+        }
+      },
+      "A5": {
+        "registered_parameters": 70975429,
+        "active_forward_parameters": 64904738,
+        "conv_linear_MACs_per_image": 6845329600,
+        "MAC_caveat": "multiply-accumulate counts for Conv2d/Linear only; pooling, normalization, interpolation and elementwise operations excluded",
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "output_shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.2.attention1": 1,
+          "decoder.blocks.2.attention2": 1,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.3.attention1": 1,
+          "decoder.blocks.3.attention2": 1,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0
+        }
+      },
+      "A6": {
+        "registered_parameters": 70975382,
+        "active_forward_parameters": 64891593,
+        "conv_linear_MACs_per_image": 6803664704,
+        "MAC_caveat": "multiply-accumulate counts for Conv2d/Linear only; pooling, normalization, interpolation and elementwise operations excluded",
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "output_shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "decoder_calls": {
+          "decoder.blocks.0.attention1": 1,
+          "decoder.blocks.0.attention2": 1,
+          "decoder.blocks.0.conv1": 1,
+          "decoder.blocks.0.conv2": 0,
+          "decoder.blocks.1.attention1": 1,
+          "decoder.blocks.1.attention2": 1,
+          "decoder.blocks.1.conv1": 1,
+          "decoder.blocks.1.conv2": 0,
+          "decoder.blocks.2.attention1": 0,
+          "decoder.blocks.2.attention2": 0,
+          "decoder.blocks.2.conv1": 1,
+          "decoder.blocks.2.conv2": 0,
+          "decoder.blocks.3.attention1": 0,
+          "decoder.blocks.3.attention2": 0,
+          "decoder.blocks.3.conv1": 1,
+          "decoder.blocks.3.conv2": 0,
+          "decoder.blocks.4.attention1": 0,
+          "decoder.blocks.4.attention2": 1,
+          "decoder.blocks.4.conv1": 1,
+          "decoder.blocks.4.conv2": 0
+        }
+      }
+    },
+    "initialization": {
+      "A0": {
+        "source_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+        "all_original_named_tensors_equal": true,
+        "additional_tensor_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "local_tensor_sha256": null,
+        "complete_initial_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+        "additional_tensors": {},
+        "final_stage_forward_unchanged": true
+      },
+      "A1": {
+        "source_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+        "all_original_named_tensors_equal": true,
+        "additional_tensor_sha256": "bd9ad2e631e7203f0cd66653d1dff8fdc2d352b46cef16ea03b5e09ce9985e7b",
+        "local_tensor_sha256": "cd826ec9028c50e4afe89cdf265c902b63881a71e7e9d3f460dac4fe3c7c84f1",
+        "complete_initial_tensor_sha256": "370a388e9b6878a6e14cbec3219f744d394823925c303be7e81e0c0c91e7238e",
+        "additional_tensors": {
+          "decoder.blocks.2.fusion_log_prior": [
+            3
+          ],
+          "decoder.blocks.2.local_attention.depthwise.weight": [
+            176,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.2.local_attention.depthwise.bias": [
+            176
+          ],
+          "decoder.blocks.2.local_attention.pointwise.weight": [
+            1,
+            176,
+            1,
+            1
+          ],
+          "decoder.blocks.2.local_attention.pointwise.bias": [
+            1
+          ],
+          "decoder.blocks.3.fusion_log_prior": [
+            3
+          ],
+          "decoder.blocks.3.local_attention.depthwise.weight": [
+            128,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.3.local_attention.depthwise.bias": [
+            128
+          ],
+          "decoder.blocks.3.local_attention.pointwise.weight": [
+            1,
+            128,
+            1,
+            1
+          ],
+          "decoder.blocks.3.local_attention.pointwise.bias": [
+            1
+          ]
+        },
+        "final_stage_forward_unchanged": true
+      },
+      "A2": {
+        "source_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+        "all_original_named_tensors_equal": true,
+        "additional_tensor_sha256": "f2daa6bdaf7bee15a17d644e14e18a1c8694c090c7737652efadae2d61304b1b",
+        "local_tensor_sha256": "cd826ec9028c50e4afe89cdf265c902b63881a71e7e9d3f460dac4fe3c7c84f1",
+        "complete_initial_tensor_sha256": "333d28b19882da00ae6b3a1b24046e3dd9448281e3daef39426a8b14ec076003",
+        "additional_tensors": {
+          "decoder.blocks.2.fusion_logits": [
+            3
+          ],
+          "decoder.blocks.2.fusion_log_prior": [
+            3
+          ],
+          "decoder.blocks.2.local_attention.depthwise.weight": [
+            176,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.2.local_attention.depthwise.bias": [
+            176
+          ],
+          "decoder.blocks.2.local_attention.pointwise.weight": [
+            1,
+            176,
+            1,
+            1
+          ],
+          "decoder.blocks.2.local_attention.pointwise.bias": [
+            1
+          ],
+          "decoder.blocks.3.fusion_logits": [
+            3
+          ],
+          "decoder.blocks.3.fusion_log_prior": [
+            3
+          ],
+          "decoder.blocks.3.local_attention.depthwise.weight": [
+            128,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.3.local_attention.depthwise.bias": [
+            128
+          ],
+          "decoder.blocks.3.local_attention.pointwise.weight": [
+            1,
+            128,
+            1,
+            1
+          ],
+          "decoder.blocks.3.local_attention.pointwise.bias": [
+            1
+          ]
+        },
+        "final_stage_forward_unchanged": true
+      },
+      "A3": {
+        "source_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+        "all_original_named_tensors_equal": true,
+        "additional_tensor_sha256": "5659ef7dc524572441781158dd14ce2148940d22eeb3447b36aa9b27c3f6eec9",
+        "local_tensor_sha256": "cd826ec9028c50e4afe89cdf265c902b63881a71e7e9d3f460dac4fe3c7c84f1",
+        "complete_initial_tensor_sha256": "561a5f496f18fe85e54d2a1a6f0ad1babc7e2d3b7a995c662a8b9a64f334c360",
+        "additional_tensors": {
+          "decoder.blocks.2.fusion_log_prior": [
+            3
+          ],
+          "decoder.blocks.2.local_attention.depthwise.weight": [
+            176,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.2.local_attention.depthwise.bias": [
+            176
+          ],
+          "decoder.blocks.2.local_attention.pointwise.weight": [
+            1,
+            176,
+            1,
+            1
+          ],
+          "decoder.blocks.2.local_attention.pointwise.bias": [
+            1
+          ],
+          "decoder.blocks.2.image_gate.hidden.weight": [
+            11,
+            176
+          ],
+          "decoder.blocks.2.image_gate.hidden.bias": [
+            11
+          ],
+          "decoder.blocks.2.image_gate.output.weight": [
+            3,
+            11
+          ],
+          "decoder.blocks.2.image_gate.output.bias": [
+            3
+          ],
+          "decoder.blocks.3.fusion_log_prior": [
+            3
+          ],
+          "decoder.blocks.3.local_attention.depthwise.weight": [
+            128,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.3.local_attention.depthwise.bias": [
+            128
+          ],
+          "decoder.blocks.3.local_attention.pointwise.weight": [
+            1,
+            128,
+            1,
+            1
+          ],
+          "decoder.blocks.3.local_attention.pointwise.bias": [
+            1
+          ],
+          "decoder.blocks.3.image_gate.hidden.weight": [
+            8,
+            128
+          ],
+          "decoder.blocks.3.image_gate.hidden.bias": [
+            8
+          ],
+          "decoder.blocks.3.image_gate.output.weight": [
+            3,
+            8
+          ],
+          "decoder.blocks.3.image_gate.output.bias": [
+            3
+          ]
+        },
+        "final_stage_forward_unchanged": true
+      },
+      "A5": {
+        "source_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+        "all_original_named_tensors_equal": true,
+        "additional_tensor_sha256": "ff01e34342b34e1e59d8a79594502aa6a55e446ac1ae338b473a344b46cad70e",
+        "local_tensor_sha256": null,
+        "complete_initial_tensor_sha256": "ceab051869c55b2dab9bd297a0911fcbce918f2eda496f1feaba3507e08661d8",
+        "additional_tensors": {
+          "decoder.blocks.2.capacity_block.depthwise.weight": [
+            176,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.2.capacity_block.depthwise.bias": [
+            176
+          ],
+          "decoder.blocks.2.capacity_block.reduce.weight": [
+            6,
+            176,
+            1,
+            1
+          ],
+          "decoder.blocks.2.capacity_block.reduce.bias": [
+            6
+          ],
+          "decoder.blocks.2.capacity_block.expand.weight": [
+            176,
+            6,
+            1,
+            1
+          ],
+          "decoder.blocks.2.capacity_block.expand.bias": [
+            176
+          ],
+          "decoder.blocks.3.capacity_block.depthwise.weight": [
+            128,
+            1,
+            3,
+            3
+          ],
+          "decoder.blocks.3.capacity_block.depthwise.bias": [
+            128
+          ],
+          "decoder.blocks.3.capacity_block.reduce.weight": [
+            4,
+            128,
+            1,
+            1
+          ],
+          "decoder.blocks.3.capacity_block.reduce.bias": [
+            4
+          ],
+          "decoder.blocks.3.capacity_block.expand.weight": [
+            128,
+            4,
+            1,
+            1
+          ],
+          "decoder.blocks.3.capacity_block.expand.bias": [
+            128
+          ]
+        },
+        "final_stage_forward_unchanged": true
+      },
+      "A6": {
+        "source_tensor_sha256": "904fa7f37e808a84b387d740c7f6883f2dfc51eb257d31d5ef593755c8a63a2c",
+        "all_original_named_tensors_equal": true,
+        "additional_tensor_sha256": "44252f222abff09ea5b9d29299e0b512711a26e95d111c8c44d2df53389ecee0",
+        "local_tensor_sha256": null,
+        "complete_initial_tensor_sha256": "d174edf2e552e45c98b896efd173b761c4d7906ea584d830ba0252482e8d1907",
+        "additional_tensors": {
+          "decoder.blocks.2.cbam.mlp.0.weight": [
+            11,
+            176
+          ],
+          "decoder.blocks.2.cbam.mlp.0.bias": [
+            11
+          ],
+          "decoder.blocks.2.cbam.mlp.2.weight": [
+            176,
+            11
+          ],
+          "decoder.blocks.2.cbam.mlp.2.bias": [
+            176
+          ],
+          "decoder.blocks.2.cbam.spatial.0.weight": [
+            1,
+            2,
+            7,
+            7
+          ],
+          "decoder.blocks.2.cbam.spatial.1.weight": [
+            1
+          ],
+          "decoder.blocks.2.cbam.spatial.1.bias": [
+            1
+          ],
+          "decoder.blocks.2.cbam.spatial.1.running_mean": [
+            1
+          ],
+          "decoder.blocks.2.cbam.spatial.1.running_var": [
+            1
+          ],
+          "decoder.blocks.2.cbam.spatial.1.num_batches_tracked": [],
+          "decoder.blocks.3.cbam.mlp.0.weight": [
+            8,
+            128
+          ],
+          "decoder.blocks.3.cbam.mlp.0.bias": [
+            8
+          ],
+          "decoder.blocks.3.cbam.mlp.2.weight": [
+            128,
+            8
+          ],
+          "decoder.blocks.3.cbam.mlp.2.bias": [
+            128
+          ],
+          "decoder.blocks.3.cbam.spatial.0.weight": [
+            1,
+            2,
+            7,
+            7
+          ],
+          "decoder.blocks.3.cbam.spatial.1.weight": [
+            1
+          ],
+          "decoder.blocks.3.cbam.spatial.1.bias": [
+            1
+          ],
+          "decoder.blocks.3.cbam.spatial.1.running_mean": [
+            1
+          ],
+          "decoder.blocks.3.cbam.spatial.1.running_var": [
+            1
+          ],
+          "decoder.blocks.3.cbam.spatial.1.num_batches_tracked": []
+        },
+        "final_stage_forward_unchanged": true
+      }
+    },
+    "attention_source_sha256": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+    "initial_output_sha256": {
+      "A0": "f2ba98f050dbc52587842ec9c936527fdd6693769b8c1288aa101c69aefdfbbd",
+      "A1": "98c7282d9086605adf4de359385cb1245ae37dd00a23df9475af3beeebe94fef",
+      "A2": "98c7282d9086605adf4de359385cb1245ae37dd00a23df9475af3beeebe94fef",
+      "A3": "98c7282d9086605adf4de359385cb1245ae37dd00a23df9475af3beeebe94fef",
+      "A5": "f2ba98f050dbc52587842ec9c936527fdd6693769b8c1288aa101c69aefdfbbd",
+      "A6": "ccbb15e156b6d564ef727c78f4fa8213469b17a1ae3ddf825f23378453bcb544"
+    },
+    "engineering_input": "SYNTHETIC linspace shape probe, not scientific scores",
+    "A1_A2_A3_initial_forward_exactly_equal": true,
+    "A5_initial_forward_equals_A0": true,
+    "capacity_added_active_parameter_relative_difference": 0.015967438948027546
+  },
+  "CBAM_oracle": {
+    "status": "passed",
+    "reference_source_sha256": "6a2115f71541c77ab09c666e4cf32ab9928520f9c2bba9c1ceab8edc8fdd8ac5",
+    "attention_source_sha256": "3bacd2aeef4ec9550a6129e94862719d68de1c292b6785510c5ba967c11ca2ca",
+    "official_revision": "459efad0e05ee7dde50c41ca10a3d0800bc3792a",
+    "fixtures": "SYNTHETIC random tensor engineering checks, eval and train with BN",
+    "unscaled_CBAM_forward_bit_exact_after_semantic_weight_mapping": true
+  },
+  "smoke_controls": {
+    "status": "passed",
+    "baseline_comparisons": [
+      {
+        "variant": "A1",
+        "common_B1_epochs": 1
+      },
+      {
+        "variant": "A2",
+        "common_B1_epochs": 1
+      },
+      {
+        "variant": "A3",
+        "common_B1_epochs": 1
+      },
+      {
+        "variant": "A5",
+        "common_B1_epochs": 1
+      },
+      {
+        "variant": "A6",
+        "common_B1_epochs": 1
+      }
+    ],
+    "all_candidate_pairwise_common_epoch_inputs_equal": true
+  },
+  "initial_gpu": "NVIDIA A100 80 GiB, 0 MiB used at initial audit",
+  "previous_assets_protected": 9680,
+  "original_user_WIP_preserved": [
+    "notebooks/01_cp1_analysis.ipynb",
+    "Pengembangan_Novelty_dan_Eksperimen_CP2_FUSegNet.md"
+  ]
+}

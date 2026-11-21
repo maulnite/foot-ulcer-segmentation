@@ -1,0 +1,3058 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "dice_loss + focal_loss": 1.175696146185116,
+      "iou_score": 0.13886952857718507,
+      "fscore": 0.23162965166735114
+    },
+    "validation": {
+      "dice_loss + focal_loss": 1.0793284889190429,
+      "iou_score": 0.20382583219478106,
+      "fscore": 0.32346460331391796
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 210.52016618289053
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "dice_loss + focal_loss": 0.9064634739510756,
+      "iou_score": 0.30852099615069173,
+      "fscore": 0.43883776072145964
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.6928593564418055,
+      "iou_score": 0.46863265143452565,
+      "fscore": 0.6101775945691565
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 207.2557439180091
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "dice_loss + focal_loss": 0.5945892645477576,
+      "iou_score": 0.5509143442700242,
+      "fscore": 0.6750101895219632
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.4923669181523784,
+      "iou_score": 0.6115561711752905,
+      "fscore": 0.7335274474335591
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 209.22897848207504
+  },
+  {
+    "epoch": 4,
+    "train": {
+      "dice_loss + focal_loss": 0.4604533900648863,
+      "iou_score": 0.6382364408747242,
+      "fscore": 0.7554772600168665
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.4085326363002101,
+      "iou_score": 0.6675611712773257,
+      "fscore": 0.7811884757505566
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 211.0288916756399
+  },
+  {
+    "epoch": 5,
+    "train": {
+      "dice_loss + focal_loss": 0.41626793819632213,
+      "iou_score": 0.6697170195634113,
+      "fscore": 0.7793787822133945
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3945004082014483,
+      "iou_score": 0.6782099015802614,
+      "fscore": 0.7894607715100521
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 207.70438439305872
+  },
+  {
+    "epoch": 6,
+    "train": {
+      "dice_loss + focal_loss": 0.3772593804419378,
+      "iou_score": 0.7082834222156464,
+      "fscore": 0.8082504763807034
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.42200754414643005,
+      "iou_score": 0.6405120778035386,
+      "fscore": 0.7572301719986272
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 209.2331830523908
+  },
+  {
+    "epoch": 7,
+    "train": {
+      "dice_loss + focal_loss": 0.3697528268321088,
+      "iou_score": 0.7137847950264838,
+      "fscore": 0.8127094586401967
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.39551913954557905,
+      "iou_score": 0.6762016522586293,
+      "fscore": 0.7813134993795372
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 210.6306696650572
+  },
+  {
+    "epoch": 8,
+    "train": {
+      "dice_loss + focal_loss": 0.3456939150300403,
+      "iou_score": 0.7364517712268034,
+      "fscore": 0.8341538572091592
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3475987396893962,
+      "iou_score": 0.7292021075594365,
+      "fscore": 0.827992909380653
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 208.43064257595688
+  },
+  {
+    "epoch": 9,
+    "train": {
+      "dice_loss + focal_loss": 0.33784580420134447,
+      "iou_score": 0.7496947923442581,
+      "fscore": 0.8432884108137289
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34892337072280133,
+      "iou_score": 0.7363995664581683,
+      "fscore": 0.8270297999863205
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 208.40039662877098
+  },
+  {
+    "epoch": 10,
+    "train": {
+      "dice_loss + focal_loss": 0.34333783303950455,
+      "iou_score": 0.740928471788786,
+      "fscore": 0.8330327607433897
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34039703684468425,
+      "iou_score": 0.7483157989035705,
+      "fscore": 0.8352129365685502
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 210.68283014604822
+  },
+  {
+    "epoch": 11,
+    "train": {
+      "dice_loss + focal_loss": 0.32875979615975215,
+      "iou_score": 0.7567420226588686,
+      "fscore": 0.8469703846993691
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.350843692979505,
+      "iou_score": 0.7338392257496302,
+      "fscore": 0.8237154481437969
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 191.0937244449742
+  },
+  {
+    "epoch": 12,
+    "train": {
+      "dice_loss + focal_loss": 0.32982944032061573,
+      "iou_score": 0.7538714068399829,
+      "fscore": 0.8449737957326213
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3465556978218016,
+      "iou_score": 0.7386340226170195,
+      "fscore": 0.8281713628033152
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 175.90980658493936
+  },
+  {
+    "epoch": 13,
+    "train": {
+      "dice_loss + focal_loss": 0.33340982276167586,
+      "iou_score": 0.7514293724442258,
+      "fscore": 0.8406096810225198
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3613128328034954,
+      "iou_score": 0.7195436253927961,
+      "fscore": 0.8147940359313234
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 174.43495293706656
+  },
+  {
+    "epoch": 14,
+    "train": {
+      "dice_loss + focal_loss": 0.33719541582852447,
+      "iou_score": 0.7507893104082619,
+      "fscore": 0.8361004362669541
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.35321473210088666,
+      "iou_score": 0.731059165135001,
+      "fscore": 0.821039677631926
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 150.7437532567419
+  },
+  {
+    "epoch": 15,
+    "train": {
+      "dice_loss + focal_loss": 0.3136233554384801,
+      "iou_score": 0.7722571560597351,
+      "fscore": 0.8598793994761624
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34450343515603776,
+      "iou_score": 0.7444074429123663,
+      "fscore": 0.8301764452682416
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 143.7161776293069
+  },
+  {
+    "epoch": 16,
+    "train": {
+      "dice_loss + focal_loss": 0.31911825586510245,
+      "iou_score": 0.7697498318062823,
+      "fscore": 0.854205331767192
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34835216042495537,
+      "iou_score": 0.738041012521436,
+      "fscore": 0.8265894572136017
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 166.63035748992115
+  },
+  {
+    "epoch": 17,
+    "train": {
+      "dice_loss + focal_loss": 0.3143878248283419,
+      "iou_score": 0.7706797407252309,
+      "fscore": 0.8586619399957827
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34225481291932436,
+      "iou_score": 0.7466232746629499,
+      "fscore": 0.8322693003792473
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 176.88384838821366
+  },
+  {
+    "epoch": 18,
+    "train": {
+      "dice_loss + focal_loss": 0.3115104721848576,
+      "iou_score": 0.7777835871120455,
+      "fscore": 0.8612059730995508
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3359849914427727,
+      "iou_score": 0.7556849790220556,
+      "fscore": 0.838881157821731
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 175.9350754339248
+  },
+  {
+    "epoch": 19,
+    "train": {
+      "dice_loss + focal_loss": 0.3242524166901907,
+      "iou_score": 0.7646702706477758,
+      "fscore": 0.8481495319787417
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.346474060848836,
+      "iou_score": 0.7398833022026007,
+      "fscore": 0.8288954520441554
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 178.3723016162403
+  },
+  {
+    "epoch": 20,
+    "train": {
+      "dice_loss + focal_loss": 0.3199042530551469,
+      "iou_score": 0.7688768003425793,
+      "fscore": 0.8524607376032856
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33874117631104683,
+      "iou_score": 0.7504484028617496,
+      "fscore": 0.8353412889216492
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 176.72813213709742
+  },
+  {
+    "epoch": 21,
+    "train": {
+      "dice_loss + focal_loss": 0.32519400953236294,
+      "iou_score": 0.7646860411966805,
+      "fscore": 0.8498744471059131
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34593873182612084,
+      "iou_score": 0.7418365568683146,
+      "fscore": 0.8274977327394024
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 175.4946982609108
+  },
+  {
+    "epoch": 22,
+    "train": {
+      "dice_loss + focal_loss": 0.30778093021468256,
+      "iou_score": 0.7818346537121902,
+      "fscore": 0.8647213231602244
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3619265979336155,
+      "iou_score": 0.7205149784061827,
+      "fscore": 0.810536618798984
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 178.31579308910295
+  },
+  {
+    "epoch": 23,
+    "train": {
+      "dice_loss + focal_loss": 0.305149104425126,
+      "iou_score": 0.7845705658497323,
+      "fscore": 0.8674286644337548
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32879886271492126,
+      "iou_score": 0.7564773846817807,
+      "fscore": 0.8428913049679821
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 177.44327888032421
+  },
+  {
+    "epoch": 24,
+    "train": {
+      "dice_loss + focal_loss": 0.30532885704842005,
+      "iou_score": 0.7866323515142504,
+      "fscore": 0.8666844038599035
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.341734109386321,
+      "iou_score": 0.7480946578601712,
+      "fscore": 0.8318892960141775
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 175.02489027800038
+  },
+  {
+    "epoch": 25,
+    "train": {
+      "dice_loss + focal_loss": 0.30790750598166616,
+      "iou_score": 0.784151629951488,
+      "fscore": 0.8636742663942958
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33340686415472337,
+      "iou_score": 0.7577270178095541,
+      "fscore": 0.839738859047099
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 178.11206866102293
+  },
+  {
+    "epoch": 26,
+    "train": {
+      "dice_loss + focal_loss": 0.3073844828848113,
+      "iou_score": 0.7836988282465666,
+      "fscore": 0.8647351952950496
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3574550553194939,
+      "iou_score": 0.7302820182654298,
+      "fscore": 0.8176572741077925
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 177.77187094977126
+  },
+  {
+    "epoch": 27,
+    "train": {
+      "dice_loss + focal_loss": 0.3100865447925305,
+      "iou_score": 0.7813267339989768,
+      "fscore": 0.8615643879288846
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3324396764078448,
+      "iou_score": 0.7601570771863342,
+      "fscore": 0.840965141455777
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 0.0001,
+    "seconds": 174.6576939113438
+  },
+  {
+    "epoch": 28,
+    "train": {
+      "dice_loss + focal_loss": 0.29485249111039546,
+      "iou_score": 0.8015454542979668,
+      "fscore": 0.876889541180472
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.343674428520664,
+      "iou_score": 0.7458220988316375,
+      "fscore": 0.8291470108057676
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 177.4414212461561
+  },
+  {
+    "epoch": 29,
+    "train": {
+      "dice_loss + focal_loss": 0.31008851443980373,
+      "iou_score": 0.7830478222287547,
+      "fscore": 0.8609743488483496
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.334210108364782,
+      "iou_score": 0.7585440750364483,
+      "fscore": 0.8394053871633693
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 170.9022369850427
+  },
+  {
+    "epoch": 30,
+    "train": {
+      "dice_loss + focal_loss": 0.307594244636722,
+      "iou_score": 0.7826942459394646,
+      "fscore": 0.8636002267541122
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33291183964860066,
+      "iou_score": 0.7589052389266798,
+      "fscore": 0.8404038848937325
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 146.85178595175967
+  },
+  {
+    "epoch": 31,
+    "train": {
+      "dice_loss + focal_loss": 0.3320198802456344,
+      "iou_score": 0.755136480501699,
+      "fscore": 0.8403850986095134
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34129843572455065,
+      "iou_score": 0.7458815378802971,
+      "fscore": 0.8320985672009136
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 150.16277590813115
+  },
+  {
+    "epoch": 32,
+    "train": {
+      "dice_loss + focal_loss": 0.30556394492333894,
+      "iou_score": 0.7850281013007223,
+      "fscore": 0.867431633214383
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33400622490913634,
+      "iou_score": 0.757333500734852,
+      "fscore": 0.8394985864754798
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 169.27866743784398
+  },
+  {
+    "epoch": 33,
+    "train": {
+      "dice_loss + focal_loss": 0.3094731381973306,
+      "iou_score": 0.7837736970759976,
+      "fscore": 0.8645550597216203
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34231337111803783,
+      "iou_score": 0.7471290423055834,
+      "fscore": 0.8319892772775528
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 0.0001,
+    "seconds": 174.87126578809693
+  },
+  {
+    "epoch": 34,
+    "train": {
+      "dice_loss + focal_loss": 0.3155756586857431,
+      "iou_score": 0.7816749097059181,
+      "fscore": 0.8593118104742329
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.34063330172531064,
+      "iou_score": 0.7503811333723909,
+      "fscore": 0.832959373394935
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 178.25759737892076
+  },
+  {
+    "epoch": 35,
+    "train": {
+      "dice_loss + focal_loss": 0.2981556613145575,
+      "iou_score": 0.7991424701736883,
+      "fscore": 0.8772314244752285
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3392451705951846,
+      "iou_score": 0.7518165949167702,
+      "fscore": 0.8343397688998291
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 177.9720363561064
+  },
+  {
+    "epoch": 36,
+    "train": {
+      "dice_loss + focal_loss": 0.2988650029746153,
+      "iou_score": 0.7957633534849579,
+      "fscore": 0.8722676918913627
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3394347102411331,
+      "iou_score": 0.7519566375919217,
+      "fscore": 0.8340822691435105
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 174.7639131792821
+  },
+  {
+    "epoch": 37,
+    "train": {
+      "dice_loss + focal_loss": 0.2948154794041716,
+      "iou_score": 0.8032382983280313,
+      "fscore": 0.8794485214874106
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3394551272353818,
+      "iou_score": 0.7522781773717718,
+      "fscore": 0.8340816456981791
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 179.0699945250526
+  },
+  {
+    "epoch": 38,
+    "train": {
+      "dice_loss + focal_loss": 0.29052123166410276,
+      "iou_score": 0.8063326942127538,
+      "fscore": 0.8811890106467515
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3377787675107679,
+      "iou_score": 0.7558135074269595,
+      "fscore": 0.835999730617598
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 178.95638453308493
+  },
+  {
+    "epoch": 39,
+    "train": {
+      "dice_loss + focal_loss": 0.28899376679443356,
+      "iou_score": 0.811768688034579,
+      "fscore": 0.8846224502279986
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3362809638342551,
+      "iou_score": 0.7581260107015264,
+      "fscore": 0.8374518031112465
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 175.02702989708632
+  },
+  {
+    "epoch": 40,
+    "train": {
+      "dice_loss + focal_loss": 0.31025993415696473,
+      "iou_score": 0.7874244793959502,
+      "fscore": 0.8621684502036139
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33344182852775817,
+      "iou_score": 0.7620158366176066,
+      "fscore": 0.840727872068811
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 179.2732841577381
+  },
+  {
+    "epoch": 41,
+    "train": {
+      "dice_loss + focal_loss": 0.3037937292776539,
+      "iou_score": 0.794808262164002,
+      "fscore": 0.8682537378084807
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3345692128904404,
+      "iou_score": 0.759948779261867,
+      "fscore": 0.8394462771511705
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 179.20949810976163
+  },
+  {
+    "epoch": 42,
+    "train": {
+      "dice_loss + focal_loss": 0.2970303866991216,
+      "iou_score": 0.8033497843433117,
+      "fscore": 0.8760106361578479
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33419710037208367,
+      "iou_score": 0.760679662051318,
+      "fscore": 0.8396533980043687
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 175.76056618615985
+  },
+  {
+    "epoch": 43,
+    "train": {
+      "dice_loss + focal_loss": 0.2778911637300151,
+      "iou_score": 0.8193091569236316,
+      "fscore": 0.8939482120228229
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33362828171060943,
+      "iou_score": 0.7616700566142338,
+      "fscore": 0.8404092734658455
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 178.52208925317973
+  },
+  {
+    "epoch": 44,
+    "train": {
+      "dice_loss + focal_loss": 0.2863014728925322,
+      "iou_score": 0.8129144877016308,
+      "fscore": 0.8854735134821763
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33288930789116894,
+      "iou_score": 0.7628445725085967,
+      "fscore": 0.8411329675865483
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 178.9956579511054
+  },
+  {
+    "epoch": 45,
+    "train": {
+      "dice_loss + focal_loss": 0.2874036893922056,
+      "iou_score": 0.8092103588227022,
+      "fscore": 0.8852992898343163
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3311507692260127,
+      "iou_score": 0.7655027271437858,
+      "fscore": 0.8429538872012036
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 162.59631886007264
+  },
+  {
+    "epoch": 46,
+    "train": {
+      "dice_loss + focal_loss": 0.29124197363853427,
+      "iou_score": 0.8071153283983512,
+      "fscore": 0.8815557562463366
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33247597227173464,
+      "iou_score": 0.7638792331339395,
+      "fscore": 0.8416450078968583
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 148.09721592674032
+  },
+  {
+    "epoch": 47,
+    "train": {
+      "dice_loss + focal_loss": 0.28524961516176905,
+      "iou_score": 0.8124374584309773,
+      "fscore": 0.8860875476550734
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3334015989976545,
+      "iou_score": 0.7630617344008443,
+      "fscore": 0.8405954514577609
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 156.65044420398772
+  },
+  {
+    "epoch": 48,
+    "train": {
+      "dice_loss + focal_loss": 0.28812795810106767,
+      "iou_score": 0.8110471824475127,
+      "fscore": 0.8838532114860896
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3317630305405587,
+      "iou_score": 0.7643318617935836,
+      "fscore": 0.842004125160625
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.13106751302257
+  },
+  {
+    "epoch": 49,
+    "train": {
+      "dice_loss + focal_loss": 0.28864423867504463,
+      "iou_score": 0.8111511336348971,
+      "fscore": 0.8845038591272563
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3310500842428978,
+      "iou_score": 0.7652551766164686,
+      "fscore": 0.8428165025808964
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 179.15455542784184
+  },
+  {
+    "epoch": 50,
+    "train": {
+      "dice_loss + focal_loss": 0.2875447982111895,
+      "iou_score": 0.8131477669924219,
+      "fscore": 0.8837465967826136
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3317970638313601,
+      "iou_score": 0.7645758925225973,
+      "fscore": 0.8420119622101251
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 178.63971874210984
+  },
+  {
+    "epoch": 51,
+    "train": {
+      "dice_loss + focal_loss": 0.28281863694642223,
+      "iou_score": 0.8168717936103113,
+      "fscore": 0.8889057602702639
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3326387614492448,
+      "iou_score": 0.7639171728724682,
+      "fscore": 0.84135938219892
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 174.9322171220556
+  },
+  {
+    "epoch": 52,
+    "train": {
+      "dice_loss + focal_loss": 0.290611335407879,
+      "iou_score": 0.8100571113967859,
+      "fscore": 0.8817570660029577
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3302573717890247,
+      "iou_score": 0.7672268270044502,
+      "fscore": 0.8438288206575324
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 178.6213147668168
+  },
+  {
+    "epoch": 53,
+    "train": {
+      "dice_loss + focal_loss": 0.2871874591051518,
+      "iou_score": 0.8112611748162158,
+      "fscore": 0.884733307880384
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3287029285584726,
+      "iou_score": 0.7692156093414676,
+      "fscore": 0.8453852013994533
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 178.16315908869728
+  },
+  {
+    "epoch": 54,
+    "train": {
+      "dice_loss + focal_loss": 0.29145742885473735,
+      "iou_score": 0.8091400727395128,
+      "fscore": 0.8805283295334914
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32979835858268114,
+      "iou_score": 0.767082733617169,
+      "fscore": 0.8438473668352958
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 174.55205262405798
+  },
+  {
+    "epoch": 55,
+    "train": {
+      "dice_loss + focal_loss": 0.28232768556829246,
+      "iou_score": 0.8202287352524643,
+      "fscore": 0.8904237586859325
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.330046583327555,
+      "iou_score": 0.7675476161984162,
+      "fscore": 0.8434917348808312
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 180.05129470909014
+  },
+  {
+    "epoch": 56,
+    "train": {
+      "dice_loss + focal_loss": 0.29153888462121885,
+      "iou_score": 0.809519637897699,
+      "fscore": 0.8796276107995393
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32836046670713737,
+      "iou_score": 0.7685512131301749,
+      "fscore": 0.8453142522845665
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 194.77848031185567
+  },
+  {
+    "epoch": 57,
+    "train": {
+      "dice_loss + focal_loss": 0.28251618971932424,
+      "iou_score": 0.8175194738963893,
+      "fscore": 0.8891006506994948
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3296982174919497,
+      "iou_score": 0.7662478767138547,
+      "fscore": 0.8434408335959933
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 200.09469650685787
+  },
+  {
+    "epoch": 58,
+    "train": {
+      "dice_loss + focal_loss": 0.2812044955158639,
+      "iou_score": 0.8199666136173206,
+      "fscore": 0.8909017215532778
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3272722514887011,
+      "iou_score": 0.7694929762514284,
+      "fscore": 0.8459619065006806
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 170.46495674410835
+  },
+  {
+    "epoch": 59,
+    "train": {
+      "dice_loss + focal_loss": 0.27502607486847447,
+      "iou_score": 0.8256916390946363,
+      "fscore": 0.8972431701217342
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33107824647618883,
+      "iou_score": 0.7642067370439697,
+      "fscore": 0.8421056073563683
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.15493291104212
+  },
+  {
+    "epoch": 60,
+    "train": {
+      "dice_loss + focal_loss": 0.2793034211979744,
+      "iou_score": 0.8240809751852262,
+      "fscore": 0.8928550694852232
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33285283177129693,
+      "iou_score": 0.7606225242101223,
+      "fscore": 0.8398234827427942
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.27787798224017
+  },
+  {
+    "epoch": 61,
+    "train": {
+      "dice_loss + focal_loss": 0.2837319003239189,
+      "iou_score": 0.8192859040654704,
+      "fscore": 0.8892485728558304
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32773484001236586,
+      "iou_score": 0.7680108293690935,
+      "fscore": 0.8454092015222141
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 152.0425569070503
+  },
+  {
+    "epoch": 62,
+    "train": {
+      "dice_loss + focal_loss": 0.2813380103831909,
+      "iou_score": 0.8185482762354015,
+      "fscore": 0.8894629607618971
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32888384043209,
+      "iou_score": 0.7663711625522228,
+      "fscore": 0.8443022216560429
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 136.84141614288092
+  },
+  {
+    "epoch": 63,
+    "train": {
+      "dice_loss + focal_loss": 0.2852670151298329,
+      "iou_score": 0.8142098486651762,
+      "fscore": 0.8863724495412549
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3267417079018009,
+      "iou_score": 0.7707010119473338,
+      "fscore": 0.8465931420405625
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 153.4538974231109
+  },
+  {
+    "epoch": 64,
+    "train": {
+      "dice_loss + focal_loss": 0.27874023997682645,
+      "iou_score": 0.8193168483548248,
+      "fscore": 0.8928123322752237
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32924268779254734,
+      "iou_score": 0.7675681319732189,
+      "fscore": 0.8438105628899358
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 168.08946075383574
+  },
+  {
+    "epoch": 65,
+    "train": {
+      "dice_loss + focal_loss": 0.2780824184501912,
+      "iou_score": 0.8235952440533715,
+      "fscore": 0.8929694749173089
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32563198021342693,
+      "iou_score": 0.7712157129561411,
+      "fscore": 0.847350863683867
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 171.128928699065
+  },
+  {
+    "epoch": 66,
+    "train": {
+      "dice_loss + focal_loss": 0.2830381195592341,
+      "iou_score": 0.8153260724045999,
+      "fscore": 0.8883535156505796
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32858391154196953,
+      "iou_score": 0.7678828029184829,
+      "fscore": 0.8444792818200461
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.01129870582372
+  },
+  {
+    "epoch": 67,
+    "train": {
+      "dice_loss + focal_loss": 0.28740856152469835,
+      "iou_score": 0.8140024271873282,
+      "fscore": 0.8820058677051547
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3311685631352086,
+      "iou_score": 0.765159160744242,
+      "fscore": 0.8423849226529196
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.2555786878802
+  },
+  {
+    "epoch": 68,
+    "train": {
+      "dice_loss + focal_loss": 0.27829509809360703,
+      "iou_score": 0.8221995421670124,
+      "fscore": 0.8929282860473262
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32833113737644687,
+      "iou_score": 0.7701603918708156,
+      "fscore": 0.8456319526119594
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 171.68272509006783
+  },
+  {
+    "epoch": 69,
+    "train": {
+      "dice_loss + focal_loss": 0.2791702677890406,
+      "iou_score": 0.819997862487704,
+      "fscore": 0.8926175864751484
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3300481825586287,
+      "iou_score": 0.7677936306446539,
+      "fscore": 0.8436746304116652
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.49340469529852
+  },
+  {
+    "epoch": 70,
+    "train": {
+      "dice_loss + focal_loss": 0.27749945433799855,
+      "iou_score": 0.8247997656832945,
+      "fscore": 0.894071377396041
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3306669388567247,
+      "iou_score": 0.7668653184651697,
+      "fscore": 0.8431539126985826
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.51265730988234
+  },
+  {
+    "epoch": 71,
+    "train": {
+      "dice_loss + focal_loss": 0.2786991714926089,
+      "iou_score": 0.8199698541157496,
+      "fscore": 0.8927011872112242
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33168537914752955,
+      "iou_score": 0.7653639194630801,
+      "fscore": 0.8420893141384085
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.91510285623372
+  },
+  {
+    "epoch": 72,
+    "train": {
+      "dice_loss + focal_loss": 0.28424576922493455,
+      "iou_score": 0.8143375424905852,
+      "fscore": 0.8873743818237123
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32960979616449737,
+      "iou_score": 0.7683055009133517,
+      "fscore": 0.8440649278743738
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 172.04191676108167
+  },
+  {
+    "epoch": 73,
+    "train": {
+      "dice_loss + focal_loss": 0.2832111376153547,
+      "iou_score": 0.8178985973586987,
+      "fscore": 0.8885875073142898
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32919066351267584,
+      "iou_score": 0.7689461882359307,
+      "fscore": 0.8444781647136846
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.58512508682907
+  },
+  {
+    "epoch": 74,
+    "train": {
+      "dice_loss + focal_loss": 0.28598076138792744,
+      "iou_score": 0.8129096358743408,
+      "fscore": 0.8858270879669021
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33435813409666865,
+      "iou_score": 0.7613182754090968,
+      "fscore": 0.8391658608516627
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.99018668709323
+  },
+  {
+    "epoch": 75,
+    "train": {
+      "dice_loss + focal_loss": 0.27977144259349046,
+      "iou_score": 0.8203043816475579,
+      "fscore": 0.8911896717972612
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3296805913409881,
+      "iou_score": 0.7679056111886831,
+      "fscore": 0.8442328316353236
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.99262880999595
+  },
+  {
+    "epoch": 76,
+    "train": {
+      "dice_loss + focal_loss": 0.2900316526239872,
+      "iou_score": 0.811366653461602,
+      "fscore": 0.8818748326901228
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3291051332508365,
+      "iou_score": 0.7690008055579122,
+      "fscore": 0.8447320410841738
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 169.16007139114663
+  },
+  {
+    "epoch": 77,
+    "train": {
+      "dice_loss + focal_loss": 0.28454241787983214,
+      "iou_score": 0.817370296845653,
+      "fscore": 0.886997569158072
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32981002066404597,
+      "iou_score": 0.7672923251788274,
+      "fscore": 0.8437105855916591
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.46911636693403
+  },
+  {
+    "epoch": 78,
+    "train": {
+      "dice_loss + focal_loss": 0.28295792723442853,
+      "iou_score": 0.8171475213452899,
+      "fscore": 0.8873032805768082
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3324166567575547,
+      "iou_score": 0.7634377578135492,
+      "fscore": 0.8409847141315894
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 137.22980608604848
+  },
+  {
+    "epoch": 79,
+    "train": {
+      "dice_loss + focal_loss": 0.2943766452582541,
+      "iou_score": 0.806920474122552,
+      "fscore": 0.8769775908660867
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3288771589436839,
+      "iou_score": 0.7695793266777764,
+      "fscore": 0.8450474556454459
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 158.1721445270814
+  },
+  {
+    "epoch": 80,
+    "train": {
+      "dice_loss + focal_loss": 0.2728619061115769,
+      "iou_score": 0.8304544628876425,
+      "fscore": 0.898466353679294
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33238911652757275,
+      "iou_score": 0.7634025701634378,
+      "fscore": 0.8410765093703457
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.20689476002008
+  },
+  {
+    "epoch": 81,
+    "train": {
+      "dice_loss + focal_loss": 0.2756174327542554,
+      "iou_score": 0.8278199880828481,
+      "fscore": 0.895847945430674
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3325552543805491,
+      "iou_score": 0.7629946239575633,
+      "fscore": 0.84076059009225
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.53614435018972
+  },
+  {
+    "epoch": 82,
+    "train": {
+      "dice_loss + focal_loss": 0.2858730627402751,
+      "iou_score": 0.8141326059113085,
+      "fscore": 0.8855751845621932
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.328928193257701,
+      "iou_score": 0.7688358750596179,
+      "fscore": 0.8446638264524378
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.09803569829091
+  },
+  {
+    "epoch": 83,
+    "train": {
+      "dice_loss + focal_loss": 0.27986557461784356,
+      "iou_score": 0.8228051919897122,
+      "fscore": 0.8917536151586765
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33349063247442234,
+      "iou_score": 0.762148387974685,
+      "fscore": 0.8397908857314742
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.24810144584626
+  },
+  {
+    "epoch": 84,
+    "train": {
+      "dice_loss + focal_loss": 0.2799609639381959,
+      "iou_score": 0.8208373503490001,
+      "fscore": 0.890868459094073
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32999911712061986,
+      "iou_score": 0.7674376668990743,
+      "fscore": 0.8436500930058501
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.82079016231
+  },
+  {
+    "epoch": 85,
+    "train": {
+      "dice_loss + focal_loss": 0.2809009489282379,
+      "iou_score": 0.8199372485019939,
+      "fscore": 0.8904546563690205
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32984589472893744,
+      "iou_score": 0.7680198422281992,
+      "fscore": 0.8440407700876095
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.39018927700818
+  },
+  {
+    "epoch": 86,
+    "train": {
+      "dice_loss + focal_loss": 0.2833754090686977,
+      "iou_score": 0.8191854253471671,
+      "fscore": 0.8878594104155741
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3303866011481132,
+      "iou_score": 0.7669525265494054,
+      "fscore": 0.8433716650492113
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.75840919511393
+  },
+  {
+    "epoch": 87,
+    "train": {
+      "dice_loss + focal_loss": 0.28698645801530714,
+      "iou_score": 0.8127447578057735,
+      "fscore": 0.8852617083160892
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33713606817107056,
+      "iou_score": 0.7569261213749019,
+      "fscore": 0.8362580939210564
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.85279477061704
+  },
+  {
+    "epoch": 88,
+    "train": {
+      "dice_loss + focal_loss": 0.2711200315484222,
+      "iou_score": 0.8302561602725378,
+      "fscore": 0.9001848284383174
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33057720598674584,
+      "iou_score": 0.7661775959877147,
+      "fscore": 0.8432327317896301
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.73305226070806
+  },
+  {
+    "epoch": 89,
+    "train": {
+      "dice_loss + focal_loss": 0.2872350767759953,
+      "iou_score": 0.8138935376464113,
+      "fscore": 0.8830991266916502
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3312834960318381,
+      "iou_score": 0.7649872619101685,
+      "fscore": 0.8420315932886822
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.64258402911946
+  },
+  {
+    "epoch": 90,
+    "train": {
+      "dice_loss + focal_loss": 0.2798419132997083,
+      "iou_score": 0.8209669576077286,
+      "fscore": 0.8914671737651513
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3281378580197211,
+      "iou_score": 0.769565078884751,
+      "fscore": 0.8457057512137232
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.8943684240803
+  },
+  {
+    "epoch": 91,
+    "train": {
+      "dice_loss + focal_loss": 0.28212716055791925,
+      "iou_score": 0.8198737633268376,
+      "fscore": 0.8890847810671493
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32847758550797734,
+      "iou_score": 0.7665194899127005,
+      "fscore": 0.8442691939535276
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.7569815046154
+  },
+  {
+    "epoch": 92,
+    "train": {
+      "dice_loss + focal_loss": 0.28002096076974764,
+      "iou_score": 0.8215049802440537,
+      "fscore": 0.8915305436524791
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32906033459209627,
+      "iou_score": 0.768134558757911,
+      "fscore": 0.8443983574590971
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 164.18200417468324
+  },
+  {
+    "epoch": 93,
+    "train": {
+      "dice_loss + focal_loss": 0.2800586941299466,
+      "iou_score": 0.8212687442619976,
+      "fscore": 0.8916463304425634
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32729014225544467,
+      "iou_score": 0.7703763658762025,
+      "fscore": 0.8462774208036209
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 143.0805510082282
+  },
+  {
+    "epoch": 94,
+    "train": {
+      "dice_loss + focal_loss": 0.2760001636073413,
+      "iou_score": 0.8255289830506175,
+      "fscore": 0.8952581494401388
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3280999417747221,
+      "iou_score": 0.7700882998727575,
+      "fscore": 0.8457457960414866
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 143.25770555017516
+  },
+  {
+    "epoch": 95,
+    "train": {
+      "dice_loss + focal_loss": 0.2813027343254978,
+      "iou_score": 0.81857388631748,
+      "fscore": 0.8898591993233181
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33002526337100613,
+      "iou_score": 0.7669242037682248,
+      "fscore": 0.8437244226416719
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 162.57961070816964
+  },
+  {
+    "epoch": 96,
+    "train": {
+      "dice_loss + focal_loss": 0.2761859823923327,
+      "iou_score": 0.8286947431861504,
+      "fscore": 0.8960169547893059
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32987470636444705,
+      "iou_score": 0.7664788217598238,
+      "fscore": 0.8435410074933727
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 172.48612532019615
+  },
+  {
+    "epoch": 97,
+    "train": {
+      "dice_loss + focal_loss": 0.2772952192752375,
+      "iou_score": 0.8253756475374738,
+      "fscore": 0.8938945609358288
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32631613770800255,
+      "iou_score": 0.771336612446183,
+      "fscore": 0.8470198305427163
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 172.27006546407938
+  },
+  {
+    "epoch": 98,
+    "train": {
+      "dice_loss + focal_loss": 0.2836966330638038,
+      "iou_score": 0.8223282418788677,
+      "fscore": 0.889671629305414
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3286874899941105,
+      "iou_score": 0.7680444615305878,
+      "fscore": 0.8447703904245619
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.31078740861267
+  },
+  {
+    "epoch": 99,
+    "train": {
+      "dice_loss + focal_loss": 0.27265559355754626,
+      "iou_score": 0.8313664801997046,
+      "fscore": 0.8991004763002169
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3311376052518046,
+      "iou_score": 0.7643459582325534,
+      "fscore": 0.8421851038496919
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.4014634829946
+  },
+  {
+    "epoch": 100,
+    "train": {
+      "dice_loss + focal_loss": 0.2853118694350546,
+      "iou_score": 0.8192385034620685,
+      "fscore": 0.8858975173974702
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3304680295048222,
+      "iou_score": 0.7658237850997696,
+      "fscore": 0.842904382900363
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.91836880892515
+  },
+  {
+    "epoch": 101,
+    "train": {
+      "dice_loss + focal_loss": 0.2814899042332915,
+      "iou_score": 0.8191889727581261,
+      "fscore": 0.8897321085322952
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3298832216570454,
+      "iou_score": 0.7659088926012461,
+      "fscore": 0.8432420074021603
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 172.0437898277305
+  },
+  {
+    "epoch": 102,
+    "train": {
+      "dice_loss + focal_loss": 0.27550325290126315,
+      "iou_score": 0.8289582948165641,
+      "fscore": 0.8957444364933193
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33024589597217485,
+      "iou_score": 0.7657143524141168,
+      "fscore": 0.8428813346495638
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 170.44107003463432
+  },
+  {
+    "epoch": 103,
+    "train": {
+      "dice_loss + focal_loss": 0.2796995656638495,
+      "iou_score": 0.8253847752707859,
+      "fscore": 0.8914689438695987
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3287459599875635,
+      "iou_score": 0.7677528406385375,
+      "fscore": 0.8445451891752904
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.87494209315628
+  },
+  {
+    "epoch": 104,
+    "train": {
+      "dice_loss + focal_loss": 0.2717389418075318,
+      "iou_score": 0.8319359711794553,
+      "fscore": 0.8995895954887768
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.329663563639887,
+      "iou_score": 0.7656059143808789,
+      "fscore": 0.8430579126886993
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 172.5126406569034
+  },
+  {
+    "epoch": 105,
+    "train": {
+      "dice_loss + focal_loss": 0.26851066185087813,
+      "iou_score": 0.8370851573828499,
+      "fscore": 0.9028557612255033
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3336208585289217,
+      "iou_score": 0.7628455099603666,
+      "fscore": 0.8393744268769066
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.9594907341525
+  },
+  {
+    "epoch": 106,
+    "train": {
+      "dice_loss + focal_loss": 0.27183187374119033,
+      "iou_score": 0.8318537327664903,
+      "fscore": 0.899386618417788
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3343464523073164,
+      "iou_score": 0.7607846865774613,
+      "fscore": 0.8386756741755881
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 171.0243078940548
+  },
+  {
+    "epoch": 107,
+    "train": {
+      "dice_loss + focal_loss": 0.2787398096952733,
+      "iou_score": 0.8238260006966409,
+      "fscore": 0.8922360094319635
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33460703323925695,
+      "iou_score": 0.7617480871461544,
+      "fscore": 0.8385929775377884
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 172.09301644470543
+  },
+  {
+    "epoch": 108,
+    "train": {
+      "dice_loss + focal_loss": 0.2780280688219824,
+      "iou_score": 0.8251203339536295,
+      "fscore": 0.8933676514953354
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33172876387834543,
+      "iou_score": 0.7609491354321481,
+      "fscore": 0.8403997820277572
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 155.5817314828746
+  },
+  {
+    "epoch": 109,
+    "train": {
+      "dice_loss + focal_loss": 0.2713632625290898,
+      "iou_score": 0.8338362913648326,
+      "fscore": 0.8998088923599804
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3290892548618779,
+      "iou_score": 0.7667843537268471,
+      "fscore": 0.8436510707145106
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 139.67686278698966
+  },
+  {
+    "epoch": 110,
+    "train": {
+      "dice_loss + focal_loss": 0.2825760996274353,
+      "iou_score": 0.820315437666823,
+      "fscore": 0.8885305751512065
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32790008860249686,
+      "iou_score": 0.7664505474074609,
+      "fscore": 0.844398161100514
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 151.70404606079683
+  },
+  {
+    "epoch": 111,
+    "train": {
+      "dice_loss + focal_loss": 0.2827227088691152,
+      "iou_score": 0.821270438810426,
+      "fscore": 0.8884621919890933
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3252277222852553,
+      "iou_score": 0.7696642380611762,
+      "fscore": 0.8471534992461457
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 166.4163820920512
+  },
+  {
+    "epoch": 112,
+    "train": {
+      "dice_loss + focal_loss": 0.27945271690013035,
+      "iou_score": 0.8238011842732709,
+      "fscore": 0.8914741414501505
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.31913379627850746,
+      "iou_score": 0.7732603324078777,
+      "fscore": 0.8526867512776036
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 172.68656896194443
+  },
+  {
+    "epoch": 113,
+    "train": {
+      "dice_loss + focal_loss": 0.27265442752063573,
+      "iou_score": 0.8286530195746891,
+      "fscore": 0.8985095945545691
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3265263181059591,
+      "iou_score": 0.7668891849581239,
+      "fscore": 0.8454395006304751
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.53134155320004
+  },
+  {
+    "epoch": 114,
+    "train": {
+      "dice_loss + focal_loss": 0.2783210117601404,
+      "iou_score": 0.8249101604451792,
+      "fscore": 0.8925963819917203
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32543677115632635,
+      "iou_score": 0.7684781272608291,
+      "fscore": 0.8466127368274099
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 162.08650770410895
+  },
+  {
+    "epoch": 115,
+    "train": {
+      "dice_loss + focal_loss": 0.2760916078242205,
+      "iou_score": 0.8270441249280839,
+      "fscore": 0.8951044626570357
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3248460227924009,
+      "iou_score": 0.7696561786959843,
+      "fscore": 0.8473329664280933
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.34358470793813
+  },
+  {
+    "epoch": 116,
+    "train": {
+      "dice_loss + focal_loss": 0.2698615581470695,
+      "iou_score": 0.8334006748409777,
+      "fscore": 0.901342907786859
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3241330075167841,
+      "iou_score": 0.7697782071890402,
+      "fscore": 0.8478934791341937
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.72489633318037
+  },
+  {
+    "epoch": 117,
+    "train": {
+      "dice_loss + focal_loss": 0.2738403202702769,
+      "iou_score": 0.8302220376849608,
+      "fscore": 0.8968215458957252
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3279500856034218,
+      "iou_score": 0.7658751174372427,
+      "fscore": 0.8443050322078304
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.16364118084311
+  },
+  {
+    "epoch": 118,
+    "train": {
+      "dice_loss + focal_loss": 0.2669028189391067,
+      "iou_score": 0.8375093168725505,
+      "fscore": 0.903967726745657
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33001901401627454,
+      "iou_score": 0.7640093075937296,
+      "fscore": 0.8422207825170864
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.5724242059514
+  },
+  {
+    "epoch": 119,
+    "train": {
+      "dice_loss + focal_loss": 0.26452425989390765,
+      "iou_score": 0.840273486777758,
+      "fscore": 0.9067249736723981
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3315389466381842,
+      "iou_score": 0.7626555315714184,
+      "fscore": 0.8407241586760623
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.84698337735608
+  },
+  {
+    "epoch": 120,
+    "train": {
+      "dice_loss + focal_loss": 0.275450961990545,
+      "iou_score": 0.8256330710755364,
+      "fscore": 0.8956931942335769
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32894132911197604,
+      "iou_score": 0.768572323990057,
+      "fscore": 0.8441704511686645
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.71233666408807
+  },
+  {
+    "epoch": 121,
+    "train": {
+      "dice_loss + focal_loss": 0.288032955411127,
+      "iou_score": 0.814107474506294,
+      "fscore": 0.882248090595579
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3336736317123135,
+      "iou_score": 0.7620356350940412,
+      "fscore": 0.839088529593074
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.7109140092507
+  },
+  {
+    "epoch": 122,
+    "train": {
+      "dice_loss + focal_loss": 0.2785288851055721,
+      "iou_score": 0.8247294815686107,
+      "fscore": 0.8925125495475504
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.330767142676538,
+      "iou_score": 0.7680507573912364,
+      "fscore": 0.8425053634512955
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.05287742707878
+  },
+  {
+    "epoch": 123,
+    "train": {
+      "dice_loss + focal_loss": 0.2799937353800921,
+      "iou_score": 0.8237381413640114,
+      "fscore": 0.8914178079149997
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3360490842211632,
+      "iou_score": 0.7590444613173758,
+      "fscore": 0.8369247480792059
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 162.61436550598592
+  },
+  {
+    "epoch": 124,
+    "train": {
+      "dice_loss + focal_loss": 0.2753729395526277,
+      "iou_score": 0.8275854478587003,
+      "fscore": 0.8958250869351734
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33123580606714387,
+      "iou_score": 0.7672132045795926,
+      "fscore": 0.8420962942508046
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 143.36949530616403
+  },
+  {
+    "epoch": 125,
+    "train": {
+      "dice_loss + focal_loss": 0.27940111207423224,
+      "iou_score": 0.8228753805614127,
+      "fscore": 0.8918761919985054
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33252723971682213,
+      "iou_score": 0.7653354258591708,
+      "fscore": 0.8408543543273982
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 133.78252434916794
+  },
+  {
+    "epoch": 126,
+    "train": {
+      "dice_loss + focal_loss": 0.26574155553586076,
+      "iou_score": 0.8388491984315314,
+      "fscore": 0.905416263615257
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3326647644562106,
+      "iou_score": 0.766282508514735,
+      "fscore": 0.8408132610106278
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 150.71757480176166
+  },
+  {
+    "epoch": 127,
+    "train": {
+      "dice_loss + focal_loss": 0.2702516820386976,
+      "iou_score": 0.8324505814587169,
+      "fscore": 0.8995367257092147
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3406177182351389,
+      "iou_score": 0.7563040065474467,
+      "fscore": 0.8329397427985161
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.8755038199015
+  },
+  {
+    "epoch": 128,
+    "train": {
+      "dice_loss + focal_loss": 0.273258895439617,
+      "iou_score": 0.8319382551084555,
+      "fscore": 0.8983635857086149
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3371272800910859,
+      "iou_score": 0.7602724878823433,
+      "fscore": 0.83614939415617
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.21212718402967
+  },
+  {
+    "epoch": 129,
+    "train": {
+      "dice_loss + focal_loss": 0.2754311140226778,
+      "iou_score": 0.8287277436496697,
+      "fscore": 0.8959210236080466
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32970464830437024,
+      "iou_score": 0.7690265985067627,
+      "fscore": 0.8437672623986009
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.18144183699042
+  },
+  {
+    "epoch": 130,
+    "train": {
+      "dice_loss + focal_loss": 0.27934032792257063,
+      "iou_score": 0.8237058444410008,
+      "fscore": 0.8919810936516236
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3282131788230711,
+      "iou_score": 0.7702026122078993,
+      "fscore": 0.8453347543594547
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 165.90904243895784
+  },
+  {
+    "epoch": 131,
+    "train": {
+      "dice_loss + focal_loss": 0.274034200751849,
+      "iou_score": 0.829885771334575,
+      "fscore": 0.8971448002042391
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33105326251637557,
+      "iou_score": 0.7642016958848494,
+      "fscore": 0.8419401616862112
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.4709756039083
+  },
+  {
+    "epoch": 132,
+    "train": {
+      "dice_loss + focal_loss": 0.27498830223487597,
+      "iou_score": 0.8296524760883119,
+      "fscore": 0.8961741021514872
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32905887331693406,
+      "iou_score": 0.767843856450438,
+      "fscore": 0.8441220460682181
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.65306771872565
+  },
+  {
+    "epoch": 133,
+    "train": {
+      "dice_loss + focal_loss": 0.26998528328824184,
+      "iou_score": 0.8335648163690063,
+      "fscore": 0.9011301187387968
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32819299255647955,
+      "iou_score": 0.7699041220013139,
+      "fscore": 0.8454347866962001
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.33248575869948
+  },
+  {
+    "epoch": 134,
+    "train": {
+      "dice_loss + focal_loss": 0.27840147268469023,
+      "iou_score": 0.8244853313200114,
+      "fscore": 0.8928864410629269
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32651878556897546,
+      "iou_score": 0.7730052675491834,
+      "fscore": 0.8475219687908383
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 166.53661162219942
+  },
+  {
+    "epoch": 135,
+    "train": {
+      "dice_loss + focal_loss": 0.266893432680833,
+      "iou_score": 0.8360308260578702,
+      "fscore": 0.9042764689132123
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.332058877233536,
+      "iou_score": 0.7645650923055007,
+      "fscore": 0.841716158538574
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.1687250728719
+  },
+  {
+    "epoch": 136,
+    "train": {
+      "dice_loss + focal_loss": 0.26012345386595404,
+      "iou_score": 0.8443554180153341,
+      "fscore": 0.9109551387991608
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3310109477850698,
+      "iou_score": 0.7664019258795843,
+      "fscore": 0.8423871547026617
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.31870803097263
+  },
+  {
+    "epoch": 137,
+    "train": {
+      "dice_loss + focal_loss": 0.27106562492537634,
+      "iou_score": 0.8338060189489512,
+      "fscore": 0.8997279509447988
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3263464764721933,
+      "iou_score": 0.771467561326908,
+      "fscore": 0.8470518352324314
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.51867680670694
+  },
+  {
+    "epoch": 138,
+    "train": {
+      "dice_loss + focal_loss": 0.27516033201567835,
+      "iou_score": 0.8291714393229237,
+      "fscore": 0.8960885951448732
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32776136528099736,
+      "iou_score": 0.76953567600962,
+      "fscore": 0.8455219110215897
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.09432521276176
+  },
+  {
+    "epoch": 139,
+    "train": {
+      "dice_loss + focal_loss": 0.2679128556770119,
+      "iou_score": 0.8376717645342416,
+      "fscore": 0.903176269470215
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33260550446087317,
+      "iou_score": 0.7634801339523064,
+      "fscore": 0.8406766381520038
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 156.45944303600118
+  },
+  {
+    "epoch": 140,
+    "train": {
+      "dice_loss + focal_loss": 0.27779623432516387,
+      "iou_score": 0.8271970277509615,
+      "fscore": 0.8922979710523186
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33565656480289274,
+      "iou_score": 0.7611933330179218,
+      "fscore": 0.8375640083750407
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 137.5654403907247
+  },
+  {
+    "epoch": 141,
+    "train": {
+      "dice_loss + focal_loss": 0.28242101537137365,
+      "iou_score": 0.8205184129968603,
+      "fscore": 0.8894971520257926
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3377902113622235,
+      "iou_score": 0.7578504596312536,
+      "fscore": 0.8353050387240563
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 140.84466659184545
+  },
+  {
+    "epoch": 142,
+    "train": {
+      "dice_loss + focal_loss": 0.28153907945432194,
+      "iou_score": 0.8241060413705604,
+      "fscore": 0.8899631260542973
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32643596419403625,
+      "iou_score": 0.7726129125845712,
+      "fscore": 0.8473250986148935
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 157.69584059203044
+  },
+  {
+    "epoch": 143,
+    "train": {
+      "dice_loss + focal_loss": 0.28530267470300524,
+      "iou_score": 0.8181220027402547,
+      "fscore": 0.8858449516712867
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32754943423694177,
+      "iou_score": 0.7708634450592571,
+      "fscore": 0.8459934345938738
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.07473473530263
+  },
+  {
+    "epoch": 144,
+    "train": {
+      "dice_loss + focal_loss": 0.2770475118847217,
+      "iou_score": 0.8264098235674926,
+      "fscore": 0.8935230549614904
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3253365687785611,
+      "iou_score": 0.7735732906810074,
+      "fscore": 0.8484558625368681
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 166.90690452279523
+  },
+  {
+    "epoch": 145,
+    "train": {
+      "dice_loss + focal_loss": 0.26577827898459255,
+      "iou_score": 0.8379512160191207,
+      "fscore": 0.9054391731645715
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32919910381878575,
+      "iou_score": 0.7685628062337617,
+      "fscore": 0.844504314809555
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.73083277791739
+  },
+  {
+    "epoch": 146,
+    "train": {
+      "dice_loss + focal_loss": 0.28440657241196277,
+      "iou_score": 0.822233182707739,
+      "fscore": 0.8856690306261001
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3267812976433384,
+      "iou_score": 0.7715988227718421,
+      "fscore": 0.8468443431722664
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.5482804449275
+  },
+  {
+    "epoch": 147,
+    "train": {
+      "dice_loss + focal_loss": 0.28554221491018916,
+      "iou_score": 0.8185980135076569,
+      "fscore": 0.8852062377138346
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.328723853874591,
+      "iou_score": 0.7690717219867714,
+      "fscore": 0.8451484438194086
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.1320355432108
+  },
+  {
+    "epoch": 148,
+    "train": {
+      "dice_loss + focal_loss": 0.27796024976477146,
+      "iou_score": 0.826906916895683,
+      "fscore": 0.8930432308610698
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32850317200345386,
+      "iou_score": 0.7693218776337045,
+      "fscore": 0.8450933947239637
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 167.0825760071166
+  },
+  {
+    "epoch": 149,
+    "train": {
+      "dice_loss + focal_loss": 0.287824029050304,
+      "iou_score": 0.8177662908095111,
+      "fscore": 0.8822761349117706
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3323646067611633,
+      "iou_score": 0.7651773309079245,
+      "fscore": 0.8411360223251336
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.49885489279404
+  },
+  {
+    "epoch": 150,
+    "train": {
+      "dice_loss + focal_loss": 0.2692751729134787,
+      "iou_score": 0.8349885680313662,
+      "fscore": 0.9018716805931021
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32838805788947684,
+      "iou_score": 0.7709451483664458,
+      "fscore": 0.8451669684863343
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.3065199679695
+  },
+  {
+    "epoch": 151,
+    "train": {
+      "dice_loss + focal_loss": 0.2784917498965049,
+      "iou_score": 0.8270427281027266,
+      "fscore": 0.8937839267407907
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3348575371407695,
+      "iou_score": 0.7584613018505372,
+      "fscore": 0.8373276024141956
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 166.37936140503734
+  },
+  {
+    "epoch": 152,
+    "train": {
+      "dice_loss + focal_loss": 0.26706449102378826,
+      "iou_score": 0.8394827107758823,
+      "fscore": 0.9045655214687512
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32798565635758054,
+      "iou_score": 0.7679959393839167,
+      "fscore": 0.8446284008644729
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 158.10109256394207
+  },
+  {
+    "epoch": 153,
+    "train": {
+      "dice_loss + focal_loss": 0.26951419482123384,
+      "iou_score": 0.8347944564652271,
+      "fscore": 0.9010612007523114
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3296679839972527,
+      "iou_score": 0.7670667191947707,
+      "fscore": 0.8436013183807219
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 141.28214350808412
+  },
+  {
+    "epoch": 154,
+    "train": {
+      "dice_loss + focal_loss": 0.2693439815930053,
+      "iou_score": 0.8372858433626248,
+      "fscore": 0.901780203829822
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3286013509477338,
+      "iou_score": 0.7658134060803189,
+      "fscore": 0.8436894943198117
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 139.57185450894758
+  },
+  {
+    "epoch": 155,
+    "train": {
+      "dice_loss + focal_loss": 0.27177334442145434,
+      "iou_score": 0.8352980003656812,
+      "fscore": 0.8996006299464122
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3292301100107931,
+      "iou_score": 0.768774955988409,
+      "fscore": 0.8439917038087862
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 122.56974587589502
+  },
+  {
+    "epoch": 156,
+    "train": {
+      "dice_loss + focal_loss": 0.2716445264085538,
+      "iou_score": 0.8333835434976806,
+      "fscore": 0.898682157610898
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32937846356822603,
+      "iou_score": 0.7674858035382939,
+      "fscore": 0.8437084683050287
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 112.55859756004065
+  },
+  {
+    "epoch": 157,
+    "train": {
+      "dice_loss + focal_loss": 0.27210473041918315,
+      "iou_score": 0.8352627160418764,
+      "fscore": 0.8992326261551117
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3279229842366712,
+      "iou_score": 0.7709299943662714,
+      "fscore": 0.8455727613543566
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 125.03506572498009
+  },
+  {
+    "epoch": 158,
+    "train": {
+      "dice_loss + focal_loss": 0.2703041479749193,
+      "iou_score": 0.8331322668782877,
+      "fscore": 0.9009324500010653
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33355838444925123,
+      "iou_score": 0.7638745532684843,
+      "fscore": 0.8398280107729955
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 139.59688929608092
+  },
+  {
+    "epoch": 159,
+    "train": {
+      "dice_loss + focal_loss": 0.27038171357017454,
+      "iou_score": 0.8379290995913783,
+      "fscore": 0.9008460407744766
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3296481176249443,
+      "iou_score": 0.7679398462460256,
+      "fscore": 0.843647015435594
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.16859261132777
+  },
+  {
+    "epoch": 160,
+    "train": {
+      "dice_loss + focal_loss": 0.2803574710831805,
+      "iou_score": 0.8234661841906533,
+      "fscore": 0.8904831515261478
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3350089889380239,
+      "iou_score": 0.760901845995845,
+      "fscore": 0.8381368075689997
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.71268490888178
+  },
+  {
+    "epoch": 161,
+    "train": {
+      "dice_loss + focal_loss": 0.26498545100123194,
+      "iou_score": 0.8398766769993317,
+      "fscore": 0.9062910391030893
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3243336951540363,
+      "iou_score": 0.7748062415990387,
+      "fscore": 0.8493879393024081
+    },
+    "selected_checkpoint": true,
+    "learning_rate": 1e-05,
+    "seconds": 142.41052510309964
+  },
+  {
+    "epoch": 162,
+    "train": {
+      "dice_loss + focal_loss": 0.2755356558972157,
+      "iou_score": 0.8287843782404446,
+      "fscore": 0.895564286138486
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3300092604852492,
+      "iou_score": 0.7664399333341916,
+      "fscore": 0.8435908219550371
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.36855229409412
+  },
+  {
+    "epoch": 163,
+    "train": {
+      "dice_loss + focal_loss": 0.2769632377361845,
+      "iou_score": 0.8298531893858819,
+      "fscore": 0.8933607391873334
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32521366592376455,
+      "iou_score": 0.7730824217963088,
+      "fscore": 0.8482698807835064
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.48287286004052
+  },
+  {
+    "epoch": 164,
+    "train": {
+      "dice_loss + focal_loss": 0.2695765395117344,
+      "iou_score": 0.8343128724997751,
+      "fscore": 0.9014085719409883
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32488173943373455,
+      "iou_score": 0.773413069670683,
+      "fscore": 0.8485167880976028
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.56673997594044
+  },
+  {
+    "epoch": 165,
+    "train": {
+      "dice_loss + focal_loss": 0.26616572075139333,
+      "iou_score": 0.8403610287011096,
+      "fscore": 0.9049747314554596
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3276124055827818,
+      "iou_score": 0.7693521862351048,
+      "fscore": 0.8455371808663413
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.42666514683515
+  },
+  {
+    "epoch": 166,
+    "train": {
+      "dice_loss + focal_loss": 0.2654905626918638,
+      "iou_score": 0.8415486937729555,
+      "fscore": 0.9056066563923265
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3254191063104136,
+      "iou_score": 0.7725399738640474,
+      "fscore": 0.8477030677703041
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.3890133248642
+  },
+  {
+    "epoch": 167,
+    "train": {
+      "dice_loss + focal_loss": 0.2758806773834984,
+      "iou_score": 0.8276683114286888,
+      "fscore": 0.8949515708966197
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32676788924201844,
+      "iou_score": 0.7707634287057641,
+      "fscore": 0.8464251814392564
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.83425878779963
+  },
+  {
+    "epoch": 168,
+    "train": {
+      "dice_loss + focal_loss": 0.2691434016924792,
+      "iou_score": 0.8378490570794211,
+      "fscore": 0.9015591310882796
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3335326982121314,
+      "iou_score": 0.7631113620580973,
+      "fscore": 0.8394573729891737
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.880125713069
+  },
+  {
+    "epoch": 169,
+    "train": {
+      "dice_loss + focal_loss": 0.2802451165803412,
+      "iou_score": 0.8249513470208638,
+      "fscore": 0.8899730086362105
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32964313174447707,
+      "iou_score": 0.7686889869831769,
+      "fscore": 0.8438518580930395
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.61017203284428
+  },
+  {
+    "epoch": 170,
+    "train": {
+      "dice_loss + focal_loss": 0.25964804242054623,
+      "iou_score": 0.8492270902593904,
+      "fscore": 0.9116771305385266
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32857314256891124,
+      "iou_score": 0.7695800443372562,
+      "fscore": 0.8448783788992656
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 128.85575726814568
+  },
+  {
+    "epoch": 171,
+    "train": {
+      "dice_loss + focal_loss": 0.2613509766294459,
+      "iou_score": 0.8469590943445523,
+      "fscore": 0.9102091175216671
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3299454217476229,
+      "iou_score": 0.767227058092854,
+      "fscore": 0.8431100999198022
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 114.5207027234137
+  },
+  {
+    "epoch": 172,
+    "train": {
+      "dice_loss + focal_loss": 0.2710182867565396,
+      "iou_score": 0.8345999519705432,
+      "fscore": 0.8994217547237192
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3307072789438309,
+      "iou_score": 0.7673933144339651,
+      "fscore": 0.8426407060116549
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 122.33415421191603
+  },
+  {
+    "epoch": 173,
+    "train": {
+      "dice_loss + focal_loss": 0.2713710080600729,
+      "iou_score": 0.8352677405771123,
+      "fscore": 0.8992238906097764
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32959919951615807,
+      "iou_score": 0.7676677873337867,
+      "fscore": 0.8437167062433903
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 136.44978538295254
+  },
+  {
+    "epoch": 174,
+    "train": {
+      "dice_loss + focal_loss": 0.26611637412491496,
+      "iou_score": 0.8408973277650336,
+      "fscore": 0.9051344446904945
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32677787085694643,
+      "iou_score": 0.7709281309998951,
+      "fscore": 0.8464441884710091
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 142.29507032921538
+  },
+  {
+    "epoch": 175,
+    "train": {
+      "dice_loss + focal_loss": 0.26794495362009674,
+      "iou_score": 0.8382759137768876,
+      "fscore": 0.9030643215019329
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.325429834185108,
+      "iou_score": 0.7727223813813177,
+      "fscore": 0.8479487972913848
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 143.4299235790968
+  },
+  {
+    "epoch": 176,
+    "train": {
+      "dice_loss + focal_loss": 0.2631091695636682,
+      "iou_score": 0.8434455594699576,
+      "fscore": 0.9079120098544018
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3282230489196317,
+      "iou_score": 0.7704578501121965,
+      "fscore": 0.8452582085364598
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 148.1218942780979
+  },
+  {
+    "epoch": 177,
+    "train": {
+      "dice_loss + focal_loss": 0.2667896716439793,
+      "iou_score": 0.8366204851142173,
+      "fscore": 0.9032654277652417
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3277689468476081,
+      "iou_score": 0.7710232952229997,
+      "fscore": 0.8457070081986324
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.37951987190172
+  },
+  {
+    "epoch": 178,
+    "train": {
+      "dice_loss + focal_loss": 0.27113605387466755,
+      "iou_score": 0.8351981503949393,
+      "fscore": 0.8998786617688601
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32602881015308444,
+      "iou_score": 0.7722029871076267,
+      "fscore": 0.8474179666168189
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.1124249943532
+  },
+  {
+    "epoch": 179,
+    "train": {
+      "dice_loss + focal_loss": 0.268177465362064,
+      "iou_score": 0.8398303973441926,
+      "fscore": 0.9027132296430374
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33228524990620145,
+      "iou_score": 0.7645971435013122,
+      "fscore": 0.840817435618639
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.34977702889591
+  },
+  {
+    "epoch": 180,
+    "train": {
+      "dice_loss + focal_loss": 0.2658309892325076,
+      "iou_score": 0.8406498558889975,
+      "fscore": 0.9052975364689395
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32455348295550185,
+      "iou_score": 0.7740706676479342,
+      "fscore": 0.848953399090424
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.36031504673883
+  },
+  {
+    "epoch": 181,
+    "train": {
+      "dice_loss + focal_loss": 0.2721897369134898,
+      "iou_score": 0.8340816461057984,
+      "fscore": 0.8989551585560044
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32596392136427677,
+      "iou_score": 0.7717727177606423,
+      "fscore": 0.8473644435686396
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.79320150613785
+  },
+  {
+    "epoch": 182,
+    "train": {
+      "dice_loss + focal_loss": 0.27432413104563763,
+      "iou_score": 0.8327674194854036,
+      "fscore": 0.8968454787643794
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3256279838181312,
+      "iou_score": 0.7734101577553832,
+      "fscore": 0.8478491503426917
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.42401217808947
+  },
+  {
+    "epoch": 183,
+    "train": {
+      "dice_loss + focal_loss": 0.27009094594898847,
+      "iou_score": 0.8362416874094154,
+      "fscore": 0.8999548649639354
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.32651705487120536,
+      "iou_score": 0.7719504776183271,
+      "fscore": 0.847145902057292
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.07799803791568
+  },
+  {
+    "epoch": 184,
+    "train": {
+      "dice_loss + focal_loss": 0.2748514089712313,
+      "iou_score": 0.8315832434822421,
+      "fscore": 0.8963159904136982
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3364008316589939,
+      "iou_score": 0.7581264332222999,
+      "fscore": 0.8367612955596815
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.52522758115083
+  },
+  {
+    "epoch": 185,
+    "train": {
+      "dice_loss + focal_loss": 0.271725500623385,
+      "iou_score": 0.8363343909915263,
+      "fscore": 0.9001666856714939
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3294149245465956,
+      "iou_score": 0.7677167333225537,
+      "fscore": 0.8439413839093588
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 140.26386594539508
+  },
+  {
+    "epoch": 186,
+    "train": {
+      "dice_loss + focal_loss": 0.27327713614466514,
+      "iou_score": 0.8330740529834015,
+      "fscore": 0.8971497641929603
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33136686971110685,
+      "iou_score": 0.7644330493909909,
+      "fscore": 0.8418626596654826
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 124.8029553303495
+  },
+  {
+    "epoch": 187,
+    "train": {
+      "dice_loss + focal_loss": 0.2663342469071937,
+      "iou_score": 0.8424476815759288,
+      "fscore": 0.904860502079802
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3315601639689939,
+      "iou_score": 0.7647215326270836,
+      "fscore": 0.8418231300092601
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 118.92217660602182
+  },
+  {
+    "epoch": 188,
+    "train": {
+      "dice_loss + focal_loss": 0.2708369054868399,
+      "iou_score": 0.8355858325450312,
+      "fscore": 0.8996524740407572
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.332773752029865,
+      "iou_score": 0.7623277775268605,
+      "fscore": 0.840500342153562
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 136.01017918018624
+  },
+  {
+    "epoch": 189,
+    "train": {
+      "dice_loss + focal_loss": 0.2668921126231637,
+      "iou_score": 0.8404857119002787,
+      "fscore": 0.9038393172582198
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.329148228130033,
+      "iou_score": 0.7679805396347988,
+      "fscore": 0.8444022944901005
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.42267862707376
+  },
+  {
+    "epoch": 190,
+    "train": {
+      "dice_loss + focal_loss": 0.2636171980513691,
+      "iou_score": 0.8443249510571399,
+      "fscore": 0.907466626060139
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.3296431786110324,
+      "iou_score": 0.7672976916996347,
+      "fscore": 0.8439154900169786
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.25500835338607
+  },
+  {
+    "epoch": 191,
+    "train": {
+      "dice_loss + focal_loss": 0.2688352919820338,
+      "iou_score": 0.8417053654640502,
+      "fscore": 0.902230907136649
+    },
+    "validation": {
+      "dice_loss + focal_loss": 0.33106893733624493,
+      "iou_score": 0.7657839351282794,
+      "fscore": 0.8424618404037355
+    },
+    "selected_checkpoint": false,
+    "learning_rate": 1e-05,
+    "seconds": 147.2668780758977
+  }
+]

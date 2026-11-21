@@ -1,0 +1,157 @@
+{
+  "status": "COMPLETED \u2014 TWO REAL COMBINATION TRAININGS, EVALUATION AND PUBLICATION QA",
+  "published_utc": "2026-11-20T16:18:27.984959+00:00",
+  "base_commit": "12f822aeb44d303e3e1be4b4e5407d1d36807666",
+  "run": "outputs/cp2/phase_c_combinations/20261119T004726Z",
+  "new_training_during_publication": false,
+  "new_inference_during_publication": false,
+  "publication_execution": {
+    "status": "completed",
+    "finished_utc": "2026-11-20T16:16:53.762896+00:00",
+    "run": "outputs/cp2/phase_c_combinations/20261119T004726Z",
+    "training_or_new_inference_performed": false,
+    "device": "cpu",
+    "threads": 2,
+    "frozen_report_sha256": "a025f385855d1e07d1d438272903435d1f79305789dbfaa59b0afaa9a1efb9b2",
+    "publication_dispatcher_sha256": "2013b855380aa466ebb42f4710c01e83d8670aa5d07e13ddcfa205ffbc0fb8e8",
+    "preservation": {
+      "files": 1409,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": []
+    },
+    "historical_preservation_with_relocation": {
+      "files": 548,
+      "unchanged": true,
+      "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+      "verified_relocations": [
+        {
+          "original": "../ganta/notebook/13_cascade_crop_refine_chronic_wound.py",
+          "current": "../ganta/notebook/scripts/13_cascade_crop_refine_chronic_wound.py",
+          "sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371"
+        }
+      ]
+    },
+    "old_failed_workflow_and_logs_preserved": true,
+    "canonical_final_validation_sha256": "2635ac7b6bc2a51b115b4016e36ee850d17bff2b8de5e9fee7cdff83dd4c0f4a",
+    "selected_candidate": "B1",
+    "visual_review": "PASSED \u2014 both actual PNGs opened; see figures",
+    "visual_review_at_generation": "PENDING \u2014 inspect both figures before final publication"
+  },
+  "tests": {
+    "passed": 237,
+    "warnings": 29,
+    "wall_seconds": 4.5,
+    "new_preservation_tests": 4,
+    "command": "CUDA_VISIBLE_DEVICES='' .venv-xfuseg/bin/python -m pytest -ra",
+    "log_sha256": "1d96a49bf74b2c99bc9191cd001a1713ceafd333410e32cf81cf771e7354c45a",
+    "ruff": "NOT RUN \u2014 not installed; no dependency changes"
+  },
+  "figures": [
+    {
+      "path": "reports/figures/cp2-phase-c-combinations/training.png",
+      "sha256": "e56e193ea11de41fc8b513d80d06ad1f751258282a5081291961e8e65fac37bd",
+      "status": "passed",
+      "review": "opened actual PNG via view_image; readable fonts/axes/legends, no clipped labels; consistent colors, honest 0\u2013100% evaluation scales"
+    },
+    {
+      "path": "reports/figures/cp2-phase-c-combinations/comparison.png",
+      "sha256": "b1b3830be413c55ee53adc82babfc9784ae3abf8d213d1fcdd803eda3da96a8d",
+      "status": "passed",
+      "review": "opened actual PNG via view_image; readable fonts/axes/legends, no clipped labels; consistent colors, honest 0\u2013100% evaluation scales"
+    }
+  ],
+  "per_image_tables": [
+    {
+      "path": "reports/tables/cp2-combinations-a6-test.csv",
+      "sha256": "b5daa04a08e325eecaf1fc18968a34fbd3180d4a04b7f5cf878204c3390b64bb",
+      "rows": 261
+    },
+    {
+      "path": "reports/tables/cp2-combinations-a6-validation.csv",
+      "sha256": "55b885e9229e7d69a05c2bf3a6d115b280f5a50023f12b32ac29a21489a2b22b",
+      "rows": 118
+    },
+    {
+      "path": "reports/tables/cp2-combinations-b1-test.csv",
+      "sha256": "bc9b76dd9564e1d51619fb8c1c8ae28e03b29e126429c432a9b7ae31d4499af2",
+      "rows": 261
+    },
+    {
+      "path": "reports/tables/cp2-combinations-b1-validation.csv",
+      "sha256": "7ddc4cabd274c6cf4e83698d9dc255e9e2b265b76522541d8466fe546bc3d45d",
+      "rows": 118
+    },
+    {
+      "path": "reports/tables/cp2-combinations-b1a6h2-test.csv",
+      "sha256": "84d4ac68ad5ec7184479b38b377e9d1c459b99b4257e00fc5f7c52bde9da9d59",
+      "rows": 261
+    },
+    {
+      "path": "reports/tables/cp2-combinations-b1a6h2-validation.csv",
+      "sha256": "63e43e1f7719d34399ae962f863d69737ad466049f8b3e35a1427cb39cfea8a0",
+      "rows": 118
+    },
+    {
+      "path": "reports/tables/cp2-combinations-h2-test.csv",
+      "sha256": "f9049280ad5ee4c0de13af9cf7ab3d299b1599644090b28c5197c19d5bcbb1ce",
+      "rows": 261
+    },
+    {
+      "path": "reports/tables/cp2-combinations-h2-validation.csv",
+      "sha256": "d782affba030596453f554f10ad1bf9dc2fe60f2113c25ddf11d4faea7df3fd8",
+      "rows": 118
+    },
+    {
+      "path": "reports/tables/cp2-combinations-l3-test.csv",
+      "sha256": "7df2d05c0eaf7f1113c6a3d0f37674e90d781575e5a924cf5245e7f13f999cc2",
+      "rows": 261
+    },
+    {
+      "path": "reports/tables/cp2-combinations-l3-validation.csv",
+      "sha256": "0bdeb09a0a35d80c35dfcc227846883da238aee0242644cd402c27fac24336ca",
+      "rows": 118
+    },
+    {
+      "path": "reports/tables/cp2-combinations-l3a6h2-test.csv",
+      "sha256": "f8b0d6f6e8e39a19df3363489c6aec462f5acc11e3634d285fc3d25a137d7125",
+      "rows": 261
+    },
+    {
+      "path": "reports/tables/cp2-combinations-l3a6h2-validation.csv",
+      "sha256": "da65aa42247272bb08764030db20ef49bdf5a169ebc3b69af62ebcc868f1a40a",
+      "rows": 118
+    }
+  ],
+  "training_histories": [
+    {
+      "model": "B1A6H2",
+      "epochs": 67,
+      "source_history_sha256": "9cde6ec81b0901f5637196d608c7ec4f3d4321b147efcd6433962a516137de48",
+      "public_csv": "reports/training/cp2-combinations-b1a6h2-history.csv",
+      "sha256": "8ab2c7fdddcbf2ab4d82505b63a71dae7c612307a47a936ee5d255481c6897bb"
+    },
+    {
+      "model": "L3A6H2",
+      "epochs": 163,
+      "source_history_sha256": "310316b004be40fe4046e6ceacc15e3ddb424e80dfdcc60db970a1053d0ad736",
+      "public_csv": "reports/training/cp2-combinations-l3a6h2-history.csv",
+      "sha256": "56da2d388aec2fcf350b9f5ae1cacd2e225b75d50abd7043ef08786ffcec49aa"
+    }
+  ],
+  "scientific_selection_unchanged": "B1 retained; neither candidate satisfies validation guards",
+  "source_test_caveat": "historically exposed, descriptive only; not used to select model",
+  "active_cascade_modified": false,
+  "protected_files": {
+    "files": 1409,
+    "unchanged": true,
+    "meaning_of_unchanged": "all content hashes identical; explicit path relocation recorded",
+    "verified_relocations": []
+  },
+  "publication_helper_sha256": "2ce40907cb28988c7f5fd459762d1e7deed8e16103cf5662ff40558956ccfed0",
+  "artifacts": {
+    "reports/cp2-phase-c-combinations.md": "8e9df542271a623f544fd1eee48b8d457627a705c276b2b804ba9944cad09835",
+    "reports/cp2-phase-c-combinations-validation.json": "d4ec3023ec0a672ce3dfe89a5f88ad8d3c09332da17bf165162d30e46ca2f8d9",
+    "reports/cp2-phase-c-combinations-results.json": "8209838a64c62f88b577a3e0180c3e8bd4705d77aea799f18daceebc734aa743"
+  }
+}

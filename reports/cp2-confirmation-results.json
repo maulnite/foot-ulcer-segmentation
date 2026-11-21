@@ -1,0 +1,585 @@
+{
+  "status": "COMPLETED \u2014 THREE-SEED CP2 REPLICATION; POSTPROCESS RECOVERED",
+  "run_root": "outputs/cp2/confirmation/20261115T080014Z",
+  "protocol": {
+    "name": "cp2-b1-h2-a6-seed-confirmation",
+    "base_config": "configs/cp2/phase_p.json",
+    "base_root": "outputs/cp2/phase_p/20261107T170015Z",
+    "manifest_fingerprint": "fa9f4914a55806248d25c4a4092361db2658bfc63a0031122b63028202ef8ed5",
+    "models": [
+      "B1",
+      "H2",
+      "A6"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "fresh_seeds": [
+      43,
+      44
+    ],
+    "cached_seed": 42,
+    "cached_roots": {
+      "B1": "outputs/cp2/phase_p/20261107T170015Z",
+      "H2": "outputs/cp2/phase_h/20261112T105427Z",
+      "A6": "outputs/cp2/phase_a/20261108T185142Z"
+    },
+    "architecture_configs": {
+      "H2": "configs/cp2/phase_h.json",
+      "A6": "configs/cp2/phase_a.json"
+    },
+    "seed_policy": "split_seed stays 42; per-seed shared ImageNet encoder/new decoder state; epoch RNG is training_seed + 10007 * zero_based_epoch; H2 head seed training_seed + 30003; A6 existing seed + 20200 + stage",
+    "training_policy": "all phase-P settings unchanged except training seed; each seed shares source tensors and actual inputs across its three models; FP32, no AMP, one sequential trainer",
+    "selection": {
+      "data": "validation only, equal weighting of seeds 42/43/44",
+      "min_full_guard_seed_passes": 2,
+      "max_active_parameter_ratio": 1.01,
+      "guards": [
+        "mean Image Dice strictly higher than paired B1",
+        "mean small Dice not lower",
+        "mean Boundary IoU not lower",
+        "mean total foreground misses not higher",
+        "mean empty-FP image count not higher",
+        "active training params <=1.01*B1"
+      ],
+      "ranking": "highest mean validation Image Dice among eligible; exact ties H2 before A6; otherwise retain B1",
+      "historical": "seed42 screening failures remain failures; this is a separately preregistered exploratory replication, not retroactive reselection",
+      "test": "all models/seeds reported only after persisted validation-only decision; exposed source-test is descriptive, never used for routing",
+      "routing": "if BOTH H2 and A6 eligible, recommend bounded combination preregistration; if replicated mean empty-FP excess remains, recommend presence-supervision preregistration; otherwise hold/diagnose. Do not auto-launch new architectures."
+    },
+    "scope": "six fresh full runs only; no CP1 retraining, no changed labels/split/threshold/empty rules, no external data, no H3/L3/combination/presence training before result review",
+    "limitations": [
+      "selection of candidates informed by reused validation; not confirmatory evidence on independent data",
+      "three seeds assess training variability on ONE duplicate-group split, not patient independence",
+      "no claim of bitwise historical GPU replay; cached seed42 original artifacts immutable",
+      "mask-empty is an annotation property, not diagnosis of healthy tissue"
+    ]
+  },
+  "metrics": {
+    "42": {
+      "B1": {
+        "validation": {
+          "image_dice": 0.8427647785636088,
+          "data_dice": 0.9151284814129442,
+          "small_dice": 0.7728488003256934,
+          "boundary_iou": 0.539268718526894,
+          "pfom": 0.7411165530612508,
+          "misses": 0,
+          "empty_fp_images": 4,
+          "empty_fp_pixels": 526
+        },
+        "test": {
+          "image_dice": 0.8328934505171869,
+          "data_dice": 0.9077268827102618,
+          "small_dice": 0.7622103001630682,
+          "boundary_iou": 0.5353400157759324,
+          "pfom": 0.7311237690901209,
+          "misses": 4,
+          "empty_fp_images": 9,
+          "empty_fp_pixels": 1710
+        }
+      },
+      "H2": {
+        "validation": {
+          "image_dice": 0.8488255344612968,
+          "data_dice": 0.920736954879955,
+          "small_dice": 0.8055763835895309,
+          "boundary_iou": 0.5576626404797167,
+          "pfom": 0.7527981106631217,
+          "misses": 0,
+          "empty_fp_images": 5,
+          "empty_fp_pixels": 721
+        },
+        "test": {
+          "image_dice": 0.8477312264307705,
+          "data_dice": 0.9149589736312719,
+          "small_dice": 0.8091516587500501,
+          "boundary_iou": 0.5595672345424063,
+          "pfom": 0.7539350063430074,
+          "misses": 0,
+          "empty_fp_images": 10,
+          "empty_fp_pixels": 2085
+        }
+      },
+      "A6": {
+        "validation": {
+          "image_dice": 0.8516808612065091,
+          "data_dice": 0.9256253694272895,
+          "small_dice": 0.8176769593183509,
+          "boundary_iou": 0.5542979296536739,
+          "pfom": 0.758452433443249,
+          "misses": 0,
+          "empty_fp_images": 5,
+          "empty_fp_pixels": 735
+        },
+        "test": {
+          "image_dice": 0.8440523116376588,
+          "data_dice": 0.9203904588631676,
+          "small_dice": 0.7908006320451719,
+          "boundary_iou": 0.5547450142648097,
+          "pfom": 0.7518203994360058,
+          "misses": 3,
+          "empty_fp_images": 10,
+          "empty_fp_pixels": 3098
+        }
+      }
+    },
+    "43": {
+      "B1": {
+        "validation": {
+          "image_dice": 0.8440614991706743,
+          "data_dice": 0.9248703520130369,
+          "small_dice": 0.8179334949118711,
+          "boundary_iou": 0.5510307291287218,
+          "pfom": 0.7506832157774341,
+          "misses": 0,
+          "empty_fp_images": 6,
+          "empty_fp_pixels": 841
+        },
+        "test": {
+          "image_dice": 0.8393009464366958,
+          "data_dice": 0.9264040342486239,
+          "small_dice": 0.7751684582039844,
+          "boundary_iou": 0.5654010293385839,
+          "pfom": 0.756896696762636,
+          "misses": 7,
+          "empty_fp_images": 10,
+          "empty_fp_pixels": 2589
+        }
+      },
+      "H2": {
+        "validation": {
+          "image_dice": 0.838902518675711,
+          "data_dice": 0.9153709508572039,
+          "small_dice": 0.7981596288218801,
+          "boundary_iou": 0.5320944620898808,
+          "pfom": 0.7285570344169618,
+          "misses": 0,
+          "empty_fp_images": 5,
+          "empty_fp_pixels": 706
+        },
+        "test": {
+          "image_dice": 0.8231924969666415,
+          "data_dice": 0.9087489838056388,
+          "small_dice": 0.7913259971861286,
+          "boundary_iou": 0.5241205375892806,
+          "pfom": 0.7240595827073403,
+          "misses": 0,
+          "empty_fp_images": 12,
+          "empty_fp_pixels": 2304
+        }
+      },
+      "A6": {
+        "validation": {
+          "image_dice": 0.8346433960695567,
+          "data_dice": 0.9040732394697669,
+          "small_dice": 0.777505247220708,
+          "boundary_iou": 0.53435262477179,
+          "pfom": 0.7340520894558341,
+          "misses": 0,
+          "empty_fp_images": 5,
+          "empty_fp_pixels": 1040
+        },
+        "test": {
+          "image_dice": 0.8420737629809921,
+          "data_dice": 0.9134748668563508,
+          "small_dice": 0.8007871795074019,
+          "boundary_iou": 0.5562250150679653,
+          "pfom": 0.7556544704002592,
+          "misses": 3,
+          "empty_fp_images": 9,
+          "empty_fp_pixels": 2298
+        }
+      }
+    },
+    "44": {
+      "B1": {
+        "validation": {
+          "image_dice": 0.8452477518582343,
+          "data_dice": 0.923789719666712,
+          "small_dice": 0.7795292929044231,
+          "boundary_iou": 0.5442326682245764,
+          "pfom": 0.7547072311897911,
+          "misses": 1,
+          "empty_fp_images": 4,
+          "empty_fp_pixels": 683
+        },
+        "test": {
+          "image_dice": 0.8358091781278345,
+          "data_dice": 0.9104747501780649,
+          "small_dice": 0.7699102862917909,
+          "boundary_iou": 0.5477439822333557,
+          "pfom": 0.7478009743170029,
+          "misses": 6,
+          "empty_fp_images": 9,
+          "empty_fp_pixels": 1805
+        }
+      },
+      "H2": {
+        "validation": {
+          "image_dice": 0.8436313834791854,
+          "data_dice": 0.930505624492636,
+          "small_dice": 0.7936598779506537,
+          "boundary_iou": 0.5585056227711902,
+          "pfom": 0.754115859121888,
+          "misses": 0,
+          "empty_fp_images": 5,
+          "empty_fp_pixels": 846
+        },
+        "test": {
+          "image_dice": 0.8465934202218056,
+          "data_dice": 0.9199707408826501,
+          "small_dice": 0.8032007419807623,
+          "boundary_iou": 0.5684967117903401,
+          "pfom": 0.7619410191083347,
+          "misses": 5,
+          "empty_fp_images": 8,
+          "empty_fp_pixels": 2989
+        }
+      },
+      "A6": {
+        "validation": {
+          "image_dice": 0.8418904983585317,
+          "data_dice": 0.9255387672692926,
+          "small_dice": 0.7726485050385032,
+          "boundary_iou": 0.5402703534806812,
+          "pfom": 0.7514745094715386,
+          "misses": 0,
+          "empty_fp_images": 5,
+          "empty_fp_pixels": 854
+        },
+        "test": {
+          "image_dice": 0.8423770983052244,
+          "data_dice": 0.9232347998567454,
+          "small_dice": 0.7779725782037763,
+          "boundary_iou": 0.5486212459855494,
+          "pfom": 0.7481760676764967,
+          "misses": 4,
+          "empty_fp_images": 9,
+          "empty_fp_pixels": 1592
+        }
+      }
+    }
+  },
+  "selection": {
+    "created_utc": "2026-11-16T18:32:51.848190+00:00",
+    "validation_only": true,
+    "selected_candidate": "B1",
+    "means": {
+      "B1": {
+        "image_dice": 0.8440246765308391,
+        "data_dice": 0.9212628510308978,
+        "small_dice": 0.7901038627139959,
+        "boundary_iou": 0.5448440386267307,
+        "pfom": 0.7488356666761588,
+        "misses": 0.3333333333333333,
+        "empty_fp_images": 4.666666666666667,
+        "empty_fp_pixels": 683.3333333333334
+      },
+      "H2": {
+        "image_dice": 0.8437864788720644,
+        "data_dice": 0.9222045100765982,
+        "small_dice": 0.7991319634540216,
+        "boundary_iou": 0.5494209084469291,
+        "pfom": 0.7451570014006572,
+        "misses": 0.0,
+        "empty_fp_images": 5.0,
+        "empty_fp_pixels": 757.6666666666666
+      },
+      "A6": {
+        "image_dice": 0.8427382518781991,
+        "data_dice": 0.9184124587221163,
+        "small_dice": 0.7892769038591875,
+        "boundary_iou": 0.5429736359687151,
+        "pfom": 0.7479930107902072,
+        "misses": 0.0,
+        "empty_fp_images": 5.0,
+        "empty_fp_pixels": 876.3333333333334
+      }
+    },
+    "decisions": {
+      "H2": {
+        "eligible": false,
+        "mean_guards": {
+          "higher_overall_dice": false,
+          "small_not_lower": true,
+          "boundary_not_lower": true,
+          "no_extra_total_miss": true,
+          "no_extra_empty_fp": false,
+          "capacity_budget": true
+        },
+        "per_seed_guards": {
+          "42": {
+            "higher_overall_dice": true,
+            "small_not_lower": true,
+            "boundary_not_lower": true,
+            "no_extra_total_miss": true,
+            "no_extra_empty_fp": false,
+            "capacity_budget": true
+          },
+          "43": {
+            "higher_overall_dice": false,
+            "small_not_lower": false,
+            "boundary_not_lower": false,
+            "no_extra_total_miss": true,
+            "no_extra_empty_fp": true,
+            "capacity_budget": true
+          },
+          "44": {
+            "higher_overall_dice": false,
+            "small_not_lower": true,
+            "boundary_not_lower": true,
+            "no_extra_total_miss": true,
+            "no_extra_empty_fp": false,
+            "capacity_budget": true
+          }
+        },
+        "full_guard_seed_passes": 0,
+        "paired_image_dice_deltas": {
+          "42": 0.006060755897688064,
+          "43": -0.005158980494963328,
+          "44": -0.0016163683790488825
+        }
+      },
+      "A6": {
+        "eligible": false,
+        "mean_guards": {
+          "higher_overall_dice": false,
+          "small_not_lower": false,
+          "boundary_not_lower": false,
+          "no_extra_total_miss": true,
+          "no_extra_empty_fp": false,
+          "capacity_budget": true
+        },
+        "per_seed_guards": {
+          "42": {
+            "higher_overall_dice": true,
+            "small_not_lower": true,
+            "boundary_not_lower": true,
+            "no_extra_total_miss": true,
+            "no_extra_empty_fp": false,
+            "capacity_budget": true
+          },
+          "43": {
+            "higher_overall_dice": false,
+            "small_not_lower": false,
+            "boundary_not_lower": false,
+            "no_extra_total_miss": true,
+            "no_extra_empty_fp": true,
+            "capacity_budget": true
+          },
+          "44": {
+            "higher_overall_dice": false,
+            "small_not_lower": false,
+            "boundary_not_lower": false,
+            "no_extra_total_miss": true,
+            "no_extra_empty_fp": false,
+            "capacity_budget": true
+          }
+        },
+        "full_guard_seed_passes": 0,
+        "paired_image_dice_deltas": {
+          "42": 0.008916082642900336,
+          "43": -0.00941810310111757,
+          "44": -0.003357253499702617
+        }
+      }
+    },
+    "next_research_route": "REVIEW_PRESENCE_SUPERVISION",
+    "automatic_new_architecture_training": false,
+    "historical_seed42_decisions_unchanged": true,
+    "caveat": "Exploratory seed replication on reused validation; not independent confirmatory evidence"
+  },
+  "validation": {
+    "status": "passed",
+    "created_utc": "2026-11-16T20:04:31.077382+00:00",
+    "exports": [
+      {
+        "seed": 42,
+        "model": "B1",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 42,
+        "model": "B1",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 42,
+        "model": "H2",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 42,
+        "model": "H2",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 42,
+        "model": "A6",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 42,
+        "model": "A6",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 43,
+        "model": "B1",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 43,
+        "model": "B1",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 43,
+        "model": "H2",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 43,
+        "model": "H2",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 43,
+        "model": "A6",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 43,
+        "model": "A6",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 44,
+        "model": "B1",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 44,
+        "model": "B1",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 44,
+        "model": "H2",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 44,
+        "model": "H2",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      },
+      {
+        "seed": 44,
+        "model": "A6",
+        "status": "passed",
+        "split": "validation",
+        "predictions": 118
+      },
+      {
+        "seed": 44,
+        "model": "A6",
+        "status": "passed",
+        "split": "test",
+        "predictions": 261
+      }
+    ],
+    "new_prediction_count": 2274,
+    "cached_prediction_count": 1137,
+    "selection_before_new_test": true,
+    "earliest_best_checkpoint_replayed": true,
+    "preservation": {
+      "status": "passed",
+      "unchanged_files": 16325
+    },
+    "patient_independence_claimed": false
+  },
+  "postprocess_recovery": {
+    "cause": "JSON converts integer dictionary keys to strings",
+    "raw_python_decision_equal": false,
+    "json_roundtrip_decision_equal": true,
+    "all_scientific_values_exactly_equal": true,
+    "selected_candidate_unchanged": "B1",
+    "training_or_inference_executed": false,
+    "frozen_validator_code_object_unchanged": true,
+    "repair_source_sha256": "82acd963292216aa3c2de01d2e628ec3929580dc1a40968c462ffa678adc56d0",
+    "original_failed_workflow_preserved": true
+  },
+  "visual_review": {
+    "status": "passed",
+    "utc": "2026-11-16T20:06:44.192666+00:00",
+    "direct_image_inspection": true,
+    "figures": [
+      {
+        "path": "reports/figures/cp2-confirmation/three_seed_image_dice.png",
+        "sha256": "ca91441b2b9c6abac24e30475385577f6bcb6900bae1e862c2fb6a915be8c8b0"
+      },
+      {
+        "path": "reports/figures/cp2-confirmation/three_seed_image_dice.svg",
+        "sha256": "096889116326c27b0977a31c31a6e9c87cd0345524e6fbe99987589dfd50afb1"
+      },
+      {
+        "path": "reports/figures/cp2-confirmation/training_curves.png",
+        "sha256": "7184d8fa7bb05a5ef29a69f43d5b6112bf0e282b993fccc8d764a82d487c6e0f"
+      },
+      {
+        "path": "reports/figures/cp2-confirmation/training_curves.svg",
+        "sha256": "ccdc679f2ef31a9082d4ac55b07d29770dae0bdbcdac52beff3d5b2e8bdde382"
+      }
+    ],
+    "checks": [
+      "readable axes/fonts/legends",
+      "all three seeds shown without favorable-seed selection",
+      "validation/test clearly distinguished",
+      "checkpoint markers match statuses",
+      "loss definitions and model differences explained",
+      "actual A6 seed44 validation-loss instability retained, not hidden"
+    ],
+    "scope": "Presentation-only review; canonical run metrics/checkpoints/decision unchanged"
+  },
+  "postprocess_tests": {
+    "passed": 153,
+    "warnings": 29,
+    "regression_cases_added": 3,
+    "ruff": "not installed; not run; no dependency changes"
+  }
+}

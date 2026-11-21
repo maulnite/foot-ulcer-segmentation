@@ -1,0 +1,85 @@
+{
+  "name": "cp2-phase-p-b0-b1",
+  "reference_revision": "60e8cfe0c8e2dacffa55fe208b8abb6815f7f6cc",
+  "seed": 42,
+  "split_seed": 42,
+  "cpu_threads": 2,
+  "data": {
+    "root": "data/raw/chronic_wound",
+    "validation_fraction": 0.15,
+    "image_size": [224, 224],
+    "conflict_policy": "quarantine_entire_exact_rgb_group",
+    "overlap_policy": "exclude_source_train_groups_present_in_source_test",
+    "duplicate_policy": "one_lexicographic_representative_per_unconflicted_group",
+    "patient_ids_available": false
+  },
+  "model": {
+    "encoder_name": "efficientnet-b7",
+    "encoder_weights": "imagenet",
+    "classes": 1,
+    "activation": null,
+    "decoder_attention_type": "pscse"
+  },
+  "loss": {
+    "dice_epsilon": 1.0,
+    "dice_beta": 1.0,
+    "focal_alpha": null,
+    "focal_gamma": 2.0,
+    "focal_epsilon": 0.000001,
+    "focal_reduction": "mean",
+    "focal_normalized": false,
+    "focal_reduced_threshold": null,
+    "component_weights": [1.0, 1.0],
+    "aggregation": "reference_batch_global_dice_and_pixel_mean_focal",
+    "B0": "dice(sigmoid(z), y) + focal_with_logits(sigmoid(z), y)",
+    "B1": "dice(sigmoid(z), y) + focal_with_logits(z, y)"
+  },
+  "training": {
+    "batch_size": 2,
+    "num_workers": 4,
+    "max_epochs": 200,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.00001,
+    "optimizer": "Adam",
+    "precision": "float32",
+    "amp": false,
+    "matmul_allow_tf32": true,
+    "cudnn_allow_tf32": true,
+    "cudnn_benchmark": false,
+    "checkpoint_policy": "highest_validation_image_dice_strict_improvement_earlier_epoch_tie",
+    "early_stopping_patience": 30,
+    "scheduler": {
+      "type": "ReduceLROnPlateau",
+      "monitor": "validation_image_dice",
+      "mode": "max",
+      "factor": 0.1,
+      "patience": 10,
+      "threshold": 0.0,
+      "threshold_mode": "abs",
+      "cooldown": 0,
+      "min_lr": 0.00001,
+      "eps": 0.00000001
+    },
+    "augmentation": "unchanged_reference_get_training_augmentation",
+    "epoch_rng_seed_rule": "42 + 10007 * zero_based_epoch; dedicated loader generators",
+    "finite_gradient_check_every_step": true
+  },
+  "evaluation": {
+    "prediction_threshold": 0.5,
+    "evaluator": "offline_hard_line_ordinary_confusion_counts",
+    "empty_image_rule": "both_empty_1; exactly_one_empty_0",
+    "empty_aggregate_dice": null,
+    "boundary_radius_diagonal_fraction": 0.01,
+    "boundary_radius_min_pixels": 1,
+    "boundary_erosion": "3x3_square_inner_boundary_zero_padded_round_radius_iterations",
+    "small_wound_fraction": 0.01,
+    "medium_wound_fraction": 0.05,
+    "test_policy": "evaluate_both_locked_baselines_after_both_training_runs_complete; previously_analyzed_CP1_source_test_not_pristine_confirmatory_test"
+  },
+  "provenance": {
+    "scope": "PHASE P ONLY; no advanced losses, attention changes, boundary head, external fitting or evaluation",
+    "precision": "preserve CP1 torch.float32 and PyTorch 1.11 TF32 defaults; no AMP",
+    "initialization": "one shared ImageNet-initialized state_dict, verified tensor-by-tensor for both baselines",
+    "cp1": "artifacts immutable; separate CP2 manifest, evaluator policy and run directories"
+  }
+}

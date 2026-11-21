@@ -1,0 +1,204 @@
+{
+  "status": "completed",
+  "training_performed": false,
+  "models": {
+    "coarse": {
+      "epoch": 41,
+      "parameters": 64898248,
+      "checkpoint_sha256": "880d4a5b18b26ce07b01d7e3a7a6da00750bace20b4bad6246062ca0d1d1e1e2",
+      "strict_load": true
+    },
+    "refiner": {
+      "epoch": 27,
+      "parameters": 64898248,
+      "checkpoint_sha256": "aa6b5d2566e751dfa461576830e2e739c614c1470e6e6ce0c5079656e1bd1df9",
+      "strict_load": true
+    }
+  },
+  "metrics": {
+    "coarse": {
+      "images": 278,
+      "units": "fraction",
+      "prediction_rule": "probability >= 0.5",
+      "offline_hard_line": {
+        "counts": {
+          "tp": 354365,
+          "tn": 13535833,
+          "fp": 24206,
+          "fn": 34524
+        },
+        "data_based": {
+          "dice": 0.9234748390795612,
+          "iou": 0.8578293128678444,
+          "precision": 0.936059550253622,
+          "recall": 0.911224025362221
+        },
+        "image_based": {
+          "dice": 0.8432477796292717,
+          "iou": 0.7765840222634571,
+          "precision": 0.8628137319870353,
+          "recall": 0.8491948761904564
+        }
+      },
+      "author_inline_legacy": {
+        "counts": {
+          "tp": 555069,
+          "tn": 13335129,
+          "fp": 24206,
+          "fn": 34524
+        },
+        "data_based": {
+          "dice": 0.9497548055041288,
+          "iou": 0.9043172113331819,
+          "precision": 0.9582132838445329,
+          "recall": 0.9414443522888816
+        }
+      },
+      "undefined_aggregate_dice": "null when the entire collection has no positive GT or prediction"
+    },
+    "cascade": {
+      "images": 278,
+      "units": "fraction",
+      "prediction_rule": "probability >= 0.5",
+      "offline_hard_line": {
+        "counts": {
+          "tp": 365900,
+          "tn": 13532439,
+          "fp": 27600,
+          "fn": 22989
+        },
+        "data_based": {
+          "dice": 0.9353403485989706,
+          "iou": 0.8785346071543821,
+          "precision": 0.9298602287142824,
+          "recall": 0.9408854454588819
+        },
+        "image_based": {
+          "dice": 0.8633680976932865,
+          "iou": 0.801452218669139,
+          "precision": 0.8681253715467989,
+          "recall": 0.8767667564468266
+        }
+      },
+      "author_inline_legacy": {
+        "counts": {
+          "tp": 616780,
+          "tn": 13281559,
+          "fp": 27600,
+          "fn": 22989
+        },
+        "data_based": {
+          "dice": 0.9606050388233764,
+          "iou": 0.9241963591342658,
+          "precision": 0.9571681306046786,
+          "recall": 0.9640667178294602
+        }
+      },
+      "undefined_aggregate_dice": "null when the entire collection has no positive GT or prediction"
+    }
+  },
+  "replay": {
+    "images": 278,
+    "bitwise_equal_cascade_masks": 243,
+    "total_changed_pixels": 44,
+    "coarse_confusion_matches": 231,
+    "cascade_confusion_matches": 243
+  },
+  "candidates": {
+    "histogram": {
+      "0": 5,
+      "1": 235,
+      "2": 30,
+      "3": 6,
+      "4": 1,
+      "5": 1
+    },
+    "mean": 1.158273381294964,
+    "max": 5,
+    "refined_images": 273
+  },
+  "cpu_paired_latency": {
+    "coarse": {
+      "samples": 96,
+      "mean_ms": 181.68230890781464,
+      "median_ms": 179.25266455858946,
+      "p95_ms": 204.27803799975663,
+      "throughput_images_per_second": 5.504113229359049
+    },
+    "cascade": {
+      "samples": 96,
+      "mean_ms": 394.34883230327006,
+      "median_ms": 361.35449376888573,
+      "p95_ms": 553.9486762136221,
+      "throughput_images_per_second": 2.5358259441502793
+    }
+  },
+  "cpu_cascade_mean_time_ratio": 2.170540624862722,
+  "full_replay_latency_including_first_call": {
+    "samples": 278,
+    "mean_ms": 382.4584196428869,
+    "median_ms": 352.7632332406938,
+    "p95_ms": 538.169276365079,
+    "throughput_images_per_second": 2.6146633166913427
+  },
+  "preservation": {
+    "files_checked": 839,
+    "all_unchanged": true
+  },
+  "gpu_after": "name, memory.used [MiB], memory.free [MiB], utilization.gpu [%]\nNVIDIA A100-SXM4-80GB, 19969 MiB, 61184 MiB, 96 %",
+  "wall_seconds": 168.1766944541596,
+  "run_directory": "outputs/partner-cascade/20261117T110234Z",
+  "subgroups": {
+    "coarse": {
+      "positive_n": 261,
+      "positive_image_dice_percent": 88.28462940112549,
+      "small_n": 71,
+      "small_image_dice_percent": 82.61070050065709,
+      "empty_n": 17,
+      "empty_with_false_positive": 13,
+      "positive_with_zero_overlap": 2
+    },
+    "cascade": {
+      "positive_n": 261,
+      "positive_image_dice_percent": 90.0445713251853,
+      "small_n": 71,
+      "small_image_dice_percent": 83.69860366481512,
+      "empty_n": 17,
+      "empty_with_false_positive": 12,
+      "positive_with_zero_overlap": 2
+    }
+  },
+  "protocol": {
+    "mode": "checkpoint_replay_no_training",
+    "device": "cpu",
+    "precision": "float32",
+    "batch_size": 1,
+    "cpu_threads": 4,
+    "cv2_threads": 1,
+    "torch": "1.11.0+cu113",
+    "numpy": "1.22.4",
+    "opencv": "4.6.0",
+    "cpu_model": "AMD EPYC 7742 64-Core Processor",
+    "source_sha256": "c476b328f47e241e6114eebb310ddf5ada9f2c714d2fa8fadbc2491b7091c371",
+    "runner_sha256": "dc66baae36100d49ef0b804028a5461839b3ba02f25389e67f287779ea781864",
+    "helper_sha256": "b7786aecac585691c424391f83fa63c225055d599e7b3b0c006739122ffb4fb6",
+    "images": 278,
+    "full_historical_population": true,
+    "timing": {
+      "images": 32,
+      "repeats": 3,
+      "warmup_per_pipeline": 3,
+      "selection": "evenly spaced sorted test IDs",
+      "order": "alternate coarse-first/cascade-first; no result-based sample selection",
+      "scope": "preloaded normalized tensor to host probability maps; excludes image loading, metrics and PNG export",
+      "shared_cpu": true,
+      "exclusive_gpu_latency": "NOT RUN \u2014 GPU BUSY"
+    },
+    "limitations": [
+      "No retraining or CP2 split experiment",
+      "Historical test is exploratory",
+      "CPU replay differs from original torch 2.7.1 CUDA environment",
+      "No hardware-matched comparison with paper RTX 2080 Ti timing"
+    ]
+  }
+}
