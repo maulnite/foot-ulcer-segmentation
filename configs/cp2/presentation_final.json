@@ -1,0 +1,26 @@
+{
+  "name": "cp2-final-presentation-read-only",
+  "historical_settings": "configs/cp2/presentation_p0.json",
+  "combinations_report": "reports/cp2-phase-c-combinations-results.json",
+  "cascade_report": "reports/cp2-cascade-clean-results.json",
+  "cpu_threads": 4,
+  "threshold": 0.5,
+  "proposal_threshold": 0.3,
+  "selected_refiner_epoch": 46,
+  "source_cohort": {"train": 671, "validation": 118, "test": 261},
+  "external_images": 558,
+  "case_split": "validation",
+  "case_selection": [
+    "Largest Cascade-minus-paired-coarse Dice gain among small positive images",
+    "Largest max(A6,H2)-minus-historical-B1 Dice gain among remaining positive images",
+    "Largest maximum FP pixel count across displayed models among GT-empty images",
+    "Most negative Cascade-minus-paired-coarse Dice delta among remaining positive images"
+  ],
+  "selection_ties": "lexicographic full sample ID; all four cases distinct",
+  "publication": "Selected source analysis panels authorized by user; CO2 aggregate only; no new dataset license claimed",
+  "metric_units": "fractions in JSON; percent or percentage-point deltas in figures",
+  "model_colors": {
+    "B0": "#94a3b8", "B1": "#475569", "A6": "#7c3aed", "H2": "#2563eb",
+    "B1A6H2": "#b45309", "L3A6H2": "#be185d", "Cascade": "#0f766e"
+  }
+}
