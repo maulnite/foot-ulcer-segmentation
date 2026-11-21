@@ -8,6 +8,26 @@ A reference source audit and CPU-only diagnostic checks have been completed. See
 
 Pipeline verification is recorded in [the readiness report](../reports/cp1-pipeline-readiness.md). Final smoke artifacts: `outputs/smoke/cp1-pipeline-02/`. Both source data splits and test-set isolation were preserved; temporary smoke checkpoints were removed after reload verification.
 
+## CP2 completion · 21 November 2026
+
+Completed work is indexed in the [phase reports](../reports/README.md):
+P baseline/protocol, L loss, A attention, H auxiliary supervision, N presence,
+three-seed confirmation, recipe/matched studies, C combinations, final controlled
+Cascade, and external inference. Historical reports below retain their original
+cohorts and decisions.
+
+The [final Cascade](../reports/cp2-cascade-clean.md) selected refiner epoch46 on
+source validation, preserving frozen B1 as coarse. Mean Image Dice is 87.37%
+on validation118 and 85.86% on descriptive source-test261. External558 mean Image
+Dice is 42.27%, with 153 total foreground misses versus coarse143. No external
+selection, new threshold tuning, or clinical-validation claim is made.
+
+[13 final presentation figures](../reports/cp2-presentation-final-visual-index.md)
+and [171 available original checkpoint paths](../reports/huggingface-weights-publication.md)
+are published with provenance/checksums. Completed single-model screening and
+combinations do not retroactively replace B1 when their guards fail. H3 and
+confirmatory multiseed Cascade remain unexecuted future work.
+
 ## Run index
 
 **October 29, x-FUSegNet completed:** all five folds finished at 124/200/156/129/111 epochs, selecting checkpoints 94/198/126/99/81. Total training time was **22.57 hours**. All 1,010 internal OOF predictions and 200 five-model test means/masks were verified. Internal OOF: **88.03% image Dice, 92.72% data Dice, 0.7315 PFOM**. Official test metrics remain unavailable because test masks are absent locally. [Completed report](../reports/cp1-xfusegnet-01.md) · [Fully executed notebook](../notebooks/03_cp1_xfusegnet.ipynb).

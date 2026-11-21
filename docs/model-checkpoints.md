@@ -1,4 +1,39 @@
-# Best-model checkpoint downloads
+# Model weight downloads
+
+## Complete Orie + Ganta archive
+
+**All 171 available checkpoint paths** are hosted at
+[maulnite/foot-ulcer-segmentation-weights](https://huggingface.co/maulnite/foot-ulcer-segmentation-weights):
+134 Orie and 37 Ganta. Browse the [catalog](https://huggingface.co/maulnite/foot-ulcer-segmentation-weights/blob/main/CATALOG.md)
+for CP1, CP2 P/L/A/H/N/C, recipe/matched studies, seed confirmation, and both original Ganta Cascade stages.
+
+The archive includes selected checkpoints, final/resume states, initializers,
+and engineering-smoke files with explicit roles. These are **checkpoint counts,
+not 171 architectures**. Eight historical Ganta directories without weights are
+listed rather than reconstructed. All published checkpoint SHA256 and byte sizes
+were checked against Hub metadata, and original local checkpoints were rehashed.
+
+[Archive/loading details](huggingface-weights.md) ·
+[Verified publication](../reports/huggingface-weights-publication.md) ·
+[CP2 final GitHub Release](https://github.com/maulnite/foot-ulcer-segmentation/releases/tag/cp2-final-2026-11-21).
+
+```bash
+hf-orie download maulnite/foot-ulcer-segmentation-weights \
+  --include 'orie/cp2/phase_p/*/B1/best.pth' 'model-index.json' 'SHA256SUMS.txt' \
+  --local-dir downloaded-weights
+cd downloaded-weights
+sha256sum --ignore-missing -c SHA256SUMS.txt
+```
+
+For reproducible downloads, pin Hub revision
+`b9cf18ef27a2583f89dc3a93614721c74926504c` using `--revision`.
+Choose input dimensions and preprocessing from each matching configuration;
+the CP1 x-FUSegNet 512×512 instructions below are not the CP2 224×224 protocol.
+For Cascade CP2, load phase-P B1 plus the separate selected refiner; the archive's
+`RECIPES.md` identifies both. Original Ganta Cascade uses its matching two stage
+files from one dataset/run directory.
+
+## Historical CP1 GitHub assets
 
 The original x-FUSegNet checkpoints are distributed as **GitHub Release assets**.
 Each release contains **five best-model checkpoints**, one per fold; use all five
@@ -16,7 +51,7 @@ server asset digests before publication. No raw datasets or prediction caches
 are included. Ganta and Orie results have different evaluation scopes; the
 reported scores are not a direct ranking of their implementations.
 
-## Download and verify
+## Download and verify the CP1 assets
 
 Download from the release page in a browser, or use the configured GitHub CLI:
 
@@ -34,7 +69,7 @@ For Ganta, select tag `cp1-xfusegnet-ganta-weights-v1` and a separate download
 directory. Keep the two sets of five models separate. Each file is approximately
 805 MB; no single merged x-FUSegNet checkpoint is provided.
 
-## Format and matching implementation
+## CP1 format and matching implementation
 
 These are byte-identical original `torch.save` dictionaries containing `epoch`,
 `state_dict`, and `optimizer`, rather than reduced weights-only exports.
